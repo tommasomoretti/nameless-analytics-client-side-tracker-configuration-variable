@@ -8,16 +8,15 @@ Start from here:
 - [Basic settings](#basic-settings)
   - [Endpoint domain name](#endpoint-domain-name)
   - [Endpoint path](#endpoint-path)
-- [Parameters](#parameters)
+- [Event parameters](#parameters)
   - [Add shared event parameters](#add-shared-event-parameters)
-  - [Add user ID](#add-user-id)
+  - [Add user ID event parameter](#add-user-id)
 - [Advanced settings](#advanced-settings)
-    - [Respect Google Consent Mode](#respect-google-consent-mode)
-  - [Tracking](#tracking)
-    - [Cross Domain](#cross-domain)
-    - [Customize source and campaign URL parameters](#customize-source-and-campaign-url-parameters)
-- [Logs](#logs)
-  - [Enable Logs](#enable-logs)
+  - [Respect Google Consent Mode](#respect-google-consent-mode)
+  - [Enable cross domain tracking (alfa feature)](#enable-cross-domain-tracking-alfa-feature)
+  - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
+  - [Change default JavaScript page view event names](#change-default-javascript-page-view-event-names)
+  - [Enable logs in JavaScript console](#enable-logs-in-javascript-console)
 
 
 
