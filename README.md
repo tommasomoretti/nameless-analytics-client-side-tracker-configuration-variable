@@ -40,7 +40,7 @@ The endpoint path where the Nameless Analytics Server-side Client Tag listens. F
 ### Add shared event parameters
 Add shared event parameters across all events. The parameters will be added to the `event_data` object in the payload.
 
-### Add user ID
+### Add user ID event parameter
 Add user ID parameters across all events (if it persist across page_views). The parameters will be added to the `user_id` key in the payload.
 
 
@@ -68,9 +68,7 @@ If `tracking_anonimization` is enabled, the client_id, user_id and session_id wi
 If `tracking_anonimization` is disable, no limitation will be applied. 
 
 
-
-### Tracking
-#### Cross Domain
+### Enable cross domain tracking (alfa feature)
 If ```enable_cross_domain_tracking``` option is enabled, the client-side tag will set a javascript event listener on every link click. 
   - When a user clicks on a link with a authorized domain for cross-domain, a javascript event listener sends a ```get_user_data``` request to the server. The server responds with the two cookie values and the javascript event listener decorates the URL with a parameter named ```na_id```. After that, the user is redirected to the destination website.
   - When the user lands on the destination website, the first tag that fires checks if there is a ```na_id``` parameter in the URL. If it is present, the hit will contain a ```cross_domain_id``` parameter, the server-side Client Tag will add it to the request and set back the cookies with those values.
@@ -99,9 +97,10 @@ If ```enable_cross_domain_tracking``` option is disabled, the client-side tag wi
 ### Customize source and campaign url parameters
 
 
+### Change default JavaScript page view event names
 
-## Logs
-### Enable Logs
+
+### Enable logs in JavaScript console
 
 ---
 
