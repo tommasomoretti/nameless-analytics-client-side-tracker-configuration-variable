@@ -5,20 +5,19 @@ The Nameless Analytics Client-side config variable is the 🖤 of [Nameless Anal
 
 Start from here:
 - [Client-side config variable UI](#variable-ui)
-  - [Basic settings](#basic-settings)
-    - [Endpoint domain name](#endpoint-domain-name)
-    - [Endpoint path](#endpoint-path)
-  - [Parameters](#parameters)
-    - [Add shared event parameters](#add-shared-event-parameters)
-    - [Add user ID](#add-user-id)
-  - [Advanced settings](#advanced-settings)
+- [Basic settings](#basic-settings)
+  - [Endpoint domain name](#endpoint-domain-name)
+  - [Endpoint path](#endpoint-path)
+- [Parameters](#parameters)
+  - [Add shared event parameters](#add-shared-event-parameters)
+  - [Add user ID](#add-user-id)
+- [Advanced settings](#advanced-settings)
     - [Respect Google Consent Mode](#respect-google-consent-mode)
   - [Tracking](#tracking)
     - [Cross Domain](#cross-domain)
     - [Customize source and campaign URL parameters](#customize-source-and-campaign-url-parameters)
-  - [Logs](#logs)
-    - [Enable Logs](#enable-logs)
-- [Troubleshooting and things to keep in mind](#troubleshooting-and-things-to-keep-in-mind)
+- [Logs](#logs)
+  - [Enable Logs](#enable-logs)
 
 
 
