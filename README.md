@@ -36,7 +36,7 @@ The endpoint path where the Nameless Analytics Server-side Client Tag listens. F
 
 
 
-## Parameters
+## Event parameters
 ### Add shared event parameters
 Add shared event parameters across all events. The parameters will be added to the `event_data` object in the payload.
 
