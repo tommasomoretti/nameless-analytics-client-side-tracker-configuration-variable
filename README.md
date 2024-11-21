@@ -4,7 +4,7 @@
 The Nameless Analytics Client-side Config Variable is the core of [Nameless Analytics Server-side client tag](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag). 
 
 Start from here:
-- [Client-side configuration variable](#client-side-configuration-variable)
+- [Client-side config variable UI](#variable-UI)
   - [Basic settings](#basic-settings)
     - [Endpoint domain name](#endpoint-domain-name)
     - [Endpoint path](#endpoint-path)
