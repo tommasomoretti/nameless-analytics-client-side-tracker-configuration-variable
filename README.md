@@ -1,6 +1,6 @@
 ![Na logo beta](https://github.com/tommasomoretti/nameless-analytics/assets/29273232/7d4ded5e-4b79-46a2-b089-03997724fd10)
 
-# Nameless Analytics Client-side Config Variable
+# Client-side Config Variable
 The Nameless Analytics Client-side Config Variable is the core of [Nameless Analytics Server-side client tag](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag). 
 
 Start from here:
