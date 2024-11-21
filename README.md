@@ -9,7 +9,7 @@ Start from here:
   - [Endpoint domain name](#endpoint-domain-name)
   - [Endpoint path](#endpoint-path)
 - [Event data](#event-data)
-  - [Event parameters](#event_parameters)
+  - [Event parameters](#event-parameters)
     - [Add shared event parameters](#add-shared-event-parameters)
     - [Add user ID event parameter](#add-user-id-event-parameter)
 - [Advanced settings](#advanced-settings)
