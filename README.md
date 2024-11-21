@@ -1,5 +1,6 @@
 ![Na logo beta](https://github.com/tommasomoretti/nameless-analytics/assets/29273232/7d4ded5e-4b79-46a2-b089-03997724fd10)
 
+# Nameless Analytics Client-side Config Variable
 The Nameless Analytics Client-side Config Variable is the core of [Nameless Analytics Server-side client tag](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag). 
 
 Start from here:
@@ -21,10 +22,11 @@ Start from here:
 
 
 
-# Client-side configuration variable
+## Variable UI
 This is the UI of the Client-side Configuration Variable
 
 <img width="1265" alt="Screenshot 2024-11-03 alle 15 49 44" src="https://github.com/user-attachments/assets/6cedd11a-c9ed-4d9a-9850-b8f64f98ac2b">
+
 
 
 ## Basic settings
@@ -35,12 +37,14 @@ The domain name of the server-side GTM instance. The tag assumes the protocol is
 The endpoint path where the Nameless Analytics Server-side Client Tag listens. For example: /nameless_analytics.
 
 
+
 ## Parameters
 ### Add shared event parameters
 Add shared event parameters across all events. The parameters will be added to the `event_data` object in the payload.
 
 ### Add user ID
 Add user ID parameters across all events (if it persist across page_views). The parameters will be added to the `user_id` key in the payload.
+
 
 
 ## Advanced settings
@@ -66,8 +70,9 @@ If `tracking_anonimization` is enabled, the client_id, user_id and session_id wi
 If `tracking_anonimization` is disable, no limitation will be applied. 
 
 
-## Tracking
-### Cross Domain
+
+### Tracking
+#### Cross Domain
 If ```enable_cross_domain_tracking``` option is enabled, the client-side tag will set a javascript event listener on every link click. 
   - When a user clicks on a link with a authorized domain for cross-domain, a javascript event listener sends a ```get_user_data``` request to the server. The server responds with the two cookie values and the javascript event listener decorates the URL with a parameter named ```na_id```. After that, the user is redirected to the destination website.
   - When the user lands on the destination website, the first tag that fires checks if there is a ```na_id``` parameter in the URL. If it is present, the hit will contain a ```cross_domain_id``` parameter, the server-side Client Tag will add it to the request and set back the cookies with those values.
@@ -95,13 +100,10 @@ If ```enable_cross_domain_tracking``` option is disabled, the client-side tag wi
 
 ### Customize source and campaign url parameters
 
+
+
 ## Logs
 ### Enable Logs
-
-
-
-# Troubleshooting and things to keep in mind
-Lorem ipsum
 
 ---
 
