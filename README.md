@@ -1,10 +1,10 @@
 ![Na logo beta](https://github.com/tommasomoretti/nameless-analytics/assets/29273232/7d4ded5e-4b79-46a2-b089-03997724fd10)
 
 # Client-side Config Variable
-The Nameless Analytics Client-side Config Variable is the core of [Nameless Analytics Server-side client tag](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag). 
+The Nameless Analytics Client-side config variable is the 🖤 of [Nameless Analytics Server-side client tag](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag). 
 
 Start from here:
-- [Client-side config variable UI](#variable-UI)
+- [Client-side config variable UI](#variable-ui)
   - [Basic settings](#basic-settings)
     - [Endpoint domain name](#endpoint-domain-name)
     - [Endpoint path](#endpoint-path)
@@ -23,9 +23,9 @@ Start from here:
 
 
 ## Variable UI
-This is the UI of the Client-side Configuration Variable
+This is the UI of the Client-side configuration variable. This variable will handle settings like endpoint domain name and path, common event parameters, user ID, user consent mode, cross-domain, traffic source parameters and logging in JavaScript console.
 
-<img width="1265" alt="Screenshot 2024-11-03 alle 15 49 44" src="https://github.com/user-attachments/assets/6cedd11a-c9ed-4d9a-9850-b8f64f98ac2b">
+<img width="1265" alt="Screenshot 2024-11-21 alle 18 44 36" src="https://github.com/user-attachments/assets/b3f6b95d-88a7-4db5-a45f-5fd8a64decc6">
 
 
 
