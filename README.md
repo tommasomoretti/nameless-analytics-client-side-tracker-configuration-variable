@@ -23,7 +23,7 @@ Start from here:
 ## Variable UI
 This is the UI of the Client-side configuration variable. This variable will handle settings like endpoint domain name and path, common event parameters, user ID, user consent mode, cross-domain, traffic source parameters and logging in JavaScript console.
 
-<img width="1265" alt="Screenshot 2024-11-21 alle 18 55 47" src="https://github.com/user-attachments/assets/a67d87af-6499-47e6-9b5b-b80c2e23c65c">
+<img width="1265" alt="client-side-config-variable" src="https://github.com/user-attachments/assets/640330fc-c60d-4633-ae0b-5250d0780c40">
 
 
 
