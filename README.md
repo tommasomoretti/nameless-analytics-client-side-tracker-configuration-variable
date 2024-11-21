@@ -8,9 +8,10 @@ Start from here:
 - [Basic settings](#basic-settings)
   - [Endpoint domain name](#endpoint-domain-name)
   - [Endpoint path](#endpoint-path)
-- [Event parameters](#event-parameters)
-  - [Add shared event parameters](#add-shared-event-parameters)
-  - [Add user ID event parameter](#add-user-id-event-parameter)
+- [Event data](#event-data)
+  - [Event parameters](#event_parameters)
+    - [Add shared event parameters](#add-shared-event-parameters)
+    - [Add user ID event parameter](#add-user-id-event-parameter)
 - [Advanced settings](#advanced-settings)
   - [Respect Google Consent Mode](#respect-google-consent-mode)
   - [Enable cross domain tracking (alfa feature)](#enable-cross-domain-tracking-alfa-feature)
@@ -35,12 +36,12 @@ The domain name of the server-side GTM instance. The tag assumes the protocol is
 The endpoint path where the Nameless Analytics Server-side Client Tag listens. For example: /nameless_analytics.
 
 
-
-## Event parameters
-### Add shared event parameters
+## Event data
+### Event parameters
+#### Add shared event parameters
 Add shared event parameters across all events. The parameters will be added to the `event_data` object in the payload.
 
-### Add user ID event parameter
+#### Add user ID event parameter
 Add user ID parameters across all events (if it persist across page_views). The parameters will be added to the `user_id` key in the payload.
 
 
