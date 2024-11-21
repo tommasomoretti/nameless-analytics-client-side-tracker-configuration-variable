@@ -96,12 +96,13 @@ If ```enable_cross_domain_tracking``` option is disabled, the client-side tag wi
 
 
 ### Customize source and campaigns url parameters
-
+Lorem ipsum
 
 ### Change default JavaScript page view event names
-
+Lorem ipsum
 
 ### Enable logs in JavaScript console
+Lorem ipsum
 
 ---
 
