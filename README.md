@@ -94,7 +94,7 @@ If ```enable_cross_domain_tracking``` option is enabled, the client-side tag wil
 If ```enable_cross_domain_tracking``` option is disabled, the client-side tag will not set any listener.
 
 
-### Customize source and campaign url parameters
+### Customize source and campaigns url parameters
 
 
 ### Change default JavaScript page view event names
