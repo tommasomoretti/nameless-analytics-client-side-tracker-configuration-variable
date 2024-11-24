@@ -50,23 +50,25 @@ Add user ID parameters across all events (if it persist across page_views). The 
 ### Respect Google Consent Mode
 Set if respect user consents on ```analytics_storage``` or track all events. Tracking modes influence the behavior of the tag and the creation of a temporary cookie via JavaScript. 
 
-If the ```respect_consent_mode``` option is enabled, the events are tracked only if a user consents but the tracking accuracy for acquisitions parameters can be adjusted as needed: 
-- If ```respect_consent_mode``` is enabled, events are tracked only if the user gives consent, and ```tracking_accuracy_mode``` can be set as:
-  - Standard: the tracker will use the current document.referrer values and campaign parameters of the page.  If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be "".
-  - Enhanced: the tracker will save and update a temporary JavaScript cookie, storing the latest, not "" document.referrer values, session and campaign parameters. If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be taken from the cookie saved on the first page.
+<img width="1265" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/ebb4374f-5310-4753-a0c8-66fd572223bc">
 
-  Than check:
-  - If ```analytics_storage``` is equal to denied, the tag waits until consent is granted. If consent is granted (in the context of the same page), all pending tags will be fired.
-  
-  <img width="1265" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/5ecaea7e-6940-45aa-a740-5f301d321a8f">
 
-  - If ```analytics_storage``` is equal to granted, the tag sends the hit to the server-side Google Tag Manager endpoint, with the event name and event parameters configured in the tag.
+If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents but the tracking accuracy for acquisitions parameters can be adjusted as needed: 
+- Standard: the tracker will use the current document.referrer values and campaign parameters of the page.  If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be "".
+- Enhanced: the tracker will save and update a temporary JavaScript cookie, storing the latest, not "" document.referrer values, source and campaign parameters. If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be taken from the cookie saved on the first page.
+
+When:
+- ```analytics_storage``` is equal to denied, the tag waits until consent is granted. If consent is granted (in the context of the same page), all pending tags will be fired.
   
-  <img width="1263" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/171b6f19-7805-4063-8472-e8f6a679e515">
+    <img width="1265" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/5ecaea7e-6940-45aa-a740-5f301d321a8f">
+
+- ```analytics_storage``` is equal to granted, the tag sends the hit to the server-side Google Tag Manager endpoint, with the event name and event parameters configured in the tag.
+  
+    <img width="1263" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/171b6f19-7805-4063-8472-e8f6a679e515">
       
-- If ```respect_consent_mode``` is disabled, all events are tracked and ```anonimization_mode``` can be set as:
-  - On: the server side client tag anonimize user_id (if present), client_id and sessions_id. In big query they will be stored a string with a value of "Redacted".
-  - Off: No anonimization will be applied.
+If ```respect_consent_mode``` is disabled, all events are tracked and ```anonimization_mode``` can be set as:
+- On: the server side client tag anonimize user_id (if present), client_id and sessions_id. In big query they will be stored a string with a value of "Redacted".
+- Off: No anonimization will be applied.
 
 
 ### Enable cross domain tracking (alfa feature)
