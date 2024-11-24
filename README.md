@@ -52,21 +52,20 @@ Set if respect user consents on ```analytics_storage``` or track all events.
 
 If the ```respect_consent_mode``` option is enabled, the events are tracked only if a user consents but the tracking accuracy for acquisitions parameters can be adjusted as needed: 
   - Standard: the tag dosn't save any temporary cookie at all. The referrer of an event will be the real referrer of the page.
-  - Medium: the tag save a temporary cookie with the first referrer of the session. When the consent is granted The referrer of an event will be the value of `temp_source_campaign` cookie. 
   - High: the tag save and update a temporary cookie with all referrer changes during the session (the cookie will be not update if the referrer is internal traffic).
 
-    
-If ```analytics_storage``` is equal to denied, the tag waits until consent is granted. If consent is granted (in the context of the same page), all pending tags will be fired.
+Than checks:
+  - If ```analytics_storage``` is equal to denied, the tag waits until consent is granted. If consent is granted (in the context of the same page), all pending tags will be fired.
   
-<img width="1265" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/5ecaea7e-6940-45aa-a740-5f301d321a8f">
+  <img width="1265" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/5ecaea7e-6940-45aa-a740-5f301d321a8f">
 
-If ```analytics_storage``` is equal to granted, the tag sends the hit to the server-side Google Tag Manager endpoint, with the event name and event parameters configured in the tag.
+  - If ```analytics_storage``` is equal to granted, the tag sends the hit to the server-side Google Tag Manager endpoint, with the event name and event parameters configured in the tag.
   
-<img width="1263" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/171b6f19-7805-4063-8472-e8f6a679e515">
+  <img width="1263" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/171b6f19-7805-4063-8472-e8f6a679e515">
       
 If the ```respect_consent_mode``` option is disabled, the tag fires regardless of the user's consent.
-If `tracking_anonimization` is enabled, the client_id, user_id and session_id will be redacted when analytics_storage consent is denied.
-If `tracking_anonimization` is disable, no limitation will be applied. 
+  - If `tracking_anonimization` is enabled, the client_id, user_id and session_id will be redacted when analytics_storage consent is denied.
+  - If `tracking_anonimization` is disable, no limitation will be applied. 
 
 
 ### Enable cross domain tracking (alfa feature)
