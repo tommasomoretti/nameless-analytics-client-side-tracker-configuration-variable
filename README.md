@@ -55,7 +55,7 @@ If the ```respect_consent_mode``` option is enabled, the events are tracked only
   - Standard: the tracker will use the current document.referrer values and campaign parameters of the page.  If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be "".
   - Enhanced: the tracker will save and update a temporary JavaScript cookie, storing the latest, not "" document.referrer values, session and campaign parameters. If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be taken from the cookie saved on the first page.
 
-Than checks:
+  Than check:
   - If ```analytics_storage``` is equal to denied, the tag waits until consent is granted. If consent is granted (in the context of the same page), all pending tags will be fired.
   
   <img width="1265" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/5ecaea7e-6940-45aa-a740-5f301d321a8f">
