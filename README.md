@@ -71,10 +71,8 @@ If ```respect_consent_mode``` is disabled, all events are tracked and ```anonimi
 - Off: No anonimization will be applied.
 
 
-### Enable cross domain tracking (alfa feature)
-Cross-domain tracking takes the client_id and session_id and carries over another website.
-
-<img width="1265" alt="Screenshot 2024-11-24 alle 18 30 23" src="https://github.com/user-attachments/assets/d9b0acb3-cadb-4ca5-b9c2-521faacbde5b">
+### Enable cross-domain tracking (alfa feature)
+The server-side GTM container and the Nameless Analytics Server-side client tag must be configured to enable cross-domain tracking. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
 If ```enable_cross_domain_tracking``` option is enabled, the client-side tag will set a javascript event listener on every link click.  When a user clicks on a link with a authorized domain for cross-domain, a javascript event listener sends a ```get_user_data``` request to the server. 
 
