@@ -48,11 +48,12 @@ Add user ID parameters across all events (if it persist across page_views). The 
 
 ## Advanced settings
 ### Respect Google Consent Mode
-Set if respect user consents on ```analytics_storage``` or track all events.
+Set if respect user consents on ```analytics_storage``` or track all events. Tracking modes influence the behavior of the tag and the creation of a temporary cookie via JavaScript. 
 
 If the ```respect_consent_mode``` option is enabled, the events are tracked only if a user consents but the tracking accuracy for acquisitions parameters can be adjusted as needed: 
-  - Standard: the tag dosn't save any temporary cookie at all. The referrer of an event will be the real referrer of the page.
-  - High: the tag save and update a temporary cookie with all referrer changes during the session (the cookie will be not update if the referrer is internal traffic).
+- If ```respect_consent_mode``` is enabled, events are tracked only if the user gives consent, and ```tracking_accuracy_mode``` can be set as:
+  - Standard: the tracker will use the current document.referrer values and campaign parameters of the page.  If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be "".
+  - Enhanced: the tracker will save and update a temporary JavaScript cookie, storing the latest, not "" document.referrer values, session and campaign parameters. If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be taken from the cookie saved on the first page.
 
 Than checks:
   - If ```analytics_storage``` is equal to denied, the tag waits until consent is granted. If consent is granted (in the context of the same page), all pending tags will be fired.
@@ -63,9 +64,9 @@ Than checks:
   
   <img width="1263" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/171b6f19-7805-4063-8472-e8f6a679e515">
       
-If the ```respect_consent_mode``` option is disabled, the tag fires regardless of the user's consent.
-  - If `tracking_anonimization` is enabled, the client_id, user_id and session_id will be redacted when analytics_storage consent is denied.
-  - If `tracking_anonimization` is disable, no limitation will be applied. 
+- If ```respect_consent_mode``` is disabled, all events are tracked and ```anonimization_mode``` can be set as:
+  - On: the server side client tag anonimize user_id (if present), client_id and sessions_id. In big query they will be stored a string with a value of "Redacted".
+  - Off: No anonimization will be applied.
 
 
 ### Enable cross domain tracking (alfa feature)
