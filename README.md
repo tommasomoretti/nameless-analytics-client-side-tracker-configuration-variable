@@ -48,7 +48,7 @@ Add user ID parameters across all events (if it persist across page_views). The 
 
 ## Advanced settings
 ### Respect Google Consent Mode
-Set if respect user consents on ```analytics_storage``` or track all events. Tracking modes influence the behavior of the tag and the creation of a temporary cookie via JavaScript. 
+Set if respect user consents when ```analytics_storage``` is granted or track all events. Tracking modes influence the behavior of the tag and the creation of a temporary cookie via JavaScript. 
 
 <img width="1265" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/ebb4374f-5310-4753-a0c8-66fd572223bc">
 
