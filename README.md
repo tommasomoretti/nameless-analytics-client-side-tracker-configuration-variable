@@ -134,11 +134,11 @@ If ```enable_cross_domain_tracking``` option is disabled, the client-side tag wi
 ### Customize source and campaigns url parameters
 Override the default URL query parameter names used to track source and campaign parameters. If this setting is enabled but no values are added in the fields, the following default parameter names will be used:
 
-source = utm_source
-campaign_name = utm_campaign
-campaign_id = utm_id
-campaign_term = utm_term
-campaign_content = utm_content_name
+- source = utm_source
+- campaign_name = utm_campaign
+- campaign_id = utm_id
+- campaign_term = utm_term
+- campaign_content = utm_content_name
 
 <img width="818" alt="Screenshot 2025-01-16 alle 15 59 45" src="https://github.com/user-attachments/assets/2389e9a3-d8ba-48ad-8a0b-1a2dfb8f7378" />
 
