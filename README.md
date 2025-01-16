@@ -125,6 +125,7 @@ When the user lands on the destination website, the first tag that fires checks 
 
 <img width="1265" alt="Screenshot 2024-11-24 alle 18 06 52" src="https://github.com/user-attachments/assets/c59e4eed-13af-4b3e-b0bd-a4d660e77c1a">
 
+**This is an Alpha feature**: enabling it will cause all links that are meant to open in a new tab to instead open in the same tab.
 
 #### Disable cross-domain tracking
 If ```enable_cross_domain_tracking``` option is disabled, the client-side tag will not set any listener.
