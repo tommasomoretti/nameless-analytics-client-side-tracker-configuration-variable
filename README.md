@@ -132,10 +132,13 @@ If ```enable_cross_domain_tracking``` option is disabled, the client-side tag wi
 
 
 ### Customize source and campaigns url parameters
-Lorem ipsum
+Override the default url query parameters name that is used to track the source and campaign parameters.
+<img width="818" alt="Screenshot 2025-01-16 alle 15 59 45" src="https://github.com/user-attachments/assets/2389e9a3-d8ba-48ad-8a0b-1a2dfb8f7378" />
+
 
 ### Change default JavaScript page view event names
 Lorem ipsum
+
 
 ### Enable logs in JavaScript console
 Lorem ipsum
