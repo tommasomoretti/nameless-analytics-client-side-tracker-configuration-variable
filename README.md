@@ -144,7 +144,9 @@ Override the default URL query parameter names used to track source and campaign
 
 
 ### Change default JavaScript page view event names
-Lorem ipsum
+Override the default JavaScript event names for page_view and virtual_page_view. Update these values if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from gtm.js (for page views) or gtm.historyChange (for virtual page views).
+
+When an event is fired, the Nameless Analytics Client-side Tracker Tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent prior to a page_view event will be ignored because it lacks a page_id.
 
 
 ### Enable logs in JavaScript console
