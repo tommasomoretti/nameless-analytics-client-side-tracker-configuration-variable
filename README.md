@@ -91,6 +91,8 @@ The tracking anonimization can be adjusted as needed:
 ### Enable cross-domain tracking (alfa feature)
 Enable the transfer of client_id and session_id data across two or more websites. This allows you to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
 
+**This is an Alpha feature:** enabling it will cause all links that are meant to open in a new tab to instead open in the same tab.
+
 The server-side GTM container and the Nameless Analytics Server-side client tag must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
 #### Enable cross-domain tracking
@@ -124,8 +126,6 @@ The server responds with the two cookie values and the javascript event listener
 When the user lands on the destination website, the first tag that fires checks if there is a ```na_id``` parameter in the URL. If it is present, the hit will contain a ```cross_domain_id``` parameter, the server-side Client Tag will add it to the request and set back the cookies with those values.
 
 <img width="1265" alt="Screenshot 2024-11-24 alle 18 06 52" src="https://github.com/user-attachments/assets/c59e4eed-13af-4b3e-b0bd-a4d660e77c1a">
-
-**This is an Alpha feature**: enabling it will cause all links that are meant to open in a new tab to instead open in the same tab.
 
 #### Disable cross-domain tracking
 If ```enable_cross_domain_tracking``` option is disabled, the client-side tag will not set any listener.
