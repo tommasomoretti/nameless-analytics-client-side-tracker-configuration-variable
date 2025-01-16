@@ -30,10 +30,14 @@ This is the UI of the Client-side configuration variable. This variable will han
 
 ## Basic settings
 ### Endpoint domain name
-The domain name of the server-side GTM instance. The tag assumes the protocol is HTTPS. Example: gtm.domain.com.
+The domain name of the server-side GTM instance. The tag assumes the protocol is HTTPS. 
+
+Example: gtm.domain.com
 
 ### Endpoint path
-The endpoint path where the Nameless Analytics Server-side Client Tag listens. For example: /nameless_analytics.
+The endpoint path where the Nameless Analytics Server-side Client Tag listens. 
+
+Example: /collect/nameless_analytics
 
 
 ## Event data
@@ -42,37 +46,56 @@ The endpoint path where the Nameless Analytics Server-side Client Tag listens. F
 Add shared event parameters across all events. The parameters will be added to the `event_data` object in the payload.
 
 #### Add user ID event parameter
-Add user ID parameters across all events (if it persist across page_views). The parameters will be added to the `user_id` key in the payload.
+Add user ID parameter at event level across all events (if the `user_id persists` in the dataLayer across pages). The parameters will be added to the `user_id` key in the payload.
 
 
 
 ## Advanced settings
 ### Respect Google Consent Mode
-Set if respect user consents when ```analytics_storage``` is granted or track all events. Tracking modes influence the behavior of the tag and the creation of a temporary cookie via JavaScript. 
+Choose whether to track all events or only track events when the user consents. The tracking modes affect the tag's behavior as follows:
 
-<img width="1265" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/ebb4374f-5310-4753-a0c8-66fd572223bc">
+#### Respect consent mode
+If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents.
 
-
-If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents but the tracking accuracy for acquisitions parameters can be adjusted as needed: 
-- Standard: the tracker will use the current document.referrer values and campaign parameters of the page.  If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be "".
-- Enhanced: the tracker will save and update a temporary JavaScript cookie, storing the latest, not "" document.referrer values, source and campaign parameters. If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be taken from the cookie saved on the first page.
-
-When:
-- ```analytics_storage``` is equal to denied, the tag waits until consent is granted. If consent is granted (in the context of the same page), all pending tags will be fired.
+- when ```analytics_storage``` is equal to denied, the tag waits until consent is granted. If consent is granted (in the context of the same page), all pending tags will be fired.
   
     <img width="1265" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/5ecaea7e-6940-45aa-a740-5f301d321a8f">
 
-- ```analytics_storage``` is equal to granted, the tag sends the hit to the server-side Google Tag Manager endpoint, with the event name and event parameters configured in the tag.
+- when ```analytics_storage``` is equal to granted, the tag sends the hit to the server-side Google Tag Manager endpoint, with the event name and event parameters configured in the tag.
   
     <img width="1263" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/171b6f19-7805-4063-8472-e8f6a679e515">
-      
-If ```respect_consent_mode``` is disabled, all events are tracked and ```anonimization_mode``` can be set as:
+
+The tracking accuracy for acquisitions parameters can be adjusted as needed: 
+
+<img width="818" alt="Screenshot 2025-01-16 alle 14 05 04" src="https://github.com/user-attachments/assets/38b03793-384a-485a-b946-12185db86f6c" />
+
+- Standard: the tracker will use the current document.referrer values and campaign parameters of the page as source and campaign parameters.
+
+  Example: If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be "".
+
+- Enhanced: the tracker will save and update a temporary JavaScript cookie, storing the latest, not "" document.referrer values, source and campaign parameters. 
+
+  Example If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be taken from the cookie saved on the first page.
+
+#### Do not respect consent mode
+If ```respect_consent_mode``` is disabled, all events are tracked.
+
+The tracking anonimization can be adjusted as needed:
+
+<img width="818" alt="Screenshot 2025-01-16 alle 14 04 15" src="https://github.com/user-attachments/assets/8a2d5bf2-4f80-4001-9d35-e9a37932d0a3" />
+
 - On: the server side client tag anonimize user_id (if present), client_id and sessions_id. In big query they will be stored a string with a value of "Redacted".
 - Off: No anonimization will be applied.
 
 
 ### Enable cross-domain tracking (alfa feature)
-The server-side GTM container and the Nameless Analytics Server-side client tag must be configured to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
+Enable the transfer of client_id and session_id data across two or more websites. This allows you to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
+
+The server-side GTM container and the Nameless Analytics Server-side client tag must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
+
+#### Enable cross-domain tracking
+Enable cross-domain tracking. Add the domains one for row.
+<img width="818" alt="Screenshot 2025-01-16 alle 14 33 32" src="https://github.com/user-attachments/assets/0ed6a515-8fd3-4834-8a7b-f1f19491a63f" />
 
 If ```enable_cross_domain_tracking``` option is enabled, the client-side tag will set a javascript event listener on every link click.  When a user clicks on a link with a authorized domain for cross-domain, a javascript event listener sends a ```get_user_data``` request to the server. 
 
@@ -102,6 +125,8 @@ When the user lands on the destination website, the first tag that fires checks 
 
 <img width="1265" alt="Screenshot 2024-11-24 alle 18 06 52" src="https://github.com/user-attachments/assets/c59e4eed-13af-4b3e-b0bd-a4d660e77c1a">
 
+
+#### Disable cross-domain tracking
 If ```enable_cross_domain_tracking``` option is disabled, the client-side tag will not set any listener.
 
 
