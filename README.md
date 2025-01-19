@@ -87,10 +87,16 @@ If ```respect_consent_mode``` is enabled, the events are tracked only if a user 
 
   <img width="1215" alt="Screenshot 2025-01-19 alle 11 48 36" src="https://github.com/user-attachments/assets/76601d19-2b54-481f-bb13-0d67ad822d97" />
 
-- when ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id, with the event name and event parameters configured in the tag.
-  
-  
+- when ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
 
+  <img width="1215" alt="Screenshot 2025-01-19 alle 11 53 10" src="https://github.com/user-attachments/assets/b28bfb56-dbc7-4e75-b0c9-2232eb0ecc2d" />
+
+  <img width="1215" alt="Screenshot 2025-01-19 alle 11 52 38" src="https://github.com/user-attachments/assets/ca6d9d7f-4b28-42ca-921c-44200b335895" />
+
+  <img width="1215" alt="Screenshot 2025-01-19 alle 11 52 49" src="https://github.com/user-attachments/assets/eb0f6da3-f74a-4b1b-9440-f1390d10067c" />
+  
+  <img width="1215" alt="Screenshot 2025-01-19 alle 11 52 58" src="https://github.com/user-attachments/assets/eba09d94-33ad-4ffe-b38f-51aa9ae46cb2" />
+  
 The tracking accuracy for acquisitions parameters can be adjusted as needed: 
 
 <img width="818" alt="Screenshot 2025-01-16 alle 14 05 04" src="https://github.com/user-attachments/assets/38b03793-384a-485a-b946-12185db86f6c" />
