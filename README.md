@@ -59,11 +59,12 @@ Choose whether to track all events or only track events when the user consents. 
 #### Respect consent mode
 If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents.
 
-- when ```analytics_storage``` is equal to denied, the tag waits until consent is granted. If consent is granted (in the context of the same page), all pending tags will be fired.
+- when ```analytics_storage``` is equal to denied, the tag generates two temporary parameters for client_id (temp_client_id) and session id (temp_session_id) and waits until consent is granted. 
+If consent changes from denied to granted on the same page, all pending tags will be fired using the same temp_client_id as client_id and temp_session_id as session_id. If client_id or session_id cookies already exist, the server will ignore the temporary parameters and use the existing cookie values instead.
   
     <img width="1265" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/5ecaea7e-6940-45aa-a740-5f301d321a8f">
 
-- when ```analytics_storage``` is equal to granted, the tag sends the hit to the server-side Google Tag Manager endpoint, with the event name and event parameters configured in the tag.
+- when ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id, with the event name and event parameters configured in the tag.
   
     <img width="1263" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/171b6f19-7805-4063-8472-e8f6a679e515">
 
@@ -77,7 +78,7 @@ The tracking accuracy for acquisitions parameters can be adjusted as needed:
 
 - Enhanced: the tracker will save and update a temporary JavaScript cookie, storing the latest, not "" document.referrer values, source and campaign parameters. 
 
-  Example If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be taken from the cookie saved on the first page.
+  Example: If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be taken from the cookie saved on the first page.
 
 #### Do not respect consent mode
 If ```respect_consent_mode``` is disabled, all events are tracked.
