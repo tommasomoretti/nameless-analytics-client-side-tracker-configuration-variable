@@ -18,8 +18,8 @@ Start from here:
   - [Respect Google Consent Mode](#respect-google-consent-mode)
   - [Enable cross domain tracking (alfa feature)](#enable-cross-domain-tracking-alfa-feature)
   - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
-  - [Change default JavaScript page view event names](#change-default-javascript-page-view-event-names)
-  - [Enable logs in JavaScript console](#enable-logs-in-javascript-console)
+  - [Change default JavaScript page view event names](#change-default-JavaScript-page-view-event-names)
+  - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
 
 
 
@@ -103,7 +103,7 @@ In this configuration, if a user lands on the website from whatever source, do n
 - Missaing tracking on first page because of analytics_consent is not expressed (still denied)
 - Tracking presents on second page. The source is calculated upon ```document.referral``` and the referral of a second page is the website domain itself. 
 
-The tracking accuracy for acquisitions option can be adjusted as needed: 
+The tracking accuracy for acquisitions can be adjusted as needed: 
 
 <img width="818" alt="Screenshot 2025-01-16 alle 14 05 04" src="https://github.com/user-attachments/assets/38b03793-384a-485a-b946-12185db86f6c" />
 
@@ -111,14 +111,14 @@ The tracking accuracy for acquisitions option can be adjusted as needed:
 
   Example: If a user gives consent on the second page viewed (current ```document.referrer``` = website domain), the source and campaign parameter values will be null.
 
-- Enhanced: the tracker will save and update a temporary JavaScript cookie, storing the latest, not "" document.referrer values, source and campaign parameters. 
+- Enhanced: the tracker will **save and update a temporary JavaScript cookie**, storing the latest, not self document.referrer values, source and campaign parameters. 
 
   Example: If a user gives consent on the second page viewed (current ```document.referrer``` = website domain), the source and campaign parameter values will be taken from the cookie saved on the first page.
 
 #### Do not respect consent mode
 If ```respect_consent_mode``` is disabled, all events are tracked regardless user consents.
 
-However the user_id (if present), client_id and session_id can be anonimize when analytics_consent id denied or not expressed (GA$ BigQuery export style when consent is denied)
+However the user_id (if present), client_id and session_id can be anonimize when analytics_consent id denied or not expressed (GA4 BigQuery export style when consent is denied)
 
 The tracking anonimization can be adjusted as needed:
 
@@ -131,15 +131,16 @@ The tracking anonimization can be adjusted as needed:
 ### Enable cross-domain tracking (alfa feature)
 Enable the transfer of client_id and session_id data across two or more websites. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
 
-**This is an Alpha feature: enabling it will cause all links that are meant to open in a new tab to instead open in the same tab.**
+Please note that:
+  - <ins>This is an Alpha feature: enabling it will cause all links that are meant to open in a new tab to instead open in the same tab.</ins>
 
-**The server-side GTM container and the Nameless Analytics Server-side client tag must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).**
+  - <ins>The server-side GTM container and the Nameless Analytics Server-side client tag must be configured correctly to make cross-domain tracking works. Read the relative</ins> [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
-#### Enable cross-domain tracking
+#### Cross-domain tracking enabled
 Enable cross-domain tracking. Add the domains one for row.
 <img width="818" alt="Screenshot 2025-01-16 alle 14 33 32" src="https://github.com/user-attachments/assets/0ed6a515-8fd3-4834-8a7b-f1f19491a63f" />
 
-If ```enable_cross_domain_tracking``` option is enabled, the client-side tag will set a javascript event listener on every link click.  When a user clicks on a link with a authorized domain for cross-domain, a javascript event listener sends a ```get_user_data``` request to the server. 
+If ```enable_cross_domain_tracking``` option is enabled, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click.  When a user clicks on a link with a valid for cross-domain domain, the event listener sends a ```get_user_data``` request to the server. See [Get client id and session id value](https://github.com/tommasomoretti/nameless-analytics-measurement-protocol-and-utility-functions?tab=readme-ov-file#get-client-id-and-session-id-value) in [Nameless Analytics Measurement Protocol and utility functions](https://github.com/tommasomoretti/nameless-analytics-measurement-protocol-and-utility-functions/blob/main/README.md) repository.
 
 - When ```analytics_storage``` is granted and a user clicks on an authorized link:
     
@@ -159,7 +160,7 @@ If ```enable_cross_domain_tracking``` option is enabled, the client-side tag wil
   <img width="1264" alt="Nameless Analytics client-side cross domain" src="https://github.com/tommasomoretti/nameless-analytics/assets/29273232/2d59516f-c8dc-4c20-8e41-8f2fc505b0e7">
   <img width="1264" alt="Nameless Analytics client-side cross domain" src="https://github.com/tommasomoretti/nameless-analytics/assets/29273232/e32d530a-bdb5-479c-9da9-7ec669a03cf5">
 
-The server responds with the two cookie values and the javascript event listener decorates the URL with a parameter named ```na_id```. After that, the user is redirected to the destination website. 
+The server responds with the two cookie values and the JavaScript event listener decorates the URL with a parameter named ```na_id```. After that, the user is redirected to the destination website. 
 
 <img width="1265" alt="Screenshot 2024-11-24 alle 18 06 18" src="https://github.com/user-attachments/assets/da266282-cf32-4a45-a7b6-1dc7832f9d4a">
 
@@ -167,8 +168,8 @@ When the user lands on the destination website, the first tag that fires checks 
 
 <img width="1265" alt="Screenshot 2024-11-24 alle 18 06 52" src="https://github.com/user-attachments/assets/c59e4eed-13af-4b3e-b0bd-a4d660e77c1a">
 
-#### Disable cross-domain tracking
-If ```enable_cross_domain_tracking``` option is disabled, the client-side tag will not set any listener.
+#### Cross-domain tracking disabled
+If ```enable_cross_domain_tracking``` option is disabled, the Nameless Analytics Client-side tracker tag will not set any listener.
 
 
 ### Customize source and campaigns url parameters
