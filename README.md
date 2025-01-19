@@ -60,13 +60,36 @@ Choose whether to track all events or only track events when the user consents. 
 If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents.
 
 - when ```analytics_storage``` is equal to denied, the tag generates two temporary parameters for client_id (temp_client_id) and session id (temp_session_id) and waits until consent is granted. 
-If consent changes from denied to granted on the same page, all pending tags will be fired using the same temp_client_id as client_id and temp_session_id as session_id. If client_id or session_id cookies already exist, the server will ignore the temporary parameters and use the existing cookie values instead.
+
+  <img width="1258" alt="Screenshot 2025-01-19 alle 11 38 27" src="https://github.com/user-attachments/assets/86c1b36b-6259-4031-a1ba-78195dd4a76e" />
+
+- when ```analytics_storage``` changes from denied to granted on the same page, all pending tags will be fired with the same temp_client_id and temp_session_id.
+
+  <img width="1258" alt="Screenshot 2025-01-19 alle 11 39 12" src="https://github.com/user-attachments/assets/2f4f7d36-714d-4da3-98cc-c7501877ada8" />
+
+  <img width="1214" alt="Screenshot 2025-01-19 alle 11 39 54" src="https://github.com/user-attachments/assets/d7fe5ed9-2ce3-44b9-97d0-840ad9736a24" />
+
+  <img width="1214" alt="Screenshot 2025-01-19 alle 11 40 07" src="https://github.com/user-attachments/assets/18f286fd-f1ab-49e7-a704-8cf1aecd7fdb" />
+
+  The Nameless Analytics Server-side Client Tag deletes the temporary parameters and uses them to create client_id and session_id cookie values.
+
+  <img width="1214" alt="Screenshot 2025-01-19 alle 11 41 30" src="https://github.com/user-attachments/assets/63aae237-3f7d-421b-86e4-b8d560738273" />
+
+  Cookie values:
+
+  <img width="1236" alt="Screenshot 2025-01-19 alle 11 42 06" src="https://github.com/user-attachments/assets/93ef92aa-f275-4f34-a96a-459c46d7e067" />
+
+  If the client_id or session_id cookies already exist, the Nameless Analytics Server-side Client Tag ignores the temporary parameters and uses the existing cookie values instead.
+
+  <img width="1215" alt="Screenshot 2025-01-19 alle 11 48 14" src="https://github.com/user-attachments/assets/6e4361b3-5249-4b1d-aa09-3a3967ee9dd8" />
   
-    <img width="1265" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/5ecaea7e-6940-45aa-a740-5f301d321a8f">
+  <img width="1215" alt="Screenshot 2025-01-19 alle 11 48 28" src="https://github.com/user-attachments/assets/9bc5e697-855e-4473-b7a3-67713dfde826" />
+
+  <img width="1215" alt="Screenshot 2025-01-19 alle 11 48 36" src="https://github.com/user-attachments/assets/76601d19-2b54-481f-bb13-0d67ad822d97" />
 
 - when ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id, with the event name and event parameters configured in the tag.
   
-    <img width="1263" alt="Nameless Analytics client-side logs" src="https://github.com/user-attachments/assets/171b6f19-7805-4063-8472-e8f6a679e515">
+  
 
 The tracking accuracy for acquisitions parameters can be adjusted as needed: 
 
