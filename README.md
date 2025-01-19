@@ -69,20 +69,22 @@ If ```respect_consent_mode``` is enabled, the events are tracked only if a user 
 
   <img width="1214" alt="Screenshot 2025-01-19 alle 11 39 54" src="https://github.com/user-attachments/assets/d7fe5ed9-2ce3-44b9-97d0-840ad9736a24" />
 
+  The Nameless Analytics Server-side Client Tag deletes the temporary parameters
+
   <img width="1214" alt="Screenshot 2025-01-19 alle 11 40 07" src="https://github.com/user-attachments/assets/18f286fd-f1ab-49e7-a704-8cf1aecd7fdb" />
 
-  The Nameless Analytics Server-side Client Tag deletes the temporary parameters and uses them to create client_id and session_id cookie values.
+  and uses them to create client_id and session_id cookie values.
 
   <img width="1214" alt="Screenshot 2025-01-19 alle 11 41 30" src="https://github.com/user-attachments/assets/63aae237-3f7d-421b-86e4-b8d560738273" />
 
-  Cookie values:
-
   <img width="1236" alt="Screenshot 2025-01-19 alle 11 42 06" src="https://github.com/user-attachments/assets/93ef92aa-f275-4f34-a96a-459c46d7e067" />
 
-  If the client_id or session_id cookies already exist, the Nameless Analytics Server-side Client Tag ignores the temporary parameters and uses the existing cookie values instead.
+  If the client_id or session_id cookies already exist, the Nameless Analytics Server-side Client Tag ignores the temporary parameters
 
   <img width="1215" alt="Screenshot 2025-01-19 alle 11 48 14" src="https://github.com/user-attachments/assets/6e4361b3-5249-4b1d-aa09-3a3967ee9dd8" />
-  
+
+  and uses the existing cookie values instead.
+
   <img width="1215" alt="Screenshot 2025-01-19 alle 11 48 28" src="https://github.com/user-attachments/assets/9bc5e697-855e-4473-b7a3-67713dfde826" />
 
   <img width="1215" alt="Screenshot 2025-01-19 alle 11 48 36" src="https://github.com/user-attachments/assets/76601d19-2b54-481f-bb13-0d67ad822d97" />
@@ -97,20 +99,26 @@ If ```respect_consent_mode``` is enabled, the events are tracked only if a user 
   
   <img width="1215" alt="Screenshot 2025-01-19 alle 11 52 58" src="https://github.com/user-attachments/assets/eba09d94-33ad-4ffe-b38f-51aa9ae46cb2" />
   
-The tracking accuracy for acquisitions parameters can be adjusted as needed: 
+In this configuration, if a user lands on the website from whatever source, do not interact with the banner, change page and only then give consent, the source has lost due to: 
+- Missaing tracking on first page because of analytics_consent is not expressed (still denied)
+- Tracking presents on second page. The source is calculated upon ```document.referral``` and the referral of a second page is the website domain itself. 
+
+The tracking accuracy for acquisitions option can be adjusted as needed: 
 
 <img width="818" alt="Screenshot 2025-01-16 alle 14 05 04" src="https://github.com/user-attachments/assets/38b03793-384a-485a-b946-12185db86f6c" />
 
 - Standard: the tracker will use the current document.referrer values and campaign parameters of the page as source and campaign parameters.
 
-  Example: If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be "".
+  Example: If a user gives consent on the second page viewed (current ```document.referrer``` = website domain), the source and campaign parameter values will be null.
 
 - Enhanced: the tracker will save and update a temporary JavaScript cookie, storing the latest, not "" document.referrer values, source and campaign parameters. 
 
-  Example: If a user gives consent on the second page viewed (current document.referrer = ""), the source and campaign parameter values will be taken from the cookie saved on the first page.
+  Example: If a user gives consent on the second page viewed (current ```document.referrer``` = website domain), the source and campaign parameter values will be taken from the cookie saved on the first page.
 
 #### Do not respect consent mode
-If ```respect_consent_mode``` is disabled, all events are tracked.
+If ```respect_consent_mode``` is disabled, all events are tracked regardless user consents.
+
+However the user_id (if present), client_id and session_id can be anonimize when analytics_consent id denied or not expressed (GA$ BigQuery export style when consent is denied)
 
 The tracking anonimization can be adjusted as needed:
 
@@ -121,11 +129,11 @@ The tracking anonimization can be adjusted as needed:
 
 
 ### Enable cross-domain tracking (alfa feature)
-Enable the transfer of client_id and session_id data across two or more websites. This allows you to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
+Enable the transfer of client_id and session_id data across two or more websites. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
 
-**This is an Alpha feature:** enabling it will cause all links that are meant to open in a new tab to instead open in the same tab.
+**This is an Alpha feature: enabling it will cause all links that are meant to open in a new tab to instead open in the same tab.**
 
-The server-side GTM container and the Nameless Analytics Server-side client tag must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
+**The server-side GTM container and the Nameless Analytics Server-side client tag must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).**
 
 #### Enable cross-domain tracking
 Enable cross-domain tracking. Add the domains one for row.
