@@ -109,11 +109,11 @@ The tracking accuracy for acquisitions can be adjusted as needed:
 
 - Standard: the tracker will use the current document.referrer values and campaign parameters of the page as source and campaign parameters.
 
-  Example: If a user gives consent on the second page viewed (current ```document.referrer``` = website domain), the source and campaign parameter values will be null.
+  Example: If a user gives consent on the second page (```document.referrer``` = website domain), the source and campaign parameter values will be null.
 
-- Enhanced: the tracker will **save and update a temporary JavaScript cookie**, storing the latest, not self document.referrer values, source and campaign parameters. 
+- Enhanced: the tracker will **save and update a temporary JavaScript cookie**, storing the source and campaign parameters of the landing page. 
 
-  Example: If a user gives consent on the second page viewed (current ```document.referrer``` = website domain), the source and campaign parameter values will be taken from the cookie saved on the first page.
+  Example: If a user gives consent on the second page (```document.referrer``` = website domain), the source and campaign parameter values will be taken from the cookie saved on the first page. For the next pages, source and campaign parameter values will be the currents. 
 
 #### Do not respect consent mode
 If ```respect_consent_mode``` is disabled, all events are tracked regardless user consents.
