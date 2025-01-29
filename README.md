@@ -49,6 +49,8 @@ Add shared event parameters across all events. The parameters will be added in t
 
 See the [default payload](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#default-payload) for the parameters that are already sent by default.
 
+Note: These parameters can override parameters configured in [Add event parameters from dataLayer](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) if they have the same name.
+
 #### Add user ID event parameter
 Add user ID parameter at event level across all events (if the user_id persists in the dataLayer across pages). The parameters will be added to the `user_id` key in the payload.
 
