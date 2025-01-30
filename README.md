@@ -144,7 +144,7 @@ Lorem ipsum
 
 
 ### Enable logs in JavaScript console
-Lorem ipsum
+Enable console log for all events in JavaScript console.
 
 
 ### Customize source and campaigns url parameters
