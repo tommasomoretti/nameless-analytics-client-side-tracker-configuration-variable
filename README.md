@@ -46,21 +46,19 @@ Example: /collect/nameless_analytics
 
 ## Event data
 ### Event parameters
-Add event parameters manually for all events event. The parameters will be added in the event_data object in the payload.
+Add event parameters manually for all events event. The parameters will be added in the `event_data` object in the payload.
 
-Add user ID parameter for all events event. The parameters will be added in the user_id field in the payload.
+Add user ID parameter for all events event. The parameters will be added in the `user_id` field in the payload.
 
 #### Add shared event parameters
-Add shared event parameters across all events. The parameters will be added in the `event_data` object in the payload. 
-
-Values accepted: strings, integers, float and json.
+Add shared event parameters across all events. Values accepted: strings, integers, float and json.
 
 These parameters can override [parameters taken from dataLayer](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) if they have the same name.
 
 See the [default payload](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#default-payload) for the parameters that are already sent by default.
 
 #### Add user ID event parameter
-Add user ID parameter at event level across all events (if the user_id persists in the dataLayer across pages). The parameters will be added to the `user_id` key in the payload.
+Add user ID parameter at event level across all events (if the user_id persists in the dataLayer across pages). 
 
 
 
