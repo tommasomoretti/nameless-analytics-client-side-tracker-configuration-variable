@@ -9,14 +9,14 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 Start from here:
 - [Client-side configuration variable UI](#variable-ui)
-- [Basic settings](#basic-settings)
+- Basic settings
   - [Endpoint domain name](#endpoint-domain-name)
   - [Endpoint path](#endpoint-path)
-- [Event data](#event-data)
+- Event data
   - [Event parameters](#event-parameters)
     - [Add shared event parameters](#add-shared-event-parameters)
     - [Add user ID event parameter](#add-user-id-event-parameter)
-- [Advanced settings](#advanced-settings)
+- Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
   - [Enable cross domain tracking (alfa feature)](#enable-cross-domain-tracking-alfa-feature)
   - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
@@ -46,6 +46,10 @@ Example: /collect/nameless_analytics
 
 ## Event data
 ### Event parameters
+Add event parameters manually for all events event. The parameters will be added in the event_data object in the payload.
+
+Add user ID parameter for all events event. The parameters will be added in the user_id field in the payload.
+
 #### Add shared event parameters
 Add shared event parameters across all events. The parameters will be added in the `event_data` object in the payload. 
 
