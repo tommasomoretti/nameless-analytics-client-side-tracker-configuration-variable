@@ -18,10 +18,12 @@ Start from here:
     - [Add user ID event parameter](#add-user-id-event-parameter)
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
-  - [Enable cross domain tracking (alfa feature)](#enable-cross-domain-tracking-alfa-feature)
-  - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
-  - [Change default JavaScript page view event names](#change-default-JavaScript-page-view-event-names)
+  - [Push Client ID and Session ID values into dataLayer]
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
+    
+  - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
+  - [Enable cross domain tracking (alfa feature)](#enable-cross-domain-tracking-alfa-feature)
+  - [Change default JavaScript page view event names](#change-default-JavaScript-page-view-event-names)
 
 
 
