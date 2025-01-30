@@ -20,7 +20,6 @@ Start from here:
   - [Respect Google Consent Mode](#respect-google-consent-mode)
   - [Push Client ID and Session ID values into dataLayer]
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
-    
   - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
   - [Enable cross domain tracking (alfa feature)](#enable-cross-domain-tracking-alfa-feature)
   - [Change default JavaScript page view event names](#change-default-JavaScript-page-view-event-names)
