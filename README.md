@@ -139,6 +139,20 @@ The tracking anonimization can be adjusted as needed:
 - Off: No anonimization will be applied.
 
 
+### Push Client ID and Session ID values into dataLayer
+Lorem ipsum
+
+
+### Enable logs in JavaScript console
+Lorem ipsum
+
+
+### Customize source and campaigns url parameters
+Override the default URL query parameter names used to track source and campaign parameters. By default, these values are taken from UTM parameters.
+
+<img width="818" alt="Screenshot 2025-01-16 alle 15 59 45" src="https://github.com/user-attachments/assets/2389e9a3-d8ba-48ad-8a0b-1a2dfb8f7378" />
+
+
 ### Enable cross-domain tracking (alfa feature)
 Enable the transfer of client_id and session_id data across two or more websites. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
 
@@ -183,20 +197,10 @@ When the user lands on the destination website, the first tag that fires checks 
 If ```enable_cross_domain_tracking``` option is disabled, the Nameless Analytics Client-side tracker tag will not set any listener.
 
 
-### Customize source and campaigns url parameters
-Override the default URL query parameter names used to track source and campaign parameters. By default, these values are taken from UTM parameters.
-
-<img width="818" alt="Screenshot 2025-01-16 alle 15 59 45" src="https://github.com/user-attachments/assets/2389e9a3-d8ba-48ad-8a0b-1a2dfb8f7378" />
-
-
 ### Change default JavaScript page view event names
 Override the default JavaScript event names for page_view and virtual_page_view. Update these values if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from gtm.js (for page views) or gtm.historyChange (for virtual page views).
 
 When an event is fired, the Nameless Analytics Client-side Tracker Tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
-
-
-### Enable logs in JavaScript console
-Lorem ipsum
 
 ---
 
