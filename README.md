@@ -18,8 +18,6 @@ Start from here:
     - [Add user ID event parameter](#add-user-id-event-parameter)
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
-    - [Respect consent mode](#respect-consent-mode)
-    - [Do not respect consent mode](#do-not-respect-consent-mode)
   - [Push Client ID and Session ID values into dataLayer]
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
   - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
