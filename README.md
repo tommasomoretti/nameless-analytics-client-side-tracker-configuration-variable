@@ -17,7 +17,7 @@ Start from here:
     - [Add shared event parameters](#add-shared-event-parameters)
     - [Add user ID event parameter](#add-user-id-event-parameter)
 - Advanced settings
-  - Respect Google Consent Mode
+  - [Respect Google Consent Mode](#respect-google-consent-mode)
     - [Respect consent mode](#respect-consent-mode)
     - [Do not respect consent mode](#do-not-respect-consent-mode)
   - [Push Client ID and Session ID values into dataLayer]
