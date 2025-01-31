@@ -17,7 +17,9 @@ Start from here:
     - [Add shared event parameters](#add-shared-event-parameters)
     - [Add user ID event parameter](#add-user-id-event-parameter)
 - Advanced settings
-  - [Respect Google Consent Mode](#respect-google-consent-mode)
+  - Respect Google Consent Mode
+    - [Respect consent mode](#respect-consent-mode)
+    - [Do not respect consent mode](#do-not-respect-consent-mode)
   - [Push Client ID and Session ID values into dataLayer]
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
   - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
@@ -65,8 +67,6 @@ Add user ID parameter at event level across all events (if the user_id persists 
 
 ## Advanced settings
 ### Respect Google Consent Mode
-Choose whether to track all events or only track events when the user consents. The tracking modes affect the tag's behavior as follows:
-
 #### Respect consent mode
 If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents.
 
