@@ -67,14 +67,13 @@ Add user ID parameter at event level across all events (if the user_id persists 
 
 ## Advanced settings
 ### Respect Google Consent Mode
-#### Respect consent mode
 If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents.
 
 - when ```analytics_storage``` is equal to denied, the tag generates two temporary parameters for client_id (temp_client_id) and session id (temp_session_id) and waits until consent is granted. 
 
   <img width="1258" alt="Screenshot 2025-01-19 alle 11 38 27" src="https://github.com/user-attachments/assets/86c1b36b-6259-4031-a1ba-78195dd4a76e" />
 
-- when ```analytics_storage``` changes from denied to granted on the same page, all pending tags will be fired with the same temp_client_id and temp_session_id.
+- when ```analytics_storage``` changes from denied to granted, all pending tags in that page will be fired with the same temp_client_id and temp_session_id.
 
   <img width="1258" alt="Screenshot 2025-01-19 alle 11 39 12" src="https://github.com/user-attachments/assets/2f4f7d36-714d-4da3-98cc-c7501877ada8" />
 
@@ -119,14 +118,11 @@ The tracking accuracy for acquisitions can be adjusted as needed:
 <img width="818" alt="Screenshot 2025-01-16 alle 14 05 04" src="https://github.com/user-attachments/assets/38b03793-384a-485a-b946-12185db86f6c" />
 
 - Standard: the tracker will use the current document.referrer values and campaign parameters of the page as source and campaign parameters.
-
   Example: If a user gives consent on the second page (```document.referrer``` = website domain), the source and campaign parameter values will be null.
 
 - Enhanced: the tracker will **save and update a temporary JavaScript cookie**, storing the source and campaign parameters of the landing page. 
-
   Example: If a user gives consent on the second page (```document.referrer``` = website domain), the source and campaign parameter values will be taken from the cookie saved on the first page. For the next pages, source and campaign parameter values will be the currents. 
 
-#### Do not respect consent mode
 If ```respect_consent_mode``` is disabled, all events are tracked regardless user consents.
 
 However the user_id (if present), client_id and session_id can be anonimize when analytics_consent id denied or not expressed (GA4 BigQuery export style when consent is denied)
