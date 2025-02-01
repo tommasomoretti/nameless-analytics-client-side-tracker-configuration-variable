@@ -47,9 +47,7 @@ Example: /collect/nameless_analytics
 
 ## Event data
 ### Event parameters
-Add event parameters manually for all events event. The parameters will be added in the `event_data` object in the payload.
-
-Add user ID parameter for all events event. The parameters will be added in the `user_id` field in the payload.
+Add user ID parameter and event parameters manually for all events event. The user ID parameter will be added in the `user_id` field in the payload and the shared event parameters will be added in the `event_data` object in the payload.
 
 #### Add shared event parameters
 Add shared event parameters across all events. Values accepted: strings, integers, float and json.
