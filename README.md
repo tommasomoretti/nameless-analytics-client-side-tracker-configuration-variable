@@ -52,7 +52,7 @@ Add user ID parameter and event parameters manually for all events event. The us
 #### Add shared event parameters
 Add shared event parameters across all events. Values accepted: strings, integers, float and json.
 
-These parameters can override [parameters taken from dataLayer](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) if they have the same name.
+These parameters can override default parameters and [parameters taken from dataLayer](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) if they have the same name.
 
 See the [default payload](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#default-payload) for the parameters that are already sent by default.
 
