@@ -55,18 +55,16 @@ This is the hierarchy of event parameter importance:
 
 [Request parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Shared parameters](#add-shared-event-parameters) > [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) > [Default parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#default-payload)
 
-
 #### Add shared event parameters
 Add shared event parameters across all events. Values accepted: strings, integers, float and json.
 
 These parameters can override:
-- [default parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#default-payload)
-- [parameters taken from dataLayer](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) added in Nameless Analytics Client-side tracker tag
+- default parameters
+- parameters taken from dataLayer added in Nameless Analytics Client-side tracker tag
 
 These parameters can be overridden by:
-- [parameter added for a specific event](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) in Nameless Analytics Client-side tracker tag
-- [parameter added for a specific request](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) in Nameless Analytics Server-side client tag
-
+- parameter added for a specific event in Nameless Analytics Client-side tracker tag
+- parameter added for a specific request in Nameless Analytics Server-side client tag
 
 #### Add user ID event parameter
 Add user ID parameter at event level across all events (if the user_id persists in the dataLayer across pages). 
