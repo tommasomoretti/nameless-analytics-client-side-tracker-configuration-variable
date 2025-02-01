@@ -49,20 +49,28 @@ Example: /collect/nameless_analytics
 ### Event parameters
 Add user ID parameter and event parameters manually for all events event. The user ID parameter will be added in the `user_id` field in the payload and the shared event parameters will be added in the `event_data` object in the payload.
 
-#### Add shared event parameters
-Add shared event parameters across all events. Values accepted: strings, integers, float and json.
-
-If they have the same name, **these parameters can override**: 
-- default parameters
-- [parameters taken from dataLayer](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer)
-
-if they have the same name, **these parameters can be overridden** by 
-- [parameter added for a specific event](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters)
+If a parameter has the same name as another, it can override or be overridden depending on where it was set. This is the hierarchy of event parameter importance:
+Request parameters > Event parameters > Shared parameters > dataLayer parameters > Default parameters
 
 See the [default payload](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#default-payload) for the parameters that are already sent by default.
 
+#### Add shared event parameters
+Add shared event parameters across all events. Values accepted: strings, integers, float and json.
+
+These parameters can override:
+- default parameters
+- [parameters taken from dataLayer](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) added in Nameless Analytics Client-side tracker tag
+
+These parameters can be overridden by:
+- [parameter added for a specific event](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) in Nameless Analytics Client-side tracker tag
+- [parameter added for a specific request](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) in Nameless Analytics Server-side client tag
+
+
 #### Add user ID event parameter
 Add user ID parameter at event level across all events (if the user_id persists in the dataLayer across pages). 
+
+This parameter can be overridden by:
+- [modifying the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/blob/main/README.md#modify-user-id-parameter) in Nameless Analytics Server-side client tag
 
 
 
