@@ -29,8 +29,7 @@ Start from here:
 ## Variable UI
 This is the UI of the Client-side configuration variable. This variable will handle settings like endpoint domain name and path, common event parameters, user ID, user consent mode, cross-domain, traffic source parameters and logging in JavaScript console.
 
-<img width="1265" alt="client-side-configuration-variable" src="https://github.com/user-attachments/assets/b5c629b1-dbf2-4201-b4e5-3681ad6adffe" />
-
+<img width="1265" alt="Screenshot 2025-02-05 alle 13 34 49" src="https://github.com/user-attachments/assets/5f25eda5-a6c2-4484-83f8-2611bcc514ed" />
 
 
 ## Basic settings
@@ -81,13 +80,13 @@ If ```respect_consent_mode``` is enabled, the events are tracked only if a user 
 
 When ```analytics_storage``` is equal to denied, the tag generates two temporary parameters for client_id (temp_client_id) and session id (temp_session_id) and waits until consent is granted. 
 
-<img width="1258" alt="Screenshot 2025-01-19 alle 11 38 27" src="https://github.com/user-attachments/assets/86c1b36b-6259-4031-a1ba-78195dd4a76e" />
+<img width="1258" alt="Screenshot 2025-02-05 alle 13 37 46" src="https://github.com/user-attachments/assets/7c5441a8-6c5b-437d-bd78-103997b8321d" />
 
 When ```analytics_storage``` changes from denied to granted, all pending tags in that page will be fired with the same temp_client_id and temp_session_id.
 
-<img width="1214" alt="Screenshot 2025-01-19 alle 11 39 54" src="https://github.com/user-attachments/assets/d7fe5ed9-2ce3-44b9-97d0-840ad9736a24" />
+<img width="1214" alt="Screenshot 2025-02-05 alle 13 49 26" src="https://github.com/user-attachments/assets/19c71c72-ff3f-4217-8505-e3a1d93511da" />
 
-<img width="1258" alt="Screenshot 2025-01-19 alle 11 39 12" src="https://github.com/user-attachments/assets/2f4f7d36-714d-4da3-98cc-c7501877ada8" />
+<img width="1258" alt="Screenshot 2025-02-05 alle 13 40 05" src="https://github.com/user-attachments/assets/313aae94-b015-4e22-8445-e3562b565a3c" />
 
 If client and session cookies are missing in the request, The Nameless Analytics Server-side Client Tag deletes temp_client_id and temp_session_id from the payload and uses them to create a client and session cookie.
 
@@ -111,7 +110,7 @@ and uses the existing cookie values instead.
 
 <img width="1215" alt="Screenshot 2025-01-19 alle 11 48 36" src="https://github.com/user-attachments/assets/76601d19-2b54-481f-bb13-0d67ad822d97" />
 
-when ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
+When ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
 
 <img width="1215" alt="Screenshot 2025-01-19 alle 11 53 10" src="https://github.com/user-attachments/assets/b28bfb56-dbc7-4e75-b0c9-2232eb0ecc2d" />
 
