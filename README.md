@@ -76,6 +76,7 @@ This parameter can be overridden by:
 
 ## Advanced settings
 ### Respect Google Consent Mode
+#### Respect Consent Mode: On
 If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents.
 
 - when ```analytics_storage``` is equal to denied, the tag generates two temporary parameters for client_id (temp_client_id) and session id (temp_session_id) and waits until consent is granted. 
@@ -119,21 +120,8 @@ If ```respect_consent_mode``` is enabled, the events are tracked only if a user 
   <img width="1215" alt="Screenshot 2025-01-19 alle 11 52 49" src="https://github.com/user-attachments/assets/eb0f6da3-f74a-4b1b-9440-f1390d10067c" />
   
   <img width="1215" alt="Screenshot 2025-01-19 alle 11 52 58" src="https://github.com/user-attachments/assets/eba09d94-33ad-4ffe-b38f-51aa9ae46cb2" />
-  
-In this configuration, if a user lands on the website from whatever source, do not interact with the banner, change page and only then give consent, the source has lost due to: 
-- Missaing tracking on first page because of analytics_consent is not expressed (still denied)
-- Tracking presents on second page. The source is calculated upon ```document.referral``` and the referral of a second page is the website domain itself. 
 
-The tracking accuracy for acquisitions can be adjusted as needed: 
-
-<img width="818" alt="Screenshot 2025-01-16 alle 14 05 04" src="https://github.com/user-attachments/assets/38b03793-384a-485a-b946-12185db86f6c" />
-
-- Standard: the tracker will use the current document.referrer values and campaign parameters of the page as source and campaign parameters.
-  Example: If a user gives consent on the second page (```document.referrer``` = website domain), the source and campaign parameter values will be null.
-
-- Enhanced: the tracker will **save and update a temporary JavaScript cookie**, storing the source and campaign parameters of the landing page. 
-  Example: If a user gives consent on the second page (```document.referrer``` = website domain), the source and campaign parameter values will be taken from the cookie saved on the first page. For the next pages, source and campaign parameter values will be the currents. 
-
+#### Respect Consent Mode: Off
 If ```respect_consent_mode``` is disabled, all events are tracked regardless user consents.
 
 However the user_id (if present), client_id and session_id can be anonimize when analytics_consent id denied or not expressed (GA4 BigQuery export style when consent is denied)
