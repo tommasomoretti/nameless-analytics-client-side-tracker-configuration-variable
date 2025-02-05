@@ -95,7 +95,7 @@ If client and session cookies are missing in the request, The Nameless Analytics
 
 <img width="1214" alt="Screenshot 2025-01-19 alle 11 41 30" src="https://github.com/user-attachments/assets/63aae237-3f7d-421b-86e4-b8d560738273" />
 
-If client cookie is present but session cookie is not, the Nameless Analytics Server-side Client Tag ignores temp_client_id value and recreates a client cookie with the same value and a session cookie with the value of temp_session_id. [IMMAGINI DA AGGIORNARE]
+If client cookie is present but session cookie is not, the Nameless Analytics Server-side Client Tag ignores temp_client_id value and recreates a client cookie with the same value and a session cookie with the value of temp_session_id. **[IMMAGINI DA AGGIORNARE]**
 
 <img width="1214" alt="Screenshot 2025-01-19 alle 11 40 07" src="https://github.com/user-attachments/assets/18f286fd-f1ab-49e7-a704-8cf1aecd7fdb" />
 
