@@ -79,47 +79,47 @@ This parameter can be overridden by:
 #### Respect Consent Mode: On
 If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents.
 
-- when ```analytics_storage``` is equal to denied, the tag generates two temporary parameters for client_id (temp_client_id) and session id (temp_session_id) and waits until consent is granted. 
+When ```analytics_storage``` is equal to denied, the tag generates two temporary parameters for client_id (temp_client_id) and session id (temp_session_id) and waits until consent is granted. 
 
-  <img width="1258" alt="Screenshot 2025-01-19 alle 11 38 27" src="https://github.com/user-attachments/assets/86c1b36b-6259-4031-a1ba-78195dd4a76e" />
+<img width="1258" alt="Screenshot 2025-01-19 alle 11 38 27" src="https://github.com/user-attachments/assets/86c1b36b-6259-4031-a1ba-78195dd4a76e" />
 
-- when ```analytics_storage``` changes from denied to granted, all pending tags in that page will be fired with the same temp_client_id and temp_session_id.
+When ```analytics_storage``` changes from denied to granted, all pending tags in that page will be fired with the same temp_client_id and temp_session_id.
 
-  <img width="1214" alt="Screenshot 2025-01-19 alle 11 39 54" src="https://github.com/user-attachments/assets/d7fe5ed9-2ce3-44b9-97d0-840ad9736a24" />
+<img width="1214" alt="Screenshot 2025-01-19 alle 11 39 54" src="https://github.com/user-attachments/assets/d7fe5ed9-2ce3-44b9-97d0-840ad9736a24" />
 
-  <img width="1258" alt="Screenshot 2025-01-19 alle 11 39 12" src="https://github.com/user-attachments/assets/2f4f7d36-714d-4da3-98cc-c7501877ada8" />
+<img width="1258" alt="Screenshot 2025-01-19 alle 11 39 12" src="https://github.com/user-attachments/assets/2f4f7d36-714d-4da3-98cc-c7501877ada8" />
 
-  If client and session cookies are missing in the request, The Nameless Analytics Server-side Client Tag deletes temp_client_id and temp_session_id from the payload and uses them to create a client and session cookie.
+If client and session cookies are missing in the request, The Nameless Analytics Server-side Client Tag deletes temp_client_id and temp_session_id from the payload and uses them to create a client and session cookie.
 
-  <img width="1214" alt="Screenshot 2025-01-19 alle 11 40 07" src="https://github.com/user-attachments/assets/18f286fd-f1ab-49e7-a704-8cf1aecd7fdb" />
+<img width="1214" alt="Screenshot 2025-01-19 alle 11 40 07" src="https://github.com/user-attachments/assets/18f286fd-f1ab-49e7-a704-8cf1aecd7fdb" />
 
-  <img width="1214" alt="Screenshot 2025-01-19 alle 11 41 30" src="https://github.com/user-attachments/assets/63aae237-3f7d-421b-86e4-b8d560738273" />
+<img width="1214" alt="Screenshot 2025-01-19 alle 11 41 30" src="https://github.com/user-attachments/assets/63aae237-3f7d-421b-86e4-b8d560738273" />
 
-  If client cookie is present but session cookie is not, the Nameless Analytics Server-side Client Tag ignores temp_client_id value and recreates a client cookie with the same value and a session cookie with the value of temp_session_id. [IMMAGINI DA AGGIORNARE]
+If client cookie is present but session cookie is not, the Nameless Analytics Server-side Client Tag ignores temp_client_id value and recreates a client cookie with the same value and a session cookie with the value of temp_session_id. [IMMAGINI DA AGGIORNARE]
 
-  <img width="1214" alt="Screenshot 2025-01-19 alle 11 40 07" src="https://github.com/user-attachments/assets/18f286fd-f1ab-49e7-a704-8cf1aecd7fdb" />
+<img width="1214" alt="Screenshot 2025-01-19 alle 11 40 07" src="https://github.com/user-attachments/assets/18f286fd-f1ab-49e7-a704-8cf1aecd7fdb" />
 
-  <img width="1214" alt="Screenshot 2025-01-19 alle 11 41 30" src="https://github.com/user-attachments/assets/63aae237-3f7d-421b-86e4-b8d560738273" />
+<img width="1214" alt="Screenshot 2025-01-19 alle 11 41 30" src="https://github.com/user-attachments/assets/63aae237-3f7d-421b-86e4-b8d560738273" />
 
-  If the client and session cookies already exist, the Nameless Analytics Server-side Client Tag ignores that values and recreates the two cookies with the same values.
+If the client and session cookies already exist, the Nameless Analytics Server-side Client Tag ignores that values and recreates the two cookies with the same values
 
-  <img width="1215" alt="Screenshot 2025-01-19 alle 11 48 14" src="https://github.com/user-attachments/assets/6e4361b3-5249-4b1d-aa09-3a3967ee9dd8" />
+<img width="1215" alt="Screenshot 2025-01-19 alle 11 48 14" src="https://github.com/user-attachments/assets/6e4361b3-5249-4b1d-aa09-3a3967ee9dd8" />
 
-  and uses the existing cookie values instead.
+and uses the existing cookie values instead.
 
-  <img width="1215" alt="Screenshot 2025-01-19 alle 11 48 28" src="https://github.com/user-attachments/assets/9bc5e697-855e-4473-b7a3-67713dfde826" />
+<img width="1215" alt="Screenshot 2025-01-19 alle 11 48 28" src="https://github.com/user-attachments/assets/9bc5e697-855e-4473-b7a3-67713dfde826" />
 
-  <img width="1215" alt="Screenshot 2025-01-19 alle 11 48 36" src="https://github.com/user-attachments/assets/76601d19-2b54-481f-bb13-0d67ad822d97" />
+<img width="1215" alt="Screenshot 2025-01-19 alle 11 48 36" src="https://github.com/user-attachments/assets/76601d19-2b54-481f-bb13-0d67ad822d97" />
 
-- when ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
+when ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
 
-  <img width="1215" alt="Screenshot 2025-01-19 alle 11 53 10" src="https://github.com/user-attachments/assets/b28bfb56-dbc7-4e75-b0c9-2232eb0ecc2d" />
+<img width="1215" alt="Screenshot 2025-01-19 alle 11 53 10" src="https://github.com/user-attachments/assets/b28bfb56-dbc7-4e75-b0c9-2232eb0ecc2d" />
 
-  <img width="1215" alt="Screenshot 2025-01-19 alle 11 52 38" src="https://github.com/user-attachments/assets/ca6d9d7f-4b28-42ca-921c-44200b335895" />
+<img width="1215" alt="Screenshot 2025-01-19 alle 11 52 38" src="https://github.com/user-attachments/assets/ca6d9d7f-4b28-42ca-921c-44200b335895" />
 
-  <img width="1215" alt="Screenshot 2025-01-19 alle 11 52 49" src="https://github.com/user-attachments/assets/eb0f6da3-f74a-4b1b-9440-f1390d10067c" />
+<img width="1215" alt="Screenshot 2025-01-19 alle 11 52 49" src="https://github.com/user-attachments/assets/eb0f6da3-f74a-4b1b-9440-f1390d10067c" />
   
-  <img width="1215" alt="Screenshot 2025-01-19 alle 11 52 58" src="https://github.com/user-attachments/assets/eba09d94-33ad-4ffe-b38f-51aa9ae46cb2" />
+<img width="1215" alt="Screenshot 2025-01-19 alle 11 52 58" src="https://github.com/user-attachments/assets/eba09d94-33ad-4ffe-b38f-51aa9ae46cb2" />
 
 #### Respect Consent Mode: Off
 If ```respect_consent_mode``` is disabled, all events are tracked regardless user consents.
