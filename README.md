@@ -129,12 +129,12 @@ The tracking anonimization can be adjusted as needed:
 
 <img width="818" alt="Screenshot 2025-01-16 alle 14 04 15" src="https://github.com/user-attachments/assets/8a2d5bf2-4f80-4001-9d35-e9a37932d0a3" />
 
-- On: the server side client tag anonimize user_id (if present), client_id and sessions_id. In big query they will be stored a string with a value of "Redacted".
+- On: the Nameless Analytics Server-side client tag anonimizes client ID, sessions ID and user ID (if configured). In Google BigQuery they will be stored a string with a value of "Redacted_Redacted" for session ID and "Redacted" for client_id and user_id.
 - Off: No anonimization will be applied.
 
 
 ### Push Client ID and Session ID values into dataLayer
-Lorem ipsum
+TBD
 
 
 ### Enable logs in JavaScript console
