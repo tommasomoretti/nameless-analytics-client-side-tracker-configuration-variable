@@ -78,57 +78,24 @@ This parameter can be overridden by:
 #### Respect Consent Mode: On
 If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents.
 
-When ```analytics_storage``` is equal to denied, the tag generates two temporary parameters for client_id (temp_client_id) and session id (temp_session_id) and waits until consent is granted. 
+- When ```analytics_storage``` is equal to denied, the tag generates two temporary parameters for client_id (temp_client_id) and session id (temp_session_id) and waits until consent is granted. 
 
-<img width="1258" alt="Screenshot 2025-02-05 alle 13 37 46" src="https://github.com/user-attachments/assets/7c5441a8-6c5b-437d-bd78-103997b8321d" />
+- When ```analytics_storage``` changes from denied to granted, all pending tags in that page will be fired with the same temp_client_id and temp_session_id.
 
-When ```analytics_storage``` changes from denied to granted, all pending tags in that page will be fired with the same temp_client_id and temp_session_id.
+  If client and session cookies are missing in the request, The Nameless Analytics Server-side Client Tag deletes temp_client_id and temp_session_id from the payload and uses them to create a client and session cookie.
 
-<img width="1214" alt="Screenshot 2025-02-05 alle 13 49 26" src="https://github.com/user-attachments/assets/19c71c72-ff3f-4217-8505-e3a1d93511da" />
+  If client cookie is present but session cookie is not, the Nameless Analytics Server-side Client Tag ignores temp_client_id value and recreates a client cookie with the same value and a session cookie with the value of temp_session_id. **[IMMAGINI DA AGGIORNARE]**
 
-<img width="1258" alt="Screenshot 2025-02-05 alle 13 40 05" src="https://github.com/user-attachments/assets/313aae94-b015-4e22-8445-e3562b565a3c" />
+  If the client and session cookies already exist, the Nameless Analytics Server-side Client Tag ignores that values and recreates the two cookies with the same values and uses the existing cookie values instead.
 
-If client and session cookies are missing in the request, The Nameless Analytics Server-side Client Tag deletes temp_client_id and temp_session_id from the payload and uses them to create a client and session cookie.
-
-<img width="1214" alt="Screenshot 2025-01-19 alle 11 40 07" src="https://github.com/user-attachments/assets/18f286fd-f1ab-49e7-a704-8cf1aecd7fdb" />
-
-<img width="1214" alt="Screenshot 2025-01-19 alle 11 41 30" src="https://github.com/user-attachments/assets/63aae237-3f7d-421b-86e4-b8d560738273" />
-
-If client cookie is present but session cookie is not, the Nameless Analytics Server-side Client Tag ignores temp_client_id value and recreates a client cookie with the same value and a session cookie with the value of temp_session_id. **[IMMAGINI DA AGGIORNARE]**
-
-<img width="1214" alt="Screenshot 2025-01-19 alle 11 40 07" src="https://github.com/user-attachments/assets/18f286fd-f1ab-49e7-a704-8cf1aecd7fdb" />
-
-<img width="1214" alt="Screenshot 2025-01-19 alle 11 41 30" src="https://github.com/user-attachments/assets/63aae237-3f7d-421b-86e4-b8d560738273" />
-
-If the client and session cookies already exist, the Nameless Analytics Server-side Client Tag ignores that values and recreates the two cookies with the same values
-
-<img width="1215" alt="Screenshot 2025-01-19 alle 11 48 14" src="https://github.com/user-attachments/assets/6e4361b3-5249-4b1d-aa09-3a3967ee9dd8" />
-
-and uses the existing cookie values instead.
-
-<img width="1215" alt="Screenshot 2025-01-19 alle 11 48 28" src="https://github.com/user-attachments/assets/9bc5e697-855e-4473-b7a3-67713dfde826" />
-
-<img width="1215" alt="Screenshot 2025-01-19 alle 11 48 36" src="https://github.com/user-attachments/assets/76601d19-2b54-481f-bb13-0d67ad822d97" />
-
-When ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
-
-<img width="1215" alt="Screenshot 2025-01-19 alle 11 53 10" src="https://github.com/user-attachments/assets/b28bfb56-dbc7-4e75-b0c9-2232eb0ecc2d" />
-
-<img width="1215" alt="Screenshot 2025-01-19 alle 11 52 38" src="https://github.com/user-attachments/assets/ca6d9d7f-4b28-42ca-921c-44200b335895" />
-
-<img width="1215" alt="Screenshot 2025-01-19 alle 11 52 49" src="https://github.com/user-attachments/assets/eb0f6da3-f74a-4b1b-9440-f1390d10067c" />
+- When ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
   
-<img width="1215" alt="Screenshot 2025-01-19 alle 11 52 58" src="https://github.com/user-attachments/assets/eba09d94-33ad-4ffe-b38f-51aa9ae46cb2" />
-
 #### Respect Consent Mode: Off
 If ```respect_consent_mode``` is disabled, all events are tracked regardless user consents.
 
 However the user_id (if present), client_id and session_id can be anonimize when analytics_consent id denied or not expressed (GA4 BigQuery export style when consent is denied)
 
 The tracking anonimization can be adjusted as needed:
-
-<img width="818" alt="Screenshot 2025-01-16 alle 14 04 15" src="https://github.com/user-attachments/assets/8a2d5bf2-4f80-4001-9d35-e9a37932d0a3" />
-
 - On: the Nameless Analytics Server-side client tag anonimizes client ID, sessions ID and user ID (if configured). In Google BigQuery they will be stored a string with a value of "Redacted_Redacted" for session ID and "Redacted" for client_id and user_id.
 - Off: No anonimization will be applied.
 
@@ -143,8 +110,6 @@ Enable console log for all events in JavaScript console.
 
 ### Customize source and campaigns url parameters
 Override the default URL query parameter names used to track source and campaign parameters. By default, these values are taken from UTM parameters.
-
-<img width="818" alt="Screenshot 2025-01-16 alle 15 59 45" src="https://github.com/user-attachments/assets/2389e9a3-d8ba-48ad-8a0b-1a2dfb8f7378" />
 
 
 ### Enable cross-domain tracking (alfa feature)
