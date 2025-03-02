@@ -116,9 +116,7 @@ Override the default URL query parameter names used to track source and campaign
 Enable the transfer of client_id and session_id data across two or more websites. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
 
 Please note that:
-  - <ins>This is an Alpha feature: enabling it will cause all links that are meant to open in a new tab to instead open in the same tab.</ins>
-
-  - <ins>The server-side GTM container and the Nameless Analytics Server-side client tag must be configured correctly to make cross-domain tracking works. Read the relative</ins> [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
+The server-side GTM container and the Nameless Analytics Server-side client tag must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
 #### Cross-domain tracking enabled
 Enable cross-domain tracking. Add the domains one for row.
