@@ -18,7 +18,6 @@ Start from here:
     - [Add user ID event parameter](#add-user-id-event-parameter)
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
-  - [Push Client ID and Session ID values into dataLayer]
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
   - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
   - [Enable cross domain tracking (alfa feature)](#enable-cross-domain-tracking-alfa-feature)
@@ -98,10 +97,6 @@ However the user_id (if present), client_id and session_id can be anonimize when
 The tracking anonimization can be adjusted as needed:
 - On: the Nameless Analytics Server-side client tag anonimizes client ID, sessions ID and user ID (if configured). In Google BigQuery they will be stored a string with a value of "Redacted_Redacted" for session ID and "Redacted" for client_id and user_id.
 - Off: No anonimization will be applied.
-
-
-### Push Client ID and Session ID values into dataLayer
-TBD
 
 
 ### Enable logs in JavaScript console
