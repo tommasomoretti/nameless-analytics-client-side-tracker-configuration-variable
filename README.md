@@ -12,16 +12,23 @@ Start from here:
 - Basic settings
   - [Endpoint domain name](#endpoint-domain-name)
   - [Endpoint path](#endpoint-path)
+- User data
+  - [Add User ID](#add-user-id)
+  - [Add user level parameters](#add-user-level-parameters)
+- Session data
+  - [Add session level parameters](#add-session-level-parameters)
 - Event data
   - [Event parameters](#event-parameters)
     - [Add shared event parameters](#add-shared-event-parameters)
-    - [Add user ID event parameter](#add-user-id-event-parameter)
+    - [Add last dataLayer status to the requests](#add-last-dataLayer-status-to-the-requests)
+    - [Add page status code](#add-page-status-code)
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
-  - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
+  - [Enable cross domain tracking](#enable-cross-domain-tracking)
   - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
-  - [Enable cross domain tracking (alfa feature)](#enable-cross-domain-tracking-alfa-feature)
   - [Change default JavaScript page view event names](#change-default-JavaScript-page-view-event-names)
+  - [Load main library from custom location](#load-main-library-from-custom-location)
+  - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
 
 
 
