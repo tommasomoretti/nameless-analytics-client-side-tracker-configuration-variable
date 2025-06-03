@@ -33,7 +33,7 @@ Start from here:
 
 
 ## Variable UI
-This is the UI of the Client-side configuration variable. This variable will handle settings like endpoint domain name and path, common event parameters, user ID, user consent mode, cross-domain, traffic source parameters and logging in JavaScript console.
+This is the UI of the Client-side configuration variable. This variable will handle settings like sets user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
 <img width="1265" alt="Screenshot 2025-06-03 alle 15 43 28" src="https://github.com/user-attachments/assets/e79fbc8e-41b5-45b1-b068-2a0cf8ef6e7e" />
 
@@ -57,9 +57,9 @@ Add user ID parameter and event parameters manually for all events event. The us
 
 If a parameter has the same name as another, it can override or be overridden depending on where it was set. 
 
-This is the hierarchy of event parameter importance:
+**This is the hierarchy of event parameter importance:**
 
-[Request parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Shared parameters](#add-shared-event-parameters) > [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) > [Default parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#default-payload)
+[Request parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Shared parameters](#add-shared-event-parameters) > [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) > [Standard parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#standard-payload)
 
 #### Add shared event parameters
 Add shared event parameters across all events. Values accepted: strings, integers, float and json.
