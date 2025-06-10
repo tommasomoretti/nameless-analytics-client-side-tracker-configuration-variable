@@ -13,11 +13,11 @@ Start from here:
   - [Endpoint domain name](#endpoint-domain-name)
   - [Endpoint path](#endpoint-path)
 - User data
-  - [User parameters](#user_parameters)
+  - [User parameters](#user-parameters)
     - [Add User ID](#add-user-id)
     - [Add user level parameters](#add-user-level-parameters)
 - Session data
-  - [Session parameters](#session_parameters) 
+  - [Session parameters](#session-parameters) 
     - [Add session level parameters](#add-session-level-parameters)
 - Event data
   - [Event parameters](#event-parameters)
@@ -111,7 +111,7 @@ These parameters can be overridden by:
 - parameter added for a specific event in Nameless Analytics Client-side tracker tag
 - parameter added for a specific request in Nameless Analytics Server-side client tag
 
-#### Add last dataLayer status to the requests
+#### Add last dataLayer status
 Add the current state of the dataLayer in dataLayer field in the payload.  
 
 #### Add page status code
