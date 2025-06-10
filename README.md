@@ -94,11 +94,7 @@ These parameter can not be overridden.
 ### Event parameters
 Add event parameters for all events. 
 
-Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
-
-**This is the hierarchy of event parameter importance:**
-
-[Request parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Shared parameters](#add-shared-event-parameters) > [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) > [Standard parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#standard-payload)
+Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. This is the hierarchy of event parameter importance: [Server side parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Shared parameters](#add-shared-event-parameters) > [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) > [Standard parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#standard-payload)
 
 #### Add shared event parameters
 Add shared event parameters in event_data object in the payload. Values accepted: strings, integers, float and json.
