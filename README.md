@@ -138,25 +138,7 @@ Enable cross-domain tracking. Add the domains one for row.
 
 <img width="818" alt="Screenshot 2025-01-16 alle 14 33 32" src="https://github.com/user-attachments/assets/0ed6a515-8fd3-4834-8a7b-f1f19491a63f" />
 
-If ```enable_cross_domain_tracking``` option is enabled, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click.  When a user clicks on a link with a valid for cross-domain domain, the event listener sends a ```get_user_data``` request to the server. 
-
-- When ```analytics_storage``` is granted and a user clicks on an authorized link:
-    
-  <img width="1264" alt="Nameless Analytics client-side cross domain" src="https://github.com/tommasomoretti/nameless-analytics/assets/29273232/7f966853-9e95-4638-b831-03f6c9506267">
-  
-- When ```analytics_storage``` is granted and a user clicks on not autorized link:
-    
-  <img width="1263" alt="Nameless Analytics client-side cross domain" src="https://github.com/tommasomoretti/nameless-analytics/assets/29273232/207ce2cf-5a09-4e5f-a0c0-1450e4065631">
-    
-- When ```analytics_storage``` is granted and a user clicks on internal link:
- 
-  <img width="1262" alt="Nameless Analytics client-side cross domain" src="https://github.com/tommasomoretti/nameless-analytics/assets/29273232/e5152e8f-c757-4718-8e94-5dd28df19564">
-    
-- When ```analytics_storage``` is not granted and a user clicks on any link, no link decoration happens but the logs are still present in the console like above. 
-    
-  <img width="1263" alt="Nameless Analytics client-side cross domain" src="https://github.com/tommasomoretti/nameless-analytics/assets/29273232/1ee8a621-cf00-47b9-9c3a-dff38ac77e2a">
-  <img width="1264" alt="Nameless Analytics client-side cross domain" src="https://github.com/tommasomoretti/nameless-analytics/assets/29273232/2d59516f-c8dc-4c20-8e41-8f2fc505b0e7">
-  <img width="1264" alt="Nameless Analytics client-side cross domain" src="https://github.com/tommasomoretti/nameless-analytics/assets/29273232/e32d530a-bdb5-479c-9da9-7ec669a03cf5">
+If ```enable_cross_domain_tracking``` option is enabled, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click.  When a user clicks on a cross-domain link, the event listener sends a ```get_user_data``` request to the Nameless Analytics Server-Side client tag. 
 
 The server responds with the two cookie values and the JavaScript event listener decorates the URL with a parameter named ```na_id```. After that, the user is redirected to the destination website. 
 
