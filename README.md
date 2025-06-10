@@ -120,7 +120,6 @@ Call the get_status_code() function and add page status code in event_data.page_
 
 ## Advanced settings
 ### Respect Google Consent Mode
-#### Respect Consent Mode: On
 If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents.
 
 - When ```analytics_storage``` is equal to denied, the tag generates two temporary parameters for client_id (temp_client_id) and session id (temp_session_id) and waits until consent is granted. 
@@ -135,14 +134,7 @@ If ```respect_consent_mode``` is enabled, the events are tracked only if a user 
 
 - When ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
   
-#### Respect Consent Mode: Off
 If ```respect_consent_mode``` is disabled, all events are tracked regardless user consents.
-
-However the user_id (if present), client_id and session_id can be anonimize when analytics_consent id denied or not expressed (GA4 BigQuery export style when consent is denied)
-
-The tracking anonimization can be adjusted as needed:
-- On: the Nameless Analytics Server-side client tag anonimizes client ID, sessions ID and user ID (if configured). In Google BigQuery they will be stored a string with a value of "Redacted_Redacted" for session ID and "Redacted" for client_id and user_id.
-- Off: No anonimization will be applied.
 
 
 ### Enable logs in JavaScript console
