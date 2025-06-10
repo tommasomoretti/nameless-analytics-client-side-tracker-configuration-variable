@@ -128,16 +128,8 @@ If ```respect_consent_mode``` is enabled, the events are tracked only if a user 
 If ```respect_consent_mode``` is disabled, all events are tracked regardless user consents.
 
 
-### Enable logs in JavaScript console
-Enable console log for all events in JavaScript console.
-
-
-### Customize source and campaigns url parameters
-Override the default URL query parameter names used to track source and campaign parameters. By default, these values are taken from UTM parameters.
-
-
-### Enable cross-domain tracking (alfa feature)
-Enable the transfer of client_id and session_id data across two or more websites. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
+### Enable cross-domain tracking
+Add the domains one per row. This setting enables the transfer of client_id and session_id data across two or more websites via URL GET parameter. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
 
 Please note that the server-side GTM container and the Nameless Analytics Server-side client tag must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
@@ -178,10 +170,22 @@ When the user lands on the destination website, the first tag that fires checks 
 If ```enable_cross_domain_tracking``` option is disabled, the Nameless Analytics Client-side tracker tag will not set any listener.
 
 
+### Customize source and campaigns url parameters
+Override the default URL query parameter names used to track source and campaign parameters. By default, these values are taken from UTM parameters.
+
+
 ### Change default JavaScript page view event names
 Override the default JavaScript event names for page_view and virtual_page_view. Update these values if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from gtm.js (for page views) or gtm.historyChange (for virtual page views).
 
 When an event is fired, the Nameless Analytics Client-side Tracker Tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
+
+
+### Load main library from custom location
+Lorem ipsum
+
+
+### Enable logs in JavaScript console
+Enable console log for all events in JavaScript console.
 
 ---
 
