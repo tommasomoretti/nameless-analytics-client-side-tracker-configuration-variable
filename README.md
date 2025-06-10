@@ -22,7 +22,7 @@ Start from here:
 - Event data
   - [Event parameters](#event-parameters)
     - [Add shared event parameters](#add-shared-event-parameters)
-    - [Add last dataLayer status to the requests](#add-last-dataLayer-status-to-the-requests)
+    - [Add last dataLayer status](#add-last-dataLayer-status)
     - [Add page status code](#add-page-status-code)
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
@@ -56,7 +56,7 @@ Example: /collect/nameless_analytics
 
 ## User data
 ### User parameters
-Add session level parameters manually for all event. 
+Add session level parameters for all event. 
 
 They are:
 - write in Google Cloud Firestore every time they change --> last update 
@@ -65,7 +65,8 @@ They are:
 #### Add User ID
 Add User ID parameters in user_id field. 
 
-These parameter can be overridden in Nameless Analytics Server-side client tag.
+This parameter can be overridden by [modifying the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/blob/main/README.md#modify-user-id-parameter) in Nameless Analytics Server-side client tag
+
 
 #### Add user level parameters
 Add user level parameters in user_data object in the payload. Values accepted: strings, integers, float and json.
@@ -73,9 +74,10 @@ Add user level parameters in user_data object in the payload. Values accepted: s
 These parameter can not be overridden.
 
 
+
 ## Session data
 ### Session parameters
-Add session level parameters manually for all event. 
+Add session level parameters for all event. 
 
 They are:
 - write in Google Cloud Firestore every time they change --> last update 
@@ -90,9 +92,7 @@ These parameter can not be overridden.
 
 ## Event data
 ### Event parameters
-Add event parameters manually for all events. 
-
-The event parameters will be added in event_data object in the payload.
+Add event parameters for all events. 
 
 Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
 
@@ -101,7 +101,7 @@ Please note: if a parameter has the same name as another, it can override or be 
 [Request parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Shared parameters](#add-shared-event-parameters) > [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) > [Standard parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#standard-payload)
 
 #### Add shared event parameters
-Add shared event parameters across all events. Values accepted: strings, integers, float and json.
+Add shared event parameters in event_data object in the payload. Values accepted: strings, integers, float and json.
 
 These parameters can override:
 - default parameters
@@ -111,11 +111,11 @@ These parameters can be overridden by:
 - parameter added for a specific event in Nameless Analytics Client-side tracker tag
 - parameter added for a specific request in Nameless Analytics Server-side client tag
 
-#### Add user ID event parameter
-Add user ID parameter at event level across all events (if the user_id persists in the dataLayer across pages). 
+#### Add last dataLayer status to the requests
+Add the current state of the dataLayer in dataLayer field in the payload.  
 
-This parameter can be overridden by:
-- [modifying the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/blob/main/README.md#modify-user-id-parameter) in Nameless Analytics Server-side client tag
+#### Add page status code
+Call the get_status_code() function and add page status code in event_data.page_status_code field in the payload.
 
 
 
