@@ -114,7 +114,7 @@ These parameters can be overridden by:
 Add the current state of the dataLayer in dataLayer field in the payload.  
 
 #### Add page status code
-Call the get_status_code() function and add page status code in event_data.page_status_code field in the payload.
+Call the get_status_code() utility function and add page status code in event_data.page_status_code field in the payload.
 
 
 
