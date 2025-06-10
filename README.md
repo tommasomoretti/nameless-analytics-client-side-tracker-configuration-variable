@@ -13,10 +13,12 @@ Start from here:
   - [Endpoint domain name](#endpoint-domain-name)
   - [Endpoint path](#endpoint-path)
 - User data
-  - [Add User ID](#add-user-id)
-  - [Add user level parameters](#add-user-level-parameters)
+  - [User parameters](#user_parameters)
+    - [Add User ID](#add-user-id)
+    - [Add user level parameters](#add-user-level-parameters)
 - Session data
-  - [Add session level parameters](#add-session-level-parameters)
+  - [Session parameters](#session_parameters) 
+    - [Add session level parameters](#add-session-level-parameters)
 - Event data
   - [Event parameters](#event-parameters)
     - [Add shared event parameters](#add-shared-event-parameters)
@@ -51,11 +53,48 @@ The endpoint path where the Nameless Analytics Server-side Client Tag listens.
 Example: /collect/nameless_analytics
 
 
+
+## User data
+### User parameters
+Add session level parameters manually for all event. 
+
+They are:
+- write in Google Cloud Firestore every time they change --> last update 
+- read and sent to BigQuery with the current parameter status --> every update 
+
+#### Add User ID
+Add User ID parameters in user_id field. 
+
+These parameter can be overridden in Nameless Analytics Server-side client tag.
+
+#### Add user level parameters
+Add user level parameters in user_data object in the payload. Values accepted: strings, integers, float and json.
+
+These parameter can not be overridden.
+
+
+## Session data
+### Session parameters
+Add session level parameters manually for all event. 
+
+They are:
+- write in Google Cloud Firestore every time they change --> last update 
+- read and sent to BigQuery with the current parameter status --> every update
+
+#### Add session level parameters
+Add session level parameters in session_data object in the payload. Values accepted: strings, integers, float and json.
+
+These parameter can not be overridden.
+
+
+
 ## Event data
 ### Event parameters
-Add user ID parameter and event parameters manually for all events event. The user ID parameter will be added in the `user_id` field in the payload and the shared event parameters will be added in the `event_data` object in the payload.
+Add event parameters manually for all events. 
 
-If a parameter has the same name as another, it can override or be overridden depending on where it was set. 
+The event parameters will be added in event_data object in the payload.
+
+Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
 
 **This is the hierarchy of event parameter importance:**
 
