@@ -121,17 +121,8 @@ Call the get_status_code() function and add page status code in event_data.page_
 ## Advanced settings
 ### Respect Google Consent Mode
 If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents.
-
-- When ```analytics_storage``` is equal to denied, the tag generates two temporary parameters for client_id (temp_client_id) and session id (temp_session_id) and waits until consent is granted. 
-
-- When ```analytics_storage``` changes from denied to granted, all pending tags in that page will be fired with the same temp_client_id and temp_session_id.
-
-  If client and session cookies are missing in the request, The Nameless Analytics Server-side Client Tag deletes temp_client_id and temp_session_id from the payload and uses them to create a client and session cookie.
-
-  If client cookie is present but session cookie is not, the Nameless Analytics Server-side Client Tag ignores temp_client_id value and recreates a client cookie with the same value and a session cookie with the value of temp_session_id. **[IMMAGINI DA AGGIORNARE]**
-
-  If the client and session cookies already exist, the Nameless Analytics Server-side Client Tag ignores that values and recreates the two cookies with the same values and uses the existing cookie values instead.
-
+- When ```analytics_storage``` is equal to denied, the tag waits until consent is granted. 
+- When ```analytics_storage``` changes from denied to granted, all pending tags for that page will be fired in execution order.
 - When ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
   
 If ```respect_consent_mode``` is disabled, all events are tracked regardless user consents.
