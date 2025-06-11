@@ -125,12 +125,12 @@ Call the get_status_code() utility function and add page status code in event_da
 
 ## Advanced settings
 ### Respect Google Consent Mode
-If ```respect_consent_mode``` is enabled, the events are tracked only if a user consents.
-- When ```analytics_storage``` is equal to denied, the tag waits until consent is granted. 
-- When ```analytics_storage``` changes from denied to granted, all pending tags for that page will be fired in execution order.
-- When ```analytics_storage``` is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
+If respect_consent_mode is enabled, the events are tracked only if a user consents.
+- When analytics_storage is equal to denied, the tag waits until consent is granted. 
+- When analytics_storage changes from denied to granted, all pending tags for that page will be fired in execution order.
+- When analytics_storage is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
   
-If ```respect_consent_mode``` is disabled, all events are tracked regardless user consents.
+If respect_consent_mode is disabled, all events are tracked regardless user consents.
 
 
 ### Enable cross-domain tracking
@@ -142,15 +142,15 @@ Set up the [Endpoint domain name regex lookup table](#endpoint_domain_name) firs
 
 Please note that also the server-side GTM container must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
-If ```enable_cross_domain_tracking``` option is enabled and respect_consent_mode is false or respect_consent_mode is true and analytics_storage is granted, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click.  When a user clicks on a cross-domain link, the event listener sends a ```get_user_data``` request to the Nameless Analytics Server-Side client tag. 
+If enable_cross_domain_tracking option is enabled and respect_consent_mode is false or respect_consent_mode is true and analytics_storage is granted, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click.  When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag. 
 
-The Nameless Analytics Server-Side client tag responds with the two cookie values and the JavaScript event listener decorates the URL with a parameter named ```na_id```. After that, the user is redirected to the destination website. 
+The Nameless Analytics Server-Side client tag responds with the two cookie values and the JavaScript event listener decorates the URL with a parameter named na_id. After that, the user is redirected to the destination website. 
 
-When the user lands on the destination website and a page_view event is trigger, the Nameless Analytics Client-Side tracker tag checks if there is a ```na_id``` parameter in the URL. If it is present, the hit will contain a ```cross_domain_id``` parameter.
+When the user lands on the destination website and a page_view event is trigger, the Nameless Analytics Client-Side tracker tag checks if there is a na_id parameter in the URL. If it is present, the hit will contain a cross_domain_id parameter.
 
 The Nameless Analytics Server-Side client tag will add it to the request and set back the cookies with those values.
 
-If ```enable_cross_domain_tracking``` option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side tracker tag will not set any listener or will not send any hit if the consent was change from granted to denied.
+If `enable_cross_domain_tracking option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side tracker tag will not set any listener or will not send any hit if the consent was change from granted to denied.
 
 
 ### Customize source and campaigns url parameters
