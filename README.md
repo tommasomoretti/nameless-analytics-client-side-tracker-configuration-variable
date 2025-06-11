@@ -47,6 +47,11 @@ The domain name of the server-side GTM instance. The tag assumes the protocol is
 
 Example: gtm.domain.com
 
+If two website share the same container and [cross-domain tracking](#enable-cross-domain-tracking) is enabled, the endpoint domain must be dynamic. Create a regex lookup table to handle this behaviour, for main domains and sub domains.
+
+<img width="821" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d" />
+
+
 ### Endpoint path
 The endpoint path where the Nameless Analytics Server-side Client Tag listens. 
 
@@ -131,12 +136,14 @@ If ```respect_consent_mode``` is disabled, all events are tracked regardless use
 ### Enable cross-domain tracking
 This setting enables the transfer of client_id and session_id data across two or more websites via URL GET parameter. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
 
-Please note that the server-side GTM container and the Nameless Analytics Server-side client tag must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
+Create a lookup table variable with 
 
-#### Cross-domain tracking enabled
-Enable cross-domain tracking. Add the domains one for row.
+Add the domains one for row.
 
 <img width="818" alt="Screenshot 2025-01-16 alle 14 33 32" src="https://github.com/user-attachments/assets/0ed6a515-8fd3-4834-8a7b-f1f19491a63f" />
+
+
+Please note that also the server-side GTM container must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
 If ```enable_cross_domain_tracking``` option is enabled, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click.  When a user clicks on a cross-domain link, the event listener sends a ```get_user_data``` request to the Nameless Analytics Server-Side client tag. 
 
