@@ -134,7 +134,7 @@ If ```respect_consent_mode``` is disabled, all events are tracked regardless use
 
 
 ### Enable cross-domain tracking
-This setting enables the transfer of client_id and session_id data across two or more websites via URL GET parameter. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
+Enables the transfer of client_id and session_id data across two or more websites via URL GET parameter. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
 
 Set up the [Endpoint domain name regex lookup table](#endpoint_domain_name) first and add the domains one for row.
 
@@ -154,13 +154,13 @@ If ```enable_cross_domain_tracking``` option is disabled or respect_consent_mode
 
 
 ### Customize source and campaigns url parameters
-Override the default URL query parameter names used to track source and campaign parameters. By default, these values are taken from UTM parameters.
+Override the default URL query parameter names used to track source and campaign parameters. By default, these values are taken from standard UTM parameters.
 
 
 ### Change default JavaScript page view event names
 Override the default JavaScript event names for page_view and virtual_page_view. Update these values if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from gtm.js (for page views) or gtm.historyChange (for virtual page views).
 
-When an event is fired, the Nameless Analytics Client-side Tracker Tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
+When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
 
 
 ### Load main library from custom location
