@@ -164,7 +164,7 @@ When an event is fired, the Nameless Analytics Client-side tracker tag checks if
 
 
 ### Load main library from custom location
-Lorem ipsum
+Override the default location from main library. 
 
 
 ### Enable logs in JavaScript console
