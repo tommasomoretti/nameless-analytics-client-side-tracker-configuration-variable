@@ -49,7 +49,7 @@ Example: gtm.domain.com
 
 If two website share the same container and [cross-domain tracking](#enable-cross-domain-tracking) is enabled, the endpoint domain must be dynamic. Create a regex lookup table to handle this behaviour, for main domains and sub domains.
 
-<img width="821" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d" />
+<img width="1265" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d" />
 
 
 ### Endpoint path
@@ -138,7 +138,7 @@ Enables the transfer of client_id and session_id data across two or more website
 
 Set up the [Endpoint domain name regex lookup table](#endpoint_domain_name) first and add the domains one for row.
 
-<img width="818" alt="Screenshot 2025-01-16 alle 14 33 32" src="https://github.com/user-attachments/assets/0ed6a515-8fd3-4834-8a7b-f1f19491a63f" />
+<img width="1265" alt="Screenshot 2025-01-16 alle 14 33 32" src="https://github.com/user-attachments/assets/0ed6a515-8fd3-4834-8a7b-f1f19491a63f" />
 
 Please note that also the server-side GTM container must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
