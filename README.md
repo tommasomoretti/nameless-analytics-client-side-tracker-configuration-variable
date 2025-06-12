@@ -22,7 +22,7 @@ Start from here:
 - Event data
   - [Event parameters](#event-parameters)
     - [Add shared event parameters](#add-shared-event-parameters)
-    - [Add last dataLayer status](#add-last-dataLayer-status)
+    - [Add current dataLayer state](#add–current-dataLayer-state)
     - [Add page status code](#add-page-status-code)
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
@@ -115,7 +115,7 @@ These parameters can be overridden by:
 - parameter added for a specific event in Nameless Analytics Client-side tracker tag
 - parameter added for a specific request in Nameless Analytics Server-side client tag
 
-#### Add last dataLayer status
+#### Add current dataLayer state
 Add the current state of the dataLayer in dataLayer field in the payload.  
 
 #### Add page status code
