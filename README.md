@@ -22,7 +22,6 @@ Start from here:
 - Event data
   - [Event parameters](#event-parameters)
     - [Add shared event parameters](#add-shared-event-parameters)
-    - [Add current dataLayer state](#add–current-dataLayer-state)
     - [Add page status code](#add-page-status-code)
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
@@ -30,6 +29,7 @@ Start from here:
   - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
   - [Change default JavaScript page view event names](#change-default-JavaScript-page-view-event-names)
   - [Load main library from custom location](#load-main-library-from-custom-location)
+  - [Add current dataLayer state](#add–current-dataLayer-state)
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
 
 
@@ -115,9 +115,6 @@ These parameters can be overridden by:
 - parameter added for a specific event in Nameless Analytics Client-side tracker tag
 - parameter added for a specific request in Nameless Analytics Server-side client tag
 
-#### Add current dataLayer state
-Add the current state of the dataLayer in dataLayer field in the payload.  
-
 #### Add page status code
 Call the get_status_code() utility function and add page status code in event_data.page_status_code field in the payload.
 
@@ -166,6 +163,8 @@ When an event is fired, the Nameless Analytics Client-side tracker tag checks if
 ### Load main library from custom location
 Override the default location from main library. 
 
+### Add current dataLayer state
+Add the current state of the dataLayer in dataLayer field in the payload.  
 
 ### Enable logs in JavaScript console
 Enable console log for all events in JavaScript console.
