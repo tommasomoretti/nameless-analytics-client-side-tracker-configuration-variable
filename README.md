@@ -37,7 +37,7 @@ Start from here:
 ## Variable UI
 This is the UI of the Client-side configuration variable. This variable will handle settings like sets user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
-<img width="1265" alt="Screenshot 2025-06-03 alle 15 43 28" src="https://github.com/user-attachments/assets/e79fbc8e-41b5-45b1-b068-2a0cf8ef6e7e" />
+![CS variable](https://github.com/user-attachments/assets/bc330ae8-c382-4203-80c0-8ec5ae3a6bd4)
 
 
 
