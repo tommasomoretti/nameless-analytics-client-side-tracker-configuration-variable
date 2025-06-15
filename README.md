@@ -64,7 +64,7 @@ Example: /collect/nameless_analytics
 Add user parameters for all events. The parameters will be added in the user object in the payload.
 
 They are:
-- write in Google Cloud Firestore every time they change --> last update 
+- write in Google Cloud Firestore every time they change --> latest update 
 - read and sent to BigQuery with the current parameter status --> every update 
 
 Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
@@ -91,7 +91,7 @@ These parameter can be overridden by:
 Add session parameters for all events. The parameters will be added in the session object in the payload.
 
 They are:
-- write in Google Cloud Firestore every time they change --> last update 
+- write in Google Cloud Firestore every time they change --> latest update 
 - read and sent to BigQuery with the current parameter status --> every update 
 
 Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
