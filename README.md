@@ -114,7 +114,7 @@ Add event parameters for all events. The parameters will be added in the event_d
 Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
 
 This is the hierarchy of event parameter importance: 
-[Server side parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/blob/main/README.md#event-parameters) > [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#event-parameters) > [Shared parameters](#add-shared-event-parameters) > [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) > [Standard parameters](https://github.com/tommasomoretti/nameless-analytics/blob/main/README.md#standard-request-payload)
+[Server-side parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/blob/main/README.md#addoverride-event-parameters) overrides [Specific event parameters](#addoverride-event-parameters) overrides [Shared parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/edit/main/README.md#add-shared-event-parameters) overrides [dataLayer parameters](#add-event-parameters-from-datalayer) overrides [Standard parameters](#standard-payload)
 
 #### Add shared event parameters
 Add shared event parameters in event_data object in the payload. Values accepted: strings, integers, float and json.
