@@ -97,7 +97,7 @@ They are:
 Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
 
 This is the hierarchy of event parameter importance: 
-[Server side parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/blob/main/README.md#session-parameters) > [User parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/blob/main/README.md#session-parameters)
+[Server side parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/blob/main/README.md#session-parameters) > [Session parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/blob/main/README.md#session-parameters)
 
 #### Add session level parameters
 Add session level parameters in session_data object in the payload. Values accepted: strings, integers, float and json.
