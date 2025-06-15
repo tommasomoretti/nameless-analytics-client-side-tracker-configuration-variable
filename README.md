@@ -61,11 +61,16 @@ Example: /collect/nameless_analytics
 
 ## User data
 ### User parameters
-Add session level parameters for all event. 
+Add user parameters for all events. The parameters will be added in the user object in the payload.
 
 They are:
 - write in Google Cloud Firestore every time they change --> last update 
 - read and sent to BigQuery with the current parameter status --> every update 
+
+Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
+
+This is the hierarchy of event parameter importance: 
+[Server side parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/blob/main/README.md#user-parameters) > [User parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/blob/main/README.md#user-parameters)
 
 #### Add User ID
 Add User ID parameters in user_id field. 
@@ -76,22 +81,29 @@ This parameter can be overridden by [modifying the users ID](https://github.com/
 #### Add user level parameters
 Add user level parameters in user_data object in the payload. Values accepted: strings, integers, float and json.
 
-These parameter can not be overridden.
+These parameter can be overridden by:
+- parameter added for a specific request in Nameless Analytics Server-side client tag
 
 
 
 ## Session data
 ### Session parameters
-Add session level parameters for all event. 
+Add session parameters for all events. The parameters will be added in the session object in the payload.
 
 They are:
 - write in Google Cloud Firestore every time they change --> last update 
-- read and sent to BigQuery with the current parameter status --> every update
+- read and sent to BigQuery with the current parameter status --> every update 
+
+Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
+
+This is the hierarchy of event parameter importance: 
+[Server side parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/blob/main/README.md#session-parameters) > [User parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/blob/main/README.md#session-parameters)
 
 #### Add session level parameters
 Add session level parameters in session_data object in the payload. Values accepted: strings, integers, float and json.
 
-These parameter can not be overridden.
+These parameter can be overridden by:
+- parameter added for a specific request in Nameless Analytics Server-side client tag
 
 
 
@@ -102,7 +114,7 @@ Add event parameters for all events. The parameters will be added in the event_d
 Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
 
 This is the hierarchy of event parameter importance: 
-[Server side parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#addoverride-event-parameters) > [Shared parameters](#add-shared-event-parameters) > [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) > [Standard parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/edit/main/README.md#standard-payload)
+[Server side parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/blob/main/README.md#event-parameters) > [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#event-parameters) > [Shared parameters](#add-shared-event-parameters) > [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/blob/main/README.md#add-event-parameters-from-datalayer) > [Standard parameters](https://github.com/tommasomoretti/nameless-analytics/edit/main/README.md#standard-payload)
 
 #### Add shared event parameters
 Add shared event parameters in event_data object in the payload. Values accepted: strings, integers, float and json.
