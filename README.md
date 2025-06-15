@@ -25,11 +25,11 @@ Start from here:
     - [Add page status code](#add-page-status-code)
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
-  - [Enable cross domain tracking](#enable-cross-domain-tracking)
+  - [Enable cross-domain tracking](#enable-cross-domain-tracking)
   - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
   - [Change default JavaScript page view event names](#change-default-JavaScript-page-view-event-names)
   - [Load main library from custom location](#load-main-library-from-custom-location)
-  - [Add current dataLayer state](#add–current-dataLayer-state)
+  - [Add current dataLayer state](#add-current-dataLayer-state)
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
 
 
