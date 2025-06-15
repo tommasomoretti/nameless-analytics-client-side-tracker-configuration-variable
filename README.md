@@ -54,7 +54,7 @@ If two website share the same container and [cross-domain tracking](#enable-cros
 ### Endpoint path
 The endpoint path where the Nameless Analytics Server-side Client Tag listens. 
 
-Example: /collect/nameless_analytics
+Example: /nameless_analytics/endpoint
 
 
 
