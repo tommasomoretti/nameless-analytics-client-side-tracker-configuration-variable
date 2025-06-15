@@ -159,7 +159,7 @@ When the user lands on the destination website and a page_view event is trigger,
 
 The Nameless Analytics Server-Side client tag will add it to the request and set back the cookies with those values.
 
-If `enable_cross_domain_tracking option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side tracker tag will not set any listener or will not send any hit if the consent was change from granted to denied.
+If enable_cross_domain_tracking option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side tracker tag will not set any listener or will not send any hit if the consent was change from granted to denied.
 
 
 ### Customize source and campaigns url parameters
