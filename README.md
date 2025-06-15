@@ -83,7 +83,7 @@ This parameter can be overridden by [modifying the users ID](https://github.com/
 Add user level parameters in user_data object in the payload. Values accepted: strings, integers, float and json.
 
 These parameter can be overridden by:
-- parameter added for a specific request in Nameless Analytics Server-side client tag
+- user parameters added for a specific request in Nameless Analytics Server-side client tag
 
 
 
@@ -105,7 +105,7 @@ This is the hierarchy of event parameter importance:
 Add session level parameters in session_data object in the payload. Values accepted: strings, integers, float and json.
 
 These parameter can be overridden by:
-- parameter added for a specific request in Nameless Analytics Server-side client tag
+- session parameters added for a specific request in Nameless Analytics Server-side client tag
 
 
 
@@ -123,12 +123,12 @@ This is the hierarchy of event parameter importance:
 Add shared event parameters in event_data object in the payload. Values accepted: strings, integers, float and json.
 
 These parameters can override:
-- default parameters
-- parameters taken from dataLayer added in Nameless Analytics Client-side tracker tag
+- default event parameters
+- dataLayer event parameters added in Nameless Analytics Client-side tracker tag
 
 These parameters can be overridden by:
-- parameter added for a specific event in Nameless Analytics Client-side tracker tag
-- parameter added for a specific request in Nameless Analytics Server-side client tag
+- event parameters added in Nameless Analytics Client-side tracker tag
+- event parameters added in Nameless Analytics Server-side client tag
 
 #### Add page status code
 Call the get_status_code() utility function and add page status code in event_data.page_status_code field in the payload.
