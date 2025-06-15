@@ -97,7 +97,7 @@ These parameter can not be overridden.
 
 ## Event data
 ### Event parameters
-Add event parameters for all events. 
+Add event parameters for all events. The parameters will be added in the event_data object in the payload.
 
 Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
 
