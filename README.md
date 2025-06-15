@@ -48,7 +48,7 @@ Example: gtm.domain.com
 
 If two website share the same container and [cross-domain tracking](#enable-cross-domain-tracking) is enabled, the endpoint domain must be dynamic. Create a regex lookup table to handle this behaviour, for main domains and sub domains.
 
-<img width="1265" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d" />
+<img width="1265" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d" /overrides
 
 
 ### Endpoint path
@@ -63,14 +63,14 @@ Example: /nameless_analytics/endpoint
 Add user parameters for all events. The parameters will be added in the user_data object in the payload.
 
 They are:
-- write in Google Cloud Firestore every time they change --> latest update 
-- read and sent to BigQuery with the current parameter status --> every update 
+- write in Google Cloud Firestore every time they change --overrides latest update 
+- read and sent to BigQuery with the current parameter status --overrides every update 
 
 Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
 
 This is the hierarchy of event parameter importance: 
 
-[Server-side user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/blob/main/README.md#user-parameters) > [User parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/blob/main/README.md#user-parameters)
+[Server-side user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/blob/main/README.md#user-parameters) overrides [User parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/blob/main/README.md#user-parameters)
 
 #### Add User ID
 Add User ID parameters in user_id field. 
@@ -91,14 +91,14 @@ These parameter can be overridden by:
 Add session parameters for all events. The parameters will be added in the session_data object in the payload.
 
 They are:
-- write in Google Cloud Firestore every time they change --> latest update 
-- read and sent to BigQuery with the current parameter status --> every update 
+- write in Google Cloud Firestore every time they change --overrides latest update 
+- read and sent to BigQuery with the current parameter status --overrides every update 
 
 Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
 
 This is the hierarchy of event parameter importance: 
 
-[Server-side session parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/blob/main/README.md#session-parameters) > [Session parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/blob/main/README.md#session-parameters)
+[Server-side session parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/blob/main/README.md#session-parameters) overrides [Session parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/blob/main/README.md#session-parameters)
 
 #### Add session level parameters
 Add session level parameters in session_data object in the payload. Values accepted: strings, integers, float and json.
@@ -146,7 +146,7 @@ Enables the transfer of client_id and session_id data across two or more website
 
 Set up the [Endpoint domain name regex lookup table](#endpoint_domain_name) first and add the domains one for row.
 
-<img width="1265" alt="Screenshot 2025-01-16 alle 14 33 32" src="https://github.com/user-attachments/assets/0ed6a515-8fd3-4834-8a7b-f1f19491a63f" />
+<img width="1265" alt="Screenshot 2025-01-16 alle 14 33 32" src="https://github.com/user-attachments/assets/0ed6a515-8fd3-4834-8a7b-f1f19491a63f" /overrides
 
 Please note that also the server-side GTM container must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
