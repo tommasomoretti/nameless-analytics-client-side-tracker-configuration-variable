@@ -73,7 +73,7 @@ Please note: if a parameter has the same name as another, it can override or be 
 
 This is the hierarchy of event parameter importance: 
 
-[Server-side user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/blob/main/README.md#user-parameters) overrides [User parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/blob/main/README.md#user-parameters)
+[Server-side user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag#user-parameters) overrides [User parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable#user-parameters)
 
 #### Add User ID
 Add User ID parameters in user_id field. 
