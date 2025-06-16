@@ -66,8 +66,8 @@ Example: /nameless_analytics/endpoint
 Add user parameters for all events. The parameters will be added in the user_data object in the payload.
 
 They are:
-- write in Google Cloud Firestore every time they change --overrides latest update 
-- read and sent to BigQuery with the current parameter status --overrides every update 
+- wrote in Google Cloud Firestore every time they change --overrides latest update 
+- readed and sent to BigQuery with the current parameter status --overrides every update 
 
 Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
 
@@ -78,14 +78,13 @@ This is the hierarchy of event parameter importance:
 #### Add User ID
 Add User ID parameters in user_id field. 
 
-This parameter can be overridden by [modifying the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#modify-user-id-parameter) in Nameless Analytics Server-side client tag
+This parameter can be overridden modifying [the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#modify-user-id-parameter) in Nameless Analytics Server-Side client tag.
 
 
 #### Add user level parameters
 Add user level parameters in user_data object in the payload. Values accepted: strings, integers, float and json.
 
-These parameter can be overridden by:
-- user parameters added for a specific request in Nameless Analytics Server-side client tag
+These parameter can be overridden adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#user-parameters) in Nameless Analytics Server-side client tag.
 
 
 
@@ -94,8 +93,8 @@ These parameter can be overridden by:
 Add session parameters for all events. The parameters will be added in the session_data object in the payload.
 
 They are:
-- write in Google Cloud Firestore every time they change --overrides latest update 
-- read and sent to BigQuery with the current parameter status --overrides every update 
+- wrote in Google Cloud Firestore every time they change --overrides latest update 
+- readed and sent to BigQuery with the current parameter status --overrides every update 
 
 Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
 
@@ -106,8 +105,7 @@ This is the hierarchy of event parameter importance:
 #### Add session level parameters
 Add session level parameters in session_data object in the payload. Values accepted: strings, integers, float and json.
 
-These parameter can be overridden by:
-- session parameters added for a specific request in Nameless Analytics Server-side client tag
+These parameter can be overridden adding [session parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#session-parameters) in Nameless Analytics Server-side client tag.
 
 
 
@@ -119,7 +117,7 @@ Please note: if a parameter has the same name as another, it can override or be 
 
 This is the hierarchy of event parameter importance: 
 
-[Server-side event parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#addoverride-event-parameters) overrides [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#addoverride-event-parameters) overrides [Shared event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/#add-shared-event-parameters) overrides [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#add-event-parameters-from-datalayer) overrides [Standard parameters](#standard-payload)
+[Server-side event parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#event-parameters) overrides [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#event-parameters) overrides [Shared event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/#add-shared-event-parameters) overrides [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#add-event-parameters-from-datalayer) overrides [Standard parameters](#standard-payload)
 
 #### Add shared event parameters
 Add shared event parameters in event_data object in the payload. Values accepted: strings, integers, float and json.
