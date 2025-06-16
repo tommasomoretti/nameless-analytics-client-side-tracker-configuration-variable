@@ -39,7 +39,7 @@ Start from here:
 ## Variable UI
 This is the UI of the Client-side configuration variable. This variable will handle settings like sets user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
-![CS variable](https://github.com/user-attachments/assets/bc330ae8-c382-4203-80c0-8ec5ae3a6bd4)
+![Nameless Analytics - Client-side configuration variable UI](https://github.com/user-attachments/assets/bc330ae8-c382-4203-80c0-8ec5ae3a6bd4)
 
 
 
