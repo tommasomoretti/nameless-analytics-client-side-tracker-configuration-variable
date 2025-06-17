@@ -134,12 +134,12 @@ These parameters can be overridden by:
 
 ## Advanced settings
 ### Respect Google Consent Mode
-If respect_consent_mode is enabled, the events are tracked only if a user consents.
+When Google Consent Mode is present on website and respect_consent_mode is enabled, the events are sent only if a user consents.
 - When analytics_storage is equal to denied, the tag waits until consent is granted. 
 - When analytics_storage changes from denied to granted, all pending tags for that page will be fired in execution order.
 - When analytics_storage is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
   
-If respect_consent_mode is disabled, all events are tracked regardless user consents.
+When Google Consent Mode is not present on website or Google Consent Mode is present on website and respect_consent_mode is disabled, all events are sent regardless user consents. 
 
 
 ### Enable cross-domain tracking
