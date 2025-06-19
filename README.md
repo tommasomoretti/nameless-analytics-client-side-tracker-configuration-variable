@@ -10,7 +10,7 @@ The Nameless Analytics Client-side configuration variable is a highly customizab
 
 For an overview of how Nameless Analytics works [start from here](https://github.com/tommasomoretti/nameless-analytics/).
 
-Start from here:
+Table of contents:
 - [Client-side configuration variable UI](#variable-ui)
 - Basic settings
   - [Endpoint domain name](#endpoint-domain-name)
