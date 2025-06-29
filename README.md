@@ -173,7 +173,7 @@ When an event is fired, the Nameless Analytics Client-side tracker tag checks if
 
 
 ### Load main library from custom location
-Override the default location from main library. 
+Override the default location of the main library. 
 
 ### Add current dataLayer state
 Add the current state of the dataLayer in dataLayer field in the payload.  
