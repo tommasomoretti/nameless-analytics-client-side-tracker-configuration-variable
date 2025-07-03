@@ -165,20 +165,22 @@ If enable_cross_domain_tracking option is disabled or respect_consent_mode is tr
 
 
 ### Customize source and campaigns url parameters
-Override the default URL query parameter names used to track source and campaign parameters. By default, these values are taken from standard UTM parameters.
+Override the default URL query parameter names used as source and campaign parameters. By default, these values are taken from standard UTM parameters.
 
 
 ### Change default JavaScript page view event names
 Override the default JavaScript event names for page_view and virtual_page_view. Update these values if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from gtm.js (for page views) or gtm.historyChange (for virtual page views).
 
-When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
+Please note: When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
 
 
 ### Load main library from custom location
 Override the default location of the main library. 
 
+
 ### Add current dataLayer state
 Add the current state of the dataLayer in dataLayer field in the payload.  
+
 
 ### Enable logs in JavaScript console
 Enable console log for all events in JavaScript console.
