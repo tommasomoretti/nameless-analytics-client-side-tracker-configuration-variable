@@ -149,13 +149,15 @@ Set up the [Endpoint domain name regex lookup table](#endpoint_domain_name) firs
 
 <img width="1265" alt="Screenshot 2025-01-16 alle 14 33 32" src="https://github.com/user-attachments/assets/0ed6a515-8fd3-4834-8a7b-f1f19491a63f"/>
 
-Please note that also the server-side GTM container must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
+Please note: the server-side GTM container must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
-If enable_cross_domain_tracking option is enabled and respect_consent_mode is false or respect_consent_mode is true and analytics_storage is granted, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click.  When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag. 
+#### How cross-domain tracking works
+
+If enable_cross_domain_tracking option is enabled and respect_consent_mode is false or respect_consent_mode is true and analytics_storage is granted, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click. When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag. 
 
 The Nameless Analytics Server-Side client tag responds with the two cookie values and the JavaScript event listener decorates the URL with a parameter named na_id. After that, the user is redirected to the destination website. 
 
-When the user lands on the destination website and a page_view event is trigger, the Nameless Analytics Client-Side tracker tag checks if there is a na_id parameter in the URL. If it is present, the hit will contain a cross_domain_id parameter.
+When the user lands on the destination website and a page_view event is triggered, the Nameless Analytics Client-Side tracker tag checks if there is a na_id parameter in the URL. If it is present, the hit will contain a cross_domain_id parameter.
 
 The Nameless Analytics Server-Side client tag will add it to the request and set back the cookies with those values.
 
