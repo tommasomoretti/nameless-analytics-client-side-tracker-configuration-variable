@@ -144,25 +144,28 @@ Enable cross domain tracking and add the domains one for row.
 
 <img width="1265" alt="Screenshot 2025-07-03 alle 18 39 25" src="https://github.com/user-attachments/assets/274c4dce-719e-4d79-bfbe-88e6c31d5f5c" />
 
-If the domains do not share the same Nameless Analytics Server-side client tag, the endpoint domain can be static.
+#### If the domains do not share the same Nameless Analytics Server-side client tag
+With this configuration the endpoint domain can be static.
 
-If multiple domains share the same Nameless Analytics Server-side client tag the endpoint domain must be dynamic.
+#### If multiple domains share the same Nameless Analytics Server-side client tag 
+With this configuration the endpoint domain must be dynamic.
 
 This is necessary because when the Nameless Analytics Server-side client tag claims a request, it responds with a Set-Cookie header that includes the Domain attribute. 
 To correctly set the Nameless Analytics cookies, the Domain attribute must match the domain or be a subdomain of the webpage’s domain that has sent the request.
-
-<img width="1265" alt="Screenshot 2025-07-03 alle 18 55 52" src="https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b" />
-
 
 Therefore:
 - Requests originating from domain_1.com must be sent to gtm.domain_1.com
 - Requests originating from domain_2.com must be sent to gtm.domain_2.com
 
+Otherwise:
+
+<img width="1265" alt="Screenshot 2025-07-03 alle 18 55 52" src="https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b" />
+
 To handle this behaviour, create a regex lookup table to send requests to different domains endpoint. 
 
 <img width="1265" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d">
 
-Please note: the server-side GTM container must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
+Please note: the server-side GTM container must olso be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
 #### How cross-domain tracking works
 
