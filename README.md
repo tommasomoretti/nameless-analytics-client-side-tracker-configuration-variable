@@ -49,10 +49,6 @@ The domain name of the server-side GTM instance. The tag assumes the protocol is
 
 Example: gtm.domain.com
 
-If two website share the same container and [cross-domain tracking](#enable-cross-domain-tracking) is enabled, the endpoint domain must be dynamic. Create a regex lookup table to handle this behaviour, for main domains and sub domains.
-
-<img width="1265" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d">
-
 
 ### Endpoint path
 The endpoint path where the Nameless Analytics Server-side Client Tag listens. 
@@ -148,7 +144,9 @@ Enable cross domain tracking and add the domains one for row.
 
 <img width="1265" alt="Screenshot 2025-07-03 alle 18 39 25" src="https://github.com/user-attachments/assets/274c4dce-719e-4d79-bfbe-88e6c31d5f5c" />
 
-Set up the [Endpoint domain name regex lookup table](#endpoint-domain-name).
+If the domains share the same GTM container, the endpoint domain must be dynamic. This is because when a server responds with a Set-Cookie header that includes the Domain attribute, this attribute must be a valid domain and must match or be a subdomain of the domain of the webpage receiving the cookie. To handle this behaviour, create a regex lookup table to send requests to different domains endpoint. 
+
+<img width="1265" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d">
 
 Please note: the server-side GTM container must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
@@ -160,7 +158,7 @@ The Nameless Analytics Server-Side client tag responds with the two cookie value
 
 When the user lands on the destination website and a page_view event is triggered, the Nameless Analytics Client-Side tracker tag checks if there is a na_id parameter in the URL. If it is present, the hit will contain a cross_domain_id parameter.
 
-The Nameless Analytics Server-Side client tag will add it to the request and set back the cookies with those values.
+The Nameless Analytics Server-Side client tag will add it to the request and set back the cookies with those values. 
 
 If enable_cross_domain_tracking option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side tracker tag will not set any listener or will not send any hit if the consent was change from granted to denied.
 
