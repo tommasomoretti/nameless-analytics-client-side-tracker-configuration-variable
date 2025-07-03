@@ -148,7 +148,7 @@ Enable cross domain tracking and add the domains one for row.
 
 <img width="1265" alt="Screenshot 2025-07-03 alle 18 39 25" src="https://github.com/user-attachments/assets/274c4dce-719e-4d79-bfbe-88e6c31d5f5c" />
 
-Set up the [Endpoint domain name regex lookup table](#endpoint_domain_name).
+Set up the [Endpoint domain name regex lookup table](#endpoint-domain-name).
 
 Please note: the server-side GTM container must be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
