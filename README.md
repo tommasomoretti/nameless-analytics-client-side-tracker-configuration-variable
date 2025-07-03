@@ -140,6 +140,8 @@ When Google Consent Mode is not present on website or Google Consent Mode is pre
 ### Enable cross-domain tracking
 Enables the transfer of client_id and session_id data across two or more websites via URL GET parameter. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
 
+Please note: the server-side GTM container must olso be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
+
 Enable cross domain tracking and add the domains one for row.
 
 <img width="1265" alt="Screenshot 2025-07-03 alle 18 39 25" src="https://github.com/user-attachments/assets/274c4dce-719e-4d79-bfbe-88e6c31d5f5c" />
@@ -164,8 +166,6 @@ Otherwise:
 To handle this behaviour, create a regex lookup table to send requests to different domains endpoint. 
 
 <img width="1265" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d">
-
-Please note: the server-side GTM container must olso be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
 #### How cross-domain tracking works
 
