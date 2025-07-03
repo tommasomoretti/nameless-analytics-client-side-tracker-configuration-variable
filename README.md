@@ -80,7 +80,6 @@ Add User ID parameters in user_id field.
 
 This parameter can be overridden modifying [the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#modify-user-id-parameter) in Nameless Analytics Server-Side client tag.
 
-
 #### Add user level parameters
 Add user level parameters in user_data object in the payload. Values accepted: strings, integers, float and json.
 
