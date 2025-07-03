@@ -163,7 +163,7 @@ Otherwise:
 
 <img width="1265" alt="Screenshot 2025-07-03 alle 18 55 52" src="https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b" />
 
-To handle this behaviour, create a regex lookup table to send requests to different domains endpoint. 
+To save cookie correctly, create a regex lookup table to send requests to different domains endpoint. With this configuration the Domain attribute in the Set-Cookie header will match the request origin. 
 
 <img width="1265" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d">
 
