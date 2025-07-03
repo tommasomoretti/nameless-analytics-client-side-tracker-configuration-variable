@@ -147,7 +147,7 @@ Enable cross domain tracking and add the domains one for row.
 <img width="1265" alt="Screenshot 2025-07-03 alle 18 39 25" src="https://github.com/user-attachments/assets/274c4dce-719e-4d79-bfbe-88e6c31d5f5c" />
 
 #### If the domains do not share the same Nameless Analytics Server-side client tag
-With this configuration the endpoint domain can be static.
+With this configuration the endpoint domain can be static as [described here](#endpoint-domain-name).
 
 #### If multiple domains share the same Nameless Analytics Server-side client tag 
 With this configuration the endpoint domain must be dynamic.
