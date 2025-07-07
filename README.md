@@ -157,7 +157,7 @@ Therefore:
 - Requests originating from domain_1.com must be sent to gtm.domain_1.com
 - Requests originating from domain_2.com must be sent to gtm.domain_2.com
 
-Otherwise:
+Otherwise the Set-Cookie header will not work:
 
 <img width="1265" alt="Screenshot 2025-07-03 alle 18 55 52" src="https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b" />
 
@@ -167,9 +167,9 @@ To save cookie correctly, create a regex lookup table to send requests to differ
 
 #### How cross-domain tracking works
 
-If enable_cross_domain_tracking option is enabled and respect_consent_mode is false or respect_consent_mode is true and analytics_storage is granted, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click. When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag. 
+If enable_cross_domain_tracking option is enabled and respect_consent_mode is false or respect_consent_mode is true and analytics_storage is granted, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click. 
 
-The Nameless Analytics Server-Side client tag responds with the two cookie values and the JavaScript event listener decorates the URL with a parameter named na_id, that is the actual session_id. 
+Because the cookies are not accessible from the browser (they are HttpOnly), when a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve the values. The Nameless Analytics Server-Side client tag responds with the two cookie values and the JavaScript event listener decorates the URL with a parameter named na_id, that is the actual session_id. 
 
 After that, the user is redirected to the destination website. 
 
