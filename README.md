@@ -166,10 +166,11 @@ To save cookie correctly, create a regex lookup table to send requests to differ
 <img width="1265" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d">
 
 #### How cross-domain tracking works
+Cross-domain functionality depends of [how Respect Google Consent Mode is set](#respect-google-consent-mode).
 
-If enable_cross_domain_tracking option is enabled and respect_consent_mode is false or respect_consent_mode is true and analytics_storage is granted, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click. 
+If enable_cross_domain_tracking option is enabled, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click.
 
-Because [cookies are not accessible from the browser](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cookies) (they are HttpOnly), when a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve the values. The Nameless Analytics Server-Side client tag responds with the two cookie values and the JavaScript event listener decorates the URL with a parameter named na_id, that is the actual session_id. 
+When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve cookies value since they are not accessible from the browser ([they are HttpOnly](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cookies)). The Nameless Analytics Server-Side client tag responds with the cookie values and the JavaScript event listener decorates the URL with a parameter named na_id with the current session_id.
 
 After that, the user is redirected to the destination website. 
 
