@@ -37,7 +37,7 @@ Table of contents:
 # Variable UI
 This is the UI of the Client-side configuration variable. This variable will handle settings like sets user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
-![Nameless Analytics - Client-side configuration variable UI](https://github.com/user-attachments/assets/259caf1b-bd89-487c-855a-f10f26902812)
+<img src="https://github.com/user-attachments/assets/259caf1b-bd89-487c-855a-f10f26902812" alt="Nameless Analytics - Client-side configuration variable UI" />
 
 
 
@@ -142,7 +142,8 @@ Please note: the server-side GTM container must olso be configured correctly to 
 
 Enable cross domain tracking and add the domains one for row.
 
-<img width="1265" alt="Screenshot 2025-07-03 alle 18 39 25" src="https://github.com/user-attachments/assets/274c4dce-719e-4d79-bfbe-88e6c31d5f5c" />
+<img src="https://github.com/user-attachments/assets/274c4dce-719e-4d79-bfbe-88e6c31d5f5c" alt="Enable cross-domain tracking" />
+
 
 ### If the domains do not share the same Nameless Analytics Server-side client tag
 With this configuration the endpoint domain can be static as [described here](#endpoint-domain-name).
@@ -159,11 +160,12 @@ Therefore:
 
 Otherwise the Set-Cookie header will not work:
 
-<img width="1265" alt="Screenshot 2025-07-03 alle 18 55 52" src="https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b" />
+<img src="https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b" alt="Enable cross-domain tracking" />
 
 To save cookie correctly, create a regex lookup table to send requests to different domains endpoint. With this configuration the Domain attribute in the Set-Cookie header will match the request origin. 
 
-<img width="1265" alt="Screenshot 2025-06-11 alle 11 22 04" src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d">
+<img src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d" alt="Enable cross-domain tracking" />
+
 
 ### How cross-domain tracking works
 Cross-domain functionality depends of [how Respect Google Consent Mode is set](#respect-google-consent-mode).
