@@ -3,13 +3,13 @@
 
 ---
 
-# Client-side configuration variable
-The Nameless Analytics Client-side configuration variable is a highly customizable GTM custom variable template designed to configure the settings of [Nameless Analytics Client-side tracker tag](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/). 
+# Client-side tracker configuration variable
+The Nameless Analytics Client-side tracker configuration variable is a highly customizable GTM custom variable template designed to configure the settings of [Nameless Analytics Client-side tracker tag](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/). 
 
 For an overview of how Nameless Analytics works [start from here](https://github.com/tommasomoretti/nameless-analytics/).
 
 Table of contents:
-- [Client-side configuration variable UI](#variable-ui)
+- [Client-side tracker configuration variable UI](#variable-ui)
 - Basic settings
   - [Endpoint domain name](#endpoint-domain-name)
   - [Endpoint path](#endpoint-path)
@@ -35,9 +35,9 @@ Table of contents:
 
 
 # Variable UI
-This is the UI of the Client-side configuration variable. This variable will handle settings like sets user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
+This is the UI of the Client-side tracker configuration variable. This variable will handle settings like sets user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
-<img src="https://github.com/user-attachments/assets/259caf1b-bd89-487c-855a-f10f26902812" alt="Nameless Analytics - Client-side configuration variable UI" />
+<img src="https://github.com/user-attachments/assets/259caf1b-bd89-487c-855a-f10f26902812" alt="Nameless Analytics - Client-side tracker configuration variable UI" />
 
 
 
