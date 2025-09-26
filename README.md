@@ -23,7 +23,7 @@ Table of contents:
 - Event data
   - [Event parameters](#event-parameters)
     - [Add shared event parameters](#add-shared-event-parameters)
-- [Page view settings](#page_view_settings)
+- Page view settings
   - [Add page status code](#add-page-status-code) 
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
@@ -128,6 +128,12 @@ These parameters can be overridden by:
 
 
 # Page view settings
+## Add page status code
+Add page status code to the request in the event_data when a page_view happens. This setting will be visible in the UI only when the event name is equal to page_view.
+
+<img src="https://github.com/user-attachments/assets/6446d49b-d8e7-4bd6-903a-1105ce0410a8" alt="Add page status code" />
+
+Please note: this will not work for virtual_page_view.
 
 
 
