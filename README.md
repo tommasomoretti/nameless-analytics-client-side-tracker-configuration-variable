@@ -9,7 +9,7 @@ The Nameless Analytics Client-side tracker configuration variable is a highly cu
 For an overview of how Nameless Analytics works [start from here](https://github.com/tommasomoretti/nameless-analytics/).
 
 Table of contents:
-- [Client-side tracker configuration variable UI](#variable-ui)
+- [Configuration variable UI](#variable-ui)
 - Basic settings
   - [Endpoint domain name](#endpoint-domain-name)
   - [Endpoint path](#endpoint-path)
