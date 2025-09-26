@@ -23,6 +23,8 @@ Table of contents:
 - Event data
   - [Event parameters](#event-parameters)
     - [Add shared event parameters](#add-shared-event-parameters)
+- [Page view settings](#page_view_settings)
+  - [Add page status code](#add-page-status-code) 
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
   - [Enable cross-domain tracking](#enable-cross-domain-tracking)
@@ -122,6 +124,10 @@ These parameters can override:
 These parameters can be overridden by:
 - event parameters added in Nameless Analytics Client-side tracker tag
 - event parameters added in Nameless Analytics Server-side client tag
+ 
+
+
+# Page view settings
 
 
 
