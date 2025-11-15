@@ -34,12 +34,20 @@ Table of contents:
   - [Add current dataLayer state](#add-current-dataLayer-state)
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
 
+</br>
+</br>
+</br>
+
 
 
 # Variable UI
 This is the UI of the Client-side tracker configuration variable. This variable will handle settings like sets user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
 <img src="https://github.com/user-attachments/assets/41cf3f6f-92ad-4338-b0e9-1fd8ad7f358b" alt="Nameless Analytics - Client-side tracker configuration variable UI" />
+
+</br>
+</br>
+</br>
 
 
 
@@ -49,11 +57,16 @@ The domain name of the server-side GTM instance. The tag assumes the protocol is
 
 Example: gtm.domain.com
 
+</br>
 
 ## Endpoint path
 The endpoint path where the Nameless Analytics Server-side Client Tag listens. 
 
 Example: /nameless_analytics/endpoint
+
+</br>
+</br>
+</br>
 
 
 
@@ -81,6 +94,10 @@ Add user level parameters in user_data object in the payload. Values accepted: s
 
 These parameter can be overridden adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#user-parameters) in Nameless Analytics Server-side client tag.
 
+</br>
+</br>
+</br>
+
 
 
 # Session data
@@ -101,6 +118,10 @@ This is the hierarchy of event parameter importance:
 Add session level parameters in session_data object in the payload. Values accepted: strings, integers, float and json.
 
 These parameter can be overridden adding [session parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#session-parameters) in Nameless Analytics Server-side client tag.
+
+</br>
+</br>
+</br>
 
 
 
@@ -125,6 +146,10 @@ These parameters can be overridden by:
 - event parameters added in Nameless Analytics Client-side tracker tag
 - event parameters added in Nameless Analytics Server-side client tag
  
+</br>
+</br>
+</br>
+
 
 
 # Page view settings
@@ -134,6 +159,10 @@ Add page status code to the request in the event_data when a page_view happens. 
 <img src="https://github.com/user-attachments/assets/6446d49b-d8e7-4bd6-903a-1105ce0410a8" alt="Add page status code" />
 
 Please note: this will not work for virtual_page_view.
+
+</br>
+</br>
+</br>
 
 
 
@@ -146,6 +175,7 @@ When Google Consent Mode is present on website and respect_consent_mode is enabl
   
 When Google Consent Mode is not present on website or Google Consent Mode is present on website and respect_consent_mode is disabled, all events are sent regardless user consents. 
 
+</br>
 
 ## Enable cross-domain tracking
 Enables the transfer of client_id and session_id data across two or more websites via URL GET parameter. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
@@ -174,10 +204,13 @@ Otherwise the Set-Cookie header will not work:
 
 <img src="https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b" alt="Enable cross-domain tracking" />
 
+</br>
+
 To save cookie correctly, create a regex lookup table to send requests to different domains endpoint. With this configuration the Domain attribute in the Set-Cookie header will match the request origin. 
 
 <img src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d" alt="Enable cross-domain tracking" />
 
+</br>
 
 ### How cross-domain tracking works
 Cross-domain functionality depends of [how Respect Google Consent Mode is set](#respect-google-consent-mode).
@@ -194,10 +227,12 @@ The Nameless Analytics Server-Side client tag will add it to the request and set
 
 If enable_cross_domain_tracking option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side tracker tag will not set any listener or will not send any hit if the consent was change from granted to denied.
 
+</br>
 
 ## Customize source and campaigns url parameters
 Override the default URL query parameter names used as source and campaign parameters. By default, these values are taken from standard UTM parameters.
 
+</br>
 
 ## Change default JavaScript page view event names
 Override the default JavaScript event names for page_view and virtual_page_view. Update these values if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from gtm.js (for page views) or gtm.historyChange (for virtual page views).
@@ -208,14 +243,18 @@ Please note: When an event is fired, the Nameless Analytics Client-side tracker 
 ## Load main library from custom location
 Override the default location of the main library. 
 
+</br>
 
 ## Add current dataLayer state
 Add the current state of the dataLayer in dataLayer field in the payload.  
 
+</br>
 
 ## Enable logs in JavaScript console
 Enable console log for all events in JavaScript console.
 
----
+</br>
+
+#
 
 Reach me at: [Email](mailto:hello@tommasomoretti.com) | [Website](https://tommasomoretti.com/?utm_source=github.com&utm_medium=referral&utm_campaign=nameless_analytics) | [Twitter](https://twitter.com/tommoretti88) | [Linkedin](https://www.linkedin.com/in/tommasomoretti/)
