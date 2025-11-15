@@ -84,10 +84,14 @@ This is the hierarchy of event parameter importance:
 
 [Server-side user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#user-parameters) overrides [User parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/#user-parameters)
 
+</br>
+
 ### Add User ID
 Add User ID parameters in user_id field. 
 
 This parameter can be overridden modifying [the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#modify-user-id-parameter) in Nameless Analytics Server-Side client tag.
+
+</br>
 
 ### Add user level parameters
 Add user level parameters in user_data object in the payload. Values accepted: strings, integers, float and json.
@@ -114,6 +118,8 @@ This is the hierarchy of event parameter importance:
 
 [Server-side session parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#session-parameters) overrides [Session parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/#session-parameters)
 
+</br>
+
 ### Add session level parameters
 Add session level parameters in session_data object in the payload. Values accepted: strings, integers, float and json.
 
@@ -134,6 +140,8 @@ Please note: if a parameter has the same name as another, it can override or be 
 This is the hierarchy of event parameter importance: 
 
 [Server-side event parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#event-parameters) overrides [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#event-parameters) overrides [Shared event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/#add-shared-event-parameters) overrides [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#add-event-parameters-from-datalayer) overrides [Standard parameters](#standard-request-payload)
+
+</br>
 
 ### Add shared event parameters
 Add shared event parameters in event_data object in the payload. Values accepted: strings, integers, float and json.
@@ -186,9 +194,12 @@ Enable cross domain tracking and add the domains one for row.
 
 <img src="https://github.com/user-attachments/assets/274c4dce-719e-4d79-bfbe-88e6c31d5f5c" alt="Enable cross-domain tracking" />
 
+</br>
 
 ### If the domains do not share the same Nameless Analytics Server-side client tag
 With this configuration the endpoint domain can be static as [described here](#endpoint-domain-name).
+
+</br>
 
 ### If multiple domains share the same Nameless Analytics Server-side client tag 
 With this configuration the endpoint domain must be dynamic.
@@ -239,6 +250,7 @@ Override the default JavaScript event names for page_view and virtual_page_view.
 
 Please note: When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
 
+</br>
 
 ## Load main library from custom location
 Override the default location of the main library. 
