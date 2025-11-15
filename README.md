@@ -34,14 +34,14 @@ Table of contents:
   - [Add current dataLayer state](#add-current-dataLayer-state)
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
 
-
+</br>
 
 # Variable UI
 This is the UI of the Client-side tracker configuration variable. This variable will handle settings like sets user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
 <img src="https://github.com/user-attachments/assets/41cf3f6f-92ad-4338-b0e9-1fd8ad7f358b" alt="Nameless Analytics - Client-side tracker configuration variable UI" />
 
-
+</br>
 
 # Basic settings
 ## Endpoint domain name
@@ -55,7 +55,7 @@ The endpoint path where the Nameless Analytics Server-side Client Tag listens.
 
 Example: /nameless_analytics/endpoint
 
-
+</br>
 
 # User data
 ## User parameters
@@ -81,7 +81,7 @@ Add user level parameters in user_data object in the payload. Values accepted: s
 
 These parameter can be overridden adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#user-parameters) in Nameless Analytics Server-side client tag.
 
-
+</br>
 
 # Session data
 ## Session parameters
@@ -102,7 +102,7 @@ Add session level parameters in session_data object in the payload. Values accep
 
 These parameter can be overridden adding [session parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#session-parameters) in Nameless Analytics Server-side client tag.
 
-
+</br>
 
 # Event data
 ## Event parameters
@@ -125,7 +125,7 @@ These parameters can be overridden by:
 - event parameters added in Nameless Analytics Client-side tracker tag
 - event parameters added in Nameless Analytics Server-side client tag
 
-
+</br>
 
 # Page view settings
 ## Add page status code
@@ -135,7 +135,7 @@ Add page status code to the request in the event_data when a page_view happens. 
 
 Please note: this will not work for virtual_page_view.
 
-
+</br>
 
 # Advanced settings
 ## Respect Google Consent Mode
@@ -208,11 +208,14 @@ Override the default JavaScript event names for page_view and virtual_page_view.
 
 Please note: When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
 
+
 ## Load main library from custom location
 Override the default location of the main library. 
 
+
 ## Add current dataLayer state
 Add the current state of the dataLayer in dataLayer field in the payload.  
+
 
 ## Enable logs in JavaScript console
 Enable console log for all events in JavaScript console.
