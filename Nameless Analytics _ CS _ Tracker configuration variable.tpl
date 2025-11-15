@@ -1,4 +1,4 @@
-﻿___TERMS_OF_SERVICE___
+___TERMS_OF_SERVICE___
 
 By creating or modifying this file you agree to Google Tag Manager's Community
 Template Gallery Developer Terms of Service available at
@@ -879,7 +879,7 @@ ___TEMPLATE_PARAMETERS___
   {
     "type": "GROUP",
     "name": "server_side_endpoint_settings",
-    "displayName": "Requests settings",
+    "displayName": "Server-side endpoint settings",
     "groupStyle": "ZIPPY_OPEN",
     "subParams": [
       {
@@ -894,14 +894,14 @@ ___TEMPLATE_PARAMETERS___
           {
             "type": "REGEX",
             "args": [
-              "^https:\\/\\/([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$"
+              "^([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$"
             ],
-            "errorMessage": "The URL must start with https://, end without / and contains a valid domain."
+            "errorMessage": "The URL must not start with http:// or https://, must not end with /, and must contain a valid domain."
           }
         ],
         "alwaysInSummary": true,
         "valueHint": "(not set)",
-        "help": "Endpoint domain of the Server-Side GTM running Nameless Analytics Server-Side client tag.\n\u003c/br\u003e\u003c/br\u003e\nThe URL must start with https:/, must not end with /, and contain a valid domain."
+        "help": "Endpoint domain of the Server-Side GTM running Nameless Analytics Server-Side client tag.\n\u003c/br\u003e\u003c/br\u003e\nThe URL must not start with http:// or https://, must not end with / and must contain a valid domain."
       },
       {
         "type": "TEXT",
@@ -914,7 +914,7 @@ ___TEMPLATE_PARAMETERS___
           },
           {
             "type": "REGEX",
-            "errorMessage": "The endpoint path must start with / and must not end with /.",
+            "errorMessage": "The path must start with / and must not end with /.",
             "args": [
               "^/.*(?\u003c!/)$"
             ]
@@ -1224,7 +1224,7 @@ ___TEMPLATE_PARAMETERS___
         "checkboxText": "Respect Google Consent Mode",
         "simpleValueType": true,
         "displayName": "",
-        "help": "Respects analytics_storage consent.\n\u003c/br\u003e\u003c/br\u003e \n• If true, tags will wait until consent is given.\u003c/br\u003e\n• If false, tags will fire on every event without restriction.",
+        "help": "Respects Google Consent Mode analytics_storage consent value.\n\u003c/br\u003e\u003c/br\u003e\nWhen Respect Google Consent Mode is enabled:\u003c/br\u003e\n- Consent granted (analytics_storage\u003dgranted): tags fire normally\u003c/br\u003e\n- Consent denied (analytics_storage\u003ddenied): tags do not fire and remain pending until consent is updated to granted\u003c/br\u003e\n\u003c/br\u003e\u003c/br\u003e\nWhen Respect Google Consent Mode is disabled:\u003c/br\u003e\n- Tags fire on every event without consent-based restrictions.",
         "defaultValue": true,
         "alwaysInSummary": true,
         "subParams": []
@@ -1234,7 +1234,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "enable_cross_domain_tracking",
         "checkboxText": "Enable cross domain tracking",
         "simpleValueType": true,
-        "help": "Enable cross-domain tracking across domains.\n\u003c/br\u003e\u003c/br\u003e\nThe URL must not start with http:// or https://, must not end with /, and must contain a valid domain.",
+        "help": "Enable cross-domain tracking across domains.\n\u003c/br\u003e\u003c/br\u003e\nThe URL must not start with http:// or https://, must not end with / and must contain a valid domain.",
         "displayName": "",
         "defaultValue": false,
         "alwaysInSummary": true,
@@ -1283,21 +1283,20 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "type": "CHECKBOX",
-        "name": "load_main_library_from_custom_location",
-        "checkboxText": "Load main library from custom location",
+        "name": "load_libraries_from_custom_location",
+        "checkboxText": "Load the libraries in first-party mode",
         "simpleValueType": true,
         "alwaysInSummary": true,
         "subParams": [
           {
             "type": "TEXT",
-            "name": "custom_library_location",
-            "displayName": "Custom library location",
+            "name": "custom_libraries_domain",
+            "displayName": "Custom library domain name",
             "simpleValueType": true,
-            "defaultValue": "",
             "alwaysInSummary": true,
             "enablingConditions": [
               {
-                "paramName": "load_main_library_from_custom_location",
+                "paramName": "load_libraries_from_custom_location",
                 "paramValue": true,
                 "type": "EQUALS"
               }
@@ -1309,16 +1308,43 @@ ___TEMPLATE_PARAMETERS___
               {
                 "type": "REGEX",
                 "args": [
-                  "^(?!https:\\/\\/cdn\\.jsdelivr\\.net\\/gh\\/tommasomoretti\\/nameless-analytics-client-side-tracker-tag@main\\/nameless_analytics\\.js$).*"
+                  "^([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$"
                 ],
-                "errorMessage": "Custom library location can\u0027t be equal to\u003c/br\u003ehttps://cdn.jsdelivr.net/gh/tommasomoretti/nameless-analytics-client-side-tracker-tag@main/nameless_analytics.js."
+                "errorMessage": "The URL must not start with http:// or https://, must not end with /, and must contain a valid domain."
+              }
+            ],
+            "valueHint": "(not set)"
+          },
+          {
+            "type": "TEXT",
+            "name": "custom_libraries_path",
+            "displayName": "Custom library path",
+            "simpleValueType": true,
+            "alwaysInSummary": true,
+            "enablingConditions": [
+              {
+                "paramName": "load_libraries_from_custom_location",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ],
+            "valueValidators": [
+              {
+                "type": "NON_EMPTY"
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^/.*(?\u003c!/)$"
+                ],
+                "errorMessage": "The path must start with / and must not end with /."
               }
             ],
             "valueHint": "(not set)"
           }
         ],
         "displayName": "",
-        "help": "Change default main library from custom location.\n\u003c/br\u003e\u003c/br\u003e\nDefault location: https://cdn.jsdelivr.net/gh/tommasomoretti/nameless-analytics-client-side-tracker-tag@main/nameless_analytics.js"
+        "help": "Load the main library and its dependencies from a first-party location. Host nameless-analytics.js and ua-parser.js on the website server so that the library will be loaded from the current domain.\n\u003c/br\u003e\u003c/br\u003e\nThe path must not start with / and must end with /."
       },
       {
         "type": "CHECKBOX",
@@ -1383,6 +1409,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 25/09/2025, 13:51:41
+Created on 15/11/2025, 12:06:50
 
 
