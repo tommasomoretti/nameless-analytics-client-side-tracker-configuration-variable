@@ -1,4 +1,4 @@
-﻿const Object = require('Object');
+const Object = require('Object');
 
 data.is_na_config_variable = true;
 
