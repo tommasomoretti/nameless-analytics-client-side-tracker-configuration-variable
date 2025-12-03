@@ -45,7 +45,7 @@ This is the UI of the Client-side tracker configuration variable. This variable 
 <img src="https://github.com/user-attachments/assets/fb8d7299-038b-453a-9fce-b5f828590a74" alt="Nameless Analytics - Client-side tracker configuration variable UI" />
 
 </br>
-
+</br>
 
 
 ## Basic settings
