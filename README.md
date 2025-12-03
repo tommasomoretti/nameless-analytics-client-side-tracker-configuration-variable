@@ -35,12 +35,16 @@ Table of contents:
   - [Add current dataLayer state](#add-current-dataLayer-state)
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
 
+</br>
+
 
 
 ## Variable UI
 This is the UI of the Client-side tracker configuration variable. This variable will handle settings like sets user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
 <img src="https://github.com/user-attachments/assets/fb8d7299-038b-453a-9fce-b5f828590a74" alt="Nameless Analytics - Client-side tracker configuration variable UI" />
+
+</br>
 
 
 
@@ -91,6 +95,8 @@ These parameter can be overridden adding [user parameters](https://github.com/to
 
 </br>
 
+
+
 ## Session data
 ### Session parameters
 
@@ -113,6 +119,8 @@ Add session level parameters in session_data object in the payload. Values accep
 These parameter can be overridden adding [session parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#session-parameters) in Nameless Analytics Server-side client tag.
 
 </br>
+
+
 
 ## Event data
 ### Event parameters
@@ -139,6 +147,8 @@ These parameters can be overridden by:
 
 </br>
 
+
+
 ## Page view settings
 ### Add page status code
 
@@ -147,6 +157,8 @@ Add page status code to the request in the event_data when a page_view happens. 
 Please note: this will not work for virtual_page_view.
 
 </br>
+
+
 
 ## Advanced settings
 ### Respect Google Consent Mode
