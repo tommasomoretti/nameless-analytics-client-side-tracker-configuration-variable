@@ -9,31 +9,41 @@ The Nameless Analytics Client-side tracker configuration variable is a highly cu
 
 For an overview of how Nameless Analytics works [start from here](https://github.com/tommasomoretti/nameless-analytics/).
 
-Table of contents:
-- [Configuration variable UI](#variable-ui)
-- Basic settings
+Variable:
+* [Configuration variable UI](#variable-ui)
+
+Data:
+* User data
+  * [User parameters](#user-parameters)
+    * [Add User ID](#add-user-id)
+    * [Add user level parameters](#add-user-level-parameters)
+* Session data
+  * [Session parameters](#session-parameters) 
+    * [Add session level parameters](#add-session-level-parameters)
+* Event data
+  * [Event parameters](#event-parameters)
+    * [Add shared event parameters](#add-shared-event-parameters)
+* Page view settings
+  * [Page parameters](#page-parameters)
+    * [Page category](#page-category)
+    * [...]()
+
+Settings:
+- Server-side endpoint settings
   - [Endpoint domain name](#endpoint-domain-name)
   - [Endpoint path](#endpoint-path)
-- User data
-  - [User parameters](#user-parameters)
-    - [Add User ID](#add-user-id)
-    - [Add user level parameters](#add-user-level-parameters)
-- Session data
-  - [Session parameters](#session-parameters) 
-    - [Add session level parameters](#add-session-level-parameters)
-- Event data
-  - [Event parameters](#event-parameters)
-    - [Add shared event parameters](#add-shared-event-parameters)
 - Page view settings
   - [Add page status code](#add-page-status-code) 
+  - [Override default source and campaigns url query parameters](#customize-source-and-campaigns-url-parameters)
+  - [Override default JavaScript page view event names](#override-default-JavaScript-page-view-event-names)
+  - [Override default JavaScript virtual page view event names]()
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
   - [Enable cross-domain tracking](#enable-cross-domain-tracking)
-  - [Customize source and campaigns url parameters](#customize-source-and-campaigns-url-parameters)
-  - [Change default JavaScript page view event names](#change-default-JavaScript-page-view-event-names)
-  - [Load main library from custom location](#load-main-library-from-custom-location)
+  - [Load JavaScript libraries in first-party mode](#load-main-library-from-custom-location)
   - [Add current dataLayer state](#add-current-dataLayer-state)
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
+    - [Debug mode only]()
 
 </br>
 
