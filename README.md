@@ -26,7 +26,11 @@ Data:
 * Page view settings
   * [Page parameters](#page-parameters)
     * [Page category](#page-category)
-    * [...]()
+    * [Page title](#page-title)
+    * [Page location](#page-location)
+    * [Page fragment](#page-fragment)
+    * [Page query](#page-query)
+    * [Page extension](#page-extension)
 
 Settings:
 - Server-side endpoint settings
@@ -36,7 +40,7 @@ Settings:
   - [Add page status code](#add-page-status-code) 
   - [Override default source and campaigns url query parameters](#customize-source-and-campaigns-url-parameters)
   - [Override default JavaScript page view event names](#override-default-JavaScript-page-view-event-names)
-  - [Override default JavaScript virtual page view event names]()
+  - [Override default JavaScript virtual page view event names](#override-default-javascript-virtual-page-view-event-names)
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
   - [Enable cross-domain tracking](#enable-cross-domain-tracking)
@@ -55,23 +59,6 @@ This is the UI of the Client-side tracker configuration variable. This variable 
 <img src="https://github.com/user-attachments/assets/fb8d7299-038b-453a-9fce-b5f828590a74" alt="Nameless Analytics - Client-side tracker configuration variable UI" />
 
 </br>
-</br>
-
-
-## Basic settings
-### Endpoint domain name
-
-The domain name of the server-side GTM instance. The tag assumes the protocol is HTTPS. 
-
-Example: gtm.domain.com
-
-
-### Endpoint path
-
-The endpoint path where the Nameless Analytics Server-side Client Tag listens. 
-
-Example: /nameless_analytics/endpoint
-
 </br>
 
 
@@ -131,6 +118,22 @@ These parameter can be overridden adding [session parameters](https://github.com
 </br>
 
 
+## Page data
+### Page category
+
+### Page title
+
+### Page location
+
+### Page fragment
+
+### Page query
+
+### Page extension
+
+</br>
+
+
 
 ## Event data
 ### Event parameters
@@ -158,6 +161,19 @@ These parameters can be overridden by:
 </br>
 
 
+## Server-side endpoint settings
+### Endpoint domain name
+
+The domain name of the server-side GTM instance. The tag assumes the protocol is HTTPS. 
+
+
+### Endpoint path
+
+The endpoint path where the Nameless Analytics Server-side Client Tag listens. 
+
+</br>
+
+
 
 ## Page view settings
 ### Add page status code
@@ -165,6 +181,24 @@ These parameters can be overridden by:
 Add page status code to the request in the event_data when a page_view happens. This setting will be visible in the UI only when the event name is equal to page_view.
 
 Please note: this will not work for virtual_page_view.
+
+
+### Override default source and campaigns url query parameters
+
+Override the default URL query parameter names used as source and campaign parameters. By default, these values are taken from standard UTM parameters.
+
+
+### Override default JavaScript page view event names
+
+Override the default JavaScript event names for page_view. Update these values if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from gtm.js (for page views) or gtm.historyChange (for virtual page views).
+
+Please note: When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
+
+### Override default JavaScript virtual page view event names
+
+Override the default JavaScript event names for page_view. Update these values if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from gtm.js (for page views) or gtm.historyChange (for virtual page views).
+
+Please note: When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
 
 </br>
 
@@ -216,7 +250,8 @@ To save cookie correctly, create a regex lookup table to send requests to the co
 
 Set this variable in the Request endpoint domain field so that, with this configuration, the Domain attribute in the Set-Cookie header will match the request origin.
 
-#### How cross-domain tracking works
+
+<details><summary>How cross-domain tracking works</summary>
 
 Cross-domain functionality depends of [how Respect Google Consent Mode is set](#respect-google-consent-mode).
 
@@ -232,17 +267,7 @@ The Nameless Analytics Server-Side client tag will add it to the request and set
 
 If enable_cross_domain_tracking option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side tracker tag will not set any listener or will not send any hit if the consent was change from granted to denied.
 
-
-### Customize source and campaigns url parameters
-
-Override the default URL query parameter names used as source and campaign parameters. By default, these values are taken from standard UTM parameters.
-
-
-### Change default JavaScript page view event names
-
-Override the default JavaScript event names for page_view and virtual_page_view. Update these values if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from gtm.js (for page views) or gtm.historyChange (for virtual page views).
-
-Please note: When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
+</details>
 
 
 ### Load main library from custom location
