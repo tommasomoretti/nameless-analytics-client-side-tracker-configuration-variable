@@ -20,10 +20,7 @@ Data:
 * Session data
   * [Session parameters](#session-parameters) 
     * [Add session level parameters](#add-session-level-parameters)
-* Event data
-  * [Event parameters](#event-parameters)
-    * [Add shared event parameters](#add-shared-event-parameters)
-* Page view settings
+* Page data
   * [Page parameters](#page-parameters)
     * [Page category](#page-category)
     * [Page title](#page-title)
@@ -31,6 +28,9 @@ Data:
     * [Page fragment](#page-fragment)
     * [Page query](#page-query)
     * [Page extension](#page-extension)
+* Event data
+  * [Event parameters](#event-parameters)
+    * [Add shared event parameters](#add-shared-event-parameters)
 
 Settings:
 - Server-side endpoint settings
@@ -38,15 +38,15 @@ Settings:
   - [Endpoint path](#endpoint-path)
 - Page view settings
   - [Add page status code](#add-page-status-code) 
-  - [Override default source and campaigns url query parameters](#customize-source-and-campaigns-url-parameters)
-  - [Override default JavaScript page view event names](#override-default-JavaScript-page-view-event-names)
+  - [Override default source and campaigns url query parameters](#override-default-source-and-campaigns-url-query-parameters)
+  - [Override default JavaScript page view event names](#override-default-javascript-page-view-event-names)
   - [Override default JavaScript virtual page view event names](#override-default-javascript-virtual-page-view-event-names)
 - Advanced settings
   - [Respect Google Consent Mode](#respect-google-consent-mode)
   - [Enable cross-domain tracking](#enable-cross-domain-tracking)
-  - [Load JavaScript libraries in first-party mode](#load-main-library-from-custom-location)
-  - [Add current dataLayer state](#add-current-dataLayer-state)
-  - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
+  - [Load JavaScript libraries in first-party mode](#load-javascript-libraries-in-first-party-mode)
+  - [Add current dataLayer state](#add-current-datalayer-state)
+  - [Enable logs in JavaScript console](#enable-logs-in-javascript-console)
     - [Debug mode only](#debug-mode-only)
 
 </br>
@@ -76,7 +76,7 @@ Please note: if a parameter has the same name as another, it can override or be 
 
 This is the hierarchy of event parameter importance: 
 
-[Server-side user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#user-parameters) overrides [User parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/#user-parameters)
+[Server-side user parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#user-parameters) override [User parameters](#user-parameters)
 
 #### Add User ID
 
@@ -86,7 +86,7 @@ This parameter can be overridden modifying [the users ID](https://github.com/tom
 
 #### Add user level parameters
 
-Add user level parameters in the user_data object in the payload. Accepted values: strings, integers, floats, and JSON.
+Add user level parameters to the `user_data` object in the payload. Accepted values: strings, integers, floats, and JSON.
 
 These parameters can be overridden by adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#user-parameters) in the Nameless Analytics Server-side client tag.
 
@@ -107,7 +107,7 @@ Please note: if a parameter has the same name as another, it can override or be 
 
 This is the hierarchy of event parameter importance: 
 
-[Server-side session parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#session-parameters) overrides [Session parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/#session-parameters)
+[Server-side session parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#session-parameters) override [Session parameters](#session-parameters)
 
 #### Add session level parameters
 
@@ -119,17 +119,19 @@ These parameters can be overridden by adding [session parameters](https://github
 
 
 ## Page data
-### Page category
+### Page parameters
 
-### Page title
+#### Page category
 
-### Page location
+#### Page title
 
-### Page fragment
+#### Page location
 
-### Page query
+#### Page fragment
 
-### Page extension
+#### Page query
+
+#### Page extension
 
 </br>
 
@@ -144,11 +146,11 @@ Please note: if a parameter has the same name as another, it can override or be 
 
 This is the hierarchy of event parameter importance: 
 
-[Server-side event parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#event-parameters) overrides [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#event-parameters) overrides [Shared event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-config-variable/#add-shared-event-parameters) overrides [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#add-event-parameters-from-datalayer) overrides [Standard parameters](#standard-request-payload)
+[Server-side event parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#event-parameters) override [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#event-parameters) override [Shared event parameters](#add-shared-event-parameters) override [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#add-event-parameters-from-datalayer) override [Standard parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#request-payload-data)
 
 #### Add shared event parameters
 
-Add shared event parameters in event_data object in the payload. Values accepted: strings, integers, float and json.
+Add shared event parameters to the `event_data` object in the payload. Accepted values: strings, integers, floats, and JSON.
 
 These parameters can override:
 - default event parameters
@@ -270,7 +272,7 @@ If enable_cross_domain_tracking option is disabled or respect_consent_mode is tr
 </details>
 
 
-### Load main library from custom location
+### Load JavaScript libraries in first-party mode
 
 Override the default location of the main library. 
 
