@@ -56,7 +56,7 @@ Settings:
 ## Variable UI
 This is the UI of the Client-side tracker configuration variable. This variable will handle settings like setting user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
-<img src="https://github.com/user-attachments/assets/fb8d7299-038b-453a-9fce-b5f828590a74" alt="Nameless Analytics - Client-side tracker configuration variable UI" />
+<img src="https://github.com/user-attachments/assets/52f5793b-d37b-435b-85d8-fd6cad3b5857" alt="Nameless Analytics - Client-side tracker configuration variable UI" />
 
 </br>
 </br>
