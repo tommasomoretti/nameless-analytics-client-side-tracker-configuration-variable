@@ -47,14 +47,14 @@ Settings:
   - [Load JavaScript libraries in first-party mode](#load-main-library-from-custom-location)
   - [Add current dataLayer state](#add-current-dataLayer-state)
   - [Enable logs in JavaScript console](#enable-logs-in-JavaScript-console)
-    - [Debug mode only]()
+    - [Debug mode only](#debug-mode-only)
 
 </br>
 
 
 
 ## Variable UI
-This is the UI of the Client-side tracker configuration variable. This variable will handle settings like sets user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
+This is the UI of the Client-side tracker configuration variable. This variable will handle settings like setting user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
 <img src="https://github.com/user-attachments/assets/fb8d7299-038b-453a-9fce-b5f828590a74" alt="Nameless Analytics - Client-side tracker configuration variable UI" />
 
@@ -86,9 +86,9 @@ This parameter can be overridden modifying [the users ID](https://github.com/tom
 
 #### Add user level parameters
 
-Add user level parameters in user_data object in the payload. Values accepted: strings, integers, float and json.
+Add user level parameters in the user_data object in the payload. Accepted values: strings, integers, floats, and JSON.
 
-These parameter can be overridden adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#user-parameters) in Nameless Analytics Server-side client tag.
+These parameters can be overridden by adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#user-parameters) in the Nameless Analytics Server-side client tag.
 
 </br>
 
@@ -111,9 +111,9 @@ This is the hierarchy of event parameter importance:
 
 #### Add session level parameters
 
-Add session level parameters in session_data object in the payload. Values accepted: strings, integers, float and json.
+Add session level parameters in the session_data object in the payload. Accepted values: strings, integers, floats, and JSON.
 
-These parameter can be overridden adding [session parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#session-parameters) in Nameless Analytics Server-side client tag.
+These parameters can be overridden by adding [session parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#session-parameters) in the Nameless Analytics Server-side client tag.
 
 </br>
 
@@ -212,16 +212,16 @@ When Google Consent Mode is present on website and respect_consent_mode is enabl
 - When analytics_storage changes from denied to granted, all pending tags for that page will be fired in execution order.
 - When analytics_storage is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
   
-When Google Consent Mode is not present on website or Google Consent Mode is present on website and respect_consent_mode is disabled, all events are sent regardless user consents. 
+When Google Consent Mode is not present on website or Google Consent Mode is present on website and respect_consent_mode is disabled, all events are sent regardless of user consents. 
 
 
 ### Enable cross-domain tracking
 
-Enables the transfer of client_id and session_id data across two or more websites via URL GET parameter. This allows Nameless Analytics tags to merge into a single session the individual sessions that would otherwise be created when visiting another domains.
+Enables the transfer of client_id and session_id data across two or more websites via a URL GET parameter. This allows Nameless Analytics tags to merge individual sessions into a single session that would otherwise be created when visiting other domains.
 
-Please note: the server-side GTM container must olso be configured correctly to make cross-domain tracking works. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
+Please note: the server-side GTM container must also be configured correctly to make cross-domain tracking work. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
 
-Enable cross domain tracking and add the domains one for row.
+Enable cross-domain tracking and add the domains one per row.
 
 #### Endpoint domain name
 
@@ -230,7 +230,7 @@ Enable cross domain tracking and add the domains one for row.
 - If multiple domains share the same Nameless Analytics Server-side client tag: With this configuration the endpoint domain must be dynamic.
 
 This is necessary because when the Nameless Analytics Server-side client tag claims a request, it responds with a Set-Cookie header that includes the Domain attribute. 
-To correctly set the Nameless Analytics cookies, the Domain attribute must match the domain or be a subdomain of the webpage’s domain that has sent the request.
+To correctly set the Nameless Analytics cookies, the Domain attribute must match the domain or be a subdomain of the webpage’s domain that sent the request.
 
 Therefore:
 - Requests originating from domain_1.com must be sent to gtm.domain_1.com
@@ -242,7 +242,7 @@ Otherwise the Set-Cookie header will not work:
 
 </br>
 
-To save cookie correctly, create a regex lookup table to send requests to the corrisponding domains endpoint. 
+To save cookies correctly, create a regex lookup table to send requests to the corresponding domain endpoints. 
 
 <img src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d" alt="Enable cross-domain tracking" />
 
@@ -253,11 +253,11 @@ Set this variable in the Request endpoint domain field so that, with this config
 
 <details><summary>How cross-domain tracking works</summary>
 
-Cross-domain functionality depends of [how Respect Google Consent Mode is set](#respect-google-consent-mode).
+Cross-domain functionality depends on [how Respect Google Consent Mode is set](#respect-google-consent-mode).
 
-If enable_cross_domain_tracking option is enabled, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click.
+If the enable_cross_domain_tracking option is enabled, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click.
 
-When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve cookies value since they are not accessible from the browser ([they are HttpOnly](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cookies)). The Nameless Analytics Server-Side client tag responds with the cookie values and the JavaScript event listener decorates the URL with a parameter named na_id with the current session_id.
+When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve cookie values since they are not accessible from the browser ([they are HttpOnly](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cookies)). The Nameless Analytics Server-Side client tag responds with the cookie values and the JavaScript event listener decorates the URL with a parameter named na_id with the current session_id.
 
 After that, the user is redirected to the destination website. 
 
@@ -265,7 +265,7 @@ When the user lands on the destination website and a page_view event is triggere
 
 The Nameless Analytics Server-Side client tag will add it to the request and set back the cookies with those values. 
 
-If enable_cross_domain_tracking option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side tracker tag will not set any listener or will not send any hit if the consent was change from granted to denied.
+If enable_cross_domain_tracking option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side tracker tag will not set any listener or will not send any hit if the consent was changed from granted to denied.
 
 </details>
 
@@ -286,4 +286,4 @@ Enable console log for all events in JavaScript console.
 
 ---
 
-Reach me at: [Email](mailto:hello@tommasomoretti.com) | [Website](https://tommasomoretti.com/?utm_source=github.com&utm_medium=referral&utm_campaign=nameless_analytics) | [Twitter](https://twitter.com/tommoretti88) | [Linkedin](https://www.linkedin.com/in/tommasomoretti/)
+Reach me at: [Email](mailto:hello@tommasomoretti.com) | [Website](https://tommasomoretti.com/?utm_source=github.com&utm_medium=referral&utm_campaign=nameless_analytics) | [Twitter](https://twitter.com/tommoretti88) | [LinkedIn](https://www.linkedin.com/in/tommasomoretti/)
