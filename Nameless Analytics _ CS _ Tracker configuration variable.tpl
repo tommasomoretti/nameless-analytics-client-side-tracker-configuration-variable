@@ -1,4 +1,4 @@
-___TERMS_OF_SERVICE___
+﻿___TERMS_OF_SERVICE___
 
 By creating or modifying this file you agree to Google Tag Manager's Community
 Template Gallery Developer Terms of Service available at
@@ -32,41 +32,9 @@ ___TEMPLATE_PARAMETERS___
   {
     "type": "GROUP",
     "name": "user_data",
-    "displayName": "User level data",
+    "displayName": "User data",
     "groupStyle": "ZIPPY_OPEN",
     "subParams": [
-      {
-        "type": "CHECKBOX",
-        "name": "add_user_id",
-        "checkboxText": "Add User ID",
-        "simpleValueType": true,
-        "help": "Add User ID to the request in user_data.user_id.",
-        "displayName": "User parameters",
-        "defaultValue": false,
-        "alwaysInSummary": true,
-        "subParams": [
-          {
-            "type": "TEXT",
-            "name": "user_id",
-            "displayName": "User ID",
-            "simpleValueType": true,
-            "valueValidators": [
-              {
-                "type": "NON_EMPTY"
-              }
-            ],
-            "alwaysInSummary": true,
-            "enablingConditions": [
-              {
-                "paramName": "add_user_id",
-                "paramValue": true,
-                "type": "EQUALS"
-              }
-            ],
-            "valueHint": "(not set)"
-          }
-        ]
-      },
       {
         "type": "CHECKBOX",
         "name": "add_user_params",
@@ -185,7 +153,7 @@ ___TEMPLATE_PARAMETERS___
                     "args": [
                       "^(?!user_id$).*"
                     ],
-                    "errorMessage": "Can\u0027t add user_id parameter. Add the user ID in the field above."
+                    "errorMessage": "Can\u0027t add user_id parameter. Add the user ID in the field below."
                   }
                 ]
               },
@@ -212,7 +180,7 @@ ___TEMPLATE_PARAMETERS___
             ]
           }
         ],
-        "displayName": "",
+        "displayName": "User parameters",
         "alwaysInSummary": true,
         "help": "Add user parameters to the request in user_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved user parameters: \u003c/br\u003e  \n• user_date \u003c/br\u003e  \n• user_id \u003c/br\u003e  \n• user_channel_grouping \u003c/br\u003e  \n• user_source \u003c/br\u003e  \n• user_tld_source \u003c/br\u003e  \n• user_campaign \u003c/br\u003e  \n• user_campaign_id \u003c/br\u003e  \n• user_campaign_content \u003c/br\u003e  \n• user_campaign_term \u003c/br\u003e  \n• user_device_type \u003c/br\u003e  \n• user_country \u003c/br\u003e  \n• user_language \u003c/br\u003e  \n• user_first_session_timestamp \u003c/br\u003e\n• user_last_session_timestamp \u003c/br\u003e",
         "defaultValue": false
@@ -222,9 +190,41 @@ ___TEMPLATE_PARAMETERS___
   {
     "type": "GROUP",
     "name": "session_data",
-    "displayName": "Session level data",
+    "displayName": "Session data",
     "groupStyle": "ZIPPY_OPEN",
     "subParams": [
+      {
+        "type": "CHECKBOX",
+        "name": "add_user_id",
+        "checkboxText": "Add User ID",
+        "simpleValueType": true,
+        "help": "Add User ID to the request in session_data.user_id.\u003c/br\u003e\u003c/br\u003eUser ID is set at session level.",
+        "displayName": "Session parameters",
+        "defaultValue": false,
+        "alwaysInSummary": true,
+        "subParams": [
+          {
+            "type": "TEXT",
+            "name": "user_id",
+            "displayName": "User ID",
+            "simpleValueType": true,
+            "valueValidators": [
+              {
+                "type": "NON_EMPTY"
+              }
+            ],
+            "alwaysInSummary": true,
+            "enablingConditions": [
+              {
+                "paramName": "add_user_id",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ],
+            "valueHint": "(not set)"
+          }
+        ]
+      },
       {
         "type": "CHECKBOX",
         "name": "add_session_params",
@@ -416,6 +416,13 @@ ___TEMPLATE_PARAMETERS___
                       "^(?!session_id$).*"
                     ],
                     "errorMessage": "Can\u0027t add session_id parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!user_id$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add user_id parameter. Add the user ID in the field above."
                   }
                 ]
               },
@@ -442,7 +449,7 @@ ___TEMPLATE_PARAMETERS___
             ]
           }
         ],
-        "displayName": "Session parameters",
+        "displayName": "",
         "alwaysInSummary": true,
         "help": "Add session parameters to the request in session_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved session parameters: \u003c/br\u003e\n• session_date \u003c/br\u003e \n• session_id \u003c/br\u003e\n• session_number \u003c/br\u003e \n• cross_domain_session \u003c/br\u003e \n• session_channel_grouping \u003c/br\u003e \n• session_source \u003c/br\u003e \n• session_tld_source \u003c/br\u003e \n• session_campaign \u003c/br\u003e \n• session_campaign_id \u003c/br\u003e \n• session_campaign_content \u003c/br\u003e \n• session_campaign_term \u003c/br\u003e \n• session_device_type \u003c/br\u003e \n• session_country \u003c/br\u003e \n• session_language \u003c/br\u003e \n• session_hostname \u003c/br\u003e \n• session_browser_name \u003c/br\u003e \n• session_landing_page_category \u003c/br\u003e \n• session_landing_page_location \u003c/br\u003e \n• session_landing_page_title \u003c/br\u003e \n• session_exit_page_category \u003c/br\u003e \n• session_exit_page_location \u003c/br\u003e \n• session_exit_page_title \u003c/br\u003e \n• session_start_timestamp \u003c/br\u003e \n• session_end_timestamp \u003c/br\u003e",
         "defaultValue": false
@@ -452,7 +459,7 @@ ___TEMPLATE_PARAMETERS___
   {
     "type": "GROUP",
     "name": "page_data",
-    "displayName": "Page level data",
+    "displayName": "Page data",
     "groupStyle": "ZIPPY_OPEN",
     "subParams": [
       {
@@ -567,7 +574,7 @@ ___TEMPLATE_PARAMETERS___
   {
     "type": "GROUP",
     "name": "event_data",
-    "displayName": "Event level data",
+    "displayName": "Event data",
     "groupStyle": "ZIPPY_OPEN",
     "subParams": [
       {
@@ -857,17 +864,6 @@ ___TEMPLATE_PARAMETERS___
         "alwaysInSummary": true,
         "help": "Add event parameters to the request in event_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved event parameters: \u003c/br\u003e \n• event_type \u003c/br\u003e \n• channel_grouping \u003c/br\u003e \n• source \u003c/br\u003e \n• campaign \u003c/br\u003e \n• campaign_id \u003c/br\u003e \n• campaign_term \u003c/br\u003e \n• campaign_content \u003c/br\u003e \n• page_id \u003c/br\u003e \n• page_title \u003c/br\u003e \n• page_hostname_protocol \u003c/br\u003e \n• page_hostname \u003c/br\u003e \n• page_location \u003c/br\u003e \n• page_fragment \u003c/br\u003e \n• page_query \u003c/br\u003e \n• page_extension \u003c/br\u003e \n• page_referrer \u003c/br\u003e \n• page_language \u003c/br\u003e \n• page_status_code \u003c/br\u003e \n• cs_container_id \u003c/br\u003e \n• user_agent \u003c/br\u003e \n• browser_name \u003c/br\u003e \n• browser_language \u003c/br\u003e \n• browser_version \u003c/br\u003e \n• device_type \u003c/br\u003e \n• device_vendor \u003c/br\u003e \n• device_model \u003c/br\u003e \n• os_name \u003c/br\u003e \n• os_version \u003c/br\u003e \n• screen_size \u003c/br\u003e \n• viewport_size \u003c/br\u003e \n• country \u003c/br\u003e \n• city \u003c/br\u003e \n• ss_hostname \u003c/br\u003e \n• ss_container_id \u003c/br\u003e",
         "defaultValue": false
-      },
-      {
-        "type": "CHECKBOX",
-        "name": "add_current_datalayer_state",
-        "checkboxText": "Add current dataLayer state",
-        "simpleValueType": true,
-        "subParams": [],
-        "displayName": "",
-        "alwaysInSummary": true,
-        "help": "Add the last value of the dataLayer object for every event.",
-        "defaultValue": false
       }
     ]
   },
@@ -944,7 +940,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "CHECKBOX",
         "name": "set_custom_utm_parameters_names",
-        "checkboxText": "Override source and campaigns default url query parameters",
+        "checkboxText": "Override default source and campaigns url query parameters",
         "simpleValueType": true,
         "help": "Override default url query parameters used for source and campaigns event parameters.\n\u003c/br\u003e\u003c/br\u003e\nDefault parameters:\u003c/br\u003e \n• source \u003d utm_source \u003c/br\u003e \n• campaign_name \u003d utm_campaign \u003c/br\u003e \n• campaign_id \u003d utm_campaign_id \u003c/br\u003e \n• campaign_term \u003d utm_term \u003c/br\u003e \n• campaign_content \u003d utm_content \u003c/br\u003e",
         "displayName": "",
@@ -1115,6 +1111,13 @@ ___TEMPLATE_PARAMETERS___
                   "^(?!gtm.js$).*"
                 ],
                 "errorMessage": "Event name can\u0027t be equal to gtm.js."
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!gtm.historyChange$).*"
+                ],
+                "errorMessage": "Event name can\u0027t be equal to gtm.historyChange."
               }
             ],
             "valueHint": "(not set)"
@@ -1147,6 +1150,13 @@ ___TEMPLATE_PARAMETERS___
             "valueValidators": [
               {
                 "type": "NON_EMPTY"
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!gtm.js$).*"
+                ],
+                "errorMessage": "Event name can\u0027t be equal to gtm.js."
               },
               {
                 "type": "REGEX",
@@ -1284,7 +1294,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "CHECKBOX",
         "name": "load_libraries_from_custom_location",
-        "checkboxText": "Load the libraries in first-party mode",
+        "checkboxText": "Load JavaScript libraries in first-party mode",
         "simpleValueType": true,
         "alwaysInSummary": true,
         "subParams": [
@@ -1348,6 +1358,17 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "type": "CHECKBOX",
+        "name": "add_current_datalayer_state",
+        "checkboxText": "Add current dataLayer state",
+        "simpleValueType": true,
+        "subParams": [],
+        "displayName": "",
+        "alwaysInSummary": true,
+        "help": "Add the last value of the dataLayer object for every event.",
+        "defaultValue": false
+      },
+      {
+        "type": "CHECKBOX",
         "name": "enable_logs",
         "checkboxText": "Enable logs in JavaScript console",
         "simpleValueType": true,
@@ -1385,7 +1406,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "LABEL",
         "name": "info",
-        "displayName": "\u003cb\u003eNameless Analytics Client-Side tracker configuration variable\u003c/b\u003e\u003c/br\u003e\nBeta version: 1.0.\n\u003c/br\u003e\nRead more about the \u003ca href\u003d\"https://github.com/tommasomoretti/nameless-analytics\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eNameless Analytics project\u003c/a\u003e or the \u003ca href\u003d\"https://github.com/tommasomoretti/nameless-analytics-client-tag\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eClient-side Config Variable\u003c/a\u003e.\n\u003c/br\u003e\nCreated by \u003ca href\u003d\"https://tommasomoretti.com/?utm_source\u003dtagmanager.google.com\u0026utm_medium\u003dreferral\u0026utm_campaign\u003dcs_analytics_config_variable\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eTommaso Moretti\u003c/a\u003e\n\u003c/br\u003e\u003c/br\u003e"
+        "displayName": "\u003cb\u003eNameless Analytics Client-Side tracker configuration variable\u003c/b\u003e\u003c/br\u003e\nBeta version: 1.0.\n\u003c/br\u003e\nRead more about the \u003ca href\u003d\"https://github.com/tommasomoretti/nameless-analytics\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eNameless Analytics project\u003c/a\u003e or the \u003ca href\u003d\"https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-configuration-variable\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eClient-side Config Variable\u003c/a\u003e.\n\u003c/br\u003e\nCreated by \u003ca href\u003d\"https://tommasomoretti.com/?utm_source\u003dtagmanager.google.com\u0026utm_medium\u003dreferral\u0026utm_campaign\u003dcs_analytics_config_variable\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eTommaso Moretti\u003c/a\u003e\n\u003c/br\u003e\u003c/br\u003e"
       }
     ]
   }
@@ -1409,6 +1430,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 15/11/2025, 12:06:50
+Created on 23/12/2025, 15:39:57
 
 
