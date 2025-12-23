@@ -82,6 +82,8 @@ This is the hierarchy of event parameter importance:
 
 Add user level parameters to the `user_data` object in the payload. Accepted values: strings, integers, floats, and JSON.
 
+The user ID is optional and set at session level.
+
 These parameters can be overridden by adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#user-parameters) in the Nameless Analytics Server-side Client Tag.
 
 </br>
@@ -186,9 +188,9 @@ The endpoint path where the Nameless Analytics Server-side Client Tag listens.
 ## Page view settings
 ### Add page status code
 
-Add page status code to the request in the event_data when a page_view happens. This setting will be visible in the UI only when the event name is equal to page_view.
+Add page status code to the request in the event_data when a page_view happens. If enabled, the tracker performs a silent HEAD request to the current URL to retrieve the HTTP status code (e.g. 200, 404, 500), allowing you to monitor page errors directly in the reports.
 
-Please note: this will not work for virtual_page_view.
+Please note: This setting will be visible in the UI only when the event name is equal to page_view and this will not work for virtual_page_view.
 
 
 ### Override default source and campaigns URL query parameters
