@@ -3,22 +3,22 @@
 
 ---
 
-# Client-side tracker configuration variable
+# Nameless Analytics Client-side Tracker Configuration Variable
 
-The Nameless Analytics Client-side tracker configuration variable is a highly customizable GTM custom variable template designed to configure the settings of [Nameless Analytics Client-side tracker tag](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/). 
+The Nameless Analytics Client-side Tracker Configuration Variable is a highly customizable GTM custom variable template designed to configure the settings of [Nameless Analytics Client-side Tracker Tag](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/). 
 
 For an overview of how Nameless Analytics works [start from here](https://github.com/tommasomoretti/nameless-analytics/).
 
 Variable:
-* [Configuration variable UI](#variable-ui)
+* [Nameless Analytics Client-side Tracker Configuration Variable UI](#nameless-analytics-client-side-tracker-configuration-variable-ui)
 
 Data:
 * User data
   * [User parameters](#user-parameters)
-    * [Add User ID](#add-user-id)
     * [Add user level parameters](#add-user-level-parameters)
 * Session data
   * [Session parameters](#session-parameters) 
+    * [Add User ID](#add-user-id)
     * [Add session level parameters](#add-session-level-parameters)
 * Page data
   * [Page parameters](#page-parameters)
@@ -47,16 +47,15 @@ Settings:
   - [Load JavaScript libraries in first-party mode](#load-javascript-libraries-in-first-party-mode)
   - [Add current dataLayer state](#add-current-datalayer-state)
   - [Enable logs in JavaScript console](#enable-logs-in-javascript-console)
-    - [Debug mode only](#debug-mode-only)
 
 </br>
 
 
 
-## Variable UI
-This is the UI of the Client-side tracker configuration variable. This variable will handle settings like setting user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
+## Nameless Analytics Client-side Tracker Configuration Variable UI
+This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable. This variable will handle settings like setting user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
-<img src="https://github.com/user-attachments/assets/16bd7112-e605-40cb-ba18-797bdb3e3d08" alt="Nameless Analytics - Client-side tracker configuration variable UI" />
+<img src="https://github.com/user-attachments/assets/16bd7112-e605-40cb-ba18-797bdb3e3d08" alt="Nameless Analytics Client-side Tracker Configuration Variable UI" />
 
 </br>
 </br>
@@ -78,17 +77,12 @@ This is the hierarchy of event parameter importance:
 
 [Server-side user parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#user-parameters) override [User parameters](#user-parameters)
 
-#### Add User ID
-
-Add User ID parameters in user_id field. 
-
-This parameter can be overridden modifying [the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#modify-user-id-parameter) in Nameless Analytics Server-Side client tag.
 
 #### Add user level parameters
 
 Add user level parameters to the `user_data` object in the payload. Accepted values: strings, integers, floats, and JSON.
 
-These parameters can be overridden by adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#user-parameters) in the Nameless Analytics Server-side client tag.
+These parameters can be overridden by adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#user-parameters) in the Nameless Analytics Server-side Client Tag.
 
 </br>
 
@@ -109,11 +103,17 @@ This is the hierarchy of event parameter importance:
 
 [Server-side session parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#session-parameters) override [Session parameters](#session-parameters)
 
+#### Add User ID
+
+Add User ID parameter in the session_data object in the payload. 
+
+This parameter can be overridden modifying [the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#modify-user-id-parameter) in Nameless Analytics Server-side Client Tag.
+
 #### Add session level parameters
 
 Add session level parameters in the session_data object in the payload. Accepted values: strings, integers, floats, and JSON.
 
-These parameters can be overridden by adding [session parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#session-parameters) in the Nameless Analytics Server-side client tag.
+These parameters can be overridden by adding [session parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#session-parameters) in the Nameless Analytics Server-side Client Tag.
 
 </br>
 
@@ -160,11 +160,11 @@ Add shared event parameters to the `event_data` object in the payload. Accepted 
 
 These parameters can override:
 - default event parameters
-- dataLayer event parameters added in Nameless Analytics Client-side tracker tag
+- dataLayer event parameters added in Nameless Analytics Client-side Tracker Tag
 
 These parameters can be overridden by:
-- event parameters added in Nameless Analytics Client-side tracker tag
-- event parameters added in Nameless Analytics Server-side client tag
+- event parameters added in Nameless Analytics Client-side Tracker Tag
+- event parameters added in Nameless Analytics Server-side Client Tag
 
 </br>
 
@@ -200,7 +200,7 @@ Override the default URL query parameter names used as source and campaign param
 
 Override the default JavaScript event name for page views. Update this value if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from `gtm.js`.
 
-Please note: When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is the one specified in this setting. If it is, the tag generates a new `page_id` value. For this reason, the `page_view` event must be the first event on a page. Any event sent on a page prior to the first `page_view` event will be ignored because it lacks a `page_id`.
+Please note: When an event is fired, the Nameless Analytics Client-side Tracker Tag checks if the JavaScript event that triggered the tag is the one specified in this setting. If it is, the tag generates a new `page_id` value. For this reason, the `page_view` event must be the first event on a page. Any event sent on a page prior to the first `page_view` event will be ignored because it lacks a `page_id`.
 
 ### Override default JavaScript virtual page view event names
 
@@ -233,11 +233,11 @@ Enable cross-domain tracking and add the domains one per row.
 
 #### Endpoint domain name
 
-- If the domains do not share the same Nameless Analytics Server-side client tag: with this configuration the endpoint domain can be static as [described here](#endpoint-domain-name).
+- If the domains do not share the same Nameless Analytics Server-side Client Tag: with this configuration the endpoint domain can be static as [described here](#endpoint-domain-name).
 
-- If multiple domains share the same Nameless Analytics Server-side client tag: With this configuration the endpoint domain must be dynamic.
+- If multiple domains share the same Nameless Analytics Server-side Client Tag: With this configuration the endpoint domain must be dynamic.
 
-This is necessary because when the Nameless Analytics Server-side client tag claims a request, it responds with a Set-Cookie header that includes the Domain attribute. 
+This is necessary because when the Nameless Analytics Server-side Client Tag claims a request, it responds with a Set-Cookie header that includes the Domain attribute. 
 To correctly set the Nameless Analytics cookies, the Domain attribute must match the domain or be a subdomain of the webpage’s domain that sent the request.
 
 Therefore:
@@ -263,17 +263,17 @@ Set this variable in the Request endpoint domain field so that, with this config
 
 Cross-domain functionality depends on [how Respect Google Consent Mode is set](#respect-google-consent-mode).
 
-If the enable_cross_domain_tracking option is enabled, the Nameless Analytics Client-side tracker tag will set a JavaScript event listener on every link click.
+If the enable_cross_domain_tracking option is enabled, the Nameless Analytics Client-side Tracker Tag will set a JavaScript event listener on every link click.
 
 When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve cookie values since they are not accessible from the browser ([they are HttpOnly](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cookies)). The Nameless Analytics Server-Side client tag responds with the cookie values and the JavaScript event listener decorates the URL with a parameter named na_id with the current session_id.
 
 After that, the user is redirected to the destination website. 
 
-When the user lands on the destination website and a page_view event is triggered, the Nameless Analytics Client-Side tracker tag checks if there is a na_id parameter in the URL. If it is present, the hit will contain a cross_domain_id parameter.
+When the user lands on the destination website and a page_view event is triggered, the Nameless Analytics Client-side Tracker Tag checks if there is a na_id parameter in the URL. If it is present, the hit will contain a cross_domain_id parameter.
 
 The Nameless Analytics Server-Side client tag will add it to the request and set back the cookies with those values. 
 
-If enable_cross_domain_tracking option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side tracker tag will not set any listener or will not send any hit if the consent was changed from granted to denied.
+If enable_cross_domain_tracking option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side Tracker Tag will not set any listener or will not send any hit if the consent was changed from granted to denied.
 
 </details>
 
