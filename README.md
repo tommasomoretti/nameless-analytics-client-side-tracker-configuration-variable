@@ -107,7 +107,7 @@ This is the hierarchy of event parameter importance:
 
 Add User ID parameter in the session_data object in the payload. 
 
-This parameter can be overridden modifying [the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#modify-user-id-parameter) in Nameless Analytics Server-side Client Tag.
+This parameter can be overridden modifying [the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#addoverride-user-id-parameter) in Nameless Analytics Server-side Client Tag.
 
 #### Add session level parameters
 
@@ -227,7 +227,7 @@ When Google Consent Mode is not present on website or Google Consent Mode is pre
 
 Enables the transfer of client_id and session_id data across two or more websites via a URL GET parameter. This allows Nameless Analytics tags to merge individual sessions into a single session that would otherwise be created when visiting other domains.
 
-Please note: the server-side GTM container must also be configured correctly to make cross-domain tracking work. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cross-domain).
+Please note: the server-side GTM container must also be configured correctly to make cross-domain tracking work. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#accept-requests-from-authorized-domains-only).
 
 Enable cross-domain tracking and add the domains one per row.
 
@@ -265,7 +265,7 @@ Cross-domain functionality depends on [how Respect Google Consent Mode is set](#
 
 If the enable_cross_domain_tracking option is enabled, the Nameless Analytics Client-side Tracker Tag will set a JavaScript event listener on every link click.
 
-When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve cookie values since they are not accessible from the browser ([they are HttpOnly](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#cookies)). The Nameless Analytics Server-Side client tag responds with the cookie values and the JavaScript event listener decorates the URL with a parameter named na_id with the current session_id.
+When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve cookie values since they are not accessible from the browser ([they are HttpOnly](https://github.com/tommasomoretti/nameless-analytics/#cookies)). The Nameless Analytics Server-Side client tag responds with the cookie values and the JavaScript event listener decorates the URL with a parameter named na_id with the current session_id.
 
 After that, the user is redirected to the destination website. 
 
