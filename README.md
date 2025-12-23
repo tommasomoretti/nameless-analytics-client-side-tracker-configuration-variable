@@ -33,20 +33,20 @@ Data:
     * [Add shared event parameters](#add-shared-event-parameters)
 
 Settings:
-- Server-side endpoint settings
-  - [Endpoint domain name](#endpoint-domain-name)
-  - [Endpoint path](#endpoint-path)
-- Page view settings
-  - [Add page status code](#add-page-status-code) 
-  - [Override default source and campaigns URL query parameters](#override-default-source-and-campaigns-url-query-parameters)
-  - [Override default JavaScript page view event names](#override-default-javascript-page-view-event-names)
-  - [Override default JavaScript virtual page view event names](#override-default-javascript-virtual-page-view-event-names)
-- Advanced settings
-  - [Respect Google Consent Mode](#respect-google-consent-mode)
-  - [Enable cross-domain tracking](#enable-cross-domain-tracking)
-  - [Load JavaScript libraries in first-party mode](#load-javascript-libraries-in-first-party-mode)
-  - [Add current dataLayer state](#add-current-datalayer-state)
-  - [Enable logs in JavaScript console](#enable-logs-in-javascript-console)
+* Server-side endpoint settings
+  * [Endpoint domain name](#endpoint-domain-name)
+  * [Endpoint path](#endpoint-path)
+* Page view settings
+  * [Add page status code](#add-page-status-code) 
+  * [Override default source and campaigns URL query parameters](#override-default-source-and-campaigns-url-query-parameters)
+  * [Override default JavaScript page view event names](#override-default-javascript-page-view-event-names)
+  * [Override default JavaScript virtual page view event names](#override-default-javascript-virtual-page-view-event-names)
+* Advanced settings
+  * [Respect Google Consent Mode](#respect-google-consent-mode)
+  * [Enable cross-domain tracking](#enable-cross-domain-tracking)
+  * [Load JavaScript libraries in first-party mode](#load-javascript-libraries-in-first-party-mode)
+  * [Add current dataLayer state](#add-current-datalayer-state)
+  * [Enable logs in JavaScript console](#enable-logs-in-javascript-console)
 
 </br>
 
