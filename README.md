@@ -38,7 +38,7 @@ Settings:
   - [Endpoint path](#endpoint-path)
 - Page view settings
   - [Add page status code](#add-page-status-code) 
-  - [Override default source and campaigns url query parameters](#override-default-source-and-campaigns-url-query-parameters)
+  - [Override default source and campaigns URL query parameters](#override-default-source-and-campaigns-url-query-parameters)
   - [Override default JavaScript page view event names](#override-default-javascript-page-view-event-names)
   - [Override default JavaScript virtual page view event names](#override-default-javascript-virtual-page-view-event-names)
 - Advanced settings
@@ -88,7 +88,7 @@ This parameter can be overridden modifying [the users ID](https://github.com/tom
 
 Add user level parameters to the `user_data` object in the payload. Accepted values: strings, integers, floats, and JSON.
 
-These parameters can be overridden by adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#user-parameters) in the Nameless Analytics Server-side client tag.
+These parameters can be overridden by adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#user-parameters) in the Nameless Analytics Server-side client tag.
 
 </br>
 
@@ -113,7 +113,7 @@ This is the hierarchy of event parameter importance:
 
 Add session level parameters in the session_data object in the payload. Accepted values: strings, integers, floats, and JSON.
 
-These parameters can be overridden by adding [session parameters](https://github.com/tommasomoretti/nameless-analytics-server-client-tracker-tag/#session-parameters) in the Nameless Analytics Server-side client tag.
+These parameters can be overridden by adding [session parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#session-parameters) in the Nameless Analytics Server-side client tag.
 
 </br>
 
@@ -122,16 +122,22 @@ These parameters can be overridden by adding [session parameters](https://github
 ### Page parameters
 
 #### Page category
+Add the `page_category` parameter to the request in `page_data`. This is an optional field to group pages into high-level categories.
 
 #### Page title
+Add the `page_title` parameter to the request in `page_data`. This field is often used for virtual page views or to override the default browser document title.
 
 #### Page location
+Add the `page_location` parameter to the request in `page_data`. Usually contains the full URL or specific path of the page being tracked.
 
 #### Page fragment
+Add the `page_fragment` parameter to the request in `page_data`. Useful for tracking specific sections in Single Page Applications (SPAs) that use hash fragments.
 
 #### Page query
+Add the `page_query` parameter to the request in `page_data`. Contains the query string parts of the URL (parameters after the `?`).
 
 #### Page extension
+Add the `page_extension` parameter to the request in `page_data`. Typically used to identify the file format of the page (e.g., `.html`, `.php`).
 
 </br>
 
@@ -185,22 +191,22 @@ Add page status code to the request in the event_data when a page_view happens. 
 Please note: this will not work for virtual_page_view.
 
 
-### Override default source and campaigns url query parameters
+### Override default source and campaigns URL query parameters
 
 Override the default URL query parameter names used as source and campaign parameters. By default, these values are taken from standard UTM parameters.
 
 
 ### Override default JavaScript page view event names
 
-Override the default JavaScript event names for page_view. Update these values if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from gtm.js (for page views) or gtm.historyChange (for virtual page views).
+Override the default JavaScript event name for page views. Update this value if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from `gtm.js`.
 
-Please note: When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
+Please note: When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is the one specified in this setting. If it is, the tag generates a new `page_id` value. For this reason, the `page_view` event must be the first event on a page. Any event sent on a page prior to the first `page_view` event will be ignored because it lacks a `page_id`.
 
 ### Override default JavaScript virtual page view event names
 
-Override the default JavaScript event names for page_view. Update these values if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from gtm.js (for page views) or gtm.historyChange (for virtual page views).
+Override the default JavaScript event name for virtual page views. Update this value if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from `gtm.historyChange`.
 
-Please note: When an event is fired, the Nameless Analytics Client-side tracker tag checks if the JavaScript event that triggered the tag is gtm.js or gtm.historyChange. If it is, the tag generates a new page_id value. For this reason, the page_view event must be the first event on a page. Any event sent on a page prior to the first page_view event will be ignored because it lacks a page_id.
+Please note: Similar to standard page views, if the JavaScript event matches this setting, the tag generates a new `page_id`. 
 
 </br>
 
