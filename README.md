@@ -267,11 +267,11 @@ Cross-domain functionality depends on [how Respect Google Consent Mode is set](#
 
 If the enable_cross_domain_tracking option is enabled, the Nameless Analytics Client-side Tracker Tag will set a JavaScript event listener on every link click.
 
-When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve cookie values since they are not accessible from the browser ([they are HttpOnly](https://github.com/tommasomoretti/nameless-analytics/#cookies)). The Nameless Analytics Server-Side client tag responds with the cookie values and the JavaScript event listener decorates the URL with a parameter named na_id with the current session_id.
+When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve cookie values since they are not accessible from the browser ([they are HttpOnly](https://github.com/tommasomoretti/nameless-analytics/#cookies)). The Nameless Analytics Server-Side client tag responds with the cookie values and the JavaScript event listener decorates the URL with a `na_id` URL parameter with the current session_id.
 
 After that, the user is redirected to the destination website. 
 
-When the user lands on the destination website and a page_view event is triggered, the Nameless Analytics Client-side Tracker Tag checks if there is a na_id parameter in the URL. If it is present, the hit will contain a cross_domain_id parameter.
+When the user lands on the destination website and a page_view event is triggered, the Nameless Analytics Client-side Tracker Tag checks if there is a `na_id` URL parameter. If it is present, the hit will contain a `cross_domain_id` parameter.
 
 The Nameless Analytics Server-Side client tag will add it to the request and set back the cookies with those values. 
 
