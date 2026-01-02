@@ -1,8 +1,8 @@
 # Nameless Analytics Client-side Tracker Configuration Variable
 
-The Nameless Analytics Client-side Tracker Configuration Variable is a highly customizable GTM custom variable template designed to configure the settings of [Nameless Analytics Client-side Tracker Tag](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/). 
+The Nameless Analytics Client-side Tracker Configuration Variable is a highly customizable GTM custom variable template designed to configure the settings of [Nameless Analytics Client-side Tracker Tag](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-tag/). 
 
-For an overview of how Nameless Analytics works [start from here](https://github.com/tommasomoretti/nameless-analytics/).
+For an overview of how Nameless Analytics works [start from here](https://github.com/nameless-analytics/nameless-analytics/).
 
 Variable:
 * [Nameless Analytics Client-side Tracker Configuration Variable UI](#nameless-analytics-client-side-tracker-configuration-variable-ui)
@@ -70,7 +70,7 @@ Please note: if a parameter has the same name as another, it can override or be 
 
 This is the hierarchy of event parameter importance: 
 
-[Server-side user parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#user-parameters) override [User parameters](#user-parameters)
+[Server-side user parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#user-parameters) override [User parameters](#user-parameters)
 
 
 #### Add user level parameters
@@ -79,7 +79,7 @@ Add user level parameters to the `user_data` object in the payload. Accepted val
 
 The user ID is optional and set at session level.
 
-These parameters can be overridden by adding [user parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#user-parameters) in the Nameless Analytics Server-side Client Tag.
+These parameters can be overridden by adding [user parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#user-parameters) in the Nameless Analytics Server-side Client Tag.
 
 </br>
 
@@ -98,19 +98,19 @@ Please note: if a parameter has the same name as another, it can override or be 
 
 This is the hierarchy of event parameter importance: 
 
-[Server-side session parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#session-parameters) override [Session parameters](#session-parameters)
+[Server-side session parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#session-parameters) override [Session parameters](#session-parameters)
 
 #### Add User ID
 
 Add User ID parameter in the session_data object in the payload. 
 
-This parameter can be overridden modifying [the users ID](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#addoverride-user-id-parameter) in Nameless Analytics Server-side Client Tag.
+This parameter can be overridden modifying [the users ID](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#addoverride-user-id-parameter) in Nameless Analytics Server-side Client Tag.
 
 #### Add session level parameters
 
 Add session level parameters in the session_data object in the payload. Accepted values: strings, integers, floats, and JSON.
 
-These parameters can be overridden by adding [session parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#session-parameters) in the Nameless Analytics Server-side Client Tag.
+These parameters can be overridden by adding [session parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#session-parameters) in the Nameless Analytics Server-side Client Tag.
 
 </br>
 
@@ -149,7 +149,7 @@ Please note: if a parameter has the same name as another, it can override or be 
 
 This is the hierarchy of event parameter importance: 
 
-[Server-side event parameters](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#event-parameters) override [Specific event parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#event-parameters) override [Shared event parameters](#add-shared-event-parameters) override [dataLayer parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#add-event-parameters-from-datalayer) override [Standard parameters](https://github.com/tommasomoretti/nameless-analytics-client-side-tracker-tag/#request-payload-data)
+[Server-side event parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#event-parameters) override [Specific event parameters](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-tag/#event-parameters) override [Shared event parameters](#add-shared-event-parameters) override [dataLayer parameters](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-tag/#add-event-parameters-from-datalayer) override [Standard parameters](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-tag/#request-payload-data)
 
 #### Add shared event parameters
 
@@ -224,7 +224,7 @@ When Google Consent Mode is not present on website or Google Consent Mode is pre
 
 Enables the transfer of client_id and session_id data across two or more websites via a URL GET parameter. This allows Nameless Analytics tags to merge individual sessions into a single session that would otherwise be created when visiting other domains.
 
-Please note: the server-side GTM container must also be configured correctly to make cross-domain tracking work. Read the relative [documentation](https://github.com/tommasomoretti/nameless-analytics-server-side-client-tag/#accept-requests-from-authorized-domains-only).
+Please note: the server-side GTM container must also be configured correctly to make cross-domain tracking work. Read the relative [documentation](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#accept-requests-from-authorized-domains-only).
 
 Enable cross-domain tracking and add the domains one per row.
 
@@ -262,7 +262,7 @@ Cross-domain functionality depends on [how Respect Google Consent Mode is set](#
 
 If the enable_cross_domain_tracking option is enabled, the Nameless Analytics Client-side Tracker Tag will set a JavaScript event listener on every link click.
 
-When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve cookie values since they are not accessible from the browser ([they are HttpOnly](https://github.com/tommasomoretti/nameless-analytics/#cookies)). The Nameless Analytics Server-Side client tag responds with the cookie values and the JavaScript event listener decorates the URL with a `na_id` URL parameter with the current session_id.
+When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve cookie values since they are not accessible from the browser ([they are HttpOnly](https://github.com/nameless-analytics/nameless-analytics/#cookies)). The Nameless Analytics Server-Side client tag responds with the cookie values and the JavaScript event listener decorates the URL with a `na_id` URL parameter with the current session_id.
 
 After that, the user is redirected to the destination website. 
 
