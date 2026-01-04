@@ -43,17 +43,16 @@ Settings:
   * [Add current dataLayer state](#add-current-datalayer-state)
   * [Enable logs in JavaScript console](#enable-logs-in-javascript-console)
 
-</br>
+</br></br>
 
 
 
 ## Nameless Analytics Client-side Tracker Configuration Variable UI
-This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable. This variable will handle settings like setting user and session parameters, common event parameters, user ID, user consent mode, cross-domain tracking, logging in JavaScript console and more.
+This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable. This variable will handle settings like setting user and session parameters, common event parameters, User ID parameter, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
 <img src="https://github.com/user-attachments/assets/16bd7112-e605-40cb-ba18-797bdb3e3d08" alt="Nameless Analytics Client-side Tracker Configuration Variable UI" />
 
-</br>
-</br>
+</br></br>
 
 
 
@@ -75,11 +74,11 @@ See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nam
 
 Add user level parameters to the `user_data` object in the payload. Accepted values: strings, integers, floats, and JSON.
 
-The user ID is optional and set at session level.
+The User ID parameter is optional and set at session level.
 
 These parameters can be overridden by adding [user parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#user-parameters) in the Nameless Analytics Server-side Client Tag.
 
-</br>
+</br></br>
 
 
 
@@ -108,7 +107,8 @@ Add session level parameters in the session_data object in the payload. Accepted
 
 These parameters can be overridden by adding [session parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#session-parameters) in the Nameless Analytics Server-side Client Tag.
 
-</br>
+</br></br>
+
 
 
 ## Page data
@@ -132,7 +132,7 @@ Add the `page_query` parameter to the request in `page_data`. Contains the query
 #### Page extension
 Add the `page_extension` parameter to the request in `page_data`. Typically used to identify the file format of the page (e.g., `.html`, `.php`).
 
-</br>
+</br></br>
 
 
 
@@ -157,7 +157,8 @@ These parameters can be overridden by:
 - event parameters added in Nameless Analytics Client-side Tracker Tag
 - event parameters added in Nameless Analytics Server-side Client Tag
 
-</br>
+</br></br>
+
 
 
 ## Server-side endpoint settings
@@ -180,7 +181,7 @@ The endpoint path where the Nameless Analytics Server-side Client Tag listens.
 #### Endpoint path requirements for Cross-domain
 The endpoint path must be the same for all domains.
 
-</br>
+</br></br>
 
 
 
@@ -209,7 +210,7 @@ Override the default JavaScript event name for virtual page views. Update this v
 
 Please note: Similar to standard page views, if the JavaScript event matches this setting, the tag generates a new `page_id`. 
 
-</br>
+</br></br>
 
 
 
