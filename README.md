@@ -66,11 +66,9 @@ They are:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
 
-Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
+This is the hierarchy of parameter importance: 
 
-This is the hierarchy of event parameter importance: 
-
-[Server-side user parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#user-parameters) override [User parameters](#user-parameters)
+See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 
 #### Add user level parameters
@@ -94,17 +92,15 @@ They are:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
 
-Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
+This is the hierarchy of parameter importance: 
 
-This is the hierarchy of event parameter importance: 
-
-[Server-side session parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#session-parameters) override [Session parameters](#session-parameters)
+See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 #### Add User ID
 
 Add User ID parameter in the session_data object in the payload. 
 
-This parameter can be overridden modifying [the users ID](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#addoverride-user-id-parameter) in Nameless Analytics Server-side Client Tag.
+This parameter can be overridden modifying the [User ID parameter](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#addoverride-user-id-parameter) in Nameless Analytics Server-side Client Tag.
 
 #### Add session level parameters
 
@@ -145,11 +141,9 @@ Add the `page_extension` parameter to the request in `page_data`. Typically used
 
 Add event parameters for all events. The parameters will be added in the event_data object in the payload.
 
-Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set. 
+This is the hierarchy of parameter importance: 
 
-This is the hierarchy of event parameter importance: 
-
-[Server-side event parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#event-parameters) override [Specific event parameters](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-tag/#event-parameters) override [Shared event parameters](#add-shared-event-parameters) override [dataLayer parameters](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-tag/#add-event-parameters-from-datalayer) override [Standard parameters](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-tag/#request-payload-data)
+See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 #### Add shared event parameters
 
@@ -171,10 +165,20 @@ These parameters can be overridden by:
 
 The domain name of the server-side GTM instance. The tag assumes the protocol is HTTPS. 
 
+#### Endpoint requirements for Cross-domain
+When tracking multiple domains, the Server-side GTM endpoint configuration becomes critical due to how browsers handle the `Set-Cookie` header:
+
+*   **Static Endpoint**: If all domains are subdomains of the same root (e.g., `a.site.com` and `b.site.com`), a single static endpoint (e.g., `gtm.site.com`) works.
+*   **Dynamic Endpoints**: If domains are completely different (e.g., `domain-a.com` and `domain-b.com`), the requests **must** be sent to a first-party subdomain of the *current* page (e.g., `gtm.domain-a.com` on site A and `gtm.domain-b.com` on site B). This ensures that the `Domain` attribute in the `Set-Cookie` header matches the request origin, allowing the browser to accept the cookie.
+
+Failure to use dynamic endpoints in a multi-domain setup will result in cookies being rejected by the browser due to cross-site security policies.
+
 
 ### Endpoint path
-
 The endpoint path where the Nameless Analytics Server-side Client Tag listens. 
+
+#### Endpoint path requirements for Cross-domain
+The endpoint path must be the same for all domains.
 
 </br>
 
@@ -212,67 +216,31 @@ Please note: Similar to standard page views, if the JavaScript event matches thi
 ## Advanced settings
 ### Respect Google Consent Mode
 
-When Google Consent Mode is present on website and respect_consent_mode is enabled, the events are sent only if a user consents.
-- When analytics_storage is equal to denied, the tag waits until consent is granted. 
-- When analytics_storage changes from denied to granted, all pending tags for that page will be fired in execution order.
-- When analytics_storage is equal to granted, the tag sends the hits to the server-side Google Tag Manager endpoint without temp_client_id and temp_session_id.
+When Google Consent Mode is present on website and `respect_consent_mode` is enabled, the events are sent only if a user consents:
+- When  `analytics_storage` is equal to `denied`, the tag waits until consent is granted. 
+- When `analytics_storage` changes from `denied` to `granted`, all pending tags for that page will be fired in execution order.
   
-When Google Consent Mode is not present on website or Google Consent Mode is present on website and respect_consent_mode is disabled, all events are sent regardless of user consents. 
+When Google Consent Mode is present on website and `respect_consent_mode` is disabled, all events are sent regardless of user consents. 
 
+When Google Consent Mode is not present on website and `respect_consent_mode` is enabled, none of the events are sent. 
 
 ### Enable cross-domain tracking
 
-Enables the transfer of client_id and session_id data across two or more websites via a URL GET parameter. This allows Nameless Analytics tags to merge individual sessions into a single session that would otherwise be created when visiting other domains.
+Enables the transfer of `client_id` and `session_id` data across two or more websites via a URL GET parameter. This allows Nameless Analytics tags to merge individual sessions into a single session that would otherwise be created when visiting other domains.
 
-Please note: the server-side GTM container must also be configured correctly to make cross-domain tracking work. Read the relative [documentation](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#accept-requests-from-authorized-domains-only).
+#### Cross-domain domains
+Since domains are completely different (e.g., `domain-a.com` and `domain-b.com`), the requests must be sent to a first-party subdomain for each site. For an in-depth explanation of why this is required and how the handshake protocol works, see the [Cross-domain Architecture documentation](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture).
 
-Enable cross-domain tracking and add the domains one per row.
+To implement this:
+1. Enable cross-domain tracking in the variable.
+2. Add the domains to the list (one per row).
+3. If necessary, create a **Regex Lookup Table** in GTM to dynamically switch the endpoint domain based on the current page hostname:
 
-#### Endpoint domain name
+<img src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d" alt="Lookup Table for dynamic endpoints" />
 
-- If the domains do not share the same Nameless Analytics Server-side Client Tag: with this configuration the endpoint domain can be static as [described here](#endpoint-domain-name).
+4. Set this dynamic variable in the **Request endpoint domain** field. This ensures the `Domain` attribute in the `Set-Cookie` header will always match the request origin browser-side.
 
-- If multiple domains share the same Nameless Analytics Server-side Client Tag: With this configuration the endpoint domain must be dynamic.
-
-This is necessary because when the Nameless Analytics Server-side Client Tag claims a request, it responds with a Set-Cookie header that includes the Domain attribute. 
-To correctly set the Nameless Analytics cookies, the Domain attribute must match the domain or be a subdomain of the webpage’s domain that sent the request.
-
-Therefore:
-- Requests originating from domain_1.com must be sent to gtm.domain_1.com
-- Requests originating from domain_2.com must be sent to gtm.domain_2.com
-
-Otherwise the Set-Cookie header will not work:
-
-<img src="https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b" alt="Enable cross-domain tracking" />
-
-</br>
-
-To save cookies correctly, create a regex lookup table to send requests to the corresponding domain endpoints. 
-
-<img src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d" alt="Enable cross-domain tracking" />
-
-</br>
-
-Set this variable in the Request endpoint domain field so that, with this configuration, the Domain attribute in the Set-Cookie header will match the request origin.
-
-
-<details><summary>How cross-domain tracking works</summary>
-
-Cross-domain functionality depends on [how Respect Google Consent Mode is set](#respect-google-consent-mode).
-
-If the enable_cross_domain_tracking option is enabled, the Nameless Analytics Client-side Tracker Tag will set a JavaScript event listener on every link click.
-
-When a user clicks on a cross-domain link, the event listener sends a get_user_data request to the Nameless Analytics Server-Side client tag to retrieve cookie values since they are not accessible from the browser ([they are HttpOnly](https://github.com/nameless-analytics/nameless-analytics/#cookies)). The Nameless Analytics Server-Side client tag responds with the cookie values and the JavaScript event listener decorates the URL with a `na_id` URL parameter with the current session_id.
-
-After that, the user is redirected to the destination website. 
-
-When the user lands on the destination website and a page_view event is triggered, the Nameless Analytics Client-side Tracker Tag checks if there is a `na_id` URL parameter. If it is present, the hit will contain a `cross_domain_id` parameter.
-
-The Nameless Analytics Server-Side client tag will add it to the request and set back the cookies with those values. 
-
-If enable_cross_domain_tracking option is disabled or respect_consent_mode is true and analytics_storage is denied, the Nameless Analytics Client-side Tracker Tag will not set any listener or will not send any hit if the consent was changed from granted to denied.
-
-</details>
+<img src="https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b" alt="Dynamic endpoint configuration" />
 
 
 ### Load JavaScript libraries in first-party mode
