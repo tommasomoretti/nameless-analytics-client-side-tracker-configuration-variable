@@ -50,7 +50,7 @@ Settings:
 ## Nameless Analytics Client-side Tracker Configuration Variable UI
 This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable. This variable will handle settings like setting user and session parameters, common event parameters, User ID parameter, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
-<img src="https://github.com/user-attachments/assets/16bd7112-e605-40cb-ba18-797bdb3e3d08" alt="Nameless Analytics Client-side Tracker Configuration Variable UI" />
+![Nameless Analytics Client-side Tracker Configuration Variable UI](https://github.com/user-attachments/assets/16bd7112-e605-40cb-ba18-797bdb3e3d08)
 
 </br></br>
 
@@ -237,11 +237,11 @@ To implement this:
 2. Add the domains to the list (one per row).
 3. If necessary, create a **Regex Lookup Table** in GTM to dynamically switch the endpoint domain based on the current page hostname:
 
-<img src="https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d" alt="Lookup Table for dynamic endpoints" />
+![Lookup Table for dynamic endpoints](https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d)
 
 4. Set this dynamic variable in the **Request endpoint domain** field. This ensures the `Domain` attribute in the `Set-Cookie` header will always match the request origin browser-side.
 
-<img src="https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b" alt="Dynamic endpoint configuration" />
+![Dynamic endpoint configuration](https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b)
 
 
 ### Load JavaScript libraries in first-party mode
