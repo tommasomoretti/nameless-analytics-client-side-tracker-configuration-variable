@@ -467,7 +467,7 @@ ___TEMPLATE_PARAMETERS___
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
-            "help": "Add page_category parameter to the request in event_data."
+            "help": "Add page_category parameter to the request in page_data."
           },
           {
             "type": "TEXT",
@@ -488,7 +488,7 @@ ___TEMPLATE_PARAMETERS___
                 "type": "EQUALS"
               }
             ],
-            "help": "Add page_title parameter to the request in event_data."
+            "help": "Add page_title parameter to the request in page_data."
           },
           {
             "type": "TEXT",
@@ -509,7 +509,7 @@ ___TEMPLATE_PARAMETERS___
                 "type": "EQUALS"
               }
             ],
-            "help": "Add page_location parameter to the request in event_data."
+            "help": "Add page_location parameter to the request in page_data."
           },
           {
             "type": "TEXT",
@@ -525,7 +525,7 @@ ___TEMPLATE_PARAMETERS___
                 "type": "EQUALS"
               }
             ],
-            "help": "Add page_fragment parameter to the request in event_data."
+            "help": "Add page_fragment parameter to the request in page_data."
           },
           {
             "type": "TEXT",
@@ -541,7 +541,7 @@ ___TEMPLATE_PARAMETERS___
                 "type": "EQUALS"
               }
             ],
-            "help": "Add page_query parameter to the request in event_data."
+            "help": "Add page_query parameter to the request in page_data."
           },
           {
             "type": "TEXT",
@@ -557,7 +557,7 @@ ___TEMPLATE_PARAMETERS___
                 "type": "EQUALS"
               }
             ],
-            "help": "Add page_extension parameter to the request in event_data."
+            "help": "Add page_extension parameter to the request in page_data."
           }
         ]
       }
