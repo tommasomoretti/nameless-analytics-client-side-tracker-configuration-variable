@@ -190,7 +190,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "add_user_id",
         "checkboxText": "Add User ID",
         "simpleValueType": true,
-        "help": "Add User ID to the request in session_data.user_id.\u003c/br\u003e\u003c/br\u003eUser ID is set at session level.",
+        "help": "Add User ID to the request in session_data.",
         "displayName": "Session parameters",
         "defaultValue": false,
         "alwaysInSummary": true,
