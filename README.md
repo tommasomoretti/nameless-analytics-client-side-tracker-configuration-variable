@@ -46,7 +46,9 @@ Settings:
 
 
 ## Nameless Analytics Client-side Tracker Configuration Variable UI
-This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable. This variable will handle settings like setting user and session parameters, common event parameters, User ID parameter, user consent mode, cross-domain tracking, logging in JavaScript console and more.
+This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable. 
+
+This variable will handle settings like setting user and session parameters, common event parameters, User ID parameter, user consent mode, cross-domain tracking, logging in JavaScript console and more.
 
 ![Nameless Analytics Client-side Tracker Configuration Variable UI](https://github.com/user-attachments/assets/0baea4b1-6cb2-4518-a742-0cd2c90db17e)
 
@@ -54,56 +56,45 @@ This is the UI of the Nameless Analytics Client-side Tracker Configuration Varia
 
 ## User data
 ### User parameters
-
 Add user parameters for all events. The parameters will be added in the user_data object in the payload.
 
 They are:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
 
-This is the hierarchy of parameter importance: 
-
-See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
-
 #### Add user level parameters
+Accepted values: strings, integers, floats, and JSON.
 
-Add user level parameters to the `user_data` object in the payload. Accepted values: strings, integers, floats, and JSON.
-
-The User ID parameter is optional and set at session level.
-
-These parameters can be overridden by adding [user parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#user-parameters) in the Nameless Analytics Server-side Client Tag.
+These parameters can be overridden by:
+- user parameters added in Nameless Analytics Server-side Client Tag
 
 
 
 ## Session data
 ### Session parameters
-
 Add session parameters for all events. The parameters will be added in the session_data object in the payload.
 
 They are:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
 
-This is the hierarchy of parameter importance: 
-
-See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
-
 #### Add User ID
+Accepted values: strings. 
 
-Add User ID parameter in the session_data object in the payload. 
-
-This parameter can be overridden modifying the [User ID parameter](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#addoverride-user-id-parameter) in Nameless Analytics Server-side Client Tag.
+These parameters can be overridden by:
+- user id parameter added in Nameless Analytics Server-side Client Tag
 
 #### Add session level parameters
+Accepted values: strings, integers, floats, and JSON.
 
-Add session level parameters in the session_data object in the payload. Accepted values: strings, integers, floats, and JSON.
-
-These parameters can be overridden by adding [session parameters](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag/#session-parameters) in the Nameless Analytics Server-side Client Tag.
+These parameters can be overridden by:
+- session parameters added in Nameless Analytics Server-side Client Tag
 
 
 
 ## Page data
 ### Page parameters
+Add page parameters for all events. The parameters will be added in the page_data object in the payload.
 
 #### Page category
 Add the `page_category` parameter to the request in `page_data`. This is an optional field to group pages into high-level categories.
@@ -127,30 +118,23 @@ Add the `page_extension` parameter to the request in `page_data`. Typically used
 
 ## Event data
 ### Event parameters
-
 Add event parameters for all events. The parameters will be added in the event_data object in the payload.
 
-This is the hierarchy of parameter importance: 
-
-See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
-
 #### Add shared event parameters
-
-Add shared event parameters to the `event_data` object in the payload. Accepted values: strings, integers, floats, and JSON.
+Accepted values: strings, integers, floats, and JSON.
 
 These parameters can override:
-- default event parameters
 - dataLayer event parameters added in Nameless Analytics Client-side Tracker Tag
+- Default event parameters
 
 These parameters can be overridden by:
-- event parameters added in Nameless Analytics Client-side Tracker Tag
-- event parameters added in Nameless Analytics Server-side Client Tag
+- Event parameters added in Nameless Analytics Server-side Client Tag
+- Event parameters added in Nameless Analytics Client-side Tracker Tag
 
 
 
 ## Server-side endpoint settings
 ### Endpoint domain name
-
 The domain name of the server-side GTM instance. The tag assumes the protocol is HTTPS. 
 
 #### Endpoint requirements for Cross-domain
@@ -172,26 +156,22 @@ The endpoint path must be the same for all domains.
 
 ## Page view settings
 ### Add page status code
-
 Add page status code to the request in the event_data when a page_view happens. If enabled, the tracker performs a silent HEAD request to the current URL to retrieve the HTTP status code (e.g. 200, 404, 500), allowing you to monitor page errors directly in the reports.
 
 Please note: This setting will be visible in the UI only when the event name is equal to page_view and this will not work for virtual_page_view.
 
 
 ### Override default source and campaigns URL query parameters
-
 Override the default URL query parameter names used as source and campaign parameters. By default, these values are taken from standard UTM parameters.
 
 
 ### Override default JavaScript page view event names
-
 Override the default JavaScript event name for page views. Update this value if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from `gtm.js`.
 
 Please note: When an event is fired, the Nameless Analytics Client-side Tracker Tag checks if the JavaScript event that triggered the tag is the one specified in this setting. If it is, the tag generates a new `page_id` value. For this reason, the `page_view` event must be the first event on a page. Any event sent on a page prior to the first `page_view` event will be ignored because it lacks a `page_id`.
 
 
 ### Override default JavaScript virtual page view event names
-
 Override the default JavaScript event name for virtual page views. Update this value if the Nameless Analytics Client-side Tracker Tag is triggered by a JavaScript event name that differs from `gtm.historyChange`.
 
 Please note: Similar to standard page views, if the JavaScript event matches this setting, the tag generates a new `page_id`. 
@@ -200,7 +180,6 @@ Please note: Similar to standard page views, if the JavaScript event matches thi
 
 ## Advanced settings
 ### Respect Google Consent Mode
-
 When Google Consent Mode is present on website and `respect_consent_mode` is enabled, the events are sent only if a user consents:
 - When  `analytics_storage` is equal to `denied`, the tag waits until consent is granted. 
 - When `analytics_storage` changes from `denied` to `granted`, all pending tags for that page will be fired in execution order.
@@ -211,7 +190,6 @@ When Google Consent Mode is not present on website and `respect_consent_mode` is
 
 
 ### Enable cross-domain tracking
-
 Enables the transfer of `client_id` and `session_id` data across two or more websites via a URL GET parameter. This allows Nameless Analytics tags to merge individual sessions into a single session that would otherwise be created when visiting other domains.
 
 #### Cross-domain domains
@@ -230,17 +208,14 @@ To implement this:
 
 
 ### Load JavaScript libraries in first-party mode
-
 Override the default location of the main library. 
 
 
 ### Add current dataLayer state
-
 Add the current state of the dataLayer in dataLayer field in the payload.  
 
 
 ### Enable logs in JavaScript console
-
 Enable console log for all events in JavaScript console.
 
 ---
