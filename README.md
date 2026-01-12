@@ -4,18 +4,18 @@ The Nameless Analytics Client-side Tracker Configuration Variable is a highly cu
 
 For an overview of how Nameless Analytics works [start from here](https://github.com/nameless-analytics/nameless-analytics/#high-level-data-flow).
 
-Variable:
-* [Nameless Analytics Client-side Tracker Configuration Variable UI](#nameless-analytics-client-side-tracker-configuration-variable-ui)
 
-Data:
-* User data
+
+## TOC
+* [Nameless Analytics Client-side Tracker Configuration Variable UI](#nameless-analytics-client-side-tracker-configuration-variable-ui)
+* [User data](#user-data)
   * [User parameters](#user-parameters)
     * [Add user level parameters](#add-user-level-parameters)
-* Session data
+* [Session data](#session-data)
   * [Session parameters](#session-parameters) 
     * [Add User ID](#add-user-id)
     * [Add session level parameters](#add-session-level-parameters)
-* Page data
+* [Page data](#page-data)
   * [Page parameters](#page-parameters)
     * [Page category](#page-category)
     * [Page title](#page-title)
@@ -23,20 +23,18 @@ Data:
     * [Page fragment](#page-fragment)
     * [Page query](#page-query)
     * [Page extension](#page-extension)
-* Event data
+* [Event data](#event-data)
   * [Event parameters](#event-parameters)
     * [Add shared event parameters](#add-shared-event-parameters)
-
-Settings:
-* Server-side endpoint settings
+* [Server-side endpoint settings](#server-side-endpoint-settings)
   * [Endpoint domain name](#endpoint-domain-name)
   * [Endpoint path](#endpoint-path)
-* Page view settings
+* [Page view settings](#page-view-settings)
   * [Add page status code](#add-page-status-code) 
   * [Override default source and campaigns URL query parameters](#override-default-source-and-campaigns-url-query-parameters)
   * [Override default JavaScript page view event names](#override-default-javascript-page-view-event-names)
   * [Override default JavaScript virtual page view event names](#override-default-javascript-virtual-page-view-event-names)
-* Advanced settings
+* [Advanced settings](#advanced-settings)
   * [Respect Google Consent Mode](#respect-google-consent-mode)
   * [Enable cross-domain tracking](#enable-cross-domain-tracking)
   * [Load JavaScript libraries in first-party mode](#load-javascript-libraries-in-first-party-mode)
