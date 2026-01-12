@@ -7,39 +7,45 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 ## Table of Contents
-* [Nameless Analytics Client-side Tracker Configuration Variable UI](#nameless-analytics-client-side-tracker-configuration-variable-ui)
-* [User data](#user-data)
-  * [User parameters](#user-parameters)
-    * [Add user level parameters](#add-user-level-parameters)
-* [Session data](#session-data)
-  * [Session parameters](#session-parameters) 
-    * [Add User ID](#add-user-id)
-    * [Add session level parameters](#add-session-level-parameters)
-* [Page data](#page-data)
-  * [Page parameters](#page-parameters)
-    * [Page category](#page-category)
-    * [Page title](#page-title)
-    * [Page location](#page-location)
-    * [Page fragment](#page-fragment)
-    * [Page query](#page-query)
-    * [Page extension](#page-extension)
-* [Event data](#event-data)
-  * [Event parameters](#event-parameters)
-    * [Add shared event parameters](#add-shared-event-parameters)
-* [Server-side endpoint settings](#server-side-endpoint-settings)
-  * [Endpoint domain name](#endpoint-domain-name)
-  * [Endpoint path](#endpoint-path)
-* [Page view settings](#page-view-settings)
-  * [Add page status code](#add-page-status-code) 
-  * [Override default source and campaigns URL query parameters](#override-default-source-and-campaigns-url-query-parameters)
-  * [Override default JavaScript page view event names](#override-default-javascript-page-view-event-names)
-  * [Override default JavaScript virtual page view event names](#override-default-javascript-virtual-page-view-event-names)
-* [Advanced settings](#advanced-settings)
-  * [Respect Google Consent Mode](#respect-google-consent-mode)
-  * [Enable cross-domain tracking](#enable-cross-domain-tracking)
-  * [Load JavaScript libraries in first-party mode](#load-javascript-libraries-in-first-party-mode)
-  * [Add current dataLayer state](#add-current-datalayer-state)
-  * [Enable logs in JavaScript console](#enable-logs-in-javascript-console)
+- [Nameless Analytics Client-side Tracker Configuration Variable UI](#nameless-analytics-client-side-tracker-configuration-variable-ui)
+- [User data](#user-data)
+  - [User parameters](#user-parameters)
+    - [Add user level parameters](#add-user-level-parameters)
+- [Session data](#session-data)
+  - [Session parameters](#session-parameters)
+    - [Add User ID](#add-user-id)
+    - [Add session level parameters](#add-session-level-parameters)
+- [Page data](#page-data)
+  - [Page parameters](#page-parameters)
+    - [Page category](#page-category)
+    - [Virtual page title](#virtual-page-title)
+    - [Virtual page location](#virtual-page-location)
+    - [Virtual page fragment](#virtual-page-fragment)
+    - [Virtual page query](#virtual-page-query)
+    - [Virtual page extension](#virtual-page-extension)
+- [Event data](#event-data)
+  - [Event parameters](#event-parameters)
+    - [Add shared event level parameters](#add-shared-event-level-parameters)
+- [Server-side endpoint settings](#server-side-endpoint-settings)
+  - [Endpoint domain name](#endpoint-domain-name)
+    - [Endpoint requirements for Cross-domain](#endpoint-requirements-for-cross-domain)
+  - [Endpoint path](#endpoint-path)
+    - [Endpoint path requirements for Cross-domain](#endpoint-path-requirements-for-cross-domain)
+- [Page view settings](#page-view-settings)
+  - [Add page status code](#add-page-status-code)
+  - [Override default source and campaigns URL query parameters](#override-default-source-and-campaigns-url-query-parameters)
+  - [Override default JavaScript page view event names](#override-default-javascript-page-view-event-names)
+  - [Override default JavaScript virtual page view event names](#override-default-javascript-virtual-page-view-event-names)
+- [Advanced settings](#advanced-settings)
+  - [Respect Google Consent Mode](#respect-google-consent-mode)
+  - [Enable cross-domain tracking](#enable-cross-domain-tracking)
+    - [Cross-domain domains](#cross-domain-domains)
+  - [Load JavaScript libraries in first-party mode](#load-javascript-libraries-in-first-party-mode)
+    - [Custom library domain name](#custom-library-domain-name)
+    - [Custom library path](#custom-library-path)
+  - [Add current dataLayer state](#add-current-datalayer-state)
+  - [Enable logs in JavaScript console](#enable-logs-in-javascript-console)
+
 
 
 
@@ -97,19 +103,19 @@ Add page parameters for all events. The parameters will be added in the page_dat
 #### Page category
 Add the `page_category` parameter to the request in `page_data`. This is an optional field to group pages into high-level categories.
 
-#### Page title
+#### Virtual page title
 Add the `page_title` parameter to the request in `page_data`. This field is often used for virtual page views or to override the default browser document title.
 
-#### Page location
+#### Virtual page location
 Add the `page_location` parameter to the request in `page_data`. Usually contains the full URL or specific path of the page being tracked.
 
-#### Page fragment
+#### Virtual page fragment
 Add the `page_fragment` parameter to the request in `page_data`. Useful for tracking specific sections in Single Page Applications (SPAs) that use hash fragments.
 
-#### Page query
+#### Virtual page query
 Add the `page_query` parameter to the request in `page_data`. Contains the query string parts of the URL (parameters after the `?`).
 
-#### Page extension
+#### Virtual page extension
 Add the `page_extension` parameter to the request in `page_data`. Typically used to identify the file format of the page (e.g., `.html`, `.php`).
 
 
@@ -118,7 +124,7 @@ Add the `page_extension` parameter to the request in `page_data`. Typically used
 ### Event parameters
 Add event parameters for all events. The parameters will be added in the event_data object in the payload.
 
-#### Add shared event parameters
+#### Add shared event level parameters
 Accepted values: strings, integers, floats, and JSON.
 
 These parameters can override:
@@ -138,8 +144,8 @@ The domain name of the server-side GTM instance. The tag assumes the protocol is
 #### Endpoint requirements for Cross-domain
 When tracking multiple domains, the Server-side GTM endpoint configuration becomes critical due to how browsers handle the `Set-Cookie` header:
 
-*   **Static Endpoint**: If all domains are subdomains of the same root (e.g., `a.site.com` and `b.site.com`), a single static endpoint (e.g., `gtm.site.com`) works.
-*   **Dynamic Endpoints**: If domains are completely different (e.g., `domain-a.com` and `domain-b.com`), the requests **must** be sent to a first-party subdomain of the *current* page (e.g., `gtm.domain-a.com` on site A and `gtm.domain-b.com` on site B). This ensures that the `Domain` attribute in the `Set-Cookie` header matches the request origin, allowing the browser to accept the cookie.
+* **Static Endpoint**: If all domains are subdomains of the same root (e.g., `a.site.com` and `b.site.com`), a single static endpoint (e.g., `gtm.site.com`) works.
+* **Dynamic Endpoints**: If domains are completely different (e.g., `domain-a.com` and `domain-b.com`), the requests **must** be sent to a first-party subdomain of the *current* page (e.g., `gtm.domain-a.com` on site A and `gtm.domain-b.com` on site B). This ensures that the `Domain` attribute in the `Set-Cookie` header matches the request origin, allowing the browser to accept the cookie.
 
 Failure to use dynamic endpoints in a multi-domain setup will result in cookies being rejected by the browser due to cross-site security policies.
 
@@ -206,7 +212,11 @@ To implement this:
 
 
 ### Load JavaScript libraries in first-party mode
-Override the default location of the main library. 
+Override the default location of the main library. Load
+
+#### Custom library domain name
+
+#### Custom library path
 
 
 ### Add current dataLayer state
