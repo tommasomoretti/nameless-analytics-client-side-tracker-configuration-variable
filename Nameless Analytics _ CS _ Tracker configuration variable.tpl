@@ -471,7 +471,7 @@ ___TEMPLATE_PARAMETERS___
           {
             "type": "TEXT",
             "name": "page_category",
-            "displayName": "Page category (Optional)",
+            "displayName": "Page category",
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
@@ -489,14 +489,7 @@ ___TEMPLATE_PARAMETERS___
               }
             ],
             "valueHint": "(not set)",
-            "enablingConditions": [
-              {
-                "paramName": "change_default_virtual_page_view_event_name",
-                "paramValue": true,
-                "type": "EQUALS"
-              }
-            ],
-            "help": "Add page_title parameter to the request in page_data."
+            "help": "Override page_title parameter in the request in page_data."
           },
           {
             "type": "TEXT",
@@ -510,14 +503,7 @@ ___TEMPLATE_PARAMETERS___
               }
             ],
             "valueHint": "(not set)",
-            "enablingConditions": [
-              {
-                "paramName": "change_default_virtual_page_view_event_name",
-                "paramValue": true,
-                "type": "EQUALS"
-              }
-            ],
-            "help": "Add page_location parameter to the request in page_data."
+            "help": "Override page_location parameter in the request in page_data."
           },
           {
             "type": "TEXT",
@@ -526,14 +512,7 @@ ___TEMPLATE_PARAMETERS___
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
-            "enablingConditions": [
-              {
-                "paramName": "change_default_virtual_page_view_event_name",
-                "paramValue": true,
-                "type": "EQUALS"
-              }
-            ],
-            "help": "Add page_fragment parameter to the request in page_data."
+            "help": "Override page_fragment parameter in the request in page_data."
           },
           {
             "type": "TEXT",
@@ -542,14 +521,7 @@ ___TEMPLATE_PARAMETERS___
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
-            "enablingConditions": [
-              {
-                "paramName": "change_default_virtual_page_view_event_name",
-                "paramValue": true,
-                "type": "EQUALS"
-              }
-            ],
-            "help": "Add page_query parameter to the request in page_data."
+            "help": "Override page_query parameter in the request in page_data."
           },
           {
             "type": "TEXT",
@@ -558,14 +530,7 @@ ___TEMPLATE_PARAMETERS___
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
-            "enablingConditions": [
-              {
-                "paramName": "change_default_virtual_page_view_event_name",
-                "paramValue": true,
-                "type": "EQUALS"
-              }
-            ],
-            "help": "Add page_extension parameter to the request in page_data."
+            "help": "Override page_extension parameter in the request in page_data."
           }
         ]
       }
@@ -930,15 +895,6 @@ ___TEMPLATE_PARAMETERS___
     "subParams": [
       {
         "type": "CHECKBOX",
-        "name": "add_page_status_code",
-        "checkboxText": "Add page status code",
-        "simpleValueType": true,
-        "help": "Add page status code when event_type equals page_view. \u003c/br\u003e\u003c/br\u003e \u003cb\u003eThis setting will make HEAD requests to the website server every time a page is loaded.\u003c/b\u003e",
-        "defaultValue": false,
-        "alwaysInSummary": true
-      },
-      {
-        "type": "CHECKBOX",
         "name": "set_custom_utm_parameters_names",
         "checkboxText": "Override default source and campaigns url query parameters",
         "simpleValueType": true,
@@ -1082,143 +1038,12 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "type": "CHECKBOX",
-        "name": "change_default_page_view_event_name",
-        "checkboxText": "Override default JavaScript page view event names *",
+        "name": "add_page_status_code",
+        "checkboxText": "Add page status code",
         "simpleValueType": true,
-        "alwaysInSummary": true,
-        "subParams": [
-          {
-            "type": "TEXT",
-            "name": "page_view_event_name",
-            "displayName": "Page view event name",
-            "simpleValueType": true,
-            "defaultValue": "",
-            "alwaysInSummary": true,
-            "enablingConditions": [
-              {
-                "paramName": "change_default_page_view_event_name",
-                "paramValue": true,
-                "type": "EQUALS"
-              }
-            ],
-            "valueValidators": [
-              {
-                "type": "NON_EMPTY"
-              },
-              {
-                "type": "REGEX",
-                "args": [
-                  "^(?!gtm.js$).*"
-                ],
-                "errorMessage": "Event name can\u0027t be equal to gtm.js."
-              },
-              {
-                "type": "REGEX",
-                "args": [
-                  "^(?!gtm.historyChange$).*"
-                ],
-                "errorMessage": "Event name can\u0027t be equal to gtm.historyChange."
-              }
-            ],
-            "valueHint": "(not set)"
-          }
-        ],
-        "displayName": "",
-        "help": "Override default JavaScript event names that generates a new Page ID for page views. \n\u003c/br\u003e\u003c/br\u003e\nIf page_view events are not triggered on \"All Pages\" events, update this value accordingly to match the corresponding JavaScript event name."
-      },
-      {
-        "type": "CHECKBOX",
-        "name": "change_default_virtual_page_view_event_name",
-        "checkboxText": "Override default JavaScript virtual page view event names **",
-        "simpleValueType": true,
-        "alwaysInSummary": true,
-        "subParams": [
-          {
-            "type": "TEXT",
-            "name": "virtual_page_view_event_name",
-            "displayName": "Virtual page view event name",
-            "simpleValueType": true,
-            "defaultValue": "",
-            "alwaysInSummary": true,
-            "enablingConditions": [
-              {
-                "paramName": "change_default_virtual_page_view_event_name",
-                "paramValue": true,
-                "type": "EQUALS"
-              }
-            ],
-            "valueValidators": [
-              {
-                "type": "NON_EMPTY"
-              },
-              {
-                "type": "REGEX",
-                "args": [
-                  "^(?!gtm.js$).*"
-                ],
-                "errorMessage": "Event name can\u0027t be equal to gtm.js."
-              },
-              {
-                "type": "REGEX",
-                "args": [
-                  "^(?!gtm.historyChange$).*"
-                ],
-                "errorMessage": "Event name can\u0027t be equal to gtm.historyChange."
-              }
-            ],
-            "valueHint": "(not set)"
-          }
-        ],
-        "displayName": "",
-        "help": "Override default JavaScript event names that generates a new Page ID for virtual page views. \n\u003c/br\u003e\u003c/br\u003e\nIf virtual page views events are not triggered on history.replaceState() or history.pushState() events, update this value accordingly to match the corresponding JavaScript event name."
-      },
-      {
-        "type": "LABEL",
-        "name": "warning_change_pv_event_name_off",
-        "displayName": "* Page views will be fired on All Pages (gtm.js) event.",
-        "enablingConditions": [
-          {
-            "paramName": "change_default_page_view_event_name",
-            "paramValue": false,
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "warning_change_pv_event_name_on",
-        "displayName": "* Page views will be fired on custom event.",
-        "enablingConditions": [
-          {
-            "paramName": "change_default_page_view_event_name",
-            "paramValue": true,
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "warning_change_vpv_event_name_off",
-        "displayName": "** Virtual page views will be fired through the JavaScript APIs history.pushState() or history.replaceState().\u003c/br\u003e\u003c/br\u003e",
-        "enablingConditions": [
-          {
-            "paramName": "change_default_virtual_page_view_event_name",
-            "paramValue": false,
-            "type": "EQUALS"
-          }
-        ]
-      },
-      {
-        "type": "LABEL",
-        "name": "warning_change_vpv_event_name_on",
-        "displayName": "** Virtual page views will be fired on custom event.\u003c/br\u003e\u003c/br\u003e",
-        "enablingConditions": [
-          {
-            "paramName": "change_default_virtual_page_view_event_name",
-            "paramValue": true,
-            "type": "EQUALS"
-          }
-        ]
+        "help": "Add page status code when event_type equals page_view. \u003c/br\u003e\u003c/br\u003e \u003cb\u003eThis setting will make HEAD requests to the website server every time a page is loaded.\u003c/b\u003e",
+        "defaultValue": false,
+        "alwaysInSummary": true
       }
     ]
   },
