@@ -260,7 +260,7 @@ To implement this:
 
 4. Set this dynamic variable in the **Request endpoint domain** field. 
 
-This ensures the `Domain` attribute in the `Set-Cookie` header will always match the request origin browser-side.
+  This ensures the `Domain` attribute in the `Set-Cookie` header will always match the request origin browser-side.
 
   ![Dynamic endpoint configuration](https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b)
 
