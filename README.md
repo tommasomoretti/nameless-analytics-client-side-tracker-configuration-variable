@@ -106,19 +106,39 @@ Add page parameters for all events. The parameters will be added in the page_dat
 Add the `page_category` parameter to the request in `page_data`. This is an optional field to group pages into high-level categories.
 
 #### Virtual page title
-Add the `page_title` parameter to the request in `page_data`. This field is often used for virtual page views or to override the default browser document title.
+Add the `page_title` parameter to the request in `page_data`. 
+
+If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document title.
+
+If virtual page view is triggered by pushState or replaceState, the document title will be taken from the `document.title` property.  
 
 #### Virtual page location
-Add the `page_location` parameter to the request in `page_data`. Usually contains the full URL or specific path of the page being tracked.
+Add the `page_location` parameter to the request in `page_data`. 
+
+If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document location.
+
+If virtual page view is triggered by pushState or replaceState, the document location will be taken from the `document.location` property. 
 
 #### Virtual page fragment
-Add the `page_fragment` parameter to the request in `page_data`. Useful for tracking specific sections in Single Page Applications (SPAs) that use hash fragments.
+Add the `page_fragment` parameter to the request in `page_data`. 
+
+If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document fragment.
+
+If virtual page view is triggered by pushState or replaceState, the document fragment will be taken from the `document.location.hash` property. 
 
 #### Virtual page query
-Add the `page_query` parameter to the request in `page_data`. Contains the query string parts of the URL (parameters after the `?`).
+Add the `page_query` parameter to the request in `page_data`. 
+
+If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document query.
+
+If virtual page view is triggered by pushState or replaceState, the document query will be taken from the `document.location.search` property. 
 
 #### Virtual page extension
-Add the `page_extension` parameter to the request in `page_data`. Typically used to identify the file format of the page (e.g., `.html`, `.php`).
+Add the `page_extension` parameter to the request in `page_data`. 
+
+If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document extension.
+
+If virtual page view is triggered by pushState or replaceState, the document extension will be taken from the `document.location.pathname` property. 
 
 
 
@@ -147,9 +167,7 @@ The domain name of the server-side GTM instance. The tag assumes the protocol is
 When tracking multiple domains, the Server-side GTM endpoint configuration becomes critical due to how browsers handle the `Set-Cookie` header:
 
 * **Static Endpoint**: If all domains are subdomains of the same root (e.g., `a.site.com` and `b.site.com`), a single static endpoint (e.g., `gtm.site.com`) works.
-* **Dynamic Endpoints**: If domains are completely different (e.g., `domain-a.com` and `domain-b.com`), the requests **must** be sent to a first-party subdomain of the *current* page (e.g., `gtm.domain-a.com` on site A and `gtm.domain-b.com` on site B). This ensures that the `Domain` attribute in the `Set-Cookie` header matches the request origin, allowing the browser to accept the cookie.
-
-Failure to use dynamic endpoints in a multi-domain setup will result in cookies being rejected by the browser due to cross-site security policies.
+* **Dynamic Endpoints**: If domains are completely different (e.g., `domain-a.com` and `domain-b.com`), the requests must be sent to a first-party subdomain of the *current* page (e.g., `gtm.domain-a.com` on site A and `gtm.domain-b.com` on site B). This ensures that the `Domain` attribute in the `Set-Cookie` header matches the request origin, allowing the browser to accept the cookie. Otherwise, cookies will be rejected by the browser due to cross-site security policies. See the [Cross-domain domains](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-domains) section for more information.
 
 
 ### Endpoint path
@@ -206,15 +224,15 @@ To implement this:
 2. Add the domains to the list (one per row).
 3. If necessary, create a **Regex Lookup Table** in GTM to dynamically switch the endpoint domain based on the current page hostname:
 
-![Lookup Table for dynamic endpoints](https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d)
+    ![Lookup Table for dynamic endpoints](https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d)
 
 4. Set this dynamic variable in the **Request endpoint domain** field. This ensures the `Domain` attribute in the `Set-Cookie` header will always match the request origin browser-side.
 
-![Dynamic endpoint configuration](https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b)
+  ![Dynamic endpoint configuration](https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b)
 
 
 ### Load JavaScript libraries in first-party mode
-Override the default location of the main library. Load
+Override the default location of the main library. Load 
 
 #### Custom library domain name
 
