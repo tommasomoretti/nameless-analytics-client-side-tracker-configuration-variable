@@ -252,7 +252,7 @@ For an in-depth explanation of why this is required and how the handshake protoc
 To implement this:
 1. Enable cross-domain tracking in the variable.
 2. Add the domains to the list (one per row).
-
+    ![Lookup Table for dynamic endpoints](https://github.com/user-attachments/assets/fe539490-2726-4423-b62d-ca21017518be)
 
 3. Create a **Regex Lookup Table** variable to dynamically switch the endpoint domain based on the current page hostname:
 
