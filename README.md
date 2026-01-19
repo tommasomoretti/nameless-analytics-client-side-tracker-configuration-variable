@@ -253,6 +253,7 @@ To implement this:
 1. Enable cross-domain tracking in the variable.
 2. Add the domains to the list (one per row).
 
+    ![Lookup Table for dynamic endpoints](https://github.com/user-attachments/assets/c8ab4d08-5069-4833-8465-5ca4ddea0863)
 
 3. Create a **Regex Lookup Table** variable to dynamically switch the endpoint domain based on the current page hostname:
 
