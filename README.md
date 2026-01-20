@@ -328,12 +328,11 @@ To implement this:
 
     This ensures the `Domain` attribute in the `Set-Cookie` header will always match the request origin browser-side.
 
-    ![Dynamic endpoint configuration error]()
+    ![Dynamic endpoint correct configuration](https://github.com/user-attachments/assets/10db0a72-c743-4504-b3aa-adcb487fb9ad)
 
     Otherwise the Set-Cookie header will be blocked by the browser.
 
-    ![Dynamic endpoint configuration error](https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b)
-
+    ![Dynamic endpoint configuration error](https://github.com/user-attachments/assets/66d39b81-6bf3-4af4-8663-273d00ae9515)
 
 #
 
