@@ -8,6 +8,8 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 
+</br>
+
 ## Table of Contents
 - [Nameless Analytics Client-side Tracker Configuration Variable UI](#nameless-analytics-client-side-tracker-configuration-variable-ui)
 - [User data](#user-data)
@@ -48,6 +50,8 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 
+</br>
+
 ## Nameless Analytics Client-side Tracker Configuration Variable UI
 This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable. 
 
@@ -57,6 +61,8 @@ This variable will handle settings like setting user and session parameters, pag
 
 
 
+</br>
+
 ## User data
 ### User parameters
 Add user parameters for all events. The parameters will be added in the user_data object in the payload.
@@ -64,6 +70,9 @@ Add user parameters for all events. The parameters will be added in the user_dat
 They are:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
+
+
+</br>
 
 #### Add user level parameters
 Accepted values: strings, integers, floats, and JSON.
@@ -73,6 +82,8 @@ These parameters can be overridden by:
 
 
 
+</br>
+
 ## Session data
 ### Session parameters
 Add session parameters for all events. The parameters will be added in the session_data object in the payload.
@@ -81,11 +92,17 @@ They are:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
 
+
+</br>
+
 #### Add User ID
 Accepted values: strings. 
 
 These parameters can be overridden by:
 - user id parameter added in Nameless Analytics Server-side Client Tag
+
+
+</br>
 
 #### Add session level parameters
 Accepted values: strings, integers, floats, and JSON.
@@ -95,12 +112,20 @@ These parameters can be overridden by:
 
 
 
+</br>
+
 ## Page data
 ### Page parameters
 Add page parameters for all events. The parameters will be added in the page_data object in the payload.
 
+
+</br>
+
 #### Page category
 Add the `page_category` parameter to the request in `page_data`. This is an optional field to group pages into high-level categories.
+
+
+</br>
 
 #### Virtual page title
 Add the `page_title` parameter to the request in `page_data`. 
@@ -109,12 +134,18 @@ If virtual page view is triggered by a custom dataLayer event, use this field to
 
 If virtual page view is triggered by a GTM history change trigger (pushState or replaceState), the page title will be taken from the `document.title` property.  
 
+
+</br>
+
 #### Virtual page location
 Add the `page_location` parameter to the request in `page_data`. 
 
 If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document location.
 
 If virtual page view is triggered by pushState or replaceState, the page location will be taken from the `document.location` property. 
+
+
+</br>
 
 #### Virtual page fragment
 Add the `page_fragment` parameter to the request in `page_data`. 
@@ -123,12 +154,18 @@ If virtual page view is triggered by a custom dataLayer event, use this field to
 
 If virtual page view is triggered by pushState or replaceState, the page fragment will be taken from the `document.location.hash` property. 
 
+
+</br>
+
 #### Virtual page query
 Add the `page_query` parameter to the request in `page_data`. 
 
 If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document query.
 
 If virtual page view is triggered by pushState or replaceState, the page query will be taken from the `document.location.search` property. 
+
+
+</br>
 
 #### Virtual page extension
 Add the `page_extension` parameter to the request in `page_data`. 
@@ -139,9 +176,14 @@ If virtual page view is triggered by pushState or replaceState, the page extensi
 
 
 
+</br>
+
 ## Event data
 ### Event parameters
 Add event parameters for all events. The parameters will be added in the event_data object in the payload.
+
+
+</br>
 
 #### Add shared event level parameters
 Accepted values: strings, integers, floats, and JSON.
@@ -156,9 +198,13 @@ These parameters can be overridden by:
 
 
 
+</br>
+
 ## Server-side endpoint settings
 ### Endpoint domain name
 The domain name of the server-side GTM instance. The tag assumes the protocol is HTTPS. 
+
+</br>
 
 #### Endpoint requirements for Cross-domain
 When tracking multiple domains, the Server-side GTM endpoint configuration becomes critical due to how browsers handle the `Set-Cookie` header:
@@ -167,13 +213,19 @@ When tracking multiple domains, the Server-side GTM endpoint configuration becom
 * **Dynamic Endpoints**: If domains are completely different (e.g., `domain-a.com` and `domain-b.com`), the requests must be sent to a first-party subdomain of the *current* page (e.g., `gtm.domain-a.com` on site A and `gtm.domain-b.com` on site B). This ensures that the `Domain` attribute in the `Set-Cookie` header matches the request origin, allowing the browser to accept the cookie. Otherwise, cookies will be rejected by the browser due to cross-site security policies. See the [Cross-domain domains](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-domains) section for more information.
 
 
+#
+
 ### Endpoint path
 The endpoint path where the Nameless Analytics Server-side Client Tag listens. 
+
+</br>
 
 #### Endpoint path requirements for Cross-domain
 The endpoint path must be the same for all domains.
 
 
+
+</br>
 
 ## Page view settings
 ### Add page status code
@@ -181,6 +233,8 @@ Add page status code to the request in the page_data when a page_view happens. I
 
 Please note: This setting will be visible in the UI only when the event name is equal to page_view and this will not work for virtual_page_view.
 
+
+#
 
 ### Override default source and campaigns URL query parameters
 Override the default URL query parameter names used as source and campaign parameters. By default these values are taken from standard UTM parameters.
@@ -192,6 +246,11 @@ Default values:
 - campaign_click_id = utm_click_id
 - campaign_term = utm_term
 - campaign_content = utm_content
+
+#
+
+
+</br>
 
 #### Channel grouping
 The following table describes how the channel is determined based on the source and campaign parameters:
@@ -230,6 +289,8 @@ The channel grouping logic uses the following Source Categories based on the sou
 
 
 
+</br>
+
 ## Advanced settings
 ### Respect Google Consent Mode
 When Google Consent Mode is present on website and Respect Google Consent Mode is enabled, the events are sent only if a user consents. When:
@@ -242,8 +303,13 @@ When Google Consent Mode is present on website and Respect Google Consent Mode i
 When Google Consent Mode is not present on website and Respect Google Consent Mode is enabled, none of the events are sent. 
 
 
+#
+
 ### Enable cross-domain tracking
 Enables the transfer of `client_id` and `session_id` data across two or more websites via a URL GET parameter. This allows Nameless Analytics tags to merge individual sessions into a single session that would otherwise be created when visiting other domains.
+
+
+</br>
 
 #### Cross-domain domains
 For an in-depth explanation of why this is required and how the handshake protocol works, see the [Cross-domain Architecture documentation](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture).
@@ -260,25 +326,44 @@ To implement this:
 
 4. Set this dynamic variable in the **Request endpoint domain** field. 
 
-  This ensures the `Domain` attribute in the `Set-Cookie` header will always match the request origin browser-side.
+    This ensures the `Domain` attribute in the `Set-Cookie` header will always match the request origin browser-side.
 
-  ![Dynamic endpoint configuration](https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b)
+    ![Dynamic endpoint configuration error]()
 
+    Otherwise the Set-Cookie header will be blocked by the browser.
+
+    ![Dynamic endpoint configuration error](https://github.com/user-attachments/assets/62d45b14-a326-427c-9eb1-ad583610204b)
+
+
+#
 
 ### Load JavaScript libraries in first-party mode
 Override the default location of the main library. Load 
 
+
+</br>
+
 #### Custom library domain name
+
+
+</br>
 
 #### Custom library path
 
+
+#
 
 ### Add current dataLayer state
 Add the current state of the dataLayer in dataLayer field in the payload.  
 
 
+#
+
 ### Enable logs in JavaScript console
 Enable console log for all events in JavaScript console.
+
+
+</br>
 
 ---
 
