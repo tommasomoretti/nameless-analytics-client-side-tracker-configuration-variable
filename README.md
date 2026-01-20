@@ -107,7 +107,7 @@ Add the `page_title` parameter to the request in `page_data`.
 
 If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document title.
 
-If virtual page view is triggered by pushState or replaceState, the page title will be taken from the `document.title` property.  
+If virtual page view is triggered by a GTM history change trigger (pushState or replaceState), the page title will be taken from the `document.title` property.  
 
 #### Virtual page location
 Add the `page_location` parameter to the request in `page_data`. 
