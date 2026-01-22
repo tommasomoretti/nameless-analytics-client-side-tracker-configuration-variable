@@ -8,7 +8,6 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 
-</br>
 
 ## Table of Contents
 - [Nameless Analytics Client-side Tracker Configuration Variable UI](#nameless-analytics-client-side-tracker-configuration-variable-ui)
@@ -50,7 +49,6 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 
-</br>
 
 ## Nameless Analytics Client-side Tracker Configuration Variable UI
 This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable. 
@@ -61,7 +59,6 @@ This variable will handle settings like setting user and session parameters, pag
 
 
 
-</br>
 
 ## User data
 ### User parameters
@@ -82,7 +79,6 @@ These parameters can be overridden by:
 
 
 
-</br>
 
 ## Session data
 ### Session parameters
@@ -112,7 +108,6 @@ These parameters can be overridden by:
 
 
 
-</br>
 
 ## Page data
 ### Page parameters
@@ -176,7 +171,6 @@ If virtual page view is triggered by pushState or replaceState, the page extensi
 
 
 
-</br>
 
 ## Event data
 ### Event parameters
@@ -198,7 +192,6 @@ These parameters can be overridden by:
 
 
 
-</br>
 
 ## Server-side endpoint settings
 ### Endpoint domain name
@@ -225,7 +218,6 @@ The endpoint path must be the same for all domains.
 
 
 
-</br>
 
 ## Page view settings
 ### Add page status code
@@ -289,7 +281,6 @@ The channel grouping logic uses the following Source Categories based on the sou
 
 
 
-</br>
 
 ## Advanced settings
 ### Respect Google Consent Mode
