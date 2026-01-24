@@ -258,12 +258,11 @@ Load libraries in first-party mode, from the website server or from a CDN. Add t
 
 ![Add library permissions](https://github.com/user-attachments/assets/660b41a8-9f3c-45cb-89c1-264d0f69e889)
 
-
 #### Custom library domain name
-Lorem ipsum 
+Add the domain name of the server or CDN from where the libraries are loaded. 
 
 #### Custom library path
-Lorem ipsum 
+Add the path to the libraries. This must be the full path to the libraries files. 
 
 
 ### Add current dataLayer state
