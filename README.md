@@ -59,7 +59,7 @@ This variable will handle settings like setting user and session parameters, pag
 
 ## User data
 ### User parameters
-Add user parameters for all events. The parameters will be added in the user_data object in the payload.
+Add user parameters for every event. The parameters will be added in the user_data object in the payload.
 
 They are:
 - written in Google Cloud Firestore every time they change --> latest values 
@@ -75,7 +75,7 @@ These parameters can be overridden by:
 
 ## Session data
 ### Session parameters
-Add session parameters for all events. The parameters will be added in the session_data object in the payload.
+Add session parameters for every event. The parameters will be added in the session_data object in the payload.
 
 They are:
 - written in Google Cloud Firestore every time they change --> latest values 
@@ -97,7 +97,7 @@ These parameters can be overridden by:
 
 ## Page data
 ### Page parameters
-Add page parameters for all events. The parameters will be added in the page_data object in the payload.
+Add page parameters for every event. The parameters will be added in the page_data object in the payload. Read how to track [page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#page-view) and [virtual page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#virtual-page-view) for more information.
 
 #### Page category
 Add the `page_category` parameter to the request in `page_data`. This is an optional field to group pages into high-level categories.
@@ -142,7 +142,7 @@ If virtual page view is triggered by pushState or replaceState, the page extensi
 
 ## Event data
 ### Event parameters
-Add event parameters for all events. The parameters will be added in the event_data object in the payload.
+Add event parameters for every event. The parameters will be added in the event_data object in the payload.
 
 #### Add shared event level parameters
 Accepted values: strings, integers, floats, and JSON.
@@ -180,7 +180,7 @@ The endpoint path must be the same for all domains.
 ### Add page status code
 Add page status code to the request in the page_data when a page_view happens. If enabled, the Nameless Analytics Client-side Tracker performs a silent HEAD request to the current URL to retrieve the HTTP status code (e.g. 200, 404, 500), allowing you to monitor page errors directly in the reports.
 
-Please note: This setting will be visible in the UI only when the event name is equal to page_view and this will not work for virtual_page_view.
+Please note: This setting will be visible in the UI only when the event name is equal to page_view. Page status code will not be added for virtual_page_view.
 
 
 ### Override default source and campaigns URL query parameters
@@ -194,26 +194,29 @@ Default values:
 - campaign_term = utm_term
 - campaign_content = utm_content
 
-#### Channel grouping
-The following table describes how the channel is determined based on the source and campaign parameters:
+<details><summary>See channel grouping rules</summary>
+
+</br>
+
+The following table describes how the channel is determined based on the source and campaign parameters. 
 
 | Source category | Campaign | Channel grouping |
 | :--- | :--- | :--- |
-| **Internal traffic** | Qualsiasi | `internal_traffic` |
-| **Direct** | Qualsiasi | `direct` |
-| **GTM Debugger** | Qualsiasi | `gtm_debugger` |
-| **Search Engine** | Presente | `paid_search_engine` |
-| **Search Engine** | Assente | `organic_search_engine` |
-| **Social** | Presente | `paid_social` |
-| **Social** | Assente | `organic_social` |
-| **Shopping** | Presente | `paid_shopping` |
-| **Shopping** | Assente | `organic_shopping` |
-| **Video** | Presente | `paid_video` |
-| **Video** | Assente | `organic_video` |
-| **AI** | Qualsiasi | `ai` |
-| **Email** | Qualsiasi | `email` |
-| Nessuna di quelle sopra | Assente | `referral` |
-| Nessuna di quelle sopra | Presente | `affiliate` |
+| **Internal traffic** | Yes | `internal_traffic` |
+| **Direct** | Yes | `direct` |
+| **GTM Debugger** | Yes | `gtm_debugger` |
+| **Search Engine** | Yes | `paid_search_engine` |
+| **Search Engine** | No | `organic_search_engine` |
+| **Social** | Yes | `paid_social` |
+| **Social** | No | `organic_social` |
+| **Shopping** | Yes | `paid_shopping` |
+| **Shopping** | No | `organic_shopping` |
+| **Video** | Yes | `paid_video` |
+| **Video** | No | `organic_video` |
+| **AI** | Yes | `ai` |
+| **Email** | Yes | `email` |
+| None of the above | No | `referral` |
+| None of the above | Yes | `affiliate` |
 
 The channel grouping logic uses the following Source Categories based on the source name:
 
@@ -229,49 +232,30 @@ The channel grouping logic uses the following Source Categories based on the sou
 | **AI** | `chatgpt`, `gemini`, `bard`, `claude`, `alexa`, `siri`, `assistant`, `.ai` |
 | **Email** | `email`, `e-mail`, `newsletter`, `mailchimp`, `sendgrid`, `sparkpost` |
 
+</details>
+
 
 
 ## Advanced settings
 ### Respect Google Consent Mode
 When Google Consent Mode is present on website and Respect Google Consent Mode is enabled, the events are sent only if a user consents. When:
 
-- `analytics_storage` is equal to `denied`, the Nameless Analytics Client-side Tracker waits until consent is granted. 
-- `analytics_storage` changes from `denied` to `granted`, all pending tags for that page will be fired in execution order.
+- `analytics_storage` is equal to `denied`, the Nameless Analytics Client-side Tracker waits until consent is granted
+- `analytics_storage` changes from `denied` to `granted`, all pending tags for that page will be fired in execution order
+
+When Google Consent Mode is not present on website and Respect Google Consent Mode is enabled, none of the events are sent.
   
-When Google Consent Mode is present on website and Respect Google Consent Mode is disabled, all events are sent regardless of user consents. 
-
-When Google Consent Mode is not present on website and Respect Google Consent Mode is enabled, none of the events are sent. 
+When Google Consent Mode is present on website and Respect Google Consent Mode is disabled, all events are sent regardless of user consents.
 
 
-### Enable cross-domain tracking
+### Enable cross-domain tracking (🚧 Beta feature)
 Enables the transfer of `client_id` and `session_id` data across two or more websites via a URL GET parameter. This allows Nameless Analytics tags to merge individual sessions into a single session that would otherwise be created when visiting other domains.
 
-#### Cross-domain domains
 For an in-depth explanation of why this is required and how the handshake protocol works, see the [Cross-domain Architecture documentation](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture).
-
-To implement this:
-1. Enable cross-domain tracking in the variable.
-2. Add the domains to the list (one per row).
-
-    ![Lookup Table for dynamic endpoints](https://github.com/user-attachments/assets/c8ab4d08-5069-4833-8465-5ca4ddea0863)
-
-3. Create a **Regex Lookup Table** variable to dynamically switch the endpoint domain based on the current page hostname:
-
-    ![Lookup Table for dynamic endpoints](https://github.com/user-attachments/assets/a7b54f23-18b5-4e54-ba80-216a06a51f2d)
-
-4. Set this dynamic variable in the **Request endpoint domain** field. 
-
-    This ensures the `Domain` attribute in the `Set-Cookie` header will always match the request origin browser-side.
-
-    ![Dynamic endpoint correct configuration](https://github.com/user-attachments/assets/10db0a72-c743-4504-b3aa-adcb487fb9ad)
-
-    Otherwise the Set-Cookie header will be blocked by the browser.
-
-    ![Dynamic endpoint configuration error](https://github.com/user-attachments/assets/66d39b81-6bf3-4af4-8663-273d00ae9515)
 
 
 ### Load JavaScript libraries in first-party mode
-Override the default location of the main library.
+Load libraries in first-party mode, from the website server or from a CDN. Add the domain name and the path to the permission list.
 
 #### Custom library domain name
 Lorem ipsum 
