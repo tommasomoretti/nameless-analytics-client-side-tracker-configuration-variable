@@ -39,7 +39,6 @@ For an overview of how Nameless Analytics works [start from here](https://github
 - [Advanced settings](#advanced-settings)
   - [Respect Google Consent Mode](#respect-google-consent-mode)
   - [Enable cross-domain tracking](#enable-cross-domain-tracking)
-    - [Cross-domain domains](#cross-domain-domains)
   - [Load JavaScript libraries in first-party mode](#load-javascript-libraries-in-first-party-mode)
     - [Custom library domain name](#custom-library-domain-name)
     - [Custom library path](#custom-library-path)
