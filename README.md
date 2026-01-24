@@ -256,7 +256,7 @@ For an in-depth explanation of why this is required and how the handshake protoc
 ### Load JavaScript libraries in first-party mode
 Load libraries in first-party mode, from the website server or from a CDN. Add the domain name and the path to the permission list.
 
-![Add library permissions]("https://github.com/user-attachments/assets/660b41a8-9f3c-45cb-89c1-264d0f69e889")
+![Add library permissions](https://github.com/user-attachments/assets/660b41a8-9f3c-45cb-89c1-264d0f69e889)
 
 
 #### Custom library domain name
