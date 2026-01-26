@@ -140,7 +140,6 @@ If virtual page view is triggered by pushState or replaceState, the page extensi
 
 
 
-
 ## Event data
 ### Event parameters
 Add event parameters for every event. The parameters will be added in the event_data object in the payload.
@@ -195,14 +194,14 @@ Default values:
 - campaign_term = utm_term
 - campaign_content = utm_content
 
-By default, the following URL query parameters are also tracked as individual fields:
-- For Google Ads: gclid, gclsrc, wbraid, gbraid and dclid
+If utm_click_id is missing, the following URL query parameters are tracked as click_click_id:
+- For Google Ads: gclid or dclid or gclsrc or wbraid or gbraid
 - For Bing: msclkid
 - For Facebook: fbclid
 - For TikTok: ttclid
 - For X: twclid
-- For Linkedin: li_fat_id
 - For Pinterest: epik
+- For Linkedin: li_fat_id
 - For SnapChat: scclid
 
 <details><summary>See channel grouping rules</summary>
