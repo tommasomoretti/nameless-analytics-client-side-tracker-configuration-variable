@@ -48,9 +48,11 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 ## Nameless Analytics Client-side Tracker Configuration Variable UI
-This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable. 
+The Nameless Analytics Client-side Tracker Configuration Variable serves as a centralized hub for managing global settings across your tracking implementation. It handles critical configurations such as user and session parameters, endpoint details, consent mode compliance, cross-domain tracking, and library management.
 
-This variable will handle settings like setting user and session parameters, page parameters, common event parameters, User ID parameter, set endpoint domain name and path, consent mode usage, cross-domain tracking, page settings, JavaScript libraries settings, add current dataLayer state and logging in JavaScript console.
+This variable unifies your tracking logic, ensuring consistency in how parameters, events, and advanced settings are applied throughout your GTM container.
+
+This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable.
 
 ![Nameless Analytics Client-side Tracker Configuration Variable UI](https://github.com/user-attachments/assets/0baea4b1-6cb2-4518-a742-0cd2c90db17e)
 
