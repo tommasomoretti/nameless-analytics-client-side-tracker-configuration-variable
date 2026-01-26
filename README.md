@@ -195,6 +195,16 @@ Default values:
 - campaign_term = utm_term
 - campaign_content = utm_content
 
+By default, the following URL query parameters are also tracked as individual fields:
+- For Google Ads: gclid, gclsrc, wbraid, gbraid and dclid
+- For Bing: msclkid
+- For Facebook: fbclid
+- For TikTok: ttclid
+- For X: twclid
+- For Linkedin: li_fat_id
+- For Pinterest: epik
+- For SnapChat: scclid
+
 <details><summary>See channel grouping rules</summary>
 
 </br>
