@@ -1,6 +1,6 @@
 # Nameless Analytics | Client-side Tracker Configuration Variable
 
-The Nameless Analytics Client-side Tracker Configuration Variable is a highly customizable GTM custom variable template designed to configure the settings of [Nameless Analytics Client-side Tracker Tag](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-tag/). 
+The Nameless Analytics Client-side Tracker Configuration Variable is a highly customizable GTM custom variable template designed to configure the settings of [Nameless Analytics Client-side Tracker Tag](https://github.com/nameless-analytics/client-side-tracker-tag/). 
 
 For an overview of how Nameless Analytics works [start from here](https://github.com/nameless-analytics/nameless-analytics/#high-level-data-flow).
 
@@ -9,7 +9,7 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 ## Table of Contents
-- [Nameless Analytics Client-side Tracker Configuration Variable UI](#nameless-analytics-client-side-tracker-configuration-variable-ui)
+- [Nameless Analytics Client-side Tracker Configuration Variable UI](#client-side-tracker-configuration-variable-ui)
 - [User data](#user-data)
   - [User parameters](#user-parameters)
     - [Add user level parameters](#add-user-level-parameters)
