@@ -60,13 +60,6 @@ ___TEMPLATE_PARAMETERS___
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!user_date$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add user_date parameter."
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
                       "^(?!user_channel_grouping$).*"
                     ],
                     "errorMessage": "Can\u0027t add user_channel_grouping parameter."
@@ -81,13 +74,6 @@ ___TEMPLATE_PARAMETERS___
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!user_tld_source$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add user_tld_source parameter."
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
                       "^(?!user_campaign$).*"
                     ],
                     "errorMessage": "Can\u0027t add user_campaign parameter."
@@ -98,6 +84,13 @@ ___TEMPLATE_PARAMETERS___
                       "^(?!user_campaign_id$).*"
                     ],
                     "errorMessage": "Can\u0027t add user_campaign_id parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!user_campaign_click_id$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add user_campaign_click_id parameter."
                   },
                   {
                     "type": "REGEX",
@@ -151,9 +144,23 @@ ___TEMPLATE_PARAMETERS___
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!user_id$).*"
+                      "^(?!user_tld_source$).*"
                     ],
-                    "errorMessage": "Can\u0027t add user_id parameter. Add the user ID in the field below."
+                    "errorMessage": "Can\u0027t add user_tld_source parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!user_city$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add user_city parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!user_country$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add user_country parameter."
                   }
                 ]
               },
@@ -182,7 +189,7 @@ ___TEMPLATE_PARAMETERS___
         ],
         "displayName": "User parameters",
         "alwaysInSummary": true,
-        "help": "Add user parameters to the request in user_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved user parameters: \u003c/br\u003e  \n• user_date \u003c/br\u003e  \n• user_id \u003c/br\u003e  \n• user_channel_grouping \u003c/br\u003e  \n• user_source \u003c/br\u003e  \n• user_tld_source \u003c/br\u003e  \n• user_campaign \u003c/br\u003e  \n• user_campaign_id \u003c/br\u003e  \n• user_campaign_content \u003c/br\u003e  \n• user_campaign_term \u003c/br\u003e  \n• user_device_type \u003c/br\u003e  \n• user_country \u003c/br\u003e  \n• user_language \u003c/br\u003e  \n• user_first_session_timestamp \u003c/br\u003e\n• user_last_session_timestamp \u003c/br\u003e",
+        "help": "Add user parameters to the request in user_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved user parameters: \u003c/br\u003e  \n• user_channel_grouping \u003c/br\u003e  \n• user_source \u003c/br\u003e  \n• user_tld_source \u003c/br\u003e  \n• user_campaign \u003c/br\u003e  \n• user_campaign_id \u003c/br\u003e  \n• user_campaign_click_id\u003c/br\u003e\n• user_campaign_content \u003c/br\u003e  \n• user_campaign_term \u003c/br\u003e  \n• user_device_type \u003c/br\u003e  \n• user_country \u003c/br\u003e  \n• user_language \u003c/br\u003e  \n• user_city \u003c/br\u003e\n• user_country \u003c/br\u003e\n• user_first_session_timestamp \u003c/br\u003e\n• user_last_session_timestamp",
         "defaultValue": false
       }
     ]
@@ -250,13 +257,6 @@ ___TEMPLATE_PARAMETERS___
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!session_date$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add session_date parameter."
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
                       "^(?!session_number$).*"
                     ],
                     "errorMessage": "Can\u0027t add session_number parameter."
@@ -285,13 +285,6 @@ ___TEMPLATE_PARAMETERS___
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!session_tld_source$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add session_tld_source parameter."
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
                       "^(?!session_campaign$).*"
                     ],
                     "errorMessage": "Can\u0027t add session_campaign parameter."
@@ -303,6 +296,13 @@ ___TEMPLATE_PARAMETERS___
                     ],
                     "errorMessage": "Can\u0027t add session_campaign_id parameter.",
                     "enablingConditions": []
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!session_campaign_click_id$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add session_campaign_click_id parameter."
                   },
                   {
                     "type": "REGEX",
@@ -324,13 +324,6 @@ ___TEMPLATE_PARAMETERS___
                       "^(?!session_device_type$).*"
                     ],
                     "errorMessage": "Can\u0027t add session_device_type parameter."
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!session_country$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add session_country parameter."
                   },
                   {
                     "type": "REGEX",
@@ -379,8 +372,7 @@ ___TEMPLATE_PARAMETERS___
                     "args": [
                       "^(?!session_exit_page_category$).*"
                     ],
-                    "errorMessage": "Can\u0027t add session_exit_page_category parameter.",
-                    "enablingConditions": []
+                    "errorMessage": "Can\u0027t add session_exit_page_category parameter."
                   },
                   {
                     "type": "REGEX",
@@ -405,24 +397,53 @@ ___TEMPLATE_PARAMETERS___
                   },
                   {
                     "type": "REGEX",
-                    "errorMessage": "Can\u0027t add session_end_timestamp parameter.",
                     "args": [
                       "^(?!session_end_timestamp$).*"
-                    ]
+                    ],
+                    "errorMessage": "Can\u0027t add session_end_timestamp parameter.",
+                    "enablingConditions": []
                   },
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!session_id$).*"
+                      "^(?!session_tld_source$).*"
                     ],
-                    "errorMessage": "Can\u0027t add session_id parameter."
+                    "errorMessage": "Can\u0027t add session_tld_source parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!session_city$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add session_city parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!session_country$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add session_country parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
                       "^(?!user_id$).*"
                     ],
-                    "errorMessage": "Can\u0027t add user_id parameter. Add the user ID in the field above."
+                    "errorMessage": "Can\u0027t add user_id parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!total_events$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add total_events parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!total_page_views$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add total_page_views parameter."
                   }
                 ]
               },
@@ -451,7 +472,7 @@ ___TEMPLATE_PARAMETERS___
         ],
         "displayName": "",
         "alwaysInSummary": true,
-        "help": "Add session parameters to the request in session_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved session parameters: \u003c/br\u003e\n• session_date \u003c/br\u003e \n• session_id \u003c/br\u003e\n• session_number \u003c/br\u003e \n• cross_domain_session \u003c/br\u003e \n• session_channel_grouping \u003c/br\u003e \n• session_source \u003c/br\u003e \n• session_tld_source \u003c/br\u003e \n• session_campaign \u003c/br\u003e \n• session_campaign_id \u003c/br\u003e \n• session_campaign_content \u003c/br\u003e \n• session_campaign_term \u003c/br\u003e \n• session_device_type \u003c/br\u003e \n• session_country \u003c/br\u003e \n• session_language \u003c/br\u003e \n• session_hostname \u003c/br\u003e \n• session_browser_name \u003c/br\u003e \n• session_landing_page_category \u003c/br\u003e \n• session_landing_page_location \u003c/br\u003e \n• session_landing_page_title \u003c/br\u003e \n• session_exit_page_category \u003c/br\u003e \n• session_exit_page_location \u003c/br\u003e \n• session_exit_page_title \u003c/br\u003e \n• session_start_timestamp \u003c/br\u003e \n• session_end_timestamp \u003c/br\u003e",
+        "help": "Add session parameters to the request in session_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved session parameters: \u003c/br\u003e\n• user_id \u003c/br\u003e\n• session_number \u003c/br\u003e \n• cross_domain_session \u003c/br\u003e \n• session_channel_grouping \u003c/br\u003e \n• session_source \u003c/br\u003e \n• session_tld_source \u003c/br\u003e \n• session_campaign \u003c/br\u003e \n• session_campaign_id \u003c/br\u003e \n• session_campaign_click_id \u003c/br\u003e\n• session_campaign_content \u003c/br\u003e \n• session_campaign_term \u003c/br\u003e \n• session_device_type \u003c/br\u003e \n• session_city \u003c/br\u003e\n• session_country \u003c/br\u003e \n• session_language \u003c/br\u003e \n• session_hostname \u003c/br\u003e \n• session_browser_name \u003c/br\u003e \n• session_landing_page_category \u003c/br\u003e \n• session_landing_page_location \u003c/br\u003e \n• session_landing_page_title \u003c/br\u003e \n• session_exit_page_category \u003c/br\u003e \n• session_exit_page_location \u003c/br\u003e \n• session_exit_page_title \u003c/br\u003e \n• session_start_timestamp \u003c/br\u003e \n• session_end_timestamp \u003c/br\u003e\n• total_events \u003c/br\u003e\n• total_page_views",
         "defaultValue": false
       }
     ]
@@ -464,7 +485,7 @@ ___TEMPLATE_PARAMETERS___
     "subParams": [
       {
         "type": "GROUP",
-        "name": "page_data_fields",
+        "name": "page_data_params",
         "displayName": "",
         "groupStyle": "NO_ZIPPY",
         "subParams": [
@@ -483,11 +504,6 @@ ___TEMPLATE_PARAMETERS___
             "displayName": "Page title",
             "simpleValueType": true,
             "alwaysInSummary": true,
-            "valueValidators": [
-              {
-                "type": "NON_EMPTY"
-              }
-            ],
             "valueHint": "(not set)",
             "help": "Override page_title parameter in the request in page_data."
           },
@@ -497,11 +513,6 @@ ___TEMPLATE_PARAMETERS___
             "displayName": "Page location",
             "simpleValueType": true,
             "alwaysInSummary": true,
-            "valueValidators": [
-              {
-                "type": "NON_EMPTY"
-              }
-            ],
             "valueHint": "(not set)",
             "help": "Override page_location parameter in the request in page_data."
           },
@@ -602,6 +613,13 @@ ___TEMPLATE_PARAMETERS___
                   {
                     "type": "REGEX",
                     "args": [
+                      "^(?!campaign_click_id$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add campaign_click_id parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
                       "^(?!campaign_term$).*"
                     ],
                     "errorMessage": "Can\u0027t add campaign_term parameter."
@@ -616,184 +634,100 @@ ___TEMPLATE_PARAMETERS___
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!page_id$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add page_id parameter."
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!page_title$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add page_title parameter."
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!page_hostname_protocol$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add page_hostname_protocol parameter."
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!page_location$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add page_location parameter."
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!page_fragment$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add page_fragment parameter."
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!page_query$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add page_query parameter."
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!page_extension$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add page_query parameterpage_extension"
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!page_referrer$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add page_referrer parameterpage_extension"
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!page_language$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add page_language parameterpage_extension"
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!page_status_code$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add page_status_code parameterpage_extension"
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!cs_container_id$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add cs_container_id parameterpage_extension"
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
                       "^(?!user_agent$).*"
                     ],
-                    "errorMessage": "Can\u0027t add user_agent parameterpage_extension"
+                    "errorMessage": "Can\u0027t add user_agent parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
                       "^(?!browser_name$).*"
                     ],
-                    "errorMessage": "Can\u0027t add browser_name parameterpage_extension"
+                    "errorMessage": "Can\u0027t add browser_name parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
                       "^(?!browser_language$).*"
                     ],
-                    "errorMessage": "Can\u0027t add browser_language parameterpage_extension"
+                    "errorMessage": "Can\u0027t add browser_language parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
                       "^(?!browser_version$).*"
                     ],
-                    "errorMessage": "Can\u0027t add browser_version parameterpage_extension"
+                    "errorMessage": "Can\u0027t add browser_version parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
                       "^(?!device_type$).*"
                     ],
-                    "errorMessage": "Can\u0027t add device_type parameterpage_extension"
+                    "errorMessage": "Can\u0027t add device_type parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
                       "^(?!device_vendor$).*"
                     ],
-                    "errorMessage": "Can\u0027t add device_vendor parameterpage_extension"
+                    "errorMessage": "Can\u0027t add device_vendor parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
                       "^(?!device_model$).*"
                     ],
-                    "errorMessage": "Can\u0027t add device_model parameterpage_extension"
+                    "errorMessage": "Can\u0027t add device_model parameter."
                   },
                   {
                     "type": "REGEX",
+                    "errorMessage": "Can\u0027t add os_name parameter.",
                     "args": [
                       "^(?!os_name$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add os_name parameterpage_extension"
+                    ]
                   },
                   {
                     "type": "REGEX",
                     "args": [
                       "^(?!os_version$).*"
                     ],
-                    "errorMessage": "Can\u0027t add os_version parameterpage_extension"
+                    "errorMessage": "Can\u0027t add os_version parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
                       "^(?!screen_size$).*"
                     ],
-                    "errorMessage": "Can\u0027t add screen_size parameterpage_extension"
+                    "errorMessage": "Can\u0027t add screen_size parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
                       "^(?!viewport_size$).*"
                     ],
-                    "errorMessage": "Can\u0027t add viewport_size parameterpage_extension"
+                    "errorMessage": "Can\u0027t add viewport_size parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!country$).*"
+                      "^(?!tld_source$).*"
                     ],
-                    "errorMessage": "Can\u0027t add country parameterpage_extension"
+                    "errorMessage": "Can\u0027t add tld_source parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
                       "^(?!city$).*"
                     ],
-                    "errorMessage": "Can\u0027t add city parameterpage_extension"
+                    "errorMessage": "Can\u0027t add city parameter."
                   },
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!ss_hostname$).*"
+                      "^(?!country$).*"
                     ],
-                    "errorMessage": "Can\u0027t add ss_hostname parameterpage_extension"
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^(?!ss_container_id$).*"
-                    ],
-                    "errorMessage": "Can\u0027t add ss_container_id parameterpage_extension"
+                    "errorMessage": "Can\u0027t add country parameter."
                   }
                 ]
               },
@@ -802,32 +736,28 @@ ___TEMPLATE_PARAMETERS___
                 "displayName": "Param value",
                 "name": "param_value",
                 "type": "TEXT",
-                "valueValidators": [
-                  {
-                    "type": "NON_EMPTY"
-                  }
-                ],
+                "valueValidators": [],
                 "valueHint": "(not set)"
               }
             ],
             "alwaysInSummary": true,
-            "valueValidators": [
-              {
-                "type": "NON_EMPTY"
-              }
-            ],
             "enablingConditions": [
               {
                 "paramName": "add_common_event_params",
                 "paramValue": true,
                 "type": "EQUALS"
               }
+            ],
+            "valueValidators": [
+              {
+                "type": "NON_EMPTY"
+              }
             ]
           }
         ],
         "displayName": "Event parameters",
         "alwaysInSummary": true,
-        "help": "Add event parameters to the request in event_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved event parameters: \u003c/br\u003e \n• event_type \u003c/br\u003e \n• channel_grouping \u003c/br\u003e \n• source \u003c/br\u003e \n• campaign \u003c/br\u003e \n• campaign_id \u003c/br\u003e \n• campaign_term \u003c/br\u003e \n• campaign_content \u003c/br\u003e \n• page_id \u003c/br\u003e \n• page_title \u003c/br\u003e \n• page_hostname_protocol \u003c/br\u003e \n• page_hostname \u003c/br\u003e \n• page_location \u003c/br\u003e \n• page_fragment \u003c/br\u003e \n• page_query \u003c/br\u003e \n• page_extension \u003c/br\u003e \n• page_referrer \u003c/br\u003e \n• page_language \u003c/br\u003e \n• page_status_code \u003c/br\u003e \n• cs_container_id \u003c/br\u003e \n• user_agent \u003c/br\u003e \n• browser_name \u003c/br\u003e \n• browser_language \u003c/br\u003e \n• browser_version \u003c/br\u003e \n• device_type \u003c/br\u003e \n• device_vendor \u003c/br\u003e \n• device_model \u003c/br\u003e \n• os_name \u003c/br\u003e \n• os_version \u003c/br\u003e \n• screen_size \u003c/br\u003e \n• viewport_size \u003c/br\u003e \n• country \u003c/br\u003e \n• city \u003c/br\u003e \n• ss_hostname \u003c/br\u003e \n• ss_container_id \u003c/br\u003e",
+        "help": "Add shared event parameters to the request in event_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved event parameters: \u003c/br\u003e \n• event_type \u003c/br\u003e \n• channel_grouping \u003c/br\u003e \n• source \u003c/br\u003e \n• tld_source \u003c/br\u003e\n• campaign \u003c/br\u003e \n• campaign_id \u003c/br\u003e\n• campaign_click_id \u003c/br\u003e\n• campaign_term \u003c/br\u003e \n• campaign_content \u003c/br\u003e \n• user_agent \u003c/br\u003e \n• browser_name \u003c/br\u003e \n• browser_language \u003c/br\u003e \n• browser_version \u003c/br\u003e \n• device_type \u003c/br\u003e \n• device_vendor \u003c/br\u003e \n• device_model \u003c/br\u003e \n• os_name \u003c/br\u003e \n• os_version \u003c/br\u003e \n• screen_size \u003c/br\u003e \n• viewport_size \u003c/br\u003e\n• city \u003c/br\u003e\n• country",
         "defaultValue": false
       }
     ]
