@@ -26,7 +26,7 @@ For an overview of how Nameless Analytics works [start from here](https://github
     - [Virtual page query](#virtual-page-query)
     - [Virtual page extension](#virtual-page-extension)
 - [Event data](#event-data)
-  - [Event parameters](#event-parameters)
+  - [Shared event parameters](#shared-event-parameters)
     - [Add shared event level parameters](#add-shared-event-level-parameters)
 - [Server-side endpoint settings](#server-side-endpoint-settings)
   - [Endpoint domain name](#endpoint-domain-name)
@@ -60,11 +60,32 @@ This is the UI of the Nameless Analytics Client-side Tracker Configuration Varia
 
 ## User data
 ### User parameters
-Add user parameters for every event. The parameters will be added in the user_data object in the payload.
+The parameters will be added in the user_data object in the payload.
 
 They are:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
+
+These user parameters can't be added:
+- user_channel_grouping  
+- user_source  
+- user_tld_source  
+- user_campaign  
+- user_campaign_id  
+- user_campaign_click_id
+- user_campaign_content  
+- user_campaign_term  
+- user_device_type  
+- user_country  
+- user_language  
+- user_city
+- user_country
+- user_first_session_timestamp
+- user_last_session_timestamp
+
+This is the hierarchy of user parameter importance: 
+
+See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 #### Add user level parameters
 Accepted values: strings, integers, floats, and JSON.
@@ -76,14 +97,47 @@ These parameters can be overridden by:
 
 ## Session data
 ### Session parameters
-Add session parameters for every event. The parameters will be added in the session_data object in the payload.
+The parameters will be added in the session_data object in the payload.
 
 They are:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
 
+These session parameters can't be added:
+- user_id
+- session_number 
+- cross_domain_session 
+- session_channel_grouping 
+- session_source 
+- session_tld_source 
+- session_campaign 
+- session_campaign_id 
+- session_campaign_click_id
+- session_campaign_content 
+- session_campaign_term 
+- session_device_type 
+- session_city
+- session_country 
+- session_language 
+- session_hostname 
+- session_browser_name 
+- session_landing_page_category 
+- session_landing_page_location 
+- session_landing_page_title 
+- session_exit_page_category 
+- session_exit_page_location 
+- session_exit_page_title 
+- session_start_timestamp 
+- session_end_timestamp
+- total_events
+- total_page_views
+
+This is the hierarchy of session parameter importance: 
+
+See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
+
 #### Add User ID
-Accepted values: strings. 
+Add User ID parameter at session level. Accepted values: strings, integers, floats, and JSON. 
 
 These parameters can be overridden by:
 - user id parameter added in Nameless Analytics Server-side Client Tag
@@ -98,7 +152,9 @@ These parameters can be overridden by:
 
 ## Page data
 ### Page parameters
-Add page parameters for every event. The parameters will be added in the page_data object in the payload. Read how to track [page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#page-view) and [virtual page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#virtual-page-view) for more information.
+The parameters will be added in the page_data object in the payload. 
+
+Read how to track [page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#page-view) and [virtual page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#virtual-page-view) for more information.
 
 #### Page category
 Add the `page_category` parameter to the request in `page_data`. This is an optional field to group pages into high-level categories.
@@ -141,11 +197,38 @@ If virtual page view is triggered by pushState or replaceState, the page extensi
 
 
 ## Event data
-### Event parameters
-Add event parameters for every event. The parameters will be added in the event_data object in the payload.
+### Shared event parameters
+The parameters will be added in the event_data object in the payload. 
+
+Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set.
+
+These event parameters can't be added, overridden or removed:
+- event_type 
+- channel_grouping 
+- source 
+- campaign 
+- campaign_id
+- campaign_click_id
+- campaign_term 
+- campaign_content 
+- user_agent 
+- browser_name 
+- browser_language 
+- browser_version 
+- device_type 
+- device_vendor 
+- device_model 
+- os_name 
+- os_version 
+- screen_size 
+- viewport_size
+
+This is the hierarchy of event parameter importance: 
+
+See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 #### Add shared event level parameters
-Accepted values: strings, integers, floats, and JSON.
+Add shared event parameters for every event. Accepted values: strings, integers, floats, and JSON.
 
 These parameters can override:
 - dataLayer event parameters added in Nameless Analytics Client-side Tracker Tag
