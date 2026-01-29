@@ -60,13 +60,13 @@ This is the UI of the Nameless Analytics Client-side Tracker Configuration Varia
 
 ## User data
 ### User parameters
-The parameters will be added in the user_data object in the payload.
+Add user parameters in the user_data object.
 
-They are:
+They will be:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
 
-These user parameters can't be added:
+These user parameters are reserved and can't be modified:
 - user_channel_grouping  
 - user_source  
 - user_tld_source  
@@ -97,13 +97,13 @@ These parameters can be overridden by:
 
 ## Session data
 ### Session parameters
-The parameters will be added in the session_data object in the payload.
+Add session parameters in the session_data object.
 
-They are:
+They will be:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
 
-These session parameters can't be added:
+These session parameters are reserved and can't be modified:
 - user_id
 - session_number 
 - cross_domain_session 
@@ -143,7 +143,7 @@ These parameters can be overridden by:
 - user id parameter added in Nameless Analytics Server-side Client Tag
 
 #### Add session level parameters
-Accepted values: strings, integers, floats, and JSON.
+Add session level parameters. Accepted values: strings, integers, floats, and JSON.
 
 These parameters can be overridden by:
 - session parameters added in Nameless Analytics Server-side Client Tag
@@ -198,11 +198,9 @@ If virtual page view is triggered by pushState or replaceState, the page extensi
 
 ## Event data
 ### Shared event parameters
-The parameters will be added in the event_data object in the payload. 
+Add shared event parameters in the event_data object.
 
-Please note: if a parameter has the same name as another, it can override or be overridden depending on where it was set.
-
-These event parameters can't be added, overridden or removed:
+These event parameters are reserved and can't be modified:
 - event_type 
 - channel_grouping 
 - source 
