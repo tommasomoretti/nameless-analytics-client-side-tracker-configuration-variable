@@ -66,6 +66,8 @@ They will be:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
 
+See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
+
 These user parameters are reserved and can't be modified:
 - user_channel_grouping  
 - user_source  
@@ -83,10 +85,6 @@ These user parameters are reserved and can't be modified:
 - user_first_session_timestamp
 - user_last_session_timestamp
 
-This is the hierarchy of user parameter importance: 
-
-See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
-
 #### Add user level parameters
 Accepted values: strings, integers, floats, and JSON.
 
@@ -102,6 +100,8 @@ Add session parameters in the session_data object.
 They will be:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
+
+See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 These session parameters are reserved and can't be modified:
 - user_id
@@ -131,10 +131,6 @@ These session parameters are reserved and can't be modified:
 - session_end_timestamp
 - total_events
 - total_page_views
-
-This is the hierarchy of session parameter importance: 
-
-See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 #### Add User ID
 Add User ID parameter at session level. Accepted values: strings, integers, floats, and JSON. 
@@ -200,6 +196,8 @@ If virtual page view is triggered by pushState or replaceState, the page extensi
 ### Shared event parameters
 Add shared event parameters in the event_data object.
 
+See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
+
 These event parameters are reserved and can't be modified:
 - event_type 
 - channel_grouping 
@@ -220,10 +218,6 @@ These event parameters are reserved and can't be modified:
 - os_version 
 - screen_size 
 - viewport_size
-
-This is the hierarchy of event parameter importance: 
-
-See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 #### Add shared event level parameters
 Add shared event parameters for every event. Accepted values: strings, integers, floats, and JSON.
