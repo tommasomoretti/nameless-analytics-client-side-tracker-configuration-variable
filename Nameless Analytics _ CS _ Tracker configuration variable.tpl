@@ -484,20 +484,24 @@ ___TEMPLATE_PARAMETERS___
     "groupStyle": "ZIPPY_OPEN",
     "subParams": [
       {
-        "type": "GROUP",
-        "name": "page_data_params",
-        "displayName": "",
-        "groupStyle": "NO_ZIPPY",
+        "type": "TEXT",
+        "name": "page_category",
+        "displayName": "Page category",
+        "simpleValueType": true,
+        "alwaysInSummary": true,
+        "valueHint": "(not set)",
+        "help": "Add page_category parameter to the request in page_data."
+      },
+      {
+        "type": "CHECKBOX",
+        "name": "override_page_data_params",
+        "checkboxText": "Override default title and url parameters",
+        "simpleValueType": true,
+        "help": "Override default title and url parameters. Change this settings if virtual page views is tracked via dataLayer push.",
+        "displayName": "Page view settings",
+        "defaultValue": false,
+        "alwaysInSummary": true,
         "subParams": [
-          {
-            "type": "TEXT",
-            "name": "page_category",
-            "displayName": "Page category",
-            "simpleValueType": true,
-            "alwaysInSummary": true,
-            "valueHint": "(not set)",
-            "help": "Add page_category parameter to the request in page_data."
-          },
           {
             "type": "TEXT",
             "name": "page_title",
@@ -505,7 +509,14 @@ ___TEMPLATE_PARAMETERS___
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
-            "help": "Override page_title parameter in the request in page_data."
+            "help": "Override page_title parameter in the request in page_data.",
+            "enablingConditions": [
+              {
+                "paramName": "override_page_data_params",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ]
           },
           {
             "type": "TEXT",
@@ -514,36 +525,73 @@ ___TEMPLATE_PARAMETERS___
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
-            "help": "Override page_location parameter in the request in page_data."
+            "help": "Override page_location parameter in the request in page_data.",
+            "enablingConditions": [
+              {
+                "paramName": "override_page_data_params",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ]
           },
           {
             "type": "TEXT",
             "name": "page_fragment",
-            "displayName": "Page fragment (Optional)",
+            "displayName": "Page fragment",
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
-            "help": "Override page_fragment parameter in the request in page_data."
+            "help": "Override page_fragment parameter in the request in page_data.",
+            "enablingConditions": [
+              {
+                "paramName": "override_page_data_params",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ]
           },
           {
             "type": "TEXT",
             "name": "page_query",
-            "displayName": "Page query (Optional)",
+            "displayName": "Page query",
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
-            "help": "Override page_query parameter in the request in page_data."
+            "help": "Override page_query parameter in the request in page_data.",
+            "enablingConditions": [
+              {
+                "paramName": "override_page_data_params",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ]
           },
           {
             "type": "TEXT",
             "name": "page_extension",
-            "displayName": "Page extension (Optional)",
+            "displayName": "Page extension",
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
-            "help": "Override page_extension parameter in the request in page_data."
+            "help": "Override page_extension parameter in the request in page_data.",
+            "enablingConditions": [
+              {
+                "paramName": "override_page_data_params",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ]
           }
         ]
+      },
+      {
+        "type": "CHECKBOX",
+        "name": "add_page_status_code",
+        "checkboxText": "Add page status code",
+        "simpleValueType": true,
+        "help": "Add page status code when event_type equals page_view. \u003c/br\u003e\u003c/br\u003e \u003cb\u003eThis setting will make HEAD requests to the website server every time a page is loaded.\u003c/b\u003e",
+        "defaultValue": false,
+        "alwaysInSummary": true
       }
     ]
   },
@@ -819,14 +867,25 @@ ___TEMPLATE_PARAMETERS___
   },
   {
     "type": "GROUP",
-    "name": "page_view_settings",
-    "displayName": "Page view settings",
+    "name": "advanced_settings",
+    "displayName": "Advanced settings",
     "groupStyle": "ZIPPY_OPEN",
     "subParams": [
       {
         "type": "CHECKBOX",
+        "name": "respect_consent_mode",
+        "checkboxText": "Respect Google Consent Mode",
+        "simpleValueType": true,
+        "displayName": "",
+        "help": "Respects Google Consent Mode analytics_storage consent value.\n\u003c/br\u003e\u003c/br\u003e\nWhen Respect Google Consent Mode is enabled:\u003c/br\u003e\n- Consent granted (analytics_storage\u003dgranted): tags fire normally\u003c/br\u003e\n- Consent denied (analytics_storage\u003ddenied): tags do not fire and remain pending until consent is updated to granted\u003c/br\u003e\n\u003c/br\u003e\u003c/br\u003e\nWhen Respect Google Consent Mode is disabled:\u003c/br\u003e\n- Tags fire on every event without consent-based restrictions.",
+        "defaultValue": true,
+        "alwaysInSummary": true,
+        "subParams": []
+      },
+      {
+        "type": "CHECKBOX",
         "name": "set_custom_utm_parameters_names",
-        "checkboxText": "Override default source and campaigns url query parameters",
+        "checkboxText": "Override default acquisition url query parameters",
         "simpleValueType": true,
         "help": "Override default url query parameters used for source and campaigns event parameters.\n\u003c/br\u003e\u003c/br\u003e\nDefault parameters:\u003c/br\u003e \n• source \u003d utm_source \u003c/br\u003e \n• campaign_name \u003d utm_campaign \u003c/br\u003e \n• campaign_id \u003d utm_campaign_id \u003c/br\u003e \n• campaign_term \u003d utm_term \u003c/br\u003e \n• campaign_content \u003d utm_content \u003c/br\u003e",
         "displayName": "",
@@ -965,34 +1024,6 @@ ___TEMPLATE_PARAMETERS___
             "defaultValue": ""
           }
         ]
-      },
-      {
-        "type": "CHECKBOX",
-        "name": "add_page_status_code",
-        "checkboxText": "Add page status code",
-        "simpleValueType": true,
-        "help": "Add page status code when event_type equals page_view. \u003c/br\u003e\u003c/br\u003e \u003cb\u003eThis setting will make HEAD requests to the website server every time a page is loaded.\u003c/b\u003e",
-        "defaultValue": false,
-        "alwaysInSummary": true
-      }
-    ]
-  },
-  {
-    "type": "GROUP",
-    "name": "advanced_settings",
-    "displayName": "Advanced settings",
-    "groupStyle": "ZIPPY_OPEN",
-    "subParams": [
-      {
-        "type": "CHECKBOX",
-        "name": "respect_consent_mode",
-        "checkboxText": "Respect Google Consent Mode",
-        "simpleValueType": true,
-        "displayName": "",
-        "help": "Respects Google Consent Mode analytics_storage consent value.\n\u003c/br\u003e\u003c/br\u003e\nWhen Respect Google Consent Mode is enabled:\u003c/br\u003e\n- Consent granted (analytics_storage\u003dgranted): tags fire normally\u003c/br\u003e\n- Consent denied (analytics_storage\u003ddenied): tags do not fire and remain pending until consent is updated to granted\u003c/br\u003e\n\u003c/br\u003e\u003c/br\u003e\nWhen Respect Google Consent Mode is disabled:\u003c/br\u003e\n- Tags fire on every event without consent-based restrictions.",
-        "defaultValue": true,
-        "alwaysInSummary": true,
-        "subParams": []
       },
       {
         "type": "CHECKBOX",
