@@ -4,7 +4,7 @@ The Nameless Analytics Client-side Tracker Configuration Variable is a highly cu
 
 For an overview of how Nameless Analytics works [start from here](https://github.com/nameless-analytics/nameless-analytics/#high-level-data-flow).
 
-### 🚧 Nameless Analytics is currently in beta and is subject to change 🚧
+### 🚧 Nameless Analytics and the documentation are currently in beta and subject to change 🚧
 
 
 
@@ -42,14 +42,13 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 ## Nameless Analytics Client-side Tracker Configuration Variable UI
-The Nameless Analytics Client-side Tracker Configuration Variable acts as the central intelligence hub for your entire tracking setup. 
+The Nameless Analytics Client-side Tracker Configuration Variable provides a centralized architecture for managing global tracking parameters. 
 
-It unifies global settings like user identity, cross-domain logic, and consent management, ensuring consistent data governance across all your tags.
+It unifies essential settings including user identity, cross-domain logic and consent management to ensure consistent data governance across all tags.
 
 This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable.
 
 ![Nameless Analytics Client-side Tracker Configuration Variable UI](https://github.com/user-attachments/assets/01e3f775-7fff-42c8-9e9a-a058944972b7)
-
 
 
 ## User data
