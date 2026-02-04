@@ -19,12 +19,8 @@ For an overview of how Nameless Analytics works [start from here](https://github
     - [Add session level parameters](#add-session-level-parameters)
 - [Page data](#page-data)
   - [Page parameters](#page-parameters)
-    - [Page category](#page-category)
-    - [Virtual page title](#virtual-page-title)
-    - [Virtual page location](#virtual-page-location)
-    - [Virtual page fragment](#virtual-page-fragment)
-    - [Virtual page query](#virtual-page-query)
-    - [Virtual page extension](#virtual-page-extension)
+    - [Add page status code](#add-page-status-code)
+    - [Override default page parameters](#override-default-page-parameters)
 - [Event data](#event-data)
   - [Shared event parameters](#shared-event-parameters)
     - [Add shared event level parameters](#add-shared-event-level-parameters)
@@ -33,11 +29,9 @@ For an overview of how Nameless Analytics works [start from here](https://github
     - [Endpoint requirements for Cross-domain](#endpoint-requirements-for-cross-domain)
   - [Endpoint path](#endpoint-path)
     - [Endpoint path requirements for Cross-domain](#endpoint-path-requirements-for-cross-domain)
-- [Page view settings](#page-view-settings)
-  - [Add page status code](#add-page-status-code)
-  - [Override default source and campaigns URL query parameters](#override-default-source-and-campaigns-url-query-parameters)
 - [Advanced settings](#advanced-settings)
   - [Respect Google Consent Mode](#respect-google-consent-mode)
+  - [Override default acquisition parameters](#override-default-acquisition-parameters)
   - [Enable cross-domain tracking](#enable-cross-domain-tracking)
   - [Load JavaScript libraries in first-party mode](#load-javascript-libraries-in-first-party-mode)
     - [Custom library domain name](#custom-library-domain-name)
@@ -148,47 +142,61 @@ These parameters can be overridden by:
 
 ## Page data
 ### Page parameters
-The parameters will be added in the page_data object in the payload. 
+Add page parameters in the page_data object.
 
-Read how to track [page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#page-view) and [virtual page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#virtual-page-view) for more information.
+Read how to track [page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#page-view) for more information.
 
-#### Page category
-Add the `page_category` parameter to the request in `page_data`. This is an optional field to group pages into high-level categories.
+#### Add page status code
+Add page status code to the request in the page_data when a page_view happens. 
 
-#### Virtual page title
-Add the `page_title` parameter to the request in `page_data`. 
+If enabled, the Nameless Analytics Client-side Tracker performs a silent HEAD request to the current URL to retrieve the HTTP status code (e.g. 200, 404, etc.), allowing you to monitor page errors directly in the reports.
 
-If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document title.
+#### Override default page parameters
+If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document parameters.
 
-If virtual page view is triggered by a GTM history change trigger (pushState or replaceState), the page title will be taken from the `document.title` property.  
+- Page category: Add the `page_category` parameter to the request in `page_data`. This is an optional field to group pages into high-level categories.
 
-#### Virtual page location
-Add the `page_location` parameter to the request in `page_data`. 
+- Page title: Add the `page_title` parameter to the request in `page_data`.
 
-If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document location.
+  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document title.
 
-If virtual page view is triggered by pushState or replaceState, the page location will be taken from the `document.location` property. 
+  If virtual page view is triggered by a GTM history change trigger (pushState or replaceState), the page title will be taken from the `document.title` property.  
 
-#### Virtual page fragment
-Add the `page_fragment` parameter to the request in `page_data`. 
+- Page location: Add the `page_location` parameter to the request in `page_data`. 
 
-If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document fragment.
+  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document location.
 
-If virtual page view is triggered by pushState or replaceState, the page fragment will be taken from the `document.location.hash` property. 
+  If virtual page view is triggered by pushState or replaceState, the page location will be taken from the `document.location` property. 
 
-#### Virtual page query
-Add the `page_query` parameter to the request in `page_data`. 
+- Page fragment: Add the `page_fragment` parameter to the request in `page_data`. 
 
-If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document query.
+  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document fragment.
 
-If virtual page view is triggered by pushState or replaceState, the page query will be taken from the `document.location.search` property. 
+  If virtual page view is triggered by pushState or replaceState, the page fragment will be taken from the `document.location.hash` property. 
 
-#### Virtual page extension
-Add the `page_extension` parameter to the request in `page_data`. 
+- Page query: Add the `page_query` parameter to the request in `page_data`. 
 
-If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document extension.
+  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document query.
 
-If virtual page view is triggered by pushState or replaceState, the page extension will be taken from the `document.location.pathname` property. 
+  If virtual page view is triggered by pushState or replaceState, the page query will be taken from the `document.location.search` property. 
+
+- Page extension: Add the `page_extension` parameter to the request in `page_data`. 
+
+  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document extension.
+
+  If virtual page view is triggered by pushState or replaceState, the page extension will be taken from the `document.location.pathname` property. 
+
+- Page query: Add the `page_query` parameter to the request in `page_data`. 
+
+  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document query.
+
+  If virtual page view is triggered by pushState or replaceState, the page query will be taken from the `document.location.search` property. 
+
+- Page extension: Add the `page_extension` parameter to the request in `page_data`. 
+
+  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document extension.
+
+  If virtual page view is triggered by pushState or replaceState, the page extension will be taken from the `document.location.pathname` property. 
 
 
 
@@ -251,15 +259,20 @@ The endpoint path must be the same for all domains.
 
 
 
-## Page view settings
-### Add page status code
-Add page status code to the request in the page_data when a page_view happens. If enabled, the Nameless Analytics Client-side Tracker performs a silent HEAD request to the current URL to retrieve the HTTP status code (e.g. 200, 404, 500), allowing you to monitor page errors directly in the reports.
+## Advanced settings
+### Respect Google Consent Mode
+When Google Consent Mode is present on website and Respect Google Consent Mode is enabled, the events are sent only if a user consents. When:
 
-Please note: This setting will be visible in the UI only when the event name is equal to page_view. Page status code will not be added for virtual_page_view.
+- `analytics_storage` is equal to `denied`, the Nameless Analytics Client-side Tracker waits until consent is granted
+- `analytics_storage` changes from `denied` to `granted`, all pending tags for that page will be fired in execution order
+
+When Google Consent Mode is not present on website and Respect Google Consent Mode is enabled, none of the events are sent.
+  
+When Google Consent Mode is present on website and Respect Google Consent Mode is disabled, all events are sent regardless of user consents.
 
 
-### Override default source and campaigns URL query parameters
-Override the default URL query parameter names used as source and campaign parameters. By default these values are taken from standard UTM parameters.
+### Override default acquisition parameters
+Override the default URL query parameter names used as acquisition parameters. By default these values are taken from standard UTM parameters.
 
 Default values: 
 - source = utm_source
@@ -269,7 +282,7 @@ Default values:
 - campaign_term = utm_term
 - campaign_content = utm_content
 
-If utm_click_id is missing, the following URL query parameters are tracked as click_click_id:
+If `utm_click_id` is missing, the tracker attempts to populate `campaign_click_id` using the following URL query parameters in order of priority. If none of these parameters are present, `campaign_click_id` will be null:
 - For Google Ads: gclid or dclid or gclsrc or wbraid or gbraid
 - For Bing: msclkid
 - For Facebook: fbclid
@@ -314,26 +327,13 @@ The channel grouping logic uses the following Source Categories based on the sou
 | **Social** | `facebook`, `twitter`, `instagram`, `pinterest`, `linkedin`, `reddit`, `vk.com`, `tiktok`, `snapchat`, `tumblr`, `wechat`, `whatsapp` |
 | **Shopping** | `amazon`, `ebay`, `etsy`, `shopify`, `stripe`, `walmart`, `mercadolibre`, `alibaba`, `naver.shopping` |
 | **Video** | `youtube`, `vimeo`, `netflix`, `twitch`, `dailymotion`, `hulu`, `disneyplus`, `wistia`, `youku` |
-| **AI** | `chatgpt`, `gemini`, `bard`, `claude`, `alexa`, `siri`, `assistant`, `.ai` |
+| **AI** | `chatgpt`, `gemini`, `bard`, `claude`, `alexa`, `siri`, `assistant`, `ai` |
 | **Email** | `email`, `e-mail`, `newsletter`, `mailchimp`, `sendgrid`, `sparkpost` |
 
 </details>
 
 
-
-## Advanced settings
-### Respect Google Consent Mode
-When Google Consent Mode is present on website and Respect Google Consent Mode is enabled, the events are sent only if a user consents. When:
-
-- `analytics_storage` is equal to `denied`, the Nameless Analytics Client-side Tracker waits until consent is granted
-- `analytics_storage` changes from `denied` to `granted`, all pending tags for that page will be fired in execution order
-
-When Google Consent Mode is not present on website and Respect Google Consent Mode is enabled, none of the events are sent.
-  
-When Google Consent Mode is present on website and Respect Google Consent Mode is disabled, all events are sent regardless of user consents.
-
-
-### Enable cross-domain tracking (🚧 Beta feature)
+### Enable cross-domain tracking
 Enables the transfer of `client_id` and `session_id` data across two or more websites via a URL GET parameter. This allows Nameless Analytics tags to merge individual sessions into a single session that would otherwise be created when visiting other domains.
 
 For an in-depth explanation of why this is required and how the handshake protocol works, see the [Cross-domain Architecture documentation](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture).
