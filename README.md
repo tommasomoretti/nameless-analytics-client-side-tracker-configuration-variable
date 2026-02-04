@@ -54,13 +54,11 @@ This is the UI of the Nameless Analytics Client-side Tracker Configuration Varia
 
 ## User data
 ### User parameters
-Add user parameters in the user_data object.
+Add user parameters in the user_data object. See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 They will be:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
-
-See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 These user parameters are reserved and can't be modified:
 - user_channel_grouping  
@@ -89,13 +87,11 @@ These parameters can be overridden by:
 
 ## Session data
 ### Session parameters
-Add session parameters in the session_data object.
+Add session parameters in the session_data object. See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 They will be:
 - written in Google Cloud Firestore every time they change --> latest values 
 - read and sent to BigQuery with the current parameter status --> current values 
-
-See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 These session parameters are reserved and can't be modified:
 - user_id
@@ -142,9 +138,7 @@ These parameters can be overridden by:
 
 ## Page data
 ### Page parameters
-Add page parameters in the page_data object.
-
-Read how to track [page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#page-view) for more information.
+Add page parameters in the page_data object. Read how to track [page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#page-view) for more information.
 
 #### Add page status code
 Add page status code to the request in the page_data when a page_view happens. 
@@ -202,9 +196,7 @@ If virtual page view is triggered by a custom dataLayer event, use this field to
 
 ## Event data
 ### Shared event parameters
-Add shared event parameters in the event_data object.
-
-See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
+Add shared event parameters in the event_data object. See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 These event parameters are reserved and can't be modified:
 - event_type 
@@ -282,7 +274,7 @@ Default values:
 - campaign_term = utm_term
 - campaign_content = utm_content
 
-If `utm_click_id` is missing, the tracker attempts to populate `campaign_click_id` using the following URL query parameters in order of priority. If none of these parameters are present, `campaign_click_id` will be null:
+If `utm_click_id` is missing, the Nameless Analytics Client-side Tracker tag attempts to populate `campaign_click_id` using the following URL query parameters in order of priority. If none of these parameters are present, `campaign_click_id` will be null:
 - For Google Ads: gclid or dclid or gclsrc or wbraid or gbraid
 - For Bing: msclkid
 - For Facebook: fbclid
@@ -318,7 +310,7 @@ The following table describes how the channel is determined based on the source 
 
 The channel grouping logic uses the following Source Categories based on the source name:
 
-| Source category | Source name |
+| Source category | Source |
 | :--- | :--- |
 | **Internal traffic** | `null` |
 | **Direct** | `direct` |
