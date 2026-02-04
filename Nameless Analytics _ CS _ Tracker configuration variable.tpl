@@ -484,24 +484,41 @@ ___TEMPLATE_PARAMETERS___
     "groupStyle": "ZIPPY_OPEN",
     "subParams": [
       {
-        "type": "TEXT",
-        "name": "page_category",
-        "displayName": "Page category",
+        "type": "CHECKBOX",
+        "name": "add_page_status_code",
+        "checkboxText": "Add page status code",
         "simpleValueType": true,
+        "help": "Add page status code when event_type equals page_view. \u003c/br\u003e\u003c/br\u003e \u003cb\u003eThis setting will make HEAD requests to the website server every time a page is loaded.\u003c/b\u003e",
+        "defaultValue": false,
         "alwaysInSummary": true,
-        "valueHint": "(not set)",
-        "help": "Add page_category parameter to the request in page_data."
+        "displayName": "Page parameters"
       },
       {
         "type": "CHECKBOX",
         "name": "override_page_data_params",
-        "checkboxText": "Override default title and url parameters",
+        "checkboxText": "Override default page parameters",
         "simpleValueType": true,
         "help": "Override default title and url parameters. Change this settings if virtual page views is tracked via dataLayer push.",
-        "displayName": "Page view settings",
+        "displayName": "",
         "defaultValue": false,
         "alwaysInSummary": true,
         "subParams": [
+          {
+            "type": "TEXT",
+            "name": "page_category",
+            "displayName": "Page category",
+            "simpleValueType": true,
+            "alwaysInSummary": true,
+            "valueHint": "(not set)",
+            "help": "Add page_category parameter to the request in page_data.",
+            "enablingConditions": [
+              {
+                "paramName": "override_page_data_params",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ]
+          },
           {
             "type": "TEXT",
             "name": "page_title",
@@ -583,15 +600,6 @@ ___TEMPLATE_PARAMETERS___
             ]
           }
         ]
-      },
-      {
-        "type": "CHECKBOX",
-        "name": "add_page_status_code",
-        "checkboxText": "Add page status code",
-        "simpleValueType": true,
-        "help": "Add page status code when event_type equals page_view. \u003c/br\u003e\u003c/br\u003e \u003cb\u003eThis setting will make HEAD requests to the website server every time a page is loaded.\u003c/b\u003e",
-        "defaultValue": false,
-        "alwaysInSummary": true
       }
     ]
   },
@@ -803,7 +811,7 @@ ___TEMPLATE_PARAMETERS___
             ]
           }
         ],
-        "displayName": "Event parameters",
+        "displayName": "Shared event parameters",
         "alwaysInSummary": true,
         "help": "Add shared event parameters to the request in event_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved event parameters: \u003c/br\u003e \n• event_type \u003c/br\u003e \n• channel_grouping \u003c/br\u003e \n• source \u003c/br\u003e \n• tld_source \u003c/br\u003e\n• campaign \u003c/br\u003e \n• campaign_id \u003c/br\u003e\n• campaign_click_id \u003c/br\u003e\n• campaign_term \u003c/br\u003e \n• campaign_content \u003c/br\u003e \n• user_agent \u003c/br\u003e \n• browser_name \u003c/br\u003e \n• browser_language \u003c/br\u003e \n• browser_version \u003c/br\u003e \n• device_type \u003c/br\u003e \n• device_vendor \u003c/br\u003e \n• device_model \u003c/br\u003e \n• os_name \u003c/br\u003e \n• os_version \u003c/br\u003e \n• screen_size \u003c/br\u003e \n• viewport_size \u003c/br\u003e\n• city \u003c/br\u003e\n• country",
         "defaultValue": false
@@ -884,8 +892,60 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "type": "CHECKBOX",
+        "name": "enable_cross_domain_tracking",
+        "checkboxText": "Enable cross domain tracking",
+        "simpleValueType": true,
+        "help": "Enable cross-domain tracking across domains.\n\u003c/br\u003e\u003c/br\u003e\nThe URL must not start with http:// or https://, must not end with / and must contain a valid domain.",
+        "displayName": "",
+        "defaultValue": false,
+        "alwaysInSummary": true,
+        "subParams": [
+          {
+            "type": "SIMPLE_TABLE",
+            "name": "cross_domain_domains",
+            "displayName": "Cross-domain domains",
+            "simpleTableColumns": [
+              {
+                "defaultValue": "",
+                "displayName": "Domain",
+                "name": "domain",
+                "type": "TEXT",
+                "valueHint": "(not set)",
+                "isUnique": true,
+                "valueValidators": [
+                  {
+                    "type": "NON_EMPTY"
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$"
+                    ],
+                    "errorMessage": "The URL must not start with http:// or https://, must not end with /, and must contain a valid domain."
+                  }
+                ]
+              }
+            ],
+            "valueValidators": [
+              {
+                "type": "NON_EMPTY"
+              }
+            ],
+            "alwaysInSummary": true,
+            "enablingConditions": [
+              {
+                "paramName": "enable_cross_domain_tracking",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "CHECKBOX",
         "name": "set_custom_utm_parameters_names",
-        "checkboxText": "Override default acquisition url query parameters",
+        "checkboxText": "Override default acquisition parameters",
         "simpleValueType": true,
         "help": "Override default url query parameters used for source and campaigns event parameters.\n\u003c/br\u003e\u003c/br\u003e\nDefault parameters:\u003c/br\u003e \n• source \u003d utm_source \u003c/br\u003e \n• campaign_name \u003d utm_campaign \u003c/br\u003e \n• campaign_id \u003d utm_campaign_id \u003c/br\u003e \n• campaign_term \u003d utm_term \u003c/br\u003e \n• campaign_content \u003d utm_content \u003c/br\u003e",
         "displayName": "",
@@ -950,7 +1010,7 @@ ___TEMPLATE_PARAMETERS___
           },
           {
             "type": "TEXT",
-            "name": "custom_id_name",
+            "name": "custom_campaign_id",
             "displayName": "Query parameter name for campaign id",
             "simpleValueType": true,
             "alwaysInSummary": true,
@@ -968,6 +1028,109 @@ ___TEMPLATE_PARAMETERS___
                   "^(?!utm_id$).*"
                 ],
                 "errorMessage": "Query parameter name can\u0027t be equal to utm_id."
+              }
+            ],
+            "valueHint": "(not set)",
+            "defaultValue": ""
+          },
+          {
+            "type": "TEXT",
+            "name": "custom_campaign_click_id",
+            "displayName": "Query parameter name for campaign click id",
+            "simpleValueType": true,
+            "alwaysInSummary": true,
+            "enablingConditions": [
+              {
+                "paramName": "set_custom_utm_parameters_names",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ],
+            "valueValidators": [
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!gclid$).*"
+                ],
+                "errorMessage": "Query parameter name can\u0027t be equal to gclid."
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!dclid$).*"
+                ],
+                "errorMessage": "Query parameter name can\u0027t be equal to dclid."
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!gclsrc$).*"
+                ],
+                "errorMessage": "Query parameter name can\u0027t be equal to gclsrc."
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!wbraid$).*"
+                ],
+                "errorMessage": "Query parameter name can\u0027t be equal to wbraid."
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!gbraid$).*"
+                ],
+                "errorMessage": "Query parameter name can\u0027t be equal to gbraid."
+              },
+              {
+                "type": "REGEX",
+                "errorMessage": "Query parameter name can\u0027t be equal to msclkid.",
+                "enablingConditions": [],
+                "args": [
+                  "^(?!msclkid$).*"
+                ]
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!fbclid$).*"
+                ],
+                "errorMessage": "Query parameter name can\u0027t be equal to fbclid."
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!ttclid$).*"
+                ],
+                "errorMessage": "Query parameter name can\u0027t be equal to ttclid."
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!twclid$).*"
+                ],
+                "errorMessage": "Query parameter name can\u0027t be equal to twclid."
+              },
+              {
+                "type": "REGEX",
+                "errorMessage": "Query parameter name can\u0027t be equal to epik.",
+                "args": [
+                  "^(?!epik$).*"
+                ]
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!li_fat_id$).*"
+                ],
+                "errorMessage": "Query parameter name can\u0027t be equal to li_fat_id."
+              },
+              {
+                "type": "REGEX",
+                "args": [
+                  "^(?!scclid$).*"
+                ],
+                "errorMessage": "Query parameter name can\u0027t be equal to scclid."
               }
             ],
             "valueHint": "(not set)",
@@ -1022,58 +1185,6 @@ ___TEMPLATE_PARAMETERS___
             ],
             "valueHint": "(not set)",
             "defaultValue": ""
-          }
-        ]
-      },
-      {
-        "type": "CHECKBOX",
-        "name": "enable_cross_domain_tracking",
-        "checkboxText": "Enable cross domain tracking",
-        "simpleValueType": true,
-        "help": "Enable cross-domain tracking across domains.\n\u003c/br\u003e\u003c/br\u003e\nThe URL must not start with http:// or https://, must not end with / and must contain a valid domain.",
-        "displayName": "",
-        "defaultValue": false,
-        "alwaysInSummary": true,
-        "subParams": [
-          {
-            "type": "SIMPLE_TABLE",
-            "name": "cross_domain_domains",
-            "displayName": "Cross-domain domains",
-            "simpleTableColumns": [
-              {
-                "defaultValue": "",
-                "displayName": "Domain",
-                "name": "domain",
-                "type": "TEXT",
-                "valueHint": "(not set)",
-                "isUnique": true,
-                "valueValidators": [
-                  {
-                    "type": "NON_EMPTY"
-                  },
-                  {
-                    "type": "REGEX",
-                    "args": [
-                      "^([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$"
-                    ],
-                    "errorMessage": "The URL must not start with http:// or https://, must not end with /, and must contain a valid domain."
-                  }
-                ]
-              }
-            ],
-            "valueValidators": [
-              {
-                "type": "NON_EMPTY"
-              }
-            ],
-            "alwaysInSummary": true,
-            "enablingConditions": [
-              {
-                "paramName": "enable_cross_domain_tracking",
-                "paramValue": true,
-                "type": "EQUALS"
-              }
-            ]
           }
         ]
       },
