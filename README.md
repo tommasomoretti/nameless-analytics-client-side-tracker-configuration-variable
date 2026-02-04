@@ -48,7 +48,7 @@ It unifies global settings like user identity, cross-domain logic, and consent m
 
 This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable.
 
-![Nameless Analytics Client-side Tracker Configuration Variable UI](https://github.com/user-attachments/assets/0baea4b1-6cb2-4518-a742-0cd2c90db17e)
+![Nameless Analytics Client-side Tracker Configuration Variable UI](https://github.com/user-attachments/assets/01e3f775-7fff-42c8-9e9a-a058944972b7)
 
 
 
