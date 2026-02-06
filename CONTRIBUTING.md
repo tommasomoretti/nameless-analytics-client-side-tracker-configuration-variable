@@ -1,7 +1,9 @@
 # Nameless Analytics | Contributing
 
 Thank you for your interest in contributing to Nameless Analytics! 
- 
+
+### 🚧 Nameless Analytics and the documentation are currently in beta and subject to change 🚧
+
 
 
 ## How to Contribute
