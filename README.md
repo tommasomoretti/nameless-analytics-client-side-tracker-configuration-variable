@@ -57,7 +57,7 @@ Add user parameters in the user_data object. See [Parameter Hierarchy & Overridi
 
 They will be:
 - written in Google Cloud Firestore every time they change --> latest values 
-- read and sent to BigQuery with the current parameter status --> current values 
+- sent to BigQuery with the last available values --> every values
 
 These user parameters are reserved and can't be modified:
 - user_channel_grouping  
@@ -77,7 +77,7 @@ These user parameters are reserved and can't be modified:
 - user_last_session_timestamp
 
 #### Add user level parameters
-Accepted values: strings, integers, floats, and JSON.
+Accepted values: strings, integers, floats, JSON and booleans.
 
 These parameters can be overridden by:
 - user parameters added in Nameless Analytics Server-side Client Tag
@@ -90,7 +90,7 @@ Add session parameters in the session_data object. See [Parameter Hierarchy & Ov
 
 They will be:
 - written in Google Cloud Firestore every time they change --> latest values 
-- read and sent to BigQuery with the current parameter status --> current values 
+- sent to BigQuery with the last available values --> every values
 
 These session parameters are reserved and can't be modified:
 - user_id
@@ -122,13 +122,13 @@ These session parameters are reserved and can't be modified:
 - total_page_views
 
 #### Add User ID
-Add User ID parameter at session level. Accepted values: strings, integers, floats, and JSON. 
+Add User ID parameter at session level. Accepted values: strings, integers, floats, JSON and booleans.
 
 These parameters can be overridden by:
 - user id parameter added in Nameless Analytics Server-side Client Tag
 
 #### Add session level parameters
-Add session level parameters. Accepted values: strings, integers, floats, and JSON.
+Add session level parameters. Accepted values: strings, integers, floats, JSON and booleans.
 
 These parameters can be overridden by:
 - session parameters added in Nameless Analytics Server-side Client Tag
@@ -138,6 +138,8 @@ These parameters can be overridden by:
 ## Page data
 ### Page parameters
 Add page parameters in the page_data object. Read how to track [page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#page-view) for more information.
+
+They will be sent to BigQuery with every event.
 
 #### Add page status code
 Add page status code to the request in the page_data when a page_view happens. 
@@ -179,23 +181,13 @@ If virtual page view is triggered by a custom dataLayer event, use this field to
 
   If virtual page view is triggered by pushState or replaceState, the page extension will be taken from the `document.location.pathname` property. 
 
-- Page query: Add the `page_query` parameter to the request in `page_data`. 
-
-  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document query.
-
-  If virtual page view is triggered by pushState or replaceState, the page query will be taken from the `document.location.search` property. 
-
-- Page extension: Add the `page_extension` parameter to the request in `page_data`. 
-
-  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document extension.
-
-  If virtual page view is triggered by pushState or replaceState, the page extension will be taken from the `document.location.pathname` property. 
-
 
 
 ## Event data
 ### Shared event parameters
 Add shared event parameters in the event_data object. See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
+
+They will be sent to BigQuery with every event.
 
 These event parameters are reserved and can't be modified:
 - event_type 
@@ -219,7 +211,7 @@ These event parameters are reserved and can't be modified:
 - viewport_size
 
 #### Add shared event level parameters
-Add shared event parameters for every event. Accepted values: strings, integers, floats, and JSON.
+Add shared event parameters for every event. Accepted values: strings, integers, floats, JSON and booleans.
 
 These parameters can override:
 - dataLayer event parameters added in Nameless Analytics Client-side Tracker Tag
