@@ -141,9 +141,13 @@ Add page parameters in the page_data object. Read how to track [page views](http
 They will be sent to BigQuery with every event.
 
 #### Add page status code
-Add page status code to the request in the page_data when a page_view happens. 
+This feature captures the HTTP status code (e.g., 200, 404, 500) of the current page and adds it to the `page_data` object during the `page_view` event. This is essential for monitoring broken links and server-side errors directly within your analytics reports.
 
-If enabled, the Nameless Analytics Client-side Tracker performs a silent HEAD request to the current URL to retrieve the HTTP status code (e.g. 200, 404, etc.), allowing you to monitor page errors directly in the reports.
+**How it works:**
+To ensure accuracy, the tracker performs a lightweight asynchronous `HEAD` request to the current URL. This allows it to fetch the server response status without downloading the entire page content again.
+
+**Technical Note:**
+Enabling this feature adds one extra network call to the start of the tracking sequence. While the `HEAD` request is extremely fast and efficient, keep in mind this additional interaction when evaluating site performance and network logs.
 
 #### Override default page parameters
 If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document parameters.
