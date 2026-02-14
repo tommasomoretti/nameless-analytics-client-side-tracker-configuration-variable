@@ -70,9 +70,8 @@ These user parameters are reserved and can't be modified:
 - user_campaign_term  
 - user_device_type  
 - user_country  
-- user_language  
 - user_city
-- user_country
+- user_language  
 - user_first_session_timestamp
 - user_last_session_timestamp
 
@@ -80,7 +79,7 @@ These user parameters are reserved and can't be modified:
 Accepted values: strings, integers, floats, JSON and booleans.
 
 These parameters can be overridden by:
-- user parameters added in Nameless Analytics Server-side Client Tag
+- User parameters added in Nameless Analytics Server-side Client Tag
 
 
 
@@ -125,13 +124,13 @@ These session parameters are reserved and can't be modified:
 Add User ID parameter at session level. Accepted values: strings, integers, floats, JSON and booleans.
 
 These parameters can be overridden by:
-- user id parameter added in Nameless Analytics Server-side Client Tag
+- User ID parameter added in Nameless Analytics Server-side Client Tag
 
 #### Add session level parameters
 Add session level parameters. Accepted values: strings, integers, floats, JSON and booleans.
 
 These parameters can be overridden by:
-- session parameters added in Nameless Analytics Server-side Client Tag
+- Session parameters added in Nameless Analytics Server-side Client Tag
 
 
 
@@ -209,13 +208,15 @@ These event parameters are reserved and can't be modified:
 - os_version 
 - screen_size 
 - viewport_size
+- tld_source
+- city
+- country
 
 #### Add shared event level parameters
 Add shared event parameters for every event. Accepted values: strings, integers, floats, JSON and booleans.
 
 These parameters can override:
-- dataLayer event parameters added in Nameless Analytics Client-side Tracker Tag
-- Default event parameters
+- Event parameters from dataLayer added in Nameless Analytics Client-side Tracker Tag
 
 These parameters can be overridden by:
 - Event parameters added in Nameless Analytics Server-side Client Tag
