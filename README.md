@@ -214,6 +214,7 @@ These event parameters are reserved and can't be modified:
 - screen_size 
 - viewport_size
 - tld_source
+- hostname
 - city
 - country
 
