@@ -19,9 +19,9 @@ For an overview of how Nameless Analytics works [start from here](https://github
     - [Add session level parameters](#add-session-level-parameters)
 - [Page data](#page-data)
   - [Page parameters](#page-parameters)
+    - [Override default page parameters](#override-default-page-parameters)
     - [Add page level parameters](#add-page-level-parameters)
     - [Add page status code](#add-page-status-code)
-    - [Override default page parameters](#override-default-page-parameters)
 - [Event data](#event-data)
   - [Shared event parameters](#shared-event-parameters)
     - [Add shared event level parameters](#add-shared-event-level-parameters)
@@ -153,20 +153,6 @@ These page parameters are reserved and can't be modified:
 - page_referrer
 - page_status_code
 
-#### Add page level parameters
-Add or override custom page level parameters. Accepted values: strings, integers, floats, JSON and booleans.
-
-These parameters can't be overridden by any other tags.
-
-#### Add page status code
-This feature captures the HTTP status code (e.g., 200, 404, 500) of the current page and adds it to the `page_data` object during the `page_view` event. This is essential for monitoring broken links and server-side errors directly within your analytics reports.
-
-**How it works:**
-To ensure accuracy, the tracker performs a lightweight asynchronous `HEAD` request to the current URL. This allows it to fetch the server response status without downloading the entire page content again.
-
-**Technical Note:**
-Enabling this feature adds one extra network call to the start of the tracking sequence. While the `HEAD` request is extremely fast and efficient, keep in mind this additional interaction when evaluating site performance and network logs.
-
 #### Override default page parameters
 If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document parameters.
 
@@ -201,6 +187,20 @@ If virtual page view is triggered by a custom dataLayer event, use this field to
   If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document extension.
 
   If virtual page view is triggered by pushState or replaceState, the page extension will be taken from the `document.location.pathname` property. 
+
+#### Add page level parameters
+Add or override custom page level parameters. Accepted values: strings, integers, floats, JSON and booleans.
+
+These parameters can't be overridden by any other tags.
+
+#### Add page status code
+This feature captures the HTTP status code (e.g., 200, 404, 500) of the current page and adds it to the `page_data` object during the `page_view` event. This is essential for monitoring broken links and server-side errors directly within your analytics reports.
+
+**How it works:**
+To ensure accuracy, the tracker performs a lightweight asynchronous `HEAD` request to the current URL. This allows it to fetch the server response status without downloading the entire page content again.
+
+**Technical Note:**
+Enabling this feature adds one extra network call to the start of the tracking sequence. While the `HEAD` request is extremely fast and efficient, keep in mind this additional interaction when evaluating site performance and network logs.
 
 
 
