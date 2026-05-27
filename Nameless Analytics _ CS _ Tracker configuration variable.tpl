@@ -487,6 +487,27 @@ ___TEMPLATE_PARAMETERS___
           },
           {
             "type": "TEXT",
+            "name": "page_url",
+            "displayName": "Page url",
+            "simpleValueType": true,
+            "alwaysInSummary": true,
+            "valueHint": "(not set)",
+            "help": "Override page_url parameter in the request in page_data.",
+            "enablingConditions": [
+              {
+                "paramName": "override_page_data_params",
+                "paramValue": true,
+                "type": "EQUALS"
+              }
+            ],
+            "valueValidators": [
+              {
+                "type": "NON_EMPTY"
+              }
+            ]
+          },
+          {
+            "type": "TEXT",
             "name": "page_location",
             "displayName": "Page location",
             "simpleValueType": true,
@@ -648,6 +669,13 @@ ___TEMPLATE_PARAMETERS___
                       "^(?!page_status_code$).*"
                     ],
                     "errorMessage": "Can\u0027t add page_status_code parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!page_url$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add page_url parameter."
                   }
                 ]
               },
