@@ -1009,9 +1009,9 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "CHECKBOX",
         "name": "enable_cross_domain_tracking",
-        "checkboxText": "Enable cross domain tracking",
+        "checkboxText": "Enable cross-domain tracking",
         "simpleValueType": true,
-        "help": "Enable cross-domain tracking across domains.\n\u003c/br\u003e\u003c/br\u003e\nThe URL must not start with http:// or https://, must not end with / and must contain a valid domain.",
+        "help": "Enable cross-domain tracking across-domains.\n\u003c/br\u003e\u003c/br\u003e\nThe URL must not start with http:// or https://, must not end with / and must contain a valid domain.",
         "displayName": "",
         "defaultValue": false,
         "alwaysInSummary": true,
