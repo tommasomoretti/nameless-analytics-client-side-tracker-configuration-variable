@@ -341,9 +341,9 @@ ___TEMPLATE_PARAMETERS___
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!session_landing_page_location$).*"
+                      "^(?!session_landing_page_path$).*"
                     ],
-                    "errorMessage": "Can\u0027t add session_landing_page_location parameter."
+                    "errorMessage": "Can\u0027t add session_landing_page_path parameter."
                   },
                   {
                     "type": "REGEX",
@@ -362,9 +362,9 @@ ___TEMPLATE_PARAMETERS___
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!session_exit_page_location$).*"
+                      "^(?!session_exit_page_path$).*"
                     ],
-                    "errorMessage": "Can\u0027t add session_exit_page_location parameter."
+                    "errorMessage": "Can\u0027t add session_exit_page_path parameter."
                   },
                   {
                     "type": "REGEX",
@@ -443,7 +443,7 @@ ___TEMPLATE_PARAMETERS___
         ],
         "displayName": "",
         "alwaysInSummary": true,
-        "help": "Add session parameters to the request in session_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved session parameters: \u003c/br\u003e\n• user_id \u003c/br\u003e\n• session_number \u003c/br\u003e \n• cross_domain_session \u003c/br\u003e \n• session_channel_grouping \u003c/br\u003e \n• session_source \u003c/br\u003e \n• session_tld_source \u003c/br\u003e \n• session_campaign \u003c/br\u003e \n• session_campaign_id \u003c/br\u003e \n• session_campaign_click_id \u003c/br\u003e\n• session_campaign_content \u003c/br\u003e \n• session_campaign_term \u003c/br\u003e \n• session_device_type \u003c/br\u003e \n• session_city \u003c/br\u003e\n• session_country \u003c/br\u003e \n• session_language \u003c/br\u003e \n• session_hostname \u003c/br\u003e \n• session_browser_name \u003c/br\u003e \n• session_landing_page_category \u003c/br\u003e \n• session_landing_page_location \u003c/br\u003e \n• session_landing_page_title \u003c/br\u003e \n• session_exit_page_category \u003c/br\u003e \n• session_exit_page_location \u003c/br\u003e \n• session_exit_page_title \u003c/br\u003e \n• session_start_timestamp \u003c/br\u003e \n• session_end_timestamp",
+        "help": "Add session parameters to the request in session_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved session parameters: \u003c/br\u003e\n• user_id \u003c/br\u003e\n• session_number \u003c/br\u003e \n• cross_domain_session \u003c/br\u003e \n• session_channel_grouping \u003c/br\u003e \n• session_source \u003c/br\u003e \n• session_tld_source \u003c/br\u003e \n• session_campaign \u003c/br\u003e \n• session_campaign_id \u003c/br\u003e \n• session_campaign_click_id \u003c/br\u003e\n• session_campaign_content \u003c/br\u003e \n• session_campaign_term \u003c/br\u003e \n• session_device_type \u003c/br\u003e \n• session_city \u003c/br\u003e\n• session_country \u003c/br\u003e \n• session_language \u003c/br\u003e \n• session_hostname \u003c/br\u003e \n• session_browser_name \u003c/br\u003e \n• session_landing_page_category \u003c/br\u003e \n• session_landing_page_path \u003c/br\u003e \n• session_landing_page_title \u003c/br\u003e \n• session_exit_page_category \u003c/br\u003e \n• session_exit_page_path \u003c/br\u003e \n• session_exit_page_title \u003c/br\u003e \n• session_start_timestamp \u003c/br\u003e \n• session_end_timestamp",
         "defaultValue": false
       }
     ]
@@ -508,12 +508,12 @@ ___TEMPLATE_PARAMETERS___
           },
           {
             "type": "TEXT",
-            "name": "page_location",
+            "name": "page_path",
             "displayName": "Page location",
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
-            "help": "Override page_location parameter in the request in page_data.",
+            "help": "Override page_path parameter in the request in page_data.",
             "enablingConditions": [
               {
                 "paramName": "override_page_data_params",
@@ -630,9 +630,9 @@ ___TEMPLATE_PARAMETERS___
                   {
                     "type": "REGEX",
                     "args": [
-                      "^(?!page_location$).*"
+                      "^(?!page_path$).*"
                     ],
-                    "errorMessage": "Can\u0027t add page_location parameter."
+                    "errorMessage": "Can\u0027t add page_path parameter."
                   },
                   {
                     "type": "REGEX",
@@ -704,7 +704,7 @@ ___TEMPLATE_PARAMETERS___
         ],
         "displayName": "",
         "alwaysInSummary": true,
-        "help": "Add page parameters to the request in page_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved page parameters: \u003c/br\u003e\n• page_load_timestamp\u003c/br\u003e\n• page_hostname_protocol\u003c/br\u003e\n• page_hostname\u003c/br\u003e\n• page_title\u003c/br\u003e\n• page_location\u003c/br\u003e\n• page_fragment\u003c/br\u003e\n• page_query\u003c/br\u003e\n• page_extension\u003c/br\u003e\n• page_referrer\u003c/br\u003e\n• page_status_code",
+        "help": "Add page parameters to the request in page_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved page parameters: \u003c/br\u003e\n• page_load_timestamp\u003c/br\u003e\n• page_hostname_protocol\u003c/br\u003e\n• page_hostname\u003c/br\u003e\n• page_title\u003c/br\u003e\n• page_path\u003c/br\u003e\n• page_fragment\u003c/br\u003e\n• page_query\u003c/br\u003e\n• page_extension\u003c/br\u003e\n• page_referrer\u003c/br\u003e\n• page_status_code",
         "defaultValue": false
       },
       {
