@@ -112,9 +112,11 @@ These session parameters are reserved and can't be modified:
 - session_hostname 
 - session_browser_name 
 - session_landing_page_category 
+- session_landing_page_url 
 - session_landing_page_path 
 - session_landing_page_title 
 - session_exit_page_category 
+- session_exit_page_url
 - session_exit_page_path 
 - session_exit_page_title 
 - session_start_timestamp 
@@ -146,6 +148,7 @@ These page parameters are reserved and can't be modified:
 - page_hostname_protocol
 - page_hostname
 - page_title
+- page_url
 - page_path
 - page_fragment
 - page_query
@@ -164,11 +167,17 @@ If virtual page view is triggered by a custom dataLayer event, use this field to
 
   If virtual page view is triggered by a GTM history change trigger (pushState or replaceState), the page title will be taken from the `document.title` property.  
 
-- Page location: Add the `page_path` parameter to the request in `page_data`. 
+- Page url: Add the `page_url` parameter to the request in `page_data`. 
 
   If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document location.
 
-  If virtual page view is triggered by pushState or replaceState, the page location will be taken from the `document.location` property. 
+  If virtual page view is triggered by pushState or replaceState, the page location will be taken from the `document.location.href` property. 
+
+- Page location: Add the `page_path` parameter to the request in `page_data`. 
+
+  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document path.
+
+  If virtual page view is triggered by pushState or replaceState, the page location will be taken from the `document.location.pathname` property. 
 
 - Page fragment: Add the `page_fragment` parameter to the request in `page_data`. 
 
