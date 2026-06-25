@@ -14,6 +14,7 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "Nameless Analytics | CS | Tracker configuration variable",
+  "categories": ["ANALYTICS"],
   "description": "A highly customizable GTM custom variable template designed to configure the settings of Nameless Analytics Client-side tracker tag.",
   "containerContexts": [
     "WEB"
