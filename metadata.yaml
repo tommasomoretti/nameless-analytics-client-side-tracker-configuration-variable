@@ -3,6 +3,6 @@ documentation: 'https://github.com/nameless-analytics/client-side-tracker-config
 versions:
 # Latest version
   - sha: 2462b9d17079b7a23f0cd0a66da2f47c27cee610
-    changeNotes: Updated to latest commit.
+    changeNotes: First commit.
 
 # Previous versions
