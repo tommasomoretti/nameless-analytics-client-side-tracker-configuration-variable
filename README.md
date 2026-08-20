@@ -302,7 +302,7 @@ Default values:
 - campaign_term = utm_term
 - campaign_content = utm_content
 
-If `utm_click_id` is missing, the Nameless Analytics Client-side Tracker tag attempts to populate `campaign_click_id` using the following URL query parameters in order of priority. If none of these parameters are present, `campaign_click_id` will be null:
+If `utm_click_id` is missing, the Nameless Analytics Client-side Tracker Tag attempts to populate `campaign_click_id` using the following URL query parameters in order of priority. If none of these parameters are present, `campaign_click_id` will be null:
 - For Google Ads: gclid or dclid or gclsrc or wbraid or gbraid
 - For Bing: msclkid
 - For Facebook: fbclid
