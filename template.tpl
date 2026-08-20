@@ -13,11 +13,11 @@ ___INFO___
   "id": "cvt_temp_public_id",
   "version": 1,
   "securityGroups": [],
-  "displayName": "Nameless Analytics - Tracker configuration variable",
+  "displayName": "Nameless Analytics - Tracker Configuration Variable",
   "categories": [
     "ANALYTICS"
   ],
-  "description": "A highly customizable GTM custom variable template designed to configure the settings of Nameless Analytics Client-side tracker tag.",
+  "description": "A highly customizable GTM custom variable template designed to configure the settings of Nameless Analytics Client-side Tracker Tag.",
   "containerContexts": [
     "WEB"
   ]
