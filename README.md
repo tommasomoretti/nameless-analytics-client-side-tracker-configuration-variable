@@ -314,9 +314,33 @@ If `utm_click_id` is missing, the Nameless Analytics Client-side Tracker Tag att
 
 
 ### Enable cross-domain tracking
-Enables the transfer of `client_id` and `session_id` data across two or more websites via a URL GET parameter. This allows Nameless Analytics tags to merge individual sessions into a single session that would otherwise be created when visiting other domains.
+### Enable cross-domain tracking
+Enables session stitching across two or more websites.
 
-For an in-depth explanation of why this is required and how the handshake protocol works, see the [Cross-domain Architecture documentation](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture).
+When consent permits identity transfer, the Client-side Tracker Tag performs a real-time server-side handshake to retrieve the active `client_id` and `session_id`.
+
+The tracker combines the server-issued `session_id` with the current URL-decoration timestamp using the following internal structure:
+
+```text
+{session_id}.{decoration_timestamp_ms}
+```
+
+The complete value is Base64-encoded and transferred through the `na_id` URL parameter.
+
+On the destination domain, the Client-side Tracker Tag decodes and validates `na_id`. The original `session_id` is added to the event payload as `cross_domain_id` only when all the following conditions are met:
+
+- cross-domain tracking is enabled
+- the current event is the first `page_view` of the physical page
+- the value can be decoded from Base64
+- the decoded value follows the expected structure
+- the decoration timestamp is not in the future
+- no more than five minutes have elapsed since URL decoration
+
+Malformed, expired or otherwise invalid values are ignored, and `cross_domain_id` remains `null`.
+
+This allows Nameless Analytics to preserve the same session across configured domains instead of creating a separate session on each website.
+
+For an in-depth explanation of the server-side handshake and URL-decoration process, see the [Cross-domain Architecture documentation](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture).
 
 
 ### Load JavaScript libraries in first-party mode
