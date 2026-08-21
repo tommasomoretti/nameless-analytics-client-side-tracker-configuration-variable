@@ -314,7 +314,6 @@ If `utm_click_id` is missing, the Nameless Analytics Client-side Tracker Tag att
 
 
 ### Enable cross-domain tracking
-### Enable cross-domain tracking
 Enables session stitching across two or more websites.
 
 When consent permits identity transfer, the Client-side Tracker Tag performs a real-time server-side handshake to retrieve the active `client_id` and `session_id`.
