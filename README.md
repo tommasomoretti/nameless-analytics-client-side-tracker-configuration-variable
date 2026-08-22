@@ -332,10 +332,13 @@ On the destination domain, the Client-side Tracker Tag decodes and validates `na
 - the current event is the first `page_view` of the physical page
 - the value can be decoded from Base64
 - the decoded value follows the expected structure
+- the `session_id` matches the required format: 15 alphanumeric characters, an underscore, 15 alphanumeric characters
 - the decoration timestamp is not in the future
 - no more than five minutes have elapsed since URL decoration
 
 Malformed, expired or otherwise invalid values are ignored, and `cross_domain_id` remains `null`.
+
+The Server-side Client Tag validates the `session_id` format again before using it as an identity. Values that do not match are discarded and a new session is created, while the event itself is still processed and stored.
 
 This allows Nameless Analytics to preserve the same session across configured domains instead of creating a separate session on each website.
 

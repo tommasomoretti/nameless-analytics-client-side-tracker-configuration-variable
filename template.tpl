@@ -1378,7 +1378,7 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "displayName": "",
-        "help": "Load the main library and its dependencies from a first-party location. Host nameless-analytics_vX.X.X.min.js and ua-parser.pack.min.js on the website server so that the library will be loaded from the current domain.\n\u003c/br\u003e\u003c/br\u003e\nThe path must not start with / and must end with /."
+        "help": "Load the main library and its dependencies from a first-party location. Host nameless-analytics_vX.X.X.min.js and ua-parser.pack.min.js on the website server so that the library will be loaded from the current domain.\n\u003c/br\u003e\u003c/br\u003e\nThe path must start with / and must not end with /."
       },
       {
         "type": "CHECKBOX",
