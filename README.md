@@ -148,7 +148,7 @@ Add page parameters in the page_data object. Read how to track [page views](http
 
 They will be sent to BigQuery with every event.
 
-These page parameters are reserved and can't be modified:
+These page parameters are reserved: they cannot be used as custom parameter names in [Add page level parameters](#add-page-level-parameters). Six of them can still be replaced through the dedicated [Override default page parameters](#override-default-page-parameters) fields:
 - page_id
 - page_load_timestamp
 - page_hostname_protocol
@@ -165,7 +165,7 @@ These page parameters are reserved and can't be modified:
 #### Override default page parameters
 If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document parameters.
 
-- Page category: Add the `page_category` parameter to the request in `page_data`. This is an optional field to group pages into high-level categories.
+> **Both Page title and Page path must be filled in.** The override is applied only when both fields have a value: if either one is left empty, none of the six parameters is overridden and the tag silently falls back to the values read from the browser.
 
 - Page title: Add the `page_title` parameter to the request in `page_data`.
 
@@ -179,7 +179,7 @@ If virtual page view is triggered by a custom dataLayer event, use this field to
 
   If virtual page view is triggered by pushState or replaceState, the page location will be taken from the `document.location.href` property. 
 
-- Page location: Add the `page_path` parameter to the request in `page_data`. 
+- Page path: Add the `page_path` parameter to the request in `page_data`. 
 
   If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document path.
 
@@ -207,6 +207,8 @@ If virtual page view is triggered by a custom dataLayer event, use this field to
 Add or override custom page level parameters. Accepted values: strings, integers, floats, JSON and booleans.
 
 These parameters can't be overridden by any other tags.
+
+`page_category` is not a dedicated field: add it here as a custom parameter. It is an optional dimension used to group pages into high-level categories, and the reporting functions expose it as `page_category`, `session_landing_page_category` and `session_exit_page_category`.
 
 #### Add page status code
 This feature captures the HTTP status code (e.g., 200, 404, 500) of the current page and adds it to the `page_data` object during the `page_view` event. This is essential for monitoring broken links and server-side errors directly within your analytics reports.

@@ -157,6 +157,20 @@ ___TEMPLATE_PARAMETERS___
                       "^(?!user_city$).*"
                     ],
                     "errorMessage": "Can\u0027t add user_city parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!user_date$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add user_date parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!client_id$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add client_id parameter."
                   }
                 ]
               },
@@ -426,6 +440,34 @@ ___TEMPLATE_PARAMETERS___
                       "^(?!user_id$).*"
                     ],
                     "errorMessage": "Can\u0027t add user_id parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!session_date$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add session_date parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!session_id$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add session_id parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!session_landing_page_url$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add session_landing_page_url parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!session_exit_page_url$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add session_exit_page_url parameter."
                   }
                 ]
               },
@@ -687,6 +729,13 @@ ___TEMPLATE_PARAMETERS___
                       "^(?!page_url$).*"
                     ],
                     "errorMessage": "Can\u0027t add page_url parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!page_id$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add page_id parameter."
                   }
                 ]
               },
@@ -911,6 +960,13 @@ ___TEMPLATE_PARAMETERS___
                       "^(?!country$).*"
                     ],
                     "errorMessage": "Can\u0027t add country parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!cross_domain_id$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add cross_domain_id parameter."
                   }
                 ]
               },
