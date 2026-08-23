@@ -365,6 +365,9 @@ Add the path to the libraries. This must be the full path to the libraries files
 ### Add current dataLayer state
 Add the current state of the dataLayer in dataLayer field in the payload.  
 
+> [!WARNING]
+> This option sends every `dataLayer` push up to the current event, so the payload grows with the page. Requests are sent with the `keepalive` flag so they survive the page being closed, and browsers cap the body of a `keepalive` request at **64 KiB**: a payload above that limit is rejected by the browser and **the event is lost**, with `🔴 Request not sent successfully` in the console and no request in the Network tab. A standard event weighs around 2.8 KB, so the limit is only within reach on pages with a heavy `dataLayer` or very long `ecommerce` item arrays. Check the current size with `new Blob([JSON.stringify(window.dataLayer)]).size` and prefer sending the parameters you actually need as event parameters. See the [Troubleshooting Guide](https://github.com/nameless-analytics/nameless-analytics/blob/main/setup-guides/TROUBLESHOOTING-GUIDE.md#network--custom-endpoint-issues).
+
 
 ### Enable logs in JavaScript console
 Enable console log for all events in JavaScript console.
