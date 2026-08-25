@@ -39,6 +39,7 @@ For an overview of how Nameless Analytics works [start from here](https://github
     - [Custom library path](#custom-library-path)
   - [Add current dataLayer state](#add-current-datalayer-state)
   - [Enable logs in JavaScript console](#enable-logs-in-javascript-console)
+    - [Debug mode only](#debug-mode-only)
 
 
 
@@ -289,6 +290,8 @@ The endpoint path must be the same for all domains.
 
 ## Advanced settings
 ### Respect Google Consent Mode
+**Enabled by default.** Leaving it on is the privacy-safe choice: a container installed without touching this option respects Google Consent Mode from the first event.
+
 Fully integrated with Google Consent Mode. Choose between respect or not respect consent mode:
 - When Google Consent Mode is present and `respect_consent_mode` is enabled, the events are sent only if a user consents. 
   - if `analytics_storage` is equal to `denied`, the Nameless Analytics Client-side Tracker waits until consent is granted.
@@ -374,7 +377,14 @@ Add the current state of the dataLayer in dataLayer field in the payload.
 
 
 ### Enable logs in JavaScript console
-Enable console log for all events in JavaScript console.
+Enable console log for all events in JavaScript console. **Enabled by default**, together with its sub-option **Debug mode only**.
+
+#### Debug mode only
+Restricts the logs to GTM debug mode, so nothing is printed to the console of a normal visitor. **Enabled by default.**
+
+The two defaults combine to a sensible starting point: logs are available while you work in GTM Preview and the production console stays clean. Unchecking **Debug mode only** makes the tracker log on every page load for every visitor, which is useful while debugging a live site but should not be left on.
+
+To silence a single event without changing this setting, use [Disable logs in JavaScript console for this event](https://github.com/nameless-analytics/client-side-tracker-tag/#disable-logs-in-javascript-console-for-this-event) in the Client-side Tracker Tag.
 
 # 
 
