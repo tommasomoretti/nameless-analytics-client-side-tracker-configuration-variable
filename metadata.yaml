@@ -2,7 +2,7 @@ homepage: 'https://namelessanalytics.com/'
 documentation: 'https://github.com/nameless-analytics/client-side-tracker-configuration-variable/'
 versions:
 # Latest version
-  - sha: '4b3ad45c2b1cff801b80b6437f516a4c9d417059'
+  - sha: '471f972ec2d851f1be66300b10ffdd38edca786a'
     changeNotes: 'Initial release.'
 
 # Previous versions
