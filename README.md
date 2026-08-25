@@ -102,31 +102,31 @@ They will be:
 
 These session parameters are reserved and can't be modified:
 - user_id
-- session_number 
-- cross_domain_session 
-- session_channel_grouping 
-- session_source 
-- session_tld_source 
-- session_campaign 
-- session_campaign_id 
+- session_number
+- cross_domain_session
+- session_channel_grouping
+- session_source
+- session_tld_source
+- session_campaign
+- session_campaign_id
 - session_campaign_click_id
-- session_campaign_content 
-- session_campaign_term 
-- session_device_type 
+- session_campaign_term
+- session_campaign_content
+- session_device_type
+- session_country
 - session_city
-- session_country 
-- session_language 
-- session_hostname 
-- session_browser_name 
-- session_landing_page_category 
-- session_landing_page_url 
-- session_landing_page_path 
-- session_landing_page_title 
-- session_exit_page_category 
+- session_language
+- session_hostname
+- session_browser_name
+- session_landing_page_category
+- session_landing_page_url
+- session_landing_page_path
+- session_landing_page_title
+- session_exit_page_category
 - session_exit_page_url
-- session_exit_page_path 
-- session_exit_page_title 
-- session_start_timestamp 
+- session_exit_page_path
+- session_exit_page_title
+- session_start_timestamp
 - session_end_timestamp
 
 #### Add User ID
@@ -293,12 +293,11 @@ The endpoint path must be the same for all domains.
 **Enabled by default.** Leaving it on is the privacy-safe choice: a container installed without touching this option respects Google Consent Mode from the first event.
 
 Fully integrated with Google Consent Mode. Choose between respect or not respect consent mode:
-- When Google Consent Mode is present and `respect_consent_mode` is enabled, the events are sent only if a user consents. 
-  - if `analytics_storage` is equal to `denied`, the Nameless Analytics Client-side Tracker waits until consent is granted.
+- When Google Consent Mode is present and `respect_consent_mode` is enabled, the events are sent only if a user consents.
+  - if `analytics_storage` is equal to `denied`, the Nameless Analytics Client-side Tracker waits until consent is granted. The original acquisition context is preserved in the `na_temp` cookie, so the session is still attributed correctly once consent arrives: see [Smart Consent Management](https://github.com/nameless-analytics/nameless-analytics/#smart-consent-management).
   - if `analytics_storage` changes from `denied` to `granted`, all pending tags for the page will be fired in execution order
-- When Google Consent Mode not present and `respect_consent_mode` is enabled, none of the events are sent. 
-
-When `respect_consent_mode` is disabled, all events are sent regardless of presence of Google Consent Mode.
+- When Google Consent Mode is not present and `respect_consent_mode` is enabled, none of the events are sent.
+- When `respect_consent_mode` is disabled, all events are sent regardless of presence of Google Consent Mode.
 
 
 ### Override default acquisition parameters
