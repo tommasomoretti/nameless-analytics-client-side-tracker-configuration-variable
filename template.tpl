@@ -562,7 +562,7 @@ ___TEMPLATE_PARAMETERS___
           {
             "type": "TEXT",
             "name": "page_path",
-            "displayName": "Page location",
+            "displayName": "Page path",
             "simpleValueType": true,
             "alwaysInSummary": true,
             "valueHint": "(not set)",
