@@ -175,15 +175,15 @@ If virtual page view is triggered by a custom dataLayer event, use this field to
 
 - Page url: Add the `page_url` parameter to the request in `page_data`. 
 
-  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document location.
+  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document URL.
 
-  If virtual page view is triggered by pushState or replaceState, the page location will be taken from the `document.location.href` property. 
+  If virtual page view is triggered by pushState or replaceState, the page url will be taken from the `document.location.href` property. 
 
 - Page path: Add the `page_path` parameter to the request in `page_data`. 
 
   If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document path.
 
-  If virtual page view is triggered by pushState or replaceState, the page location will be taken from the `document.location.pathname` property. 
+  If virtual page view is triggered by pushState or replaceState, the page path will be taken from the `document.location.pathname` property. 
 
 - Page fragment: Add the `page_fragment` parameter to the request in `page_data`. 
 
@@ -266,7 +266,9 @@ These parameters can be overridden by:
 
 ## Server-side endpoint settings
 ### Endpoint domain name
-The domain name of the server-side GTM instance. The tag assumes the protocol is HTTPS. 
+The domain name of the server-side GTM instance running the Nameless Analytics Server-side Client Tag. The tag assumes the protocol is HTTPS.
+
+Enter the bare domain: the value must not start with `http://` or `https://`, must not end with `/` and must be a valid domain. 
 
 #### Endpoint requirements for Cross-domain
 When tracking multiple domains, the Server-side GTM endpoint configuration becomes critical due to how browsers handle the `Set-Cookie` header:
@@ -276,7 +278,9 @@ When tracking multiple domains, the Server-side GTM endpoint configuration becom
 
 
 ### Endpoint path
-The endpoint path where the Nameless Analytics Server-side Client Tag listens. 
+The endpoint path where the Nameless Analytics Server-side Client Tag listens. It must start with `/` and must not end with `/`.
+
+It must be identical to the **Endpoint path** configured in the [Server-side Client Tag](https://github.com/nameless-analytics/server-side-client-tag/#endpoint-path): the server-side container uses the path to route each request to the client that claims it, so if the two differ the requests reach the container but the Nameless Analytics client never takes them. 
 
 #### Endpoint path requirements for Cross-domain
 The endpoint path must be the same for all domains.
