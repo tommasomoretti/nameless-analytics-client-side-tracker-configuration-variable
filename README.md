@@ -4,6 +4,7 @@ The Nameless Analytics Client-side Tracker Configuration Variable is a highly cu
 
 For an overview of how Nameless Analytics works [start from here](https://github.com/nameless-analytics/nameless-analytics/#overview).
 
+
 ### 🚧 Nameless Analytics and the documentation are currently in beta and subject to change
 
 
@@ -167,6 +168,7 @@ These page parameters are reserved: they cannot be used as custom parameter name
 #### Override default page parameters
 If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document parameters.
 
+> [!IMPORTANT]
 > **Both Page title and Page path must be filled in.** The override is applied only when both fields have a value: if either one is left empty, none of the six parameters is overridden and the tag silently falls back to the values read from the browser.
 
 - Page title: Add the `page_title` parameter to the request in `page_data`.
@@ -272,11 +274,11 @@ The domain name of the server-side GTM instance running the Nameless Analytics S
 
 Enter the bare domain: the value must not start with `http://` or `https://`, must not end with `/` and must be a valid domain.
 
-#### Endpoint requirements for Cross-domain
+#### Endpoint requirements for cross-domain
 When tracking multiple domains, the Server-side GTM endpoint configuration becomes critical due to how browsers handle the `Set-Cookie` header:
 
-* **Static Endpoint**: If all domains are subdomains of the same root (e.g., `a.site.com` and `b.site.com`), a single static endpoint (e.g., `gtm.site.com`) works.
-* **Dynamic Endpoints**: If domains are completely different (e.g., `domain-a.com` and `domain-b.com`), the requests must be sent to a first-party subdomain of the *current* page (e.g., `gtm.domain-a.com` on site A and `gtm.domain-b.com` on site B). This ensures that the `Domain` attribute in the `Set-Cookie` header matches the request origin, allowing the browser to accept the cookie. Otherwise, cookies will be rejected by the browser due to cross-site security policies. See the [Cross-domain Architecture](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture) section for more information.
+- **Static Endpoint**: If all domains are subdomains of the same root (e.g., `a.site.com` and `b.site.com`), a single static endpoint (e.g., `gtm.site.com`) works.
+- **Dynamic Endpoints**: If domains are completely different (e.g., `domain-a.com` and `domain-b.com`), the requests must be sent to a first-party subdomain of the *current* page (e.g., `gtm.domain-a.com` on site A and `gtm.domain-b.com` on site B). This ensures that the `Domain` attribute in the `Set-Cookie` header matches the request origin, allowing the browser to accept the cookie. Otherwise, cookies will be rejected by the browser due to cross-site security policies. See the [Cross-domain Architecture](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture) section for more information.
 
 
 ### Endpoint path
@@ -284,7 +286,7 @@ The endpoint path where the Nameless Analytics Server-side Client Tag listens. I
 
 It must be identical to the **Endpoint path** configured in the [Server-side Client Tag](https://github.com/nameless-analytics/server-side-client-tag/#endpoint-path): the server-side container uses the path to route each request to the client that claims it, so if the two differ the requests reach the container but the Nameless Analytics client never takes them.
 
-#### Endpoint path requirements for Cross-domain
+#### Endpoint path requirements for cross-domain
 The endpoint path must be the same for all domains.
 
 
