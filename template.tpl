@@ -1475,7 +1475,7 @@ ___TEMPLATE_PARAMETERS___
         ]
       }
     ],
-    "help": "Lorem ipsum"
+    "help": "Global settings shared by every event sent with this configuration."
   },
   {
     "type": "GROUP",
