@@ -4,5 +4,3 @@ versions:
 # Latest version
   - sha: '471f972ec2d851f1be66300b10ffdd38edca786a'
     changeNotes: 'Initial release.'
-
-# Previous versions
