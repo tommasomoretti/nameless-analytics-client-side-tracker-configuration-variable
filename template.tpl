@@ -1130,7 +1130,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "set_custom_utm_parameters_names",
         "checkboxText": "Override default acquisition parameters",
         "simpleValueType": true,
-        "help": "Override default url query parameters used for source and campaigns event parameters.\n\u003c/br\u003e\u003c/br\u003e\nDefault parameters:\u003c/br\u003e \n• source \u003d utm_source \u003c/br\u003e \n• campaign_name \u003d utm_campaign \u003c/br\u003e \n• campaign_id \u003d utm_campaign_id \u003c/br\u003e \n• campaign_term \u003d utm_term \u003c/br\u003e \n• campaign_content \u003d utm_content \u003c/br\u003e",
+        "help": "Override default url query parameters used for source and campaigns event parameters.\n\u003c/br\u003e\u003c/br\u003e\nDefault parameters:\u003c/br\u003e \n• source \u003d utm_source \u003c/br\u003e \n• campaign_name \u003d utm_campaign \u003c/br\u003e \n• campaign_id \u003d utm_id \u003c/br\u003e \n• campaign_term \u003d utm_term \u003c/br\u003e \n• campaign_content \u003d utm_content \u003c/br\u003e",
         "displayName": "",
         "defaultValue": false,
         "alwaysInSummary": true,
@@ -1516,5 +1516,4 @@ scenarios: []
 ___NOTES___
 
 Created on 23/12/2025, 18:08:14
-
 
