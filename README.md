@@ -1,6 +1,6 @@
 # Nameless Analytics | Client-side Tracker Configuration Variable
 
-The Nameless Analytics Client-side Tracker Configuration Variable is a highly customizable GTM custom variable template designed to configure the settings of [Nameless Analytics Client-side Tracker Tag](https://github.com/nameless-analytics/client-side-tracker-tag/).
+The Nameless Analytics Client-side Tracker Configuration Variable provides shared parameters and settings to every [Nameless Analytics Client-side Tracker Tag](https://github.com/nameless-analytics/client-side-tracker-tag/) that uses it.
 
 For an overview of how Nameless Analytics works [start from here](https://github.com/nameless-analytics/nameless-analytics/#overview).
 
@@ -8,10 +8,9 @@ For an overview of how Nameless Analytics works [start from here](https://github
 ### 🚧 Nameless Analytics and the documentation are currently in beta and subject to change
 
 
-
 ## Table of Contents
 
-- [Nameless Analytics Client-side Tracker Configuration Variable UI](#nameless-analytics-client-side-tracker-configuration-variable-ui)
+- [Template interface](#template-interface)
 - [User data](#user-data)
   - [User parameters](#user-parameters)
     - [Add user level parameters](#add-user-level-parameters)
@@ -29,9 +28,7 @@ For an overview of how Nameless Analytics works [start from here](https://github
     - [Add shared event level parameters](#add-shared-event-level-parameters)
 - [Server-side endpoint settings](#server-side-endpoint-settings)
   - [Endpoint domain name](#endpoint-domain-name)
-    - [Endpoint requirements for Cross-domain](#endpoint-requirements-for-cross-domain)
   - [Endpoint path](#endpoint-path)
-    - [Endpoint path requirements for Cross-domain](#endpoint-path-requirements-for-cross-domain)
 - [Advanced settings](#advanced-settings)
   - [Respect Google Consent Mode](#respect-google-consent-mode)
   - [Override default acquisition parameters](#override-default-acquisition-parameters)
@@ -42,15 +39,12 @@ For an overview of how Nameless Analytics works [start from here](https://github
   - [Add current dataLayer state](#add-current-datalayer-state)
   - [Enable logs in JavaScript console](#enable-logs-in-javascript-console)
     - [Debug mode only](#debug-mode-only)
+- [Verifying the setup](#verifying-the-setup)
 
 
 
-## Nameless Analytics Client-side Tracker Configuration Variable UI
-The Nameless Analytics Client-side Tracker Configuration Variable provides a centralized architecture for managing global tracking parameters.
-
-It unifies essential settings including user identity, cross-domain logic and consent management to ensure consistent data governance across all tags.
-
-This is the UI of the Nameless Analytics Client-side Tracker Configuration Variable.
+## Template interface
+Use the template to configure shared user, session, page and event parameters together with endpoint, consent, acquisition, cross-domain, library and logging settings.
 
 ![Nameless Analytics Client-side Tracker Configuration Variable UI](https://github.com/user-attachments/assets/ede9f7f4-6090-42a8-9249-4af277bd68ae)
 
@@ -58,14 +52,14 @@ This is the UI of the Nameless Analytics Client-side Tracker Configuration Varia
 
 ## User data
 ### User parameters
-Add user parameters in the user_data object. See [Parameter Hierarchy](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy) in the main project documentation.
+Custom user parameters are added to `user_data` by every event that uses this Configuration Variable. Accepted values are strings, integers, floats, booleans and JSON-compatible values.
+
+Firestore keeps the latest value for each user, while BigQuery preserves the value attached to each event. The Server-side Client Tag can add or override these parameters. See [Parameter hierarchy](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy).
 
 > [!WARNING]
-> Be mindful when adding custom **User parameters** as they might cause you to hit the Firestore 1 MiB document limit faster. See [Firestore 1 MiB document limit](https://github.com/nameless-analytics/nameless-analytics/blob/main/setup-guides/TROUBLESHOOTING-GUIDE.md#firestore-1-mib-document-limit) for details.
+> Custom user parameters increase the size of the Firestore user document. See [Firestore 1 MiB document limit](https://github.com/nameless-analytics/nameless-analytics/blob/main/setup-guides/TROUBLESHOOTING-GUIDE.md#firestore-1-mib-document-limit).
 
-They will be:
-- written in Google Cloud Firestore every time they change --> latest values
-- sent to BigQuery with the last available values --> all values
+<details><summary>Reserved user parameters</summary>
 
 These user parameters are reserved and can't be modified:
 - user_date
@@ -85,24 +79,23 @@ These user parameters are reserved and can't be modified:
 - user_first_session_timestamp
 - user_last_session_timestamp
 
-#### Add user level parameters
-Accepted values: strings, integers, floats, JSON and booleans.
+</details>
 
-These parameters can be overridden by:
-- User parameters added in Nameless Analytics Server-side Client Tag
+#### Add user level parameters
+Add custom fields shared by all events. A matching parameter configured in the Server-side Client Tag replaces the value set here.
 
 
 
 ## Session data
 ### Session parameters
-Add session parameters in the session_data object. See [Parameter Hierarchy](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy) in the main project documentation.
+Custom session parameters are added to `session_data` by every event that uses this Configuration Variable. Accepted values are strings, integers, floats, booleans and JSON-compatible values.
+
+Firestore keeps the latest value for the current session, while BigQuery preserves the value attached to each event. The Server-side Client Tag can add or override these parameters. See [Parameter hierarchy](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy).
 
 > [!WARNING]
-> Be mindful when adding custom **Session parameters** as they might cause you to hit the Firestore 1 MiB document limit faster. See [Firestore 1 MiB document limit](https://github.com/nameless-analytics/nameless-analytics/blob/main/setup-guides/TROUBLESHOOTING-GUIDE.md#firestore-1-mib-document-limit) for details.
+> Custom session parameters increase the size of the Firestore user document. See [Firestore 1 MiB document limit](https://github.com/nameless-analytics/nameless-analytics/blob/main/setup-guides/TROUBLESHOOTING-GUIDE.md#firestore-1-mib-document-limit).
 
-They will be:
-- written in Google Cloud Firestore every time they change --> latest values
-- sent to BigQuery with the last available values --> all values
+<details><summary>Reserved session parameters</summary>
 
 These session parameters are reserved and can't be modified:
 - session_date
@@ -135,27 +128,25 @@ These session parameters are reserved and can't be modified:
 - session_start_timestamp
 - session_end_timestamp
 
-#### Add User ID
-Add User ID parameter at session level. Accepted values: strings, integers, floats, JSON and booleans.
+</details>
 
-These parameters can be overridden by:
-- User ID parameter added in Nameless Analytics Server-side Client Tag
+#### Add User ID
+Set the optional `user_id` associated with the session. A value provided by the Server-side Client Tag takes precedence. The `login` and `logout` events manage this value separately; see [User ID lifecycle](https://github.com/nameless-analytics/nameless-analytics/#user-id-lifecycle).
 
 #### Add session level parameters
-Add session level parameters. Accepted values: strings, integers, floats, JSON and booleans.
-
-These parameters can be overridden by:
-- Session parameters added in Nameless Analytics Server-side Client Tag
+Add custom fields shared by all events in the session. A matching parameter configured in the Server-side Client Tag replaces the value set here.
 
 
 
 ## Page data
 ### Page parameters
-Add page parameters in the page_data object. Read how to track [page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#how-to-track-page-views) for more information.
+Page parameters describe the current page and are added to `page_data` on every event. Read [How to track page views](https://github.com/nameless-analytics/nameless-analytics/tree/main/setup-guides/SETUP-GUIDES.md#how-to-track-page-views) for the required `page_view` setup.
 
-They will be sent to BigQuery with every event.
+<details><summary>Reserved page parameters</summary>
 
-These page parameters are reserved: they cannot be used as custom parameter names in [Add page level parameters](#add-page-level-parameters). Six of them can still be replaced through the dedicated [Override default page parameters](#override-default-page-parameters) fields:
+These page parameters are reserved: they cannot be used as custom parameter names in [Add page level parameters](#add-page-level-parameters).
+
+Six of them can still be replaced through the dedicated [Override default page parameters](#override-default-page-parameters) fields:
 - page_id
 - page_load_timestamp
 - page_hostname_protocol
@@ -169,71 +160,45 @@ These page parameters are reserved: they cannot be used as custom parameter name
 - page_referrer
 - page_status_code
 
+</details>
+
 #### Override default page parameters
-If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document parameters.
+Enable this option when a virtual `page_view` needs values different from the current browser location, for example when it is triggered by a custom `dataLayer` event. **Page title**, **Page url** and **Page path** are required when the override is enabled; the remaining fields are optional.
 
-> [!IMPORTANT]
-> **Both Page title and Page path must be filled in.** The override is applied only when both fields have a value: if either one is left empty, none of the six parameters is overridden and the tag silently falls back to the values read from the browser.
+| Field | Default browser value |
+|:---|:---|
+| **Page title** | `document.title` |
+| **Page url** | Current complete URL |
+| **Page path** | Current URL path |
+| **Page fragment** | Current URL fragment |
+| **Page query** | Current URL query string |
+| **Page extension** | Extension derived from the current URL path |
 
-- Page title: Add the `page_title` parameter to the request in `page_data`.
-
-  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document title.
-
-  If virtual page view is triggered by a GTM history change trigger (pushState or replaceState), the page title will be taken from the `document.title` property.
-
-- Page url: Add the `page_url` parameter to the request in `page_data`.
-
-  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document URL.
-
-  If virtual page view is triggered by pushState or replaceState, the page url will be taken from the `document.location.href` property.
-
-- Page path: Add the `page_path` parameter to the request in `page_data`.
-
-  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document path.
-
-  If virtual page view is triggered by pushState or replaceState, the page path will be taken from the `document.location.pathname` property.
-
-- Page fragment: Add the `page_fragment` parameter to the request in `page_data`.
-
-  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document fragment.
-
-  If virtual page view is triggered by pushState or replaceState, the page fragment will be taken from the `document.location.hash` property.
-
-- Page query: Add the `page_query` parameter to the request in `page_data`.
-
-  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document query.
-
-  If virtual page view is triggered by pushState or replaceState, the page query will be taken from the `document.location.search` property.
-
-- Page extension: Add the `page_extension` parameter to the request in `page_data`.
-
-  If virtual page view is triggered by a custom dataLayer event, use this field to override the default browser document extension.
-
-  If virtual page view is triggered by pushState or replaceState, the page extension will be taken from the `document.location.pathname` property.
+For history-based SPA navigation, the tracker reads the updated browser values automatically when the `page_view` fires. Use overrides only when those values do not describe the virtual page correctly.
 
 #### Add page level parameters
-Add or override custom page level parameters. Accepted values: strings, integers, floats, JSON and booleans.
+Add or override custom fields for the current page. Accepted values are strings, integers, floats, booleans and JSON-compatible values. They remain in the page context and are sent with the current and following events on that page; other tags cannot override them.
 
-These parameters can't be overridden by any other tags.
-
-`page_category` is not a dedicated field: add it here as a custom parameter. It is an optional dimension used to group pages into high-level categories, and the reporting functions expose it as `page_category`, `session_landing_page_category` and `session_exit_page_category`.
+`page_category` is an optional custom field used to group pages. The reporting functions expose it as `page_category`, `session_landing_page_category` and `session_exit_page_category`.
 
 #### Add page status code
-This feature captures the HTTP status code (e.g., 200, 404, 500) of the current page and adds it to the `page_data` object during the `page_view` event. This is essential for monitoring broken links and server-side errors directly within your analytics reports.
-
-**How it works:**
-To ensure accuracy, the tracker performs a lightweight asynchronous `HEAD` request to the current URL. This allows it to fetch the server response status without downloading the entire page content again.
-
-**Technical Note:**
-Enabling this feature adds one extra network call to the start of the tracking sequence. While the `HEAD` request is extremely fast and efficient, keep in mind this additional interaction when evaluating site performance and network logs.
+Before each `page_view`, perform a `HEAD` request to the current URL and add its HTTP response code as `page_status_code`. Enable this only when the additional network request is useful for your reporting.
 
 
 
 ## Event data
 ### Shared event parameters
-Add shared event parameters in the event_data object. See [Parameter Hierarchy](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy) in the main project documentation.
+Shared event parameters are added to `event_data` by every Client-side Tracker Tag that uses this Configuration Variable. Accepted values are strings, integers, floats, booleans and JSON-compatible values.
 
-They will be sent to BigQuery with every event.
+The browser builds custom event parameters in this order:
+
+1. parameters copied from the triggering `dataLayer` event;
+2. shared parameters from this Configuration Variable;
+3. parameters added, overridden or removed in the Client-side Tracker Tag.
+
+After the request reaches the server, the Server-side Client Tag can add, override or remove custom parameters again. See [Parameter hierarchy](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy).
+
+<details><summary>Reserved event parameters</summary>
 
 These event parameters are reserved and can't be modified:
 - event_type
@@ -260,137 +225,94 @@ These event parameters are reserved and can't be modified:
 - country
 - cross_domain_id
 
+</details>
+
 #### Add shared event level parameters
-Add shared event parameters for every event. Accepted values: strings, integers, floats, JSON and booleans.
-
-These parameters can override:
-- Event parameters from dataLayer added in Nameless Analytics Client-side Tracker Tag
-
-These parameters can be overridden by:
-- Event parameters added in Nameless Analytics Server-side Client Tag
-- Event parameters added in Nameless Analytics Client-side Tracker Tag
+Add custom fields shared by all events. A matching field in the Client-side Tracker Tag replaces the value set here before the request is sent.
 
 
 
 ## Server-side endpoint settings
 ### Endpoint domain name
-The domain name of the server-side GTM instance running the Nameless Analytics Server-side Client Tag. The tag assumes the protocol is HTTPS.
+Enter the bare domain of the server-side GTM container running the Nameless Analytics Server-side Client Tag. Do not include the protocol, path or trailing slash; HTTPS is used automatically.
 
-Enter the bare domain: the value must not start with `http://` or `https://`, must not end with `/` and must be a valid domain.
-
-#### Endpoint requirements for cross-domain
-When tracking multiple domains, the Server-side GTM endpoint configuration becomes critical due to how browsers handle the `Set-Cookie` header:
-
-- **Static Endpoint**: If all domains are subdomains of the same root (e.g., `a.site.com` and `b.site.com`), a single static endpoint (e.g., `gtm.site.com`) works.
-- **Dynamic Endpoints**: If domains are completely different (e.g., `domain-a.com` and `domain-b.com`), the requests must be sent to a first-party subdomain of the *current* page (e.g., `gtm.domain-a.com` on site A and `gtm.domain-b.com` on site B). This ensures that the `Domain` attribute in the `Set-Cookie` header matches the request origin, allowing the browser to accept the cookie. Otherwise, cookies will be rejected by the browser due to cross-site security policies. See the [Cross-domain Architecture](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture) section for more information.
-
+For cross-domain tracking between unrelated root domains, provide a first-party endpoint for each website, usually through a GTM variable. Sites that share the same root domain can use one endpoint. See [Cross-domain architecture](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture).
 
 ### Endpoint path
-The endpoint path where the Nameless Analytics Server-side Client Tag listens. It must start with `/` and must not end with `/`.
-
-It must be identical to the **Endpoint path** configured in the [Server-side Client Tag](https://github.com/nameless-analytics/server-side-client-tag/#endpoint-path): the server-side container uses the path to route each request to the client that claims it, so if the two differ the requests reach the container but the Nameless Analytics client never takes them.
-
-#### Endpoint path requirements for cross-domain
-The endpoint path must be the same for all domains.
+Enter the request path beginning with `/` and without a trailing slash. It must exactly match the [Endpoint path](https://github.com/nameless-analytics/server-side-client-tag/#endpoint-path) in the Server-side Client Tag and remain the same across all tracked domains.
 
 
 
 ## Advanced settings
 ### Respect Google Consent Mode
-**Enabled by default.** Leaving it on is the privacy-safe choice: a container installed without touching this option respects Google Consent Mode from the first event.
+**Enabled by default.** The tracker uses the current `analytics_storage` state:
 
-Fully integrated with Google Consent Mode. Choose between respect or not respect consent mode:
-- When Google Consent Mode is present and `respect_consent_mode` is enabled, the events are sent only if a user consents.
-  - if `analytics_storage` is equal to `denied`, the Nameless Analytics Client-side Tracker waits until consent is granted. The original acquisition context is preserved in the `na_temp` cookie, so the session is still attributed correctly once consent arrives: see [Smart Consent Management](https://github.com/nameless-analytics/nameless-analytics/#smart-consent-management).
-  - if `analytics_storage` changes from `denied` to `granted`, all pending tags for the page will be fired in execution order
-- When Google Consent Mode is not present and `respect_consent_mode` is enabled, none of the events are sent.
-- When `respect_consent_mode` is disabled, all events are sent regardless of presence of Google Consent Mode.
+- `granted`: events are sent normally;
+- `denied`: tags remain pending until consent becomes granted, while the initial acquisition context is temporarily preserved;
+- Consent Mode unavailable: events are not sent.
 
+Disable this option only when collection must run independently of Google Consent Mode. Events are then sent regardless of its presence or state. See [Smart Consent Management](https://github.com/nameless-analytics/nameless-analytics/#smart-consent-management).
 
 ### Override default acquisition parameters
-Override the default URL query parameter names used as acquisition parameters. By default these values are taken from standard UTM parameters.
+Change the URL query parameter names used to populate acquisition fields. The defaults are:
 
-Default values:
-- source = utm_source
-- campaign = utm_campaign
-- campaign_id = utm_id
-- campaign_click_id = utm_click_id
-- campaign_term = utm_term
-- campaign_content = utm_content
+| Event parameter | URL query parameter |
+|:---|:---|
+| `source` | `utm_source` |
+| `campaign` | `utm_campaign` |
+| `campaign_id` | `utm_id` |
+| `campaign_click_id` | `utm_click_id` |
+| `campaign_term` | `utm_term` |
+| `campaign_content` | `utm_content` |
 
-If `utm_click_id` is missing, the Nameless Analytics Client-side Tracker Tag attempts to populate `campaign_click_id` using the following URL query parameters in order of priority. If none of these parameters are present, `campaign_click_id` will be null:
-- For Google Ads: gclid or dclid or gclsrc or wbraid or gbraid
-- For Bing: msclkid
-- For Facebook: fbclid
-- For TikTok: ttclid
-- For X: twclid
-- For Pinterest: epik
-- For Linkedin: li_fat_id
-- For SnapChat: scclid
-
+When the configured click ID is absent, the tracker checks these platform identifiers in order: `gclid`, `dclid`, `gclsrc`, `wbraid`, `gbraid`, `msclkid`, `fbclid`, `ttclid`, `twclid`, `epik`, `li_fat_id`, `scclid`.
 
 ### Enable cross-domain tracking
-Enables session stitching across two or more websites.
+Enable session continuity across the domains listed under **Cross-domain domains**. Enter bare domains without protocol, path or trailing slash.
 
-When consent permits identity transfer, the Client-side Tracker Tag performs a real-time server-side handshake to retrieve the active `client_id` and `session_id`.
+On a standard left-click to a configured destination, the tracker requests the active identity from the server and decorates the link with `na_id`. The destination accepts a valid value only on the first `page_view` of the page and within five minutes of decoration. Invalid or expired values are ignored.
 
-The handshake runs on a plain left click on an `<a href>`. Links opened in any other way — right-click menu, `Cmd`/`Ctrl`+click, `Shift`+click, middle click, pasted URL, JS navigation — are left to the browser and reach the destination without `na_id`, which starts a new session there. See [Cross-domain troubleshooting](https://github.com/nameless-analytics/nameless-analytics/blob/main/setup-guides/TROUBLESHOOTING-GUIDE.md#cross-domain-decoration) when a link is not decorated or the transferred identity is rejected.
-
-The tracker combines the server-issued `session_id` with the current URL-decoration timestamp using the following internal structure:
-
-```text
-{session_id}.{decoration_timestamp_ms}
-```
-
-The complete value is Base64-encoded and transferred through the `na_id` URL parameter.
-
-On the destination domain, the Client-side Tracker Tag decodes and validates `na_id`. The original `session_id` is added to the event payload as `cross_domain_id` only when all the following conditions are met:
-
-- cross-domain tracking is enabled
-- the current event is the first `page_view` of the physical page
-- the value can be decoded from Base64
-- the decoded value follows the expected structure
-- the `session_id` matches the required format: 15 alphanumeric characters, an underscore, 15 alphanumeric characters
-- the decoration timestamp is not in the future
-- no more than five minutes have elapsed since URL decoration
-
-Malformed, expired or otherwise invalid values are ignored, and `cross_domain_id` remains `null`.
-
-The Server-side Client Tag validates the `session_id` format again before using it as an identity. Values that do not match are discarded and a new session is created, while the event itself is still processed and stored.
-
-This allows Nameless Analytics to preserve the same session across configured domains instead of creating a separate session on each website.
-
-For an in-depth explanation of the server-side handshake and URL-decoration process, see the [Cross-domain Architecture documentation](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture).
-
+If a destination is reached without `na_id`, it continues with its local Nameless Analytics cookies when available; otherwise it creates a new user and session. See [Cross-domain architecture](https://github.com/nameless-analytics/nameless-analytics/#cross-domain-architecture) and [Cross-domain troubleshooting](https://github.com/nameless-analytics/nameless-analytics/blob/main/setup-guides/TROUBLESHOOTING-GUIDE.md#cross-domain-decoration).
 
 ### Load JavaScript libraries in first-party mode
-Load libraries in first-party mode, from the website server or from a CDN. Add the domain name and the path to the permission list.
+Load the tracker libraries from your website or CDN instead of their default location. Host both required files in the configured directory and add the domain and path to the template permission list.
 
 ![Add library permissions](https://github.com/user-attachments/assets/660b41a8-9f3c-45cb-89c1-264d0f69e889)
 
 #### Custom library domain name
-Add the domain name of the server or CDN from where the libraries are loaded.
+Enter the bare domain that serves the libraries, without protocol, path or trailing slash.
 
 #### Custom library path
-Add the path to the libraries. This must be the full path to the libraries files.
-
+Enter the directory containing the library files. The path must begin with `/` and must not end with `/`; do not include an individual filename.
 
 ### Add current dataLayer state
-Add the current state of the dataLayer in dataLayer field in the payload.
+Add all `dataLayer` entries up to the current event to the top-level `datalayer` field of every payload.
 
-> [!WARNING]
-> This option sends every `dataLayer` push up to the current event, so the payload grows with the page. Requests are sent with the `keepalive` flag so they survive the page being closed, and browsers cap the body of a `keepalive` request at **64 KiB**: a payload above that limit is rejected by the browser and **the event is lost**, with `🔴 Request not sent successfully` in the console and no request in the Network tab. A standard event weighs around 2.8 KB, so the limit is only within reach on pages with a heavy `dataLayer` or very long `ecommerce` item arrays. Check the current size with `new Blob([JSON.stringify(window.dataLayer)]).size` and prefer sending the parameters you actually need as event parameters. See the [Troubleshooting Guide](https://github.com/nameless-analytics/nameless-analytics/blob/main/setup-guides/TROUBLESHOOTING-GUIDE.md#request-never-sent).
-
+This can make requests exceed the browser's 64 KiB `keepalive` limit, especially with large ecommerce arrays. Enable it only when the complete state is needed; otherwise send the required fields as event parameters. See [Request never sent](https://github.com/nameless-analytics/nameless-analytics/blob/main/setup-guides/TROUBLESHOOTING-GUIDE.md#request-never-sent).
 
 ### Enable logs in JavaScript console
-Enable console log for all events in JavaScript console. **Enabled by default**, together with its sub-option **Debug mode only**.
+Enable browser-console logs for every event. **Enabled by default.** A Client-side Tracker Tag can disable them for one event without changing the shared setting.
 
 #### Debug mode only
-Restricts the logs to GTM debug mode, so nothing is printed to the console of a normal visitor. **Enabled by default.**
+Restrict logs to GTM Preview so normal visitors do not see them. **Enabled by default.** Disable it temporarily only when debugging outside Preview.
 
-The two defaults combine to a sensible starting point: logs are available while you work in GTM Preview and the production console stays clean. Unchecking **Debug mode only** makes the tracker log on every page load for every visitor, which is useful while debugging a live site but should not be left on.
 
-To silence a single event without changing this setting, use [Disable logs in JavaScript console for this event](https://github.com/nameless-analytics/client-side-tracker-tag/#disable-logs-in-javascript-console-for-this-event) in the Client-side Tracker Tag.
+
+## Verifying the setup
+Select this Configuration Variable in a `page_view` Client-side Tracker Tag, enable logs, open GTM Preview and reload the page. `page_view` must be the first Nameless Analytics event on every physical page load.
+
+| Check | Expected result |
+|:---|:---|
+| Configuration | The values under `TRACKER TAG CONFIGURATION` match the variable, including endpoint and enabled options. |
+| Parameters | Custom user, session, page and shared event fields appear in the corresponding payload objects. |
+| Consent | When Consent Mode is respected, `analytics_storage` is granted before the request is sent. |
+| Request | The Network panel shows a `POST` request to the configured domain and path with HTTP `200`. |
+| Processing | `claim_request`, `firestore` and `bigquery` are `success`; `custom_endpoint` is `success` or `skipped`. |
+| Final status | The console ends with `🟢 Request processed successfully`. |
+
+When an optional feature is enabled, also verify its direct effect: first-party library URLs, `page_status_code`, cross-domain link decoration or the `datalayer` payload field.
+
+If a stage is missing, a status is not successful or the request is not sent, use the [Troubleshooting Guide](https://github.com/nameless-analytics/nameless-analytics/blob/main/setup-guides/TROUBLESHOOTING-GUIDE.md).
 
 #
 

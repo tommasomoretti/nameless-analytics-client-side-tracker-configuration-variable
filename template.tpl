@@ -512,7 +512,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "override_page_data_params",
         "checkboxText": "Override default page parameters",
         "simpleValueType": true,
-        "help": "Override default title and url parameters. Change this settings if virtual page views is tracked via dataLayer push.",
+        "help": "Override the default page title, URL, path, fragment, query and extension. Page title, Page URL and Page path are required.",
         "displayName": "Page parameters",
         "defaultValue": false,
         "alwaysInSummary": true,
@@ -1130,7 +1130,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "set_custom_utm_parameters_names",
         "checkboxText": "Override default acquisition parameters",
         "simpleValueType": true,
-        "help": "Override default url query parameters used for source and campaigns event parameters.\n\u003c/br\u003e\u003c/br\u003e\nDefault parameters:\u003c/br\u003e \n• source \u003d utm_source \u003c/br\u003e \n• campaign_name \u003d utm_campaign \u003c/br\u003e \n• campaign_id \u003d utm_id \u003c/br\u003e \n• campaign_term \u003d utm_term \u003c/br\u003e \n• campaign_content \u003d utm_content \u003c/br\u003e",
+        "help": "Override the URL query parameter names used for acquisition. Defaults: source \u003d utm_source, campaign \u003d utm_campaign, campaign_id \u003d utm_id, campaign_click_id \u003d utm_click_id, campaign_term \u003d utm_term, campaign_content \u003d utm_content.",
         "displayName": "",
         "defaultValue": false,
         "alwaysInSummary": true,
@@ -1444,7 +1444,7 @@ ___TEMPLATE_PARAMETERS___
         "subParams": [],
         "displayName": "",
         "alwaysInSummary": true,
-        "help": "Add the last value of the dataLayer object for every event.",
+        "help": "Add dataLayer entries up to the current event to the datalayer field of every payload.",
         "defaultValue": false
       },
       {
@@ -1516,4 +1516,3 @@ scenarios: []
 ___NOTES___
 
 Created on 23/12/2025, 18:08:14
-
