@@ -334,7 +334,7 @@ Enables session stitching across two or more websites.
 
 When consent permits identity transfer, the Client-side Tracker Tag performs a real-time server-side handshake to retrieve the active `client_id` and `session_id`.
 
-The handshake runs on a plain left click on an `<a href>`. Links opened in any other way — right-click menu, `Cmd`/`Ctrl`+click, `Shift`+click, middle click, pasted URL, JS navigation — are left to the browser and reach the destination without `na_id`, which starts a new session there. See [when link decoration does not happen](https://github.com/nameless-analytics/nameless-analytics#when-link-decoration-does-not-happen) for the full list.
+The handshake runs on a plain left click on an `<a href>`. Links opened in any other way — right-click menu, `Cmd`/`Ctrl`+click, `Shift`+click, middle click, pasted URL, JS navigation — are left to the browser and reach the destination without `na_id`, which starts a new session there. See [Cross-domain troubleshooting](https://github.com/nameless-analytics/nameless-analytics/blob/main/setup-guides/TROUBLESHOOTING-GUIDE.md#cross-domain-decoration) when a link is not decorated or the transferred identity is rejected.
 
 The tracker combines the server-issued `session_id` with the current URL-decoration timestamp using the following internal structure:
 
