@@ -1470,7 +1470,8 @@ ___TEMPLATE_PARAMETERS___
                 "paramValue": true,
                 "type": "EQUALS"
               }
-            ]
+            ],
+            "alwaysInSummary": true
           }
         ]
       }
@@ -1516,3 +1517,5 @@ scenarios: []
 ___NOTES___
 
 Created on 23/12/2025, 18:08:14
+
+
