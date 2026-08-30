@@ -82,7 +82,7 @@ These user parameters are reserved and can't be modified:
 </details>
 
 #### Add user level parameters
-Add custom fields shared by all events. A matching parameter configured in the Server-side Client Tag replaces the value set here.
+Add custom fields shared by all events, one row per field with **Param name** and **Param value**. A matching parameter configured in the Server-side Client Tag replaces the value set here.
 
 
 
@@ -256,14 +256,14 @@ Disable this option only when collection must run independently of Google Consen
 ### Override default acquisition parameters
 Change the URL query parameter names used to populate acquisition fields. The defaults are:
 
-| Event parameter | URL query parameter |
-|:---|:---|
-| `source` | `utm_source` |
-| `campaign` | `utm_campaign` |
-| `campaign_id` | `utm_id` |
-| `campaign_click_id` | `utm_click_id` |
-| `campaign_term` | `utm_term` |
-| `campaign_content` | `utm_content` |
+| Field | Event parameter | Default URL query parameter |
+|:---|:---|:---|
+| **Query parameter name for source** | `source` | `utm_source` |
+| **Query parameter name for campaign name** | `campaign` | `utm_campaign` |
+| **Query parameter name for campaign id** | `campaign_id` | `utm_id` |
+| **Query parameter name for campaign click id** | `campaign_click_id` | `utm_click_id` |
+| **Query parameter name for campaign term** | `campaign_term` | `utm_term` |
+| **Query parameter name for campaign content** | `campaign_content` | `utm_content` |
 
 When the configured click ID is absent, the tracker checks these platform identifiers in order: `gclid`, `dclid`, `gclsrc`, `wbraid`, `gbraid`, `msclkid`, `fbclid`, `ttclid`, `twclid`, `epik`, `li_fat_id`, `scclid`.
 
