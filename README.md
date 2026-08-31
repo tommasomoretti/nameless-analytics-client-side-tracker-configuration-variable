@@ -64,6 +64,7 @@ Firestore keeps the latest value for each user, while BigQuery preserves the val
 These user parameters are reserved and can't be modified:
 - user_date
 - client_id
+- sessions
 - user_channel_grouping
 - user_source
 - user_tld_source
