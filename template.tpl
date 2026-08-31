@@ -171,6 +171,13 @@ ___TEMPLATE_PARAMETERS___
                       "^(?!client_id$).*"
                     ],
                     "errorMessage": "Can\u0027t add client_id parameter."
+                  },
+                  {
+                    "type": "REGEX",
+                    "args": [
+                      "^(?!sessions$).*"
+                    ],
+                    "errorMessage": "Can\u0027t add sessions parameter."
                   }
                 ]
               },
@@ -1517,5 +1524,4 @@ scenarios: []
 ___NOTES___
 
 Created on 23/12/2025, 18:08:14
-
 
