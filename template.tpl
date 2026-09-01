@@ -206,7 +206,7 @@ ___TEMPLATE_PARAMETERS___
         ],
         "displayName": "User parameters",
         "alwaysInSummary": true,
-        "help": "Add user parameters to the request in user_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved user parameters: \u003c/br\u003e  \n• user_channel_grouping \u003c/br\u003e  \n• user_source \u003c/br\u003e  \n• user_tld_source \u003c/br\u003e  \n• user_campaign \u003c/br\u003e  \n• user_campaign_id \u003c/br\u003e  \n• user_campaign_click_id\u003c/br\u003e\n• user_campaign_content \u003c/br\u003e  \n• user_campaign_term \u003c/br\u003e  \n• user_device_type \u003c/br\u003e  \n• user_country \u003c/br\u003e  \n• user_language \u003c/br\u003e  \n• user_city \u003c/br\u003e\n• user_first_session_timestamp \u003c/br\u003e\n• user_last_session_timestamp \u003c/br\u003e\n• user_date \u003c/br\u003e\n• client_id",
+        "help": "Add user parameters to the request in user_data. If a parameter has the same name, it will be overridden.\n\u003cbr\u003e\u003cbr\u003e\nReserved user parameters: \u003cbr\u003e  \n• user_channel_grouping \u003cbr\u003e  \n• user_source \u003cbr\u003e  \n• user_tld_source \u003cbr\u003e  \n• user_campaign \u003cbr\u003e  \n• user_campaign_id \u003cbr\u003e  \n• user_campaign_click_id\u003cbr\u003e\n• user_campaign_content \u003cbr\u003e  \n• user_campaign_term \u003cbr\u003e  \n• user_device_type \u003cbr\u003e  \n• user_country \u003cbr\u003e  \n• user_language \u003cbr\u003e  \n• user_city \u003cbr\u003e\n• user_first_session_timestamp \u003cbr\u003e\n• user_last_session_timestamp \u003cbr\u003e\n• user_date \u003cbr\u003e\n• client_id",
         "defaultValue": false
       }
     ]
@@ -503,7 +503,7 @@ ___TEMPLATE_PARAMETERS___
         ],
         "displayName": "",
         "alwaysInSummary": true,
-        "help": "Add session parameters to the request in session_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved session parameters: \u003c/br\u003e\n• user_id \u003c/br\u003e\n• session_number \u003c/br\u003e \n• cross_domain_session \u003c/br\u003e \n• session_channel_grouping \u003c/br\u003e \n• session_source \u003c/br\u003e \n• session_tld_source \u003c/br\u003e \n• session_campaign \u003c/br\u003e \n• session_campaign_id \u003c/br\u003e \n• session_campaign_click_id \u003c/br\u003e\n• session_campaign_content \u003c/br\u003e \n• session_campaign_term \u003c/br\u003e \n• session_device_type \u003c/br\u003e \n• session_city \u003c/br\u003e\n• session_country \u003c/br\u003e \n• session_language \u003c/br\u003e \n• session_hostname \u003c/br\u003e \n• session_browser_name \u003c/br\u003e \n• session_landing_page_category \u003c/br\u003e \n• session_landing_page_path \u003c/br\u003e \n• session_landing_page_title \u003c/br\u003e \n• session_exit_page_category \u003c/br\u003e \n• session_exit_page_path \u003c/br\u003e \n• session_exit_page_title \u003c/br\u003e \n• session_start_timestamp \u003c/br\u003e \n• session_end_timestamp \u003c/br\u003e\n• session_date \u003c/br\u003e\n• session_id \u003c/br\u003e\n• session_landing_page_url \u003c/br\u003e\n• session_exit_page_url",
+        "help": "Add session parameters to the request in session_data. If a parameter has the same name, it will be overridden.\n\u003cbr\u003e\u003cbr\u003e\nReserved session parameters: \u003cbr\u003e\n• user_id \u003cbr\u003e\n• session_number \u003cbr\u003e \n• cross_domain_session \u003cbr\u003e \n• session_channel_grouping \u003cbr\u003e \n• session_source \u003cbr\u003e \n• session_tld_source \u003cbr\u003e \n• session_campaign \u003cbr\u003e \n• session_campaign_id \u003cbr\u003e \n• session_campaign_click_id \u003cbr\u003e\n• session_campaign_content \u003cbr\u003e \n• session_campaign_term \u003cbr\u003e \n• session_device_type \u003cbr\u003e \n• session_city \u003cbr\u003e\n• session_country \u003cbr\u003e \n• session_language \u003cbr\u003e \n• session_hostname \u003cbr\u003e \n• session_browser_name \u003cbr\u003e \n• session_landing_page_category \u003cbr\u003e \n• session_landing_page_path \u003cbr\u003e \n• session_landing_page_title \u003cbr\u003e \n• session_exit_page_category \u003cbr\u003e \n• session_exit_page_path \u003cbr\u003e \n• session_exit_page_title \u003cbr\u003e \n• session_start_timestamp \u003cbr\u003e \n• session_end_timestamp \u003cbr\u003e\n• session_date \u003cbr\u003e\n• session_id \u003cbr\u003e\n• session_landing_page_url \u003cbr\u003e\n• session_exit_page_url",
         "defaultValue": false
       }
     ]
@@ -771,7 +771,7 @@ ___TEMPLATE_PARAMETERS___
         ],
         "displayName": "",
         "alwaysInSummary": true,
-        "help": "Add page parameters to the request in page_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved page parameters: \u003c/br\u003e\n• page_load_timestamp\u003c/br\u003e\n• page_hostname_protocol\u003c/br\u003e\n• page_hostname\u003c/br\u003e\n• page_title\u003c/br\u003e\n• page_path\u003c/br\u003e\n• page_fragment\u003c/br\u003e\n• page_query\u003c/br\u003e\n• page_extension\u003c/br\u003e\n• page_referrer\u003c/br\u003e\n• page_status_code\u003c/br\u003e\n• page_url\u003c/br\u003e\n• page_id",
+        "help": "Add page parameters to the request in page_data. If a parameter has the same name, it will be overridden.\n\u003cbr\u003e\u003cbr\u003e\nReserved page parameters: \u003cbr\u003e\n• page_load_timestamp\u003cbr\u003e\n• page_hostname_protocol\u003cbr\u003e\n• page_hostname\u003cbr\u003e\n• page_title\u003cbr\u003e\n• page_path\u003cbr\u003e\n• page_fragment\u003cbr\u003e\n• page_query\u003cbr\u003e\n• page_extension\u003cbr\u003e\n• page_referrer\u003cbr\u003e\n• page_status_code\u003cbr\u003e\n• page_url\u003cbr\u003e\n• page_id",
         "defaultValue": false
       },
       {
@@ -779,7 +779,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "add_page_status_code",
         "checkboxText": "Add page status code",
         "simpleValueType": true,
-        "help": "Add page status code when event_type equals page_view. \u003c/br\u003e\u003c/br\u003e \u003cb\u003eThis setting will make HEAD requests to the website server every time a page is loaded.\u003c/b\u003e",
+        "help": "Add page status code when event_type equals page_view. \u003cbr\u003e\u003cbr\u003e \u003cb\u003eThis setting will make HEAD requests to the website server every time a page is loaded.\u003c/b\u003e",
         "defaultValue": false,
         "alwaysInSummary": true,
         "displayName": ""
@@ -1003,7 +1003,7 @@ ___TEMPLATE_PARAMETERS___
         ],
         "displayName": "Shared event parameters",
         "alwaysInSummary": true,
-        "help": "Add shared event parameters to the request in event_data. If a parameter has the same name, it will be overridden.\n\u003c/br\u003e\u003c/br\u003e\nReserved event parameters: \u003c/br\u003e \n• event_type \u003c/br\u003e \n• channel_grouping \u003c/br\u003e \n• source \u003c/br\u003e \n• tld_source \u003c/br\u003e\n• campaign \u003c/br\u003e \n• campaign_id \u003c/br\u003e\n• campaign_click_id \u003c/br\u003e\n• campaign_term \u003c/br\u003e \n• campaign_content \u003c/br\u003e \n• user_agent \u003c/br\u003e \n• browser_name \u003c/br\u003e \n• browser_language \u003c/br\u003e \n• browser_version \u003c/br\u003e \n• device_type \u003c/br\u003e \n• device_vendor \u003c/br\u003e \n• device_model \u003c/br\u003e \n• os_name \u003c/br\u003e \n• os_version \u003c/br\u003e \n• screen_size \u003c/br\u003e \n• viewport_size \u003c/br\u003e\n• city \u003c/br\u003e\n• country \u003c/br\u003e\n• cross_domain_id",
+        "help": "Add shared event parameters to the request in event_data. If a parameter has the same name, it will be overridden.\n\u003cbr\u003e\u003cbr\u003e\nReserved event parameters: \u003cbr\u003e \n• event_type \u003cbr\u003e \n• channel_grouping \u003cbr\u003e \n• source \u003cbr\u003e \n• tld_source \u003cbr\u003e\n• campaign \u003cbr\u003e \n• campaign_id \u003cbr\u003e\n• campaign_click_id \u003cbr\u003e\n• campaign_term \u003cbr\u003e \n• campaign_content \u003cbr\u003e \n• user_agent \u003cbr\u003e \n• browser_name \u003cbr\u003e \n• browser_language \u003cbr\u003e \n• browser_version \u003cbr\u003e \n• device_type \u003cbr\u003e \n• device_vendor \u003cbr\u003e \n• device_model \u003cbr\u003e \n• os_name \u003cbr\u003e \n• os_version \u003cbr\u003e \n• screen_size \u003cbr\u003e \n• viewport_size \u003cbr\u003e\n• city \u003cbr\u003e\n• country \u003cbr\u003e\n• cross_domain_id",
         "defaultValue": false
       }
     ]
@@ -1011,7 +1011,7 @@ ___TEMPLATE_PARAMETERS___
   {
     "type": "LABEL",
     "name": "settings_title",
-    "displayName": "\u003c/br\u003e\u003cb\u003eSettings\u003c/b\u003e"
+    "displayName": "\u003cbr\u003e\u003cb\u003eSettings\u003c/b\u003e"
   },
   {
     "type": "GROUP",
@@ -1038,7 +1038,7 @@ ___TEMPLATE_PARAMETERS___
         ],
         "alwaysInSummary": true,
         "valueHint": "(not set)",
-        "help": "Endpoint domain of the Server-Side GTM running Nameless Analytics Server-Side client tag.\n\u003c/br\u003e\u003c/br\u003e\nThe URL must not start with http:// or https://, must not end with / and must contain a valid domain."
+        "help": "Endpoint domain of the Server-Side GTM running Nameless Analytics Server-Side client tag.\n\u003cbr\u003e\u003cbr\u003e\nThe URL must not start with http:// or https://, must not end with / and must contain a valid domain."
       },
       {
         "type": "TEXT",
@@ -1059,7 +1059,7 @@ ___TEMPLATE_PARAMETERS___
         ],
         "alwaysInSummary": true,
         "valueHint": "(not set)",
-        "help": "Endpoint request path of Nameless Analytics Server-Side client tag.\n\u003c/br\u003e\u003c/br\u003e\nThe endpoint path must start with / and must not end with /."
+        "help": "Endpoint request path of Nameless Analytics Server-Side client tag.\n\u003cbr\u003e\u003cbr\u003e\nThe endpoint path must start with / and must not end with /."
       }
     ]
   },
@@ -1075,7 +1075,7 @@ ___TEMPLATE_PARAMETERS___
         "checkboxText": "Respect Google Consent Mode",
         "simpleValueType": true,
         "displayName": "",
-        "help": "Respects Google Consent Mode analytics_storage consent value.\n\u003c/br\u003e\u003c/br\u003e\nWhen Respect Google Consent Mode is enabled:\u003c/br\u003e\n- Consent granted (analytics_storage\u003dgranted): tags fire normally\u003c/br\u003e\n- Consent denied (analytics_storage\u003ddenied): tags do not fire and remain pending until consent is updated to granted\u003c/br\u003e\n\u003c/br\u003e\u003c/br\u003e\nWhen Respect Google Consent Mode is disabled:\u003c/br\u003e\n- Tags fire on every event without consent-based restrictions.",
+        "help": "Respects Google Consent Mode analytics_storage consent value.\n\u003cbr\u003e\u003cbr\u003e\nWhen Respect Google Consent Mode is enabled:\u003cbr\u003e\n- Consent granted (analytics_storage\u003dgranted): tags fire normally\u003cbr\u003e\n- Consent denied (analytics_storage\u003ddenied): tags do not fire and remain pending until consent is updated to granted\u003cbr\u003e\n\u003cbr\u003e\u003cbr\u003e\nWhen Respect Google Consent Mode is disabled:\u003cbr\u003e\n- Tags fire on every event without consent-based restrictions.",
         "defaultValue": true,
         "alwaysInSummary": true,
         "subParams": []
@@ -1085,7 +1085,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "enable_cross_domain_tracking",
         "checkboxText": "Enable cross-domain tracking",
         "simpleValueType": true,
-        "help": "Enable cross-domain tracking across-domains.\n\u003c/br\u003e\u003c/br\u003e\nThe URL must not start with http:// or https://, must not end with / and must contain a valid domain.",
+        "help": "Enable cross-domain tracking across-domains.\n\u003cbr\u003e\u003cbr\u003e\nThe URL must not start with http:// or https://, must not end with / and must contain a valid domain.",
         "displayName": "",
         "defaultValue": false,
         "alwaysInSummary": true,
@@ -1441,7 +1441,7 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "displayName": "",
-        "help": "Load the main library and its dependencies from a first-party location. Host nameless-analytics_vX.X.X.min.js and ua-parser.pack.min.js on the website server so that the library will be loaded from the current domain.\n\u003c/br\u003e\u003c/br\u003e\nThe path must start with / and must not end with /."
+        "help": "Load the main library and its dependencies from a first-party location. Host nameless-analytics_vX.X.X.min.js and ua-parser.pack.min.js on the website server so that the library will be loaded from the current domain.\n\u003cbr\u003e\u003cbr\u003e\nThe path must start with / and must not end with /."
       },
       {
         "type": "CHECKBOX",
@@ -1494,7 +1494,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "LABEL",
         "name": "info",
-        "displayName": "\u003cb\u003eNameless Analytics Client-side Tracker Configuration Variable | Beta version 1.0\u003c/b\u003e\u003c/br\u003e\nRead more about the \u003ca href\u003d\"https://github.com/nameless-analytics/nameless-analytics\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eNameless Analytics project\u003c/a\u003e or the \u003ca href\u003d\"https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eClient-side Config Variable\u003c/a\u003e.\n\u003c/br\u003e\nOfficial website \u003ca href\u003d\"https://namelessanalytics.com/?utm_source\u003dtagmanager.google.com\u0026utm_medium\u003dreferral\u0026utm_campaign\u003dcs_analytics_config_variable\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eNameless Analytics\u003c/a\u003e\n\u003c/br\u003e\nCreated by \u003ca href\u003d\"https://tommasomoretti.com/?utm_source\u003dtagmanager.google.com\u0026utm_medium\u003dreferral\u0026utm_campaign\u003dcs_analytics_config_variable\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eTommaso Moretti\u003c/a\u003e\n\u003c/br\u003e\u003c/br\u003e"
+        "displayName": "\u003cb\u003eNameless Analytics Client-side Tracker Configuration Variable | Beta version 1.0\u003c/b\u003e\u003cbr\u003e\nRead more about the \u003ca href\u003d\"https://github.com/nameless-analytics/nameless-analytics\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eNameless Analytics project\u003c/a\u003e or the \u003ca href\u003d\"https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eClient-side Config Variable\u003c/a\u003e.\n\u003cbr\u003e\nOfficial website \u003ca href\u003d\"https://namelessanalytics.com/?utm_source\u003dtagmanager.google.com\u0026utm_medium\u003dreferral\u0026utm_campaign\u003dcs_analytics_config_variable\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eNameless Analytics\u003c/a\u003e\n\u003cbr\u003e\nCreated by \u003ca href\u003d\"https://tommasomoretti.com/?utm_source\u003dtagmanager.google.com\u0026utm_medium\u003dreferral\u0026utm_campaign\u003dcs_analytics_config_variable\" target\u003d\u0027_blank\u0027 rel\u003d\"noopener\"\u003eTommaso Moretti\u003c/a\u003e\n\u003cbr\u003e\u003cbr\u003e"
       }
     ]
   }
