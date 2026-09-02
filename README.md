@@ -250,6 +250,7 @@ Enter the request path beginning with `/` and without a trailing slash. It must 
 
 - `granted`: events are sent normally;
 - `denied`: tags remain pending until consent becomes granted, while the initial acquisition context is temporarily preserved;
+- `analytics_storage` missing or unset: the request is aborted and no event is sent;
 - Consent Mode unavailable: events are not sent.
 
 Disable this option only when collection must run independently of Google Consent Mode. Events are then sent regardless of its presence or state. See [Smart Consent Management](https://github.com/nameless-analytics/nameless-analytics/#smart-consent-management).
@@ -306,7 +307,7 @@ Select this Configuration Variable in a `page_view` Client-side Tracker Tag, ena
 |:---|:---|
 | Configuration | The values under `TRACKER TAG CONFIGURATION` match the variable, including endpoint and enabled options. |
 | Parameters | Custom user, session, page and shared event fields appear in the corresponding payload objects. |
-| Consent | When Consent Mode is respected, `analytics_storage` is granted before the request is sent. |
+| Consent | When Consent Mode is respected, `analytics_storage` is explicitly granted before the request is sent. A missing value aborts the request. |
 | Request | The Network panel shows a `POST` request to the configured domain and path with HTTP `200`. |
 | Processing | `claim_request`, `firestore` and `bigquery` are `success`; `custom_endpoint` is `success` or `skipped`. |
 | Final status | The console ends with `🟢 Request processed successfully`. |

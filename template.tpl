@@ -1075,7 +1075,7 @@ ___TEMPLATE_PARAMETERS___
         "checkboxText": "Respect Google Consent Mode",
         "simpleValueType": true,
         "displayName": "",
-        "help": "Respects Google Consent Mode analytics_storage consent value.\n\u003cbr\u003e\u003cbr\u003e\nWhen Respect Google Consent Mode is enabled:\u003cbr\u003e\n- Consent granted (analytics_storage\u003dgranted): tags fire normally\u003cbr\u003e\n- Consent denied (analytics_storage\u003ddenied): tags do not fire and remain pending until consent is updated to granted\u003cbr\u003e\n\u003cbr\u003e\u003cbr\u003e\nWhen Respect Google Consent Mode is disabled:\u003cbr\u003e\n- Tags fire on every event without consent-based restrictions.",
+        "help": "Respects Google Consent Mode analytics_storage consent value.\n\u003cbr\u003e\u003cbr\u003e\nWhen Respect Google Consent Mode is enabled:\u003cbr\u003e\n- Consent granted (analytics_storage\u003dgranted): tags fire normally\u003cbr\u003e\n- Consent denied (analytics_storage\u003ddenied): tags do not fire and remain pending until consent is updated to granted\u003cbr\u003e\n- Consent missing (analytics_storage not configured): the request is aborted and no event is sent\u003cbr\u003e\n\u003cbr\u003e\u003cbr\u003e\nWhen Respect Google Consent Mode is disabled:\u003cbr\u003e\n- Tags fire on every event without consent-based restrictions.",
         "defaultValue": true,
         "alwaysInSummary": true,
         "subParams": []
@@ -1524,4 +1524,3 @@ scenarios: []
 ___NOTES___
 
 Created on 23/12/2025, 18:08:14
-
